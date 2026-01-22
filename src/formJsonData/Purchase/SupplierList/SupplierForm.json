@@ -1,0 +1,154 @@
+{
+  "apiEndpoints": {
+    "create": "",
+    "read": "",
+    "update": "",
+    "delete": ""
+  },
+  "breadcom": [
+    {
+      "title": "Supplier",
+      "redirect": ""
+    },
+    {
+      "title": "Supplier List",
+      "redirect": "/supplierList"
+    },
+    {
+      "title": "Supplier",
+      "redirect": "#"
+    }
+  ],
+  "moduleName": "supplier",
+  "sections": [
+    {
+      "title": "Add Supplier",
+      "moduleType": "supplier",
+      "fields": [
+        {
+          "width": 25,
+          "label": "Add Supplier",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "sup_name",
+          "label": "Name of Supplier",
+          "type": "text",
+          "placeholder": "Enter name of supplier",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "sup_address",
+          "label": "Address of Supplier",
+          "type": "textArea",
+          "placeholder": "Enter address of supplier",
+          "errorMsgs": {},
+          "required": "This field is required"
+        },
+         {
+          "width": 6,
+          "name": "sup_email",
+          "label": "Email Id",
+          "type": "text",
+          "placeholder": "Enter supplier emailid",
+          "errorMsgs": {},
+          "required": "This field is required"
+        },
+        {
+          "width": 6,
+          "name": "sup_gst_no",
+          "label": "GST No",
+          "type": "text",
+          "placeholder": "Enter GST No",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "sup_contact_person",
+          "label": "Contact Person",
+          "type": "text",
+          "placeholder": "Enter Contact Person Name"
+        },
+        {
+          "width": 6,
+          "name": "sup_contact_designation",
+          "label": "Contact Designation",
+          "type": "text",
+          "placeholder": "Enter Contact Person Designation"
+        },
+        {
+          "width": 6,
+          "name": "sup_phoneno",
+          "label": "Contact Number",
+          "type": "phone",
+          "placeholder": "Enter Contact Person phone"
+        },
+        {
+          "width": 6,
+          "name": "sup_payment_terms",
+          "label": "Payment Terms",
+          "type": "select",
+          "placeholder": "Select Payment Terms",
+          "required": true,
+          "options": [
+            "ADVANCE PARTIALLY",
+            "ADVANCE FULLY",
+            "1-15 Days Credit",
+            "15-30 Days Credit",
+            "30-45 Days Credit",
+            "45-60 Days Credit",
+            "AGAINST PI"
+          ],
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "sup_remark",
+          "label": "Remark",
+          "type": "textArea",
+          "placeholder": "Enter Remark"
+        },
+        {
+          "width": 6,
+          "name": "sup_performance",
+          "label": "Performance",
+          "type": "select",
+          "placeholder": "Enter Performance",
+          "options": [
+            "NA",
+            "Excellent",
+            "Good",
+            "Average",
+            "Deregister"
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

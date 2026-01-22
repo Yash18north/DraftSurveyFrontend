@@ -1,0 +1,309 @@
+{
+    "breadcom": [
+        {
+            "title": "Item Listing",
+            "redirect": "/ItemListing"
+        },
+        {
+            "title": "Item Form",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "moduleType": "userMaster",
+            "type": "purchase",
+            "title": "Item Form",
+            "fields": [
+                {
+                    "width": 25,
+                    "label": "User Details",
+                    "name": "section_heading",
+                    "styleName": "section_heading",
+                    "type": "label"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_emp_id",
+                    "nonEditable": true,
+                    "label": "Employee Code",
+                    "type": "text",
+                    "required": true,
+                    "pattern": "^[A-Za-z0-9-]*$",
+                    "placeholder": "Enter User Name"
+                },
+                {
+                    "width": 6,
+                    "name": "first_name",
+                    "label": "First Name",
+                    "type": "text",
+                    "required": true,
+                    "pattern": "^[a-zA-Z0-9 .]{1,30}$",
+                    "placeholder": "Enter First Name"
+                },
+                {
+                    "width": 6,
+                    "name": "last_name",
+                    "label": "Last Name",
+                    "type": "text",
+                    "pattern": "^[a-zA-Z0-9 .]{1,30}$|^$",
+                    "placeholder": "Enter Last Name"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_designation",
+                    "label": "Designation",
+                    "required": true,
+                    "type": "select",
+                    "options": [
+                        "Senior Technical Manager",
+                        "Senior Lab Chemist",
+                        "Quality Manager",
+                        "Senior Coordination Executive",
+                        "Senior Operation Executive",
+                        "Coordination Executive",
+                        "Sample Desk Executive",
+                        "Chemist",
+                        "Senior Manager Major Accounts",
+                        "Assistant Manager Team Coordination",
+                        "Manager Lab",
+                        "Senior Trainee Chemist",
+                        "Trainee Chemist",
+                        "Assistant Manager Lab",
+                        "Senior Chemist",
+                        "Assistant Manager",
+                        "Senior Quality Manager",
+                        "Deputy Manager",
+                        "Assistant General Manager",
+                        "Assistant Manager Operations",
+                        "Assistant Operations Executive",
+                        "Assistant Operation Executive",
+                        "Operation Executive",
+                        "Business Development Executive",
+                        "Sampler",
+                        "Admin Executive",
+                        "Senior Surveyor",
+                        "Drought Surveyor",
+                        "Operation Admin",
+                        "Lab Receptionist",
+                        "Technical Manager",
+                        "Deputy Technical Manager",
+                        "Admin",
+                        "Assistant Manager - Team Coordination",
+                        "Branch Head",
+                        "Management Trainee",
+                        "Branch Captain",
+                        "Purchase Manager",
+                        "Sales Person",
+                        "Super User",
+                        "Operation Admin",
+                        "Collection User",
+                        "Lab Manager",
+                        "Deputy Manager - Operations",
+                        "Senior Manager - Operations"
+                    ],
+                    "placeholder": "Select Designation"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_date_of_birth",
+                    "label": "Date of Birth",
+                    "type": "date",
+                    "pastDate": true,
+                    "placeholder": "Select Date of Birth"
+                },
+                {
+                    "width": 6,
+                    "name": "date_joined",
+                    "label": "Date of Joining",
+                    "type": "date",
+                    "NoValidations": true,
+                    "placeholder": "Select Date of Joining"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_department",
+                    "label": "Department",
+                    "type": "select",
+                    "required": true,
+                    "options": [
+                        "Field Operation",
+                        "ADMIN",
+                        "Lab",
+                        "Operation",
+                        "Co -ordination"
+                    ],
+                    "placeholder": "Select Department"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_phone_number",
+                    "label": "Phone",
+                    "type": "phone",
+                    "placeholder": "Enter Phone or Telephone number"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_role",
+                    "label": "Role",
+                    "required": true,
+                    "nonEditable": true,
+                    "type": "select",
+                    "placeholder": "Select Role"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_branch_id",
+                    "label": "Branch Name",
+                    "type": "select",
+                    "nonEditable": true,
+                    "placeholder": "Select Branch Name"
+                },
+                {
+                    "width": 6,
+                    "styleName": "selectCompWidth",
+                    "name": "branch_ids",
+                    "label": "Branches",
+                    "type": "select",
+                    "multiple": true,
+                    "placeholder": "Select Branches"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_lab_id",
+                    "label": "Lab Name",
+                    "type": "select",
+                    "nonEditable": true,
+                    "placeholder": "Select Lab Name"
+                },
+                {
+                    "width": 6,
+                    "name": "email",
+                    "label": "Email Address",
+                    "type": "text",
+                    "pattern": "^(\\S+@\\S+\\.\\S+)?$",
+                    "placeholder": "Enter User Email"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_is_sales_person",
+                    "label": "Is Sales Person ?",
+                    "type": "radio",
+                    "defaultValue": "No",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "width": 6,
+                    "name": "usr_graphical_sign",
+                    "label": "Signature",
+                    "requiredHeight": 75,
+                    "requiredWidth": 150,
+                    "type": "file"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_sign_no_stamp",
+                    "label": "Signature without Stamp",
+                    "requiredHeight": 75,
+                    "requiredWidth": 150,
+                    "type": "file"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_graphical_sign_tcrc",
+                    "label": "TCRC Sign",
+                    "requiredHeight": 180,
+                    "requiredWidth": 180,
+                    "type": "file"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_graphical_sign_tipl",
+                    "label": "TIPL Sign",
+                    "requiredHeight": 180,
+                    "requiredWidth": 180,
+                    "type": "file"
+                },
+                {
+                    "width": 6,
+                    "name": "usr_profile_url",
+                    "label": "User Profile Photo",
+                    "placeholder": "Square image ≥800×800 (ideal 1600), ≤2 MB. JPG/PNG. Centre content; no filters/text.",
+                    "tooltip": "Square image ≥800×800 (ideal 1600), ≤2 MB. JPG/PNG. Centre content; no filters/text.",
+                    "requiredHeight": 200,
+                    "requiredWidth": 200,
+                    "type": "file"
+                },
+                {
+                    "width": 6,
+                    "name": "is_active",
+                    "label": "Is Active ?",
+                    "type": "radio",
+                    "defaultValue": "No",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/item-master/create/",
+        "update": "/item-master/update/"
+    },
+    "actions": [
+        {
+            "label": "bi bi-eye h6",
+            "value": "View",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/",
+            "permission": "read"
+        },
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Edit",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/:EditorId",
+            "permission": "update"
+        },
+        {
+            "label": "bi bi-trash h6",
+            "value": "Delete",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/",
+            "permission": "delete"
+        },
+        {
+            "label": "bi bi-clock-history h6",
+            "value": "History",
+            "type": "icon",
+            "permission": "history"
+        }
+    ],
+    "popupMessages": {
+        "download": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

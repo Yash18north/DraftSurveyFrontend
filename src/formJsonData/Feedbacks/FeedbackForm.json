@@ -1,0 +1,204 @@
+{
+    "apiEndpoints": {
+        "create": "",
+        "read": "",
+        "update": "",
+        "delete": ""
+    },
+    "breadcom": [
+        {
+            "title": "Feedback List",
+            "redirect": "/feedbackList"
+        },
+        {
+            "title": "Feedback Form",
+            "redirect": "#"
+        }
+    ],
+    "moduleName": "incentives",
+    "sections": [
+        {
+            "title": "Add Feedback",
+            "moduleType": "feedback",
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Add Feedback",
+                    "type": "label",
+                    "name": "",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_company_name",
+                    "label": "Company Name",
+                    "type": "text",
+                    "required": true,
+                    "placeholder": "Enter company name"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_phone",
+                    "label": "Phone No.",
+                    "type": "number",
+                    "required": true,
+                    "placeholder": "Enter phone number"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_fax",
+                    "label": "Fax No.",
+                    "type": "number",
+                    "placeholder": "Enter fax number",
+                    "required": true
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_email",
+                    "label": "Email Address",
+                    "type": "text",
+                    "required": true,
+                    "placeholder": "Enter email address"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_contact_person",
+                    "label": "Contact Person Name",
+                    "type": "text",
+                    "required": true,
+                    "placeholder": "Enter contact person’s name"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_rating_knowledge",
+                    "label": "Knowledge of Our Laboratory Personal",
+                    "type": "select",
+                    "options": [
+                        "Excellent",
+                        "Very Good",
+                        "Good",
+                        "Poor"
+                    ],
+                    "required": true,
+                    "placeholder": "Select knowledge rating"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_rating_quality",
+                    "label": "Quality of Testing",
+                    "type": "select",
+                    "options": [
+                        "Excellent",
+                        "Very Good",
+                        "Good",
+                        "Poor"
+                    ],
+                    "required": true,
+                    "placeholder": "Select testing quality rating"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_rating_response",
+                    "label": "Our Response to Your Requirement",
+                    "type": "select",
+                    "options": [
+                        "Excellent",
+                        "Very Good",
+                        "Good",
+                        "Poor"
+                    ],
+                    "required": true,
+                    "placeholder": "Select response rating"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_rating_complaint",
+                    "label": "Effectiveness of Our Action Taken on Complaint",
+                    "type": "select",
+                    "options": [
+                        "Excellent",
+                        "Very Good",
+                        "Good",
+                        "Poor"
+                    ],
+                    "required": true,
+                    "placeholder": "Select complaint action rating"
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_rating_competitiveness",
+                    "label": "Competitiveness of Our Service Compared to Other Providers",
+                    "type": "select",
+                    "options": [
+                        "Excellent",
+                        "Very Good",
+                        "Good",
+                        "Poor"
+                    ],
+                    "required": true,
+                    "placeholder": "Select competitiveness rating",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_opinion_charges",
+                    "label": "Opinion About the Testing Charges",
+                    "type": "textArea",
+                    "placeholder": "Enter your opinion about charges",
+                    "required": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_improve_facilities",
+                    "label": "Facilities (Improvement Suggested)",
+                    "type": "textArea",
+                    "placeholder": "Enter suggestions for facility improvement",
+                    "required": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_improve_system",
+                    "label": "System (Improvement Suggested)",
+                    "type": "textArea",
+                    "placeholder": "Enter suggestions for system improvement",
+                    "required": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "feedback_improve_others",
+                    "label": "Other Suggestions",
+                    "type": "textArea",
+                    "placeholder": "Enter any additional suggestions",
+                    "required": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                }
+            ]
+        }
+    ],
+    "popupMessages": {
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

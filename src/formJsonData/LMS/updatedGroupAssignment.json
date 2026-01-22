@@ -1,0 +1,127 @@
+{
+  "sections": [
+    {
+      "title": "Group Assignment",
+      "fields": [
+        {
+          "width": 6,
+          "name": "jrf_number",
+          "label": "JRF No.",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "1122324455679"
+        },
+        {
+          "width": 6,
+          "name": "jr_number",
+          "label": "Reference Number",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "27C2324J01VL7071"
+        },
+
+        {
+          "width": 6,
+          "name": "client_name",
+          "label": "Client Name",
+          "type": "label",
+          "required": true,
+          "value": "TCRC Quality Controls LLP",
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "client_name",
+          "label": "Client Address",
+          "type": "textArea",
+          "required": true,
+          "value": "PLot Wise 337, Sect. IA, Above TVS Showroom, Oslo Circle, Togare Road, Gandhidham - 370 201",
+          "readOnly": true
+        },
+
+        {
+          "width": 6,
+          "name": "commodity",
+          "label": "Commodity",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "Coal"
+        },
+        {
+          "width": 6,
+          "name": "number_of_pckts",
+          "label": "Number of Samples",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "title": "Update Group Assignment",
+
+      "fields": [
+        {
+          "width": 4,
+          "label": "Samples",
+          "name": "samples",
+          "options": [
+            "Sample ID 1",
+            "Sample ID 2",
+            "Sample ID 3",
+            "Sample ID 4",
+            "Sample ID 5",
+            "Sample ID 6",
+            "Sample ID 7",
+            "Sample ID 8",
+            "Sample ID 9",
+            "Sample ID 10"
+          ],
+          "type": "select",
+          "required": true,
+          "fieldWidth": 50,
+          "GA": true
+        },
+        {
+          "width": 4,
+          "label": "Groups",
+          "name": "groups",
+          "type": "select",
+          "options": [
+            "Ultimate Analysis",
+            "Ash Analysis",
+            "Proximate Analysis"
+          ],
+          "required": true,
+          "readOnly": true,
+          "placeholder": "1633",
+          "fieldWidth": 50,
+          "multiple": true,
+          "GA": true
+        },
+        {
+          "width": 4,
+          "label": "Params",
+          "name": "parameters",
+          "type": "select",
+          "options": [
+            "Moisture ",
+            "Free Water",
+            "Purity of CaSo4",
+            "Sulphur SO3",
+            "Calcium CaO",
+            "Magnesium MgO"
+          ],
+          "required": true,
+          "fieldWidth": 50,
+          "multiple": true,
+          "GA": true
+        }
+      ]
+    }
+  ]
+}

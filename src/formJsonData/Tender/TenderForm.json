@@ -1,0 +1,450 @@
+{
+  "breadcom": [
+    {
+      "title": "Tender",
+      "redirect": "#"
+    },
+    {
+      "title": "Tender List",
+      "redirect": "/tenderList"
+    },
+    {
+      "title": "Tender Form",
+      "redirect": "/tenderForm"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Tender Form",
+      "moduleType": "tender",
+      "fields": [
+        {
+          "width": 12,
+          "label": "Add Tender Details",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "tender_client_bid_no",
+          "label": "Client Bid Number",
+          "type": "text",
+          "required": true,
+          "errorMsg": {
+            "message": "Field is required"
+          },
+          "pattern": "^[A-Za-z0-9!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?`~ ]+$"
+        },
+        {
+          "width": 6,
+          "name": "tender_no",
+          "label": "Tender Number",
+          "type": "text",
+          "readOnly": true,
+          "placeholder": "To be Generated",
+          "errorMsg": {
+            "message": "Field is required"
+          },
+          "characterLimit": 4,
+          "minLength": 4,
+          "pattern": "^[A-Za-z0-9]"
+        },
+        {
+          "width": 6,
+          "name": "tender_client_name",
+          "label": "Client Name",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/customer/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "cust_id",
+            "label": "cust_name",
+            "label2": "cust_gstno"
+          }
+        },
+        {
+          "width": 6,
+          "name": "tender_issue_date",
+          "label": "Issue Date",
+          "type": "date",
+          "placeholder": "Tender Issue Date",
+          "required": true,
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_pre_bidding_meeting_date",
+          "label": "Pre Bidding Date",
+          "type": "date",
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_scope_of_work",
+          "label": "Scope of Work",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "masters/activitymaster/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "am_id",
+            "label": "am_name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "tender_scope_of_work_additional_details",
+          "label": "Scope of Work Additional Details",
+          "type": "textArea",
+          "placeholder": "Scope of Work Additional Details"
+        },
+        {
+          "width": 6,
+          "name": "tender_submission_date",
+          "label": "Submission Date",
+          "type": "date",
+          "required": true,
+          "placeholder": "Tender Submission Date",
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_opening_date",
+          "label": "Opening Date",
+          "type": "date",
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_commodity",
+          "label": "Commodity",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/list",
+          "model_name": "commodity",
+          "apimethod": "POST",
+          "isSearchable": true,
+          "required": true,
+          "optionData": {
+            "id": "cmd_id",
+            "label": "cmd_name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "tender_work_location",
+          "label": "Location of Work Execute",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/placeofwork/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "pow_id",
+            "label": "pow_name"
+          }
+        },
+        {
+          "name": "tender_contract_period_from",
+          "firstType": "date",
+          "label": "Contract  Period",
+          "width": 6,
+          "fieldWidth": 100,
+          "secondName": "tender_contract_period_to",
+          "type": "doubleText",
+          "secondType": "date",
+          "firstNoRestrictionApply": true,
+          "upperClass": "contractPeriod",
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_quantity",
+          "label": " Quantity",
+          "type": "text",
+          "placeholder": "Quantity"
+        },
+        {
+          "width": 6,
+          "name": "tender_estimated_bid_value",
+          "label": "Estimated Bid Value",
+          "type": "text",
+          "placeholder": "Estimated Bid Value",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "NISC/MSME",
+          "name": "tender_nsic_msme",
+          "type": "select",
+          "placeholder": "NISC/MSME",
+          "options": [
+            "NISC",
+            "MSME"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "EMD Details",
+      "fields": [
+        {
+          "width": 12,
+          "label": "EMD Details",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "styleName": "section_heading"
+        },
+        {
+          "width": 6,
+          "label": "EMD Amount",
+          "name": "tender_emd_amount",
+          "type": "number",
+          "placeholder": "EMD Amount",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "tender_emd_approved_by",
+          "label": "EMD Approved By",
+          "type": "text",
+          "placeholder": "EMD Approved By"
+        },
+        {
+          "width": 6,
+          "name": "tender_emd_transfer_mode",
+          "label": "EMD Transfer Mode",
+          "type": "select",
+          "placeholder": "Select Transfer Mode",
+          "options": [
+            "NA",
+            "NEFT",
+            "RTGS",
+            "Cheque",
+            "Online",
+            "DD",
+            "BG"
+          ]
+        },
+        {
+          "width": 6,
+          "label": "EMD Transfer Details",
+          "name": "tender_emd_transfer_details",
+          "type": "textArea",
+          "placeholder": "Enter EMD Transfer Details",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "tender_emd_refund_details",
+          "label": "EMD Refund Details",
+          "type": "textArea",
+          "placeholder": "Enter Refund Details"
+        },
+        {
+          "width": 6,
+          "name": "tender_actual_emd_refund_reciept_date",
+          "label": "Actual EMD Refund Receipt Date",
+          "type": "date",
+          "placeholder": "Enter Actual EMD Refund Receipt Date",
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_emd_additional_fees",
+          "label": "Additional Fees (Non- Refundable)",
+          "type": "number",
+          "placeholder": "Enter Additional Fees"
+        },
+        {
+          "width": 6,
+          "name": "tender_additional_fees_details",
+          "label": "Additional Fees Details",
+          "type": "textArea",
+          "placeholder": "Enter Additional Fees Details"
+        },
+        {
+          "width": 6,
+          "name": "tender_expected_refund_date",
+          "label": "Expected Refund Date",
+          "type": "date",
+          "placeholder": "Expected Refund Date",
+          "required": true,
+          "pastDate": true,
+          "pastdays": 97
+        }
+      ]
+    },
+    {
+      "title": "Security Deposit",
+      "fields": [
+        {
+          "width": 12,
+          "label": "Security Deposit",
+          "type": "label",
+          "styleName": "section_heading"
+        },
+        {
+          "width": 6,
+          "name": "tender_security_deposit_details",
+          "label": "Deposit Details",
+          "type": "text",
+          "placeholder": "Deposit Details"
+        },
+        {
+          "width": 6,
+          "name": "tender_security_approved_by",
+          "label": "Approved By",
+          "type": "text",
+          "placeholder": "Approved By"
+        },
+        {
+          "width": 6,
+          "name": "tender_security_in_form_of",
+          "label": "In Form Of",
+          "type": "text",
+          "placeholder": "In Form Of"
+        },
+        {
+          "width": 6,
+          "name": "tender_security_total_amount",
+          "label": "Total Amount",
+          "type": "number",
+          "placeholder": "Total Amount",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "tender_security_valid_till",
+          "label": "Valid Till",
+          "type": "date",
+          "placeholder": "Valid Till",
+          "required": true,
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_security_refund_details",
+          "label": "Refund Details",
+          "type": "textArea",
+          "placeholder": "Enter Amt"
+        }
+      ]
+    },
+    {
+      "title": "BID Details",
+      "fields": [
+        {
+          "width": 12,
+          "label": "BID Details",
+          "type": "label",
+          "styleName": "section_heading"
+        },
+        {
+          "width": 6,
+          "label": "Winner Bid",
+          "name": "tender_bid_amount",
+          "type": "number",
+          "placeholder": "Enter Amt",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Final Status",
+          "name": "tender_final_status",
+          "type": "select",
+          "placeholder": "Tender Final Status",
+          "options": [
+            "Awarded",
+            "Not Awarded",
+            "Cancelled",
+            "Retendered",
+            "Under Evaluation",
+            "In Process"
+          ],
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": " Winner Name",
+          "name": "tender_winner",
+          "type": "text",
+          "placeholder": "Tender Winner"
+        },
+        {
+          "width": 6,
+          "label": "Winner Amount",
+          "name": "tender_winner_amount",
+          "type": "text",
+          "placeholder": "Winner Amount"
+        },
+        {
+          "width": 6,
+          "name": "tender_tenure",
+          "label": "Tenure",
+          "type": "date",
+          "placeholder": "Tender Tenure",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Auction Details",
+      "fields": [
+        {
+          "width": 12,
+          "label": "Auction Details",
+          "type": "label",
+          "styleName": "section_heading"
+        },
+        {
+          "width": 6,
+          "label": "Auction Date",
+          "name": "tender_auction_date",
+          "type": "date",
+          "pastDate": true,
+          "pastdays": 97
+        },
+        {
+          "width": 6,
+          "name": "tender_auction_mode",
+          "label": "Mode",
+          "type": "text",
+          "placeholder": "Mode"
+        },
+        {
+          "width": 6,
+          "name": "tender_rank",
+          "label": "Rank",
+          "type": "text",
+          "placeholder": "Rank"
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "allotment": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to allot?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

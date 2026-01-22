@@ -1,0 +1,397 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Rake Supervission",
+      "type": "table",
+      "isUseForVessel": true,
+      "isUseForActivity": true,
+      "isSeperatePopupOpen": true,
+      "headers": [
+        {
+          "name": "rk_sv_date_of_sampling",
+          "type": "label",
+          "label": "DATE OF SAMPLING",
+          "width": 6,
+          "upperClass": "rakeTableScroll",
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_place",
+          "type": "label",
+          "label": "PLACE OF LOADING / UNLOADING",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_placement_time",
+          "type": "label",
+          "label": "PLACEMENT TIME",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_commence_time",
+          "type": "label",
+          "label": "COMMENCE TIME",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_completed_time",
+          "type": "label",
+          "label": "COMPLETION TIME",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_date_of_preparation",
+          "type": "label",
+          "label": "DATE OF SAMPLE PREPARATION",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_rake_no",
+          "type": "label",
+          "label": "RAKE NO.",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_indent_no",
+          "type": "label",
+          "label": "INDENT NO.",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_rr_no",
+          "type": "label",
+          "label": "RR NO.",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_rr_date",
+          "type": "label",
+          "label": "RR Date",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_rr_qty",
+          "type": "label",
+          "label": "RR Qty",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_accessed_qty",
+          "type": "label",
+          "label": "ASSESSED QUANTITY",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_no_of_wagons",
+          "type": "label",
+          "label": "TOTAL NO. OF WAGONS",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_sick_wagons",
+          "type": "label",
+          "label": "SICK WAGONS",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_dastination",
+          "type": "label",
+          "label": "DESTINATION",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_param_basis_unit",
+          "type": "label",
+          "label": "PARAMETERS / BASIS/ UNITS",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_delay_in_result_7",
+          "type": "label",
+          "label": "DELAY IN RESULT-7",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_holiday",
+          "type": "label",
+          "label": "HOLIDAY",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_delay_in_reporting",
+          "type": "label",
+          "label": "FINAL DELAY IN REPORTING",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_weather_condtion",
+          "type": "label",
+          "label": "WEATHER CONDITION",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        },
+        {
+          "name": "rk_sv_remarks",
+          "type": "label",
+          "label": "REMARKS",
+          "width": 6,
+          "fieldWidth": "100",
+          "isShowTable": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "rk_sv_date_of_sampling",
+            "type": "date",
+            "label": "DATE OF SAMPLING",
+            "width": 6,
+            "fieldWidth": "100",
+            "noRestrictionApply": true,
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_place",
+            "type": "text",
+            "label": "PLACE OF LOADING / UNLOADING",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_placement_time",
+            "type": "Time",
+            "label": "PLACEMENT TIME",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_commence_time",
+            "type": "Time",
+            "label": "COMMENCE TIME",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_completed_time",
+            "type": "Time",
+            "label": "COMPLETION TIME",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_date_of_preparation",
+            "type": "date",
+            "label": "DATE OF SAMPLE PREPARATION",
+            "width": 6,
+            "fieldWidth": "100",
+            "noRestrictionApply": true,
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_rake_no",
+            "type": "text",
+            "label": "RAKE NO.",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_indent_no",
+            "type": "text",
+            "label": "INDENT NO.",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_rr_no",
+            "type": "text",
+            "label": "RR NO.",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_rr_date",
+            "type": "date",
+            "label": "RR Date",
+            "width": 6,
+            "fieldWidth": "100",
+            "noRestrictionApply": true,
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_rr_qty",
+            "type": "text",
+            "label": "RR Qty",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true,
+            "required":true
+          },
+          {
+            "name": "rk_sv_accessed_qty",
+            "type": "text",
+            "label": "ASSESSED QUANTITY",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_no_of_wagons",
+            "type": "text",
+            "label": "TOTAL NO. OF WAGONS",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_sick_wagons",
+            "type": "text",
+            "label": "SICK WAGONS",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_dastination",
+            "type": "text",
+            "label": "DESTINATION",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_param_basis_unit",
+            "type": "text",
+            "label": "PARAMETERS/BASIS/UNITS",
+            "width": 6,
+            "showTimeSelect": true,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_delay_in_result_7",
+            "type": "text",
+            "label": "DELAY IN RESULT-7",
+            "width": 6,
+            "showTimeSelect": true,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_holiday",
+            "type": "text",
+            "label": "HOLIDAY",
+            "width": 6,
+            "showTimeSelect": true,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_delay_in_reporting",
+            "type": "text",
+            "label": "FINAL DELAY IN REPORTING",
+            "width": 6,
+            "showTimeSelect": true,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_weather_condtion",
+            "type": "text",
+            "label": "WEATHER CONDITION",
+            "width": 6,
+            "showTimeSelect": true,
+            "fieldWidth": "100",
+            "isShowTable": true
+          },
+          {
+            "name": "rk_sv_remarks",
+            "type": "text",
+            "label": "REMARKS",
+            "width": 6,
+            "fieldWidth": "100",
+            "isShowTable": true
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

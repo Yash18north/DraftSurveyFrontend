@@ -1,0 +1,374 @@
+{
+    "breadcom": [
+        {
+            "title": "Job Costing List",
+            "redirect": "/audit/job-costing-list"
+        },
+        {
+            "title": "Job Costing",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/job-costing/create/",
+        "read": "",
+        "update": "/job-costing/update/",
+        "delete": ""
+    },
+    "sections": [
+        {
+            "title": "Job Costing",
+            "moduleType": "jobCosting",
+            "Heading": "Job Costing",
+            "fields": [
+                {
+                    "width": 25,
+                    "name": "section_heading",
+                    "label": "Invoice Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px",
+                    "required": true
+                },
+                {
+                    "name": "invoice_number",
+                    "type": "text",
+                    "label": "Invoice Number",
+                    "width": 6,
+                    "required": true,
+                    "readOnly": true
+                },
+                {
+                    "name": "invoice_date",
+                    "type": "date",
+                    "label": "Invoice Date",
+                    "width": 6,
+                    "placeholder": "Enter Amount",
+                    "required": true,
+                    "noRestrictionApply": true
+                },
+                {
+                    "name": "client_name",
+                    "type": "text",
+                    "label": "Client Name",
+                    "placeholder": "Enter Amount",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "vessel_name",
+                    "type": "number",
+                    "label": "Vessel/Truck/ Rake Name",
+                    "placeholder": "Vessel Name",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "commodity",
+                    "type": "number",
+                    "label": "Commodity",
+                    "width": 6,
+                    "placeholder": "Commodity",
+                    "readOnly": true
+                },
+                {},
+                {
+                    "name": "place_of_attendance",
+                    "type": "number",
+                    "label": "Place of attendance",
+                    "width": 6,
+                    "placeholder": "Enter Amount",
+                    "readOnly": true
+                },
+                {
+                    "width": 25,
+                    "name": "section_heading",
+                    "label": "Expensing",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px",
+                    "required": true
+                },
+                {
+                    "name": "certificate_data",
+                    "type": "textArea",
+                    "label": "Certificate No & Certificate Date",
+                    "width": 6,
+                    "readOnly": true,
+                    "placeholder": "Certificate No"
+                },
+                {
+                    "name": "ref_no_data",
+                    "type": "textArea",
+                    "label": "Reference No",
+                    "width": 6,
+                    "readOnly": true,
+                    "placeholder": "Reference No"
+                },
+                {
+                    "name": "date_of_expenses_to",
+                    "firstType": "date",
+                    "label": "Date of Expenses",
+                    "width": 7,
+                    "fieldWidth": 120,
+                    "secondName": "date_of_expenses_from",
+                    "type": "doubleText",
+                    "secondType": "date",
+                    "firstNoRestrictionApply": true,
+                    "secondNoRestrictionApply": true
+                },
+                {
+                    "name": "jc_days_work",
+                    "type": "doubleText",
+                    "label": "No of Work Days",
+                    "width": 6,
+                    "placeholder": "No of Work Days",
+                    "secondName": "jc_days_work_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+
+                },
+                {
+                    "name": "jc_manpower",
+                    "type": "doubleText",
+                    "label": "No of Shifts.",
+                    "width": 6,
+                    "placeholder": "No of Shifts.",
+                    "informationIcon": true,
+                    "informationIconTooltip": "No of Shifts.",
+                    "secondName": "jc_manpower_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_travel_expense",
+                    "type": "doubleText",
+                    "label": "Voucher expenses (including Branch In charge visit excluding fooding)",
+                    "width": 6,
+                    "informationIcon": true,
+                    "placeholder": "Voucher expenses (including Branch In charge visit excluding fooding)",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_travel_expense_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_charges",
+                    "type": "doubleText",
+                    "label": "Employee Salary & Wages",
+                    "width": 6,
+                    "informationIcon": true,
+                    "informationIconTooltip": "ManPower",
+                    "placeholder": "Employee Salary & Wages",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_charges_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_survey_analysis",
+                    "type": "doubleText",
+                    "label": "Draft Survey",
+                    "width": 6,
+                    "placeholder": "Draft Survey",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_survey_analysis_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_courier",
+                    "type": "doubleText",
+                    "label": "Courier Charges",
+                    "width": 6,
+                    "placeholder": "Courier Charges",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_courier_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_jabour_charges",
+                    "type": "doubleText",
+                    "label": "Labour Charges",
+                    "width": 6,
+                    "placeholder": "Labour Charges",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_jabour_charges_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_food_charges",
+                    "type": "doubleText",
+                    "label": "Fooding Expense",
+                    "width": 6,
+                    "placeholder": "Fooding Expense",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_food_charges_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "purcase_material",
+                    "type": "doubleText",
+                    "label": "Purchase Material (Saftey items/ fire ext/ Sieves, etc)",
+                    "width": 6,
+                    "placeholder": "Purchase Material",
+                    "isOnlyNumber": true,
+                    "secondName": "purcase_material_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_ot",
+                    "type": "doubleText",
+                    "label": "Overtime expenses",
+                    "width": 6,
+                    "placeholder": "Overtime expenses",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_ot_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_analysis_charges",
+                    "type": "doubleText",
+                    "label": "Analysis Charges",
+                    "width": 6,
+                    "placeholder": "Analysis Charges",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_analysis_charges_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_guest_house_exp",
+                    "type": "doubleText",
+                    "label": "Guesthouse Rent + Electricity",
+                    "width": 6,
+                    "placeholder": "Guesthouse Rent +Electricity",
+                    "isOnlyNumber": true,
+                    "secondName": "jc_guest_house_exp_comment",
+                    "secondPlaceholder": "Comment",
+                    "secondType": "text",
+                    "firstType": "number",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75"
+                },
+                {
+                    "name": "jc_misc_3p",
+                    "type": "number",
+                    "label": "Misc 3% on Sales",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "jc_ho_exp_10p",
+                    "type": "number",
+                    "label": "Head Off Overhead Exp 10% on Sales",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "width": 25,
+                    "name": "section_heading",
+                    "label": "Total",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px",
+                    "required": true
+                },
+                {
+                    "name": "jc_total_exp",
+                    "type": "number",
+                    "label": "Total Expense",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "jc_inv_amt",
+                    "type": "label",
+                    "label": "Invoice Amount Without Service Tax",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "jc_profit_loss",
+                    "type": "number",
+                    "label": "Profit/Lossse Total Expense",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "jc_profit_perc",
+                    "type": "number",
+                    "label": "Profit on Sales",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "im_jc_comment",
+                    "type": "text",
+                    "label": "Cancelled Comment",
+                    "width": 6,
+                    "readOnly": true
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Save",
+            "type": "icon",
+            "redirectUrl": "/operation/invoice-listing",
+            "permission": "save"
+        }
+    ],
+    "popupMessages": {
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        }
+    }
+}

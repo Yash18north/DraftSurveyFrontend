@@ -1,0 +1,94 @@
+{
+    "breadcom": [
+        {
+            "title": "Category Listing",
+            "redirect": "/categoriesList"
+        },
+        {
+            "title": "Category Form",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "moduleType": "category",
+            "type": "category",
+            "title": "Category Form",
+            "fields": [
+                {
+                    "name": "category_name",
+                    "label": "Category Name",
+                    "type": "text",
+                    "required": true,
+                    "placeholder": "Enter Category Name",
+                    "width": 6
+                },
+                {
+                    "name": "category_description",
+                    "label": "Category Description",
+                    "type": "textArea",
+                    "required": true,
+                    "placeholder": "Enter Category Description",
+                    "width": 6
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/category-master/create/",
+        "read": "/category-master/get/",
+        "update": "/category-master/update/",
+        "delete": "/masters/port/delete/"
+    },
+    "actions": [
+        {
+            "label": "bi bi-eye h6",
+            "value": "View",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/",
+            "permission": "read"
+        },
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Edit",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/:EditorId",
+            "permission": "update"
+        },
+        {
+            "label": "bi bi-trash h6",
+            "value": "Delete",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/",
+            "permission": "delete"
+        },
+        {
+            "label": "bi bi-clock-history h6",
+            "value": "History",
+            "type": "icon",
+            "permission": "history"
+        }
+    ],
+    "popupMessages": {
+        "download": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

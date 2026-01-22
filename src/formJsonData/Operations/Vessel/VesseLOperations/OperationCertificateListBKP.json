@@ -1,0 +1,245 @@
+{
+  "breadcom": [
+    {
+      "title": "Vessel List",
+      "redirect": "/operation/vessel-ji-list"
+    },
+    {
+      "title": "Vessel Operation",
+      "redirect": "#"
+    },
+    {
+      "title": "Quality Analysis",
+      "redirect": "#"
+    },
+    {
+      "title": "Confirugation List",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/list/",
+    "read": "/jobinstruction/list/",
+    "update": "/orders/update",
+    "delete": "/orders/delete",
+    "statuCount": "/jobinstructionstatuscount/get/",
+    "exportExcel": "/jrf_excel/get"
+  },
+  "listView": {
+    "title": "JRF List",
+    "moduleType": "confirugationCertificate",
+    "headers": [
+      {
+        "label": "Sr. No",
+        "name": "ji_date",
+        "sortName": "ji_date",
+        "type": "date"
+      },
+      {
+        "label": "Confirugation ID",
+        "name": "ji_reference_number",
+        "type": "text",
+        "sortName": "ji_reference_number"
+      },
+      {
+        "label": "-",
+        "name": "commodity_details",
+        "type": "number",
+        "sortName": "fk_commodityid"
+      },
+      {
+        "label": "-",
+        "name": "operation_type",
+        "type": "text",
+        "sortName": "fk_operationtypetid",
+        "fieldName": "operation_type_name"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "23-12-2022",
+          "name": "created_date",
+          "type": "label"
+        },
+        {
+          "label": "1122324455678",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7071",
+          "name": "reference_number",
+          "type": "label"
+        },
+        {
+          "label": "COAL",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "In Progress",
+          "name": "jrf_status",
+          "type": "label"
+        },
+        {
+          "label": "In Progress",
+          "name": "jrf_status",
+          "type": "label"
+        },
+        {
+          "label": "In Progress",
+          "name": "jrf_status",
+          "type": "label"
+        },
+        {
+          "label": "In Progress",
+          "name": "jrf_status",
+          "type": "label"
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-pencil h6",
+        "value": "Edit",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "change"
+      },
+      {
+        "label": "bi bi-trash h6",
+        "value": "Delete",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "delete"
+      },
+      {
+        "label": "bi bi-file-earmark-pdf h6",
+        "value": "Documents",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "Specify  Parameters",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
+        "status": "created",
+        "isDupplicate": true,
+        "recordType": "analysis"
+      },
+      {
+        "label": "Specify Parameters",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
+        "status": "pre-analysis",
+        "isDupplicate": true,
+        "recordType": "analysis"
+      },
+      {
+        "label": "Nominate",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
+        "status": "analysis",
+        "recordType": "nomination"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction",
+        "status": "rejected"
+      },
+      {
+        "label": "Accept",
+        "redirectUrl": "/operation/vessel-ji-list",
+        "status": "posted"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

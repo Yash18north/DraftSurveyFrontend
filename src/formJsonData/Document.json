@@ -1,0 +1,161 @@
+{
+  "upload": {
+
+
+    "infoJson" : [
+        {
+          "width": 12,
+          "name": "dl_document_name",
+          "label": "Name",
+          "type": "text",
+          "pattern": "^[a-zA-Z0-9 .]{1,30}$",
+          "placeholder": "Enter Document Name"
+        },
+        {
+          "width": 12,
+          "name": "dl_discription",
+          "label": "Document Description",
+          "type": "textArea",
+          "pattern": "^[a-zA-Z0-9 .]{1,30}$",
+          "characterLimit":256,
+          "placeholder": "Enter Description"
+        }
+      ],
+      "sharePermissionJson" : [
+        {
+          "width": 12,
+          "name": "pass_share_link",
+          "label": "Password :",
+          "type": "text",
+          "placeholder": "Enter Password Share Link",
+          "characterLimit": 24
+        },
+        {
+          "width": 12,
+          "label": "Allow Download",
+          "name": "permission_allow_download",
+          "type": "radio",
+          "options": ["Yes", "No"]
+        },
+        {
+          "width": 12,
+          "name": "pass_down_limit",
+          "label": "Download Limit",
+          "type": "number",
+          "placeholder": "Enter Download Limit",
+          "characterLimit": 24
+        },
+        {
+          "width": 12,
+          "label": "Allow setting secure view",
+          "name": "permission_secure_view",
+          "type": "radio",
+          "options": ["Yes", "No"]
+        },
+        {
+          "width": 12,
+          "label": "Allow printing of document",
+          "name": "permission_print",
+          "type": "radio",
+          "options": ["Yes", "No"]
+        }
+      ],
+       "createFolder" : [
+        {
+          "width": 12,
+          "name": "folder_name",
+          "label": "Folder Name",
+          "type": "text",
+          "pattern": "^[a-zA-Z0-9 .]{1,30}$",
+          "placeholder": "Enter Folder Name"
+        }
+      ]
+  },
+  "List":{
+    "headers" : [
+      {
+        "label": "Name",
+        "name": "dl_document_name",
+        "sortName": "dl_document_name"
+      },
+      {
+        "label": "Description",
+        "name": "dl_discription",
+        "type": "text",
+        "sortName": "dl_discription"
+      },
+      {
+        "label": "Created Date",
+        "name": "dl_created_at",
+        "type": "text",
+        "sortName": "dl_created_at"
+      },
+      {
+        "label": "Modified Date",
+        "name": "dl_updated_at",
+        "type": "number",
+        "sortName": "dl_updated_at"
+      }
+    ],
+    "actions": [
+      { "Label": "About", "Icon": "About", "Class": "bi bi-info-lg" },
+      { "Label": "Rename", "Icon": "Rename", "Class": "bi bi-pen-fill" },
+      { "Label": "Change Description", "Icon": "Rename", "Class": "bi bi-pen" },
+      { "Label": "Download", "Icon": "Download", "Class": "bi bi-download" },
+      { "Label": "Share", "Icon": "Share", "Class": "bi bi-share" },
+      { "Label": "Delete", "Icon": "Delete", "Class": "bi bi-trash" }
+    ]
+  },
+  "Share":{
+    "headers" : [
+      {
+        "label": "Name",
+        "name": "dl_document_name",
+        "sortName": "ds_document__dl_document_name"
+      },
+      {
+        "label": "Description",
+        "name": "dl_discription",
+        "type": "text",
+        "sortName": "ds_document__dl_discription"
+      },
+  
+      {
+        "label": "Time",
+        "name": "ds_share_date",
+        "type": "text",
+        "sortName": "ds_share_date"
+      }
+    ],
+    "actions" : [
+      { "Label": "About", "Icon": "About", "Class": "bi bi-info-lg" },
+      { "Label": "Download", "Icon": "Download", "Class": "bi bi-download" },
+      { "Label": "Delete", "Icon": "Delete", "Class": "bi bi-trash" }
+    ]
+  },
+  "delete":{
+    "headers" : [
+      {
+        "label": "Name",
+        "name": "dl_document_name",
+        "sortName": "dl_document_name"
+      },
+      {
+        "label": "Description",
+        "name": "dl_discription",
+        "type": "text",
+        "sortName": "dl_discription"
+      },
+      {
+        "label": "Created Date",
+        "name": "dl_created_at",
+        "type": "text",
+        "sortName": "dl_created_at"
+      }
+    ],
+    "actions": [
+      { "Label": "Permanent Delete", "Class": "bi bi-trash" },
+      { "Label": "Revert Delete",  "Class": "bi bi-dash" }
+    ]
+  }
+}

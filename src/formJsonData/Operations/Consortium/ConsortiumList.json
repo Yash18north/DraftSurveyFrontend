@@ -1,0 +1,194 @@
+{
+  "breadcom": [
+    {
+      "title": "Operations",
+      "redirect": "#"
+    },
+    {
+      "title": "Consortium List",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "consortium-order/list/",
+    "read": "consortium-order/list/",
+    "statuCount": "/consortium-order/status-count/"
+  },
+  "listView": {
+    "title": "JRF List",
+    "moduleType": "consortiumorder",
+    "headers": [
+      {
+        "label": "Date",
+        "name": "co_date",
+        "sortName": "co_date",
+        "type": "date"
+      },
+      {
+        "label": "Consortium ID",
+        "name": "co_number",
+        "type": "text",
+        "sortName": "co_number"
+      },
+      {
+        "label": "Vessel Name",
+        "name": "co_vessel_name",
+        "type": "text",
+        "sortName": "co_vessel_name"
+      },
+      {
+        "label": "Commodity",
+        "name": "commodity",
+        "type": "text",
+        "fieldName": "cmd_name",
+        "sortName": "fk_commodity_id__cmd_name"
+      },
+      {
+        "label": "Sub Commodity",
+        "name": "sub_commodity",
+        "type": "text",
+        "fieldName": "sub_cmd_name",
+        "sortName": "fk_sub_commodity_id__sub_cmd_name"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "textAlign": "center",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      []
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-pencil h6",
+        "value": "Edit",
+        "type": "icon",
+        "redirectUrl": "/operation/consortiums-list",
+        "permission": "change"
+      },
+      {
+        "label": "bi bi-trash h6",
+        "value": "Delete",
+        "type": "icon",
+        "redirectUrl": "/operation/consortiums-list",
+        "permission": "delete"
+      },
+      {
+        "label": "Consortium Job",
+        "redirectUrl": "/operation/consortiums-list/consortium",
+        "status": "saved"
+      },
+      {
+        "label": "View JI",
+        "redirectUrl": "/operation/jrfInstructionListing",
+        "status": "posted"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Saved",
+        "name": "saved",
+        "status": "saved",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Posted",
+        "name": "posted",
+        "status": "posted",
+        "image": "PostedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "saved_sym",
+        "name": "Saved",
+        "status": "saved"
+      },
+      {
+        "icon": "posted_sym",
+        "name": "Posted",
+        "status": "posted"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

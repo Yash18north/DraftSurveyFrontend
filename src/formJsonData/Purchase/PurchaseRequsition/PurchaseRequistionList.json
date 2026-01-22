@@ -1,0 +1,256 @@
+{
+    "breadcom": [
+        {
+            "title": "Purchase",
+            "redirect": "#"
+        },
+        {
+            "title": "Purchase Requistion List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/",
+        "read": "/purchase-requisitions/list/",
+        "update": "/",
+        "delete": "/",
+        "statuCount": "/purchase-requisitions/status/",
+        "exportExcel": "/purchase_requisition_excel/create/"
+    },
+    "listView": {
+        "title": "Purchase Requistion List",
+        "isCustomTitle": true,
+        "moduleType": "purchaseReq",
+        "headers": [
+            {
+                "label": "Request No.",
+                "name": "req_no",
+                "sortName": "req_no",
+                "type": "text"
+            },
+            {
+                "label": "Date",
+                "name": "req_date",
+                "sortName": "req_date",
+                "type": "date"
+            },
+            {
+                "label": "Branch",
+                "name": "fk_branchid",
+                "sortName": "fk_branchid__br_name",
+                "type": "text",
+                "fieldName": "br_name"
+            },
+            {
+                "label": "Department",
+                "name": "fk_departmentid",
+                "sortName": "fk_departmentid",
+                "type": "text"
+            },
+            {
+                "label": "Type",
+                "name": "req_type",
+                "sortName": "req_type",
+                "type": "text"
+            },
+            {
+                "label": "Status",
+                "name": "req_status",
+                "type": "text",
+                "sortName": "req_status",
+                "fieldName": "req_status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [
+            {
+                "width": 2,
+                "label": "Select Branch",
+                "name": "branch",
+                "placeholder": "Select Branch",
+                "type": "DropDownWithLoadMore",
+                "upperClass": "groupforlabelleddropdown",
+                "model_name": "branch",
+                "isSearchable": true,
+                "fieldWidth": "100",
+                "filterType": "fk_branchid",
+                "apiendpoint": "/masters/list",
+                "apimethod": "POST",
+                "optionData": {
+                    "id": "br_id",
+                    "label": "br_name",
+                    "label2": "br_code"
+                }
+            }
+        ],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
+                "permission": "View"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "History",
+                "type": "icon"
+            },
+            {
+                "label": "bi bi-file-earmark-medical h6",
+                "value": "Documents",
+                "type": "icon"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
+                "permission": "Delete"
+            },
+            {
+                "label": "Send for Approval",
+                "redirectUrl": "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
+                "status": "posted"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
+                "status": "saved"
+            },
+            {
+                "label": "Approve",
+                "redirectUrl": "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
+                "status": "send for approval"
+            },
+            {
+                "label": "Update",
+                "redirectUrl": "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
+                "status": "reject"
+            },
+            {
+                 "label": "bi bi-download h6",
+                "value": "Download",
+                "type": "icon"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Posted",
+                "name": "Posted",
+                "status": "Posted",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Saved",
+                "name": "Saved",
+                "status": "Saved",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Sent for Approval",
+                "name": "Sent for Approval",
+                "status": "Sent for Approval",
+                "image": "CompletedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Approved",
+                "name": "Approved",
+                "status": "Approved",
+                "image": "AcceptedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Rejected",
+                "name": "Reject",
+                "status": "Reject",
+                "image": "RejectedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            },
+            {
+                "icon": "accepted_sym",
+                "name": "Sent for Approval",
+                "status": "sent for approval"
+            },
+            {
+                "icon": "completed_sym",
+                "name": "Approved",
+                "status": "approved"
+            },
+            {
+                "icon": "rejected_sym",
+                "name": "Reject",
+                "status": "reject"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

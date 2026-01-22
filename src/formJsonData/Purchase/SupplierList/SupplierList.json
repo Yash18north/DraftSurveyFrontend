@@ -1,0 +1,211 @@
+{
+    "breadcom": [
+        {
+            "title": "Supplier",
+            "redirect": "#"
+        },
+        {
+            "title": "Supplier List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "/suppliers/list/",
+        "update": "",
+        "delete": "",
+        "statuCount": "/suppliers/status/",
+        "exportExcel": "/supplier_excel/create/",
+        "exportMethod":"GET"
+    },
+    "listView": {
+        "title": "Supplier List",
+        "isCustomTitle": true,
+        "moduleType": "supplier",
+        "headers": [
+            {
+                "label": "Date Added",
+                "name": "created_at",
+                "sortName": "created_at",
+                "type": "date",
+                "fieldName": "created_at"
+            },
+            {
+                "label": "Name of Supplier",
+                "name": "sup_name",
+                "sortName": "sup_name",
+                "type": "text",
+                "fieldName": "sup_name"
+            },
+            {
+                "label": "Performance",
+                "name": "sup_performance",
+                "sortName": "sup_performance",
+                "type": "text",
+                "fieldName": "sup_performance"
+            },
+            {
+                "label": "Remark",
+                "name": "sup_remark",
+                "sortName": "sup_remark",
+                "type": "text",
+                "fieldName": "sup_remark"
+            },
+            {
+                "label": "Status",
+                "name": "sup_status",
+                "sortName": "sup_status",
+                "type": "text",
+                "fieldName": "sup_status"
+            }
+        ],
+        "rows": [
+            [
+                {
+                    "label": "Date of Added",
+                    "name": "date_of_added",
+                    "sortName": "date_of_added",
+                    "type": "date",
+                    "fieldName": "date_of_added"
+                },
+                {
+                    "label": "Name of Service Provider",
+                    "name": "name_of_service_provider",
+                    "sortName": "name_of_service_provider",
+                    "type": "text",
+                    "fieldName": "name_of_service_provider"
+                },
+                {
+                    "label": "Performance",
+                    "name": "performance",
+                    "sortName": "performance",
+                    "type": "text",
+                    "fieldName": "performance"
+                },
+                {
+                    "label": "Remark",
+                    "name": "remark",
+                    "sortName": "remark",
+                    "type": "text",
+                    "fieldName": "remark"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text",
+                    "sortName": "status",
+                    "fieldName": "status"
+                }
+            ]
+        ],
+        "isCustomFilter": true,
+        "filterListing": [
+           
+        ],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/supplierList/supplierForm/:EditRecordId",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "History",
+                "type": "icon"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "Delete",
+                "type": "icon"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/supplierList/supplierForm/:EditRecordId",
+                "status": "saved"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "saved",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "PostedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    },
+    "popupMessages": {
+           
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+        
+    }
+}

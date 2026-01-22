@@ -1,0 +1,7 @@
+      {
+        "label": "bi bi-download h6",
+        "value": "Download",
+        "type": "icon"
+      },
+
+       "pattern": "^\\d{10}$",

@@ -1,0 +1,377 @@
+{
+  "breadcom": [
+    {
+      "title": "Operations",
+      "redirect": "#"
+    },
+    {
+      "title": "Job Instruction List",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/list/",
+    "read": "/jobinstruction/list/",
+    "update": "/orders/update",
+    "delete": "/orders/delete",
+    "statuCount": "/jobinstructionstatuscount/get/",
+    "exportExcel": "/job_inst_excel/create/"
+  },
+  "listView": {
+    "title": "JRF List",
+    "moduleType": "jobinstruction",
+    "headers": [
+      {
+        "label": "Sr. No.",
+        "name": "ji_id",
+        "type": "text",
+        "sortName": "ji_id",
+        "textAlign": "center",
+        "customClass":"sr_no_th"
+      },
+      {
+        "label": "Date",
+        "name": "ji_date",
+        "sortName": "ji_date",
+        "type": "date"
+      },
+      {
+        "label": "Reference No.",
+        "name": "ji_reference_number",
+        "type": "text",
+        "sortName": "ji_reference_number"
+      },
+      {
+        "label": "Mode of work",
+        "name": "operation_type",
+        "type": "text",
+        "sortName": "fk_operationtypetid__ops_name",
+        "fieldName": "operation_type_name",
+        "textAlign": "left"
+      },
+      {
+        "label": "Vessel Name",
+        "name": "ji_nameofoperationmode",
+        "type": "text",
+        "sortName": "ji_nameofoperationmode",
+        "fieldName": "ji_nameofoperationmode",
+        "textAlign": "left"
+      },
+      {
+        "label": "Customer Name",
+        "name": "client_details",
+        "type": "text",
+        "sortName": "fk_clientid",
+        "textAlign": "left"
+      },
+      {
+        "label": "Days To Go",
+        "name": "ji_eta_count",
+        "type": "dayCount",
+        "sortName": "ji_eta",
+        "todate": "ji_eta"
+      },
+      {
+        "label": "ETA",
+        "name": "ji_eta",
+        "sortName": "ji_eta",
+        "type": "date"
+      },
+      {
+        "label": "Created By",
+        "name": "ji_created_by_user",
+        "sortName": "ji_eta",
+        "fieldName": "user_name"
+      },
+      {
+        "label": "Is Approved By Client",
+        "name": "ji_client_status",
+        "type": "boolean",
+        "sortName": "ji_client_status",
+        "fieldName": "ji_client_status"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "textAlign": "center",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      []
+    ],
+    "isCustomFilter": true,
+    "filterListing": [
+      {
+        "width": 2,
+        "name": "fk_commodityid",
+        "placeholder": "Commodity",
+        "type": "DropDownWithLoadMore",
+        "apiendpoint": "/masters/list",
+        "model_name": "commodity",
+        "apimethod": "POST",
+        "isSearchable": true,
+        "optionData": {
+          "id": "cmd_id",
+          "label": "cmd_name"
+        },
+        "filterType": "commodity",
+        "fieldWidth": "100"
+      },
+      {
+        "width": 2,
+        "name": "fk_operationtypetid",
+        "placeholder": "Mode",
+        "type": "DropDownWithLoadMore",
+        "apiendpoint": "masters/opmaster/list/",
+        "apimethod": "GET",
+        "isSearchable": "true",
+        "optionData": {
+          "id": "ops_id",
+          "label": "ops_name"
+        },
+        "options": [],
+        "filterType": "mode",
+        "fieldWidth": "100"
+      },
+      {
+        "width": 2,
+        "name": "fk_companyid",
+        "placeholder": "Appointed To",
+        "type": "select",
+        "fieldWidth": "100",
+        "filterType": "company"
+      }
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-pencil h6",
+        "value": "Edit",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "change"
+      },
+      {
+        "label": "bi bi-trash h6",
+        "value": "Delete",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "delete"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi-file-earmark-medical h6",
+        "value": "Documents",
+        "type": "icon"
+      },
+      {
+        "label": "Scope Of Work",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction",
+        "status": "saved"
+      },
+      {
+        "label": "Specify  Parameters",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
+        "status": "created",
+        "isDupplicate": true,
+        "recordType": "analysis"
+      },
+      {
+        "label": "Specify Parameters",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
+        "status": "pre-analysis",
+        "isDupplicate": true,
+        "recordType": "analysis"
+      },
+      {
+        "label": "Nominate",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-nomination",
+        "status": "analysis",
+        "recordType": "nomination"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction",
+        "status": "rejected"
+      },
+      {
+        "label": "Verify",
+        "redirectUrl": "/operation/vessel-ji-list-view",
+        "status": "posted"
+      },
+      {
+        "label": "Process",
+        "redirectUrl": "/operation/vessel-ji-list/vessel-list",
+        "status": "accepted"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Created",
+        "name": "created",
+        "status": "created",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Updating",
+        "name": "updating",
+        "status": "updating",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Posted",
+        "name": "posted",
+        "status": "posted",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-check-lg",
+        "label": "Accepted",
+        "name": "accepted",
+        "status": "accepted",
+        "image": "AcceptedIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Rejected",
+        "name": "rejected",
+        "status": "rejected",
+        "image": "RejectedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Completed",
+        "name": "Completed",
+        "status": "completed",
+        "image": "CompletedIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Cancelled",
+        "name": "cancel",
+        "status": "cancel",
+        "image": "RejectedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "saved_sym",
+        "name": "Created",
+        "status": "created"
+      },
+      {
+        "icon": "saved_sym",
+        "name": "Updating",
+        "status": "updating"
+      },
+      {
+        "icon": "posted_sym",
+        "name": "Posted",
+        "status": "posted"
+      },
+      {
+        "icon": "accepted_sym",
+        "name": "Accepted",
+        "status": "accepted"
+      },
+      {
+        "icon": "rejected_sym",
+        "name": "Rejected",
+        "status": "rejected"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Completed",
+        "status": "completed"
+      },
+      {
+        "icon": "rejected_sym",
+        "name": "Cancelled",
+        "status": "cancel"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

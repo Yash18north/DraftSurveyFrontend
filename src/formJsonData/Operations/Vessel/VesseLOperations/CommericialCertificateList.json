@@ -1,0 +1,362 @@
+{
+  "breadcom": [
+    {
+      "title": "Operation",
+      "redirect": "#"
+    },
+    {
+      "title": "Certificates",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/list/",
+    "read": "/commercial-cert/list/",
+    "update": "/orders/update",
+    "delete": "/orders/delete",
+    "statuCount": "/commercial-cert/status/",
+    "exportExcel": "/jrf_excel/get"
+  },
+  "listView": {
+    "title": "Certificate Details",
+    "isCustomTitle": true,
+    "moduleType": "jioperationjsonb",
+    "subModuleType": "commercialCertificate",
+    "customField": {
+      "title": "Transfer Details",
+      "buttons": {
+        "cancel": {
+          "title": "Cancel"
+        },
+        "confirm": {
+          "title": "Save"
+        }
+      },
+      "fields": [
+        {
+          "width": 12,
+          "name": "fk_certificate_transfered_to",
+          "label": "Operation Executive",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/users/list/",
+          "queryString": "branch_user=true",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "usr_id",
+            "label": "first_name",
+            "label2": "usr_emp_id"
+          }
+        }
+      ]
+    },
+    "customField2": {
+      "title": "Download Copy",
+      "buttons": {
+        "cancel": {
+          "title": "Cancel"
+        },
+        "confirm": {
+          "title": "DownLoad"
+        }
+      },
+      "fields": [
+        {
+          "width": 12,
+          "name": "download_is_hard_copy",
+          "label": "Download Copy",
+          "type": "radio",
+          "options": [
+            "Hard Copy",
+            "E-Certificate"
+          ],
+          "defaultValue": "E-Certificate"
+        }
+      ]
+    },
+    "headers": [
+      {
+        "label": "Date",
+        "name": "cc_date",
+        "type": "date",
+        "sortName": "cc_date"
+      },
+      {
+        "label": "Reference No.",
+        "name": "cc_refencenumber",
+        "type": "number",
+        "sortName": "cc_refencenumber"
+      },
+      {
+        "label": "Certificate No.",
+        "name": "cc_certificatenumber",
+        "type": "number",
+        "sortName": "cc_certificatenumber"
+      },
+      {
+        "label": "Client Name",
+        "name": "client",
+        "type": "text",
+        "sortName": "fk_jiid__fk_clientid__cust_name",
+        "fieldName": "client",
+        "fromType": "array"
+      },
+      {
+        "label": "Mode",
+        "name": "operationmode",
+        "type": "text",
+        "sortName": "fk_jisid__fk_activitymasterid__am_name",
+        "fieldName": "ops_name"
+      },
+      {
+        "label": "Activity",
+        "name": "activity",
+        "type": "text",
+        "sortName": "fk_jisid__fk_activitymasterid__am_name",
+        "fieldName": "activity"
+      },
+      {
+        "label": "Status Ageing",
+        "name": "company",
+        "type": "statusAgeing",
+        "sortName": "fk_jiid__fk_companyid__cmp_name",
+        "fieldName": "cmp_code",
+        "todate": "cc_created_time",
+        "fromType": "array"
+      },
+      {
+        "label": "GSTIN (client)",
+        "name": "gstin",
+        "type": "text",
+        "sortName": "gstin",
+        "fieldName": "gstin",
+        "fromType": "array"
+      },
+      {
+        "label": "Inv. Branch Code",
+        "name": "fk_invoice_branchid_name",
+        "type": "number",
+        "sortName": "fk_invoice_branchid_name",
+        "fieldName": "fk_invoice_branchid_name"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "1122324455678",
+          "name": "cc_created_time",
+          "type": "date"
+        },
+        {
+          "label": "1122324455678",
+          "name": "cc_certificatenumber",
+          "type": "label"
+        },
+        {
+          "label": "1122324455678",
+          "name": "cc_refencenumber",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7071",
+          "name": "rpc_is_smpl_wghtorunit",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "rpc_is_smpl_type",
+          "type": "label"
+        },
+        {
+          "label": "In Progress",
+          "name": "status",
+          "type": "label"
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "status": "vesseListView",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-trash h6",
+        "value": "Delete",
+        "type": "icon",
+        "redirectUrl": "",
+        "permission": "delete"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-check-lg",
+        "label": "Saved",
+        "name": "Saved",
+        "status": "saved",
+        "image": "AcceptedIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Posted",
+        "name": "Posted",
+        "status": "posted",
+        "image": "RejectedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Sent For Approval",
+        "name": "sent_for_approval",
+        "status": "sent_for_approval",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Approved",
+        "name": "Approved",
+        "status": "approved",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Published",
+        "name": "Published",
+        "status": "published",
+        "image": "CompletedIcon"
+      },
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Invoice Not Initiated",
+        "name": "invoice_not_initiated",
+        "status": "invoice_not_initiated",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Rejected",
+        "description": "Rejected",
+        "name": "rejected",
+        "status": "rejected",
+        "image": "RejectedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "saved_sym",
+        "name": "Saved",
+        "status": "saved"
+      },
+      {
+        "icon": "inprocess_sym",
+        "name": "Pending",
+        "status": "pending"
+      },
+      {
+        "icon": "accepted_sym",
+        "name": "Posted",
+        "status": "posted"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Sent For Approval",
+        "status": "sent_for_approval"
+      },
+      {
+        "icon": "posted_sym",
+        "name": "Approved",
+        "status": "approved"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Published",
+        "status": "published"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "invoice_not_initiated",
+        "status": "invoice_not_initiated"
+      },
+      {
+        "icon": "rejected_sym",
+        "name": "Rejected",
+        "status": "rejected"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

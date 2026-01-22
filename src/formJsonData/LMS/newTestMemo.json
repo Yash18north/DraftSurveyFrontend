@@ -1,0 +1,410 @@
+{
+  "sections": [
+    {
+      "title": "Test Memo Form",
+
+      "fields": [
+        {
+          "width": 6,
+          "label": "Test Memo ID",
+          "name": "test_memo_id",
+          "type": "label",
+          "value":"To be Generated"
+        },
+        {
+          "width": 6,
+          "name": "sample_receipt_date",
+          "label": "Sample Receipt Date",
+          "type": "date",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter Name of commodity"
+        },
+        
+        {
+          "width": 6,
+          "name": "sample_receipt_date",
+          "label": "Date of Starting Analysis",
+          "type": "label",
+          "value":"23-12-2034"
+        },
+        {
+          "width": 6,
+          "label": "Condition of Sample",
+          "name": "sample_condition",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter Condition of Sample",
+          "characterLimit": 16
+        },
+        {
+          "width": 6,
+          "name": "date_completion",
+          "label": "Date of Completion",
+          "type": "label",
+          "value":"--"
+        }
+      ]
+    },
+    {
+      "label": "Test Memo",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Test Memo and Certification Details",
+  
+          "type": "tableadv",
+          "title":"Sample Code: 2324C27SS01907",
+
+          "headers": [
+            {
+              "label": "Parameter / Groups",
+              "name": "parameters",
+              "type": "label",
+              "required": true
+            },
+            {
+              "label": "Standard",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Results",
+              "name": "results",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter",
+              "colSpan": 2
+            },
+            {
+              "label": "Unit",
+              "name": "results",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter",
+              "colSpan": 2
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "Ultimate Analysis",
+                "required": true,
+                "fontSize": "16px",
+                "headerLength": 100
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label"
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label"
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label"
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label"
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label"
+              }
+            ],
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "Carbon",
+                "required": true,
+                "fontSize": "12px",
+                "headerLength": "100%"
+              },
+              {
+                "name": "test_method",
+                "label": "ASTM D 5373 - 2021",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "basis",
+                "label": "ADB",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "result",
+                "label": "51.18",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "unit",
+                "label": "%",
+                "type": "label",
+                "headerLength": "100%"
+              }
+            ],
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "Hydrogen",
+                "required": true,
+                "fontSize": "12px",
+                "headerLength": "100%"
+      
+              },
+              {
+                "name": "test_method",
+                "label": "ASTM D 5373 - 2021",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "basis",
+                "label": "DB",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "result",
+                "label": "2.75",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "unit",
+                "label": "%",
+                "type": "label",
+                "headerLength": "100%"
+              }
+            ],
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "Nitrogen",
+                "required": true,
+                "fontSize": "12px",
+                "headerLength": "100%"
+              },
+              {
+                "name": "test_method",
+                "label": "ASTM D 5373 - 2021",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "basis",
+                "label": "DAF",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "result",
+                "label": "1.33",
+                "type": "label",
+                "headerLength": "100%"
+              },
+              {
+                "name": "unit",
+                "label": "%",
+                "type": "label",
+                "headerLength": "100%"
+              
+              }
+
+            ],
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "Oxygen",
+                "required": true,
+                "fontSize": "12px",
+                "headerLength": "100%"
+              },
+              {
+                "name": "test_method",
+                "label": "ASTM D 3176 - 2015",
+                "type": "label",
+                "headerLength": "100%"
+
+                
+
+              },
+              {
+                "name": "basis",
+                "label": "ADB",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "result",
+                "label": "36.71",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "unit",
+                "label": "%",
+                "type": "label",
+                "headerLength": "100%"
+
+              }
+            ],
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "Steve Analysis",
+                "required": true,
+                "fontSize": "16px",
+                "headerLength": "100%"
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label"
+              },
+              {
+                "name": "test_method",
+                "label": "",
+                "type": "label"
+              }
+            ],
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "0-55 mm",
+                "required": true,
+                "fontSize": "12px",
+                "headerLength": "100%"
+              },
+              {
+                "name": "test_method",
+                "label": "ASTM D 4749 - 2019",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "basis",
+                "label": "ADB",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "result",
+                "label": "35.71",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "unit",
+                "label": "%",
+                "type": "label",
+                "headerLength": "100%"
+
+              }
+            ],
+            [
+              {
+                "name": "parameter",
+                "type": "label",
+                "label": "2.36 mm",
+                "required": true,
+                "fontSize": "12px",
+                "headerLength": "100%"
+              },
+              {
+                "name": "test_method",
+                "label": "ASTM D 4749 - 2019",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "basis",
+                "label": "DB",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "result",
+                "label": "3.97",
+                "type": "label",
+                "headerLength": "100%"
+
+              },
+              {
+                "name": "unit",
+                "label": "%",
+                "type": "label",
+                "headerLength": "100%"
+
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

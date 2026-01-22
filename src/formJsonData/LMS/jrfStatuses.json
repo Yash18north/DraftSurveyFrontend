@@ -1,0 +1,143 @@
+{
+  "inward_statuses": [
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Created",
+      "name": "created",
+      "image": "PartialIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Saved",
+      "name": "saved",
+      "image": "PostedIcon"
+    },
+    {
+      "icon": "bi bi-check-lg",
+      "label": "Inwarded",
+      "name": "inwarded",
+      "image": "PartialIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Assigining",
+      "name": "assigning"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Assigned",
+      "name": "assigned",
+      "image": "AcceptedIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Sent To Lab",
+      "name": "senttolab",
+      "image": "InprocessIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Certified",
+      "name": "certified",
+      "image": "CompletedIcon"
+    }
+  ],
+  "inward_color_scheme": [
+    { "icon": "posted_sym", "name": "Created" },
+    { "icon": "saved_sym", "name": "Saved" },
+    { "icon": "accepted_sym", "name": "Inwarded" },
+    { "icon": "rejected_sym", "name": "Assigning" },
+    { "icon": "inprocess_sym", "name": "Assigned" },
+    { "icon": "overdue_sym", "name": "Sent to Lab" },
+    { "icon": "completed_sym", "name": "Certified" }
+  ],
+  "allotment_statuses": [
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Pending",
+      "name": "certified",
+      "image": "PendingIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Alloted",
+      "name": "certified",
+      "image": "AllotedIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Completed",
+      "name": "certified",
+      "image": "CompletedIcon"
+    }
+  ],
+  "allotment_color_scheme": [
+    { "icon": "posted_sym", "name": "Pending" },
+    { "icon": "saved_sym", "name": "Alloted" },
+    { "icon": "completed_sym", "name": "Completed" }
+  ],
+  "verification_statuses": [
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Pending",
+      "name": "certified",
+      "image": "PendingIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Verified",
+      "name": "certified",
+      "image": "CompletedIcon"
+    }
+  ],
+  "verification_color_scheme": [
+    { "icon": "posted_sym", "name": "Pending" },
+    { "icon": "saved_sym", "name": "Verified" }
+  ],
+  "jrf_statuses": [
+    {
+      "icon": "bi bi-arrow-up-circle-fill",
+      "label": "Saved",
+      "name": "saved",
+      "image": "PartialIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Posted",
+      "name": "posted",
+      "image": "PostedIcon"
+    },
+    {
+      "icon": "bi bi-shield-check",
+      "label": "Completed",
+      "name": "completed",
+      "image": "CompletedIcon"
+    },
+    {
+      "icon": "bi bi-check-lg",
+      "label": "Accepted",
+      "name": "accepted",
+      "image": "AcceptedIcon"
+    },
+    {
+      "icon": "bi bi-x-circle-fill",
+      "label": "Rejected",
+      "name": "rejected",
+      "image": "RejectedIcon"
+    },
+    {
+      "icon": "bi bi-cloud-check-fill",
+      "label": "Tasked",
+      "name": "tasked",
+      "image": "InprocessIcon"
+    }
+  ],
+  "jrf_color_scheme": [
+    { "icon": "saved_sym", "name": "Saved" },
+    { "icon": "posted_sym", "name": "Posted" },
+    { "icon": "accepted_sym", "name": "Accepted" },
+    { "icon": "rejected_sym", "name": "Rejected" },
+    { "icon": "inprocess_sym", "name": "Tasked" },
+    { "icon": "completed_sym", "name": "Completed" }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Truck Supervission",
+      "type": "manualTable",
+      "isUseForVessel": true,
+      "headers": [
+        {
+          "name": "dos",
+          "type": "label",
+          "label": "Date Of Sampling",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "no_of_truck",
+          "type": "label",
+          "label": "Truck number",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "quantity",
+          "type": "label",
+          "label": "Quantity.",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "seal_number",
+          "type": "label",
+          "label": "Seal Number",
+          "width": 6,
+          "fieldWidth": "100"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "dos",
+            "type": "date",
+            "label": "Date of inspection",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "no_of_truck",
+            "type": "text",
+            "label": "Hatch / hold No.",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "quantity",
+            "type": "text",
+            "label": "Inspection Commenced",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "seal_number",
+            "type": "text",
+            "label": "Remarks",
+            "width": 6,
+            "fieldWidth": "100"
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

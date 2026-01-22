@@ -1,0 +1,441 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/list/",
+    "read": "/testmemo/list",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "SFM List",
+      "redirect": "/SFMList"
+    },
+    {
+      "title": "SFM Result",
+      "redirect": "/SFMList"
+    }
+  ],
+  "sections": [
+    {
+      "title": "SFMForm",
+      "moduleType": "sfm",
+      "fields": [
+        {
+          "width": 12,
+          "label": "SFM Result",
+          "name": "section_heading",
+
+          "styleName": "section_heading",
+          "type": "label",
+          "required":true
+        },
+        {
+          "width": 6,
+          "label": "Date of Analysis Started",
+          "name": "sfm_dateanalysisstarted",
+          "type": "date",
+          "required":true
+        },
+        {
+          "width": 6,
+          "label": "Completion Date",
+          "name": "sfm_dateanalysiscompleted",
+
+          "type": "date",
+          "required":true
+        },
+        {
+          "width": 6,
+          "label": "Commodity",
+          "placeholder": "Enter Name of Commodity",
+          "name": "commodityName",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "label": "Remarks",
+          "placeholder": "Enter Name of Commodity",
+          "name": "sfm_remarks",
+          "type": "label"
+        },
+        {
+          "width": 12,
+          "label": "Environmental Conditions",
+          "name": "section_heading",
+
+          "styleName": "section_heading",
+          "type": "label",
+          "required":true
+        },
+        {
+          "width": 6,
+          "label": "Ambient Temperature ",
+          "name": "sfm_ambient_temp",
+          "secondName": "sfm_ambient_temp_second",
+          "secondValue":"°C",
+          "type": "doubleText",
+          "secondType": "label",
+          "secondReadOnly":true,
+          "required":true
+        },
+        {
+          "width": 6,
+          "label": "Barometric Pressure",
+          "name": "sfm_borometricpressure",
+          "secondName": "bp_unit",
+          "secondValue":"hPa",
+          "type": "doubleText",
+          "secondType": "label",
+          "secondReadOnly":true,
+          "required":true
+        },
+        {
+          "width": 6,
+          "label": "Relative Humidity ",
+          "name": "sfm_humidity",
+          "secondName": "humidity_unit",
+          "secondValue":"%",
+          "type": "doubleText",
+          "secondType": "label",
+          "secondReadOnly":true,
+          "required":true
+        }
+      ]
+    },
+    {
+      "label": "SFM",
+      "type": "SFMTabs",
+      "headers": [
+        {
+          "label": "Parameters",
+          "name": "parameters",
+          "type": "label",
+          "required": true,
+
+          "rowSpan": 3
+        },
+        {
+          "label": "Test Method",
+          "name": "std_name",
+          "type": "select",
+
+          "options": ["ASTM", "IS", "ISO"],
+          "placeholder": "Enter Value",
+          "required": true,
+
+          "rowSpan": 3
+        }
+      ],
+      "fields": [
+        {
+          "width": 8,
+          "name": "smpl_set_smpljson",
+          "options": [],
+          "type": "select",
+
+          "fieldWidth": 100,
+          "multiple": 1
+        },
+        {
+          "width": 8,
+          "name": "smpl_set_groupjson",
+          "type": "select",
+          "options": [],
+
+          "readOnly": true,
+          "placeholder": "1633",
+          "fieldWidth": 100,
+
+          "multiple": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "param_name",
+            "type": "label",
+            "value": "carbon",
+            "styleName":"InputNum",
+
+            "label": "",
+            "placeholder": "Enter Value"
+          },
+          {
+            "name": "std_name",
+            "type": "label",
+            "value": "ISO11722:2018",
+            "label": "",
+            "styleName":"InputNum",
+
+            "placeholder": "Enter Value"
+          }
+        ]
+      ],
+      "tabs": [
+        {
+          "label": "SET 1",
+
+          "type": "tableadv",
+
+          "headers": [
+            {
+              "label": "Non-Scope",
+              "name": "parameters",
+              "type": "label",
+
+              "rowSpan": 3
+            },
+            {
+              "label": "Parameters",
+              "name": "parameters",
+              "type": "label",
+
+              "rowSpan": 3
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Value",
+              "rowSpan": 3
+            },
+
+            {
+              "label": "Values",
+              "name": "value",
+              "type": "select",
+
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Value"
+            },
+            {
+              "label": "Unit",
+              "name": "results",
+              "type": "select",
+
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Value"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [""]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "carbon",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Value"
+              }
+            ]
+          ]
+        },
+        {
+          "label": "SET 2",
+
+          "type": "tableadv",
+
+          "headers": [
+            {
+              "label": "Non-Scope",
+              "name": "parameters",
+              "type": "label",
+              "rowSpan": 3
+            },
+            {
+              "label": "Parameters",
+              "name": "parameters",
+              "type": "label"
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Value"
+            },
+
+            {
+              "label": "Values",
+              "name": "value",
+              "type": "select",
+
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Value"
+            },
+            {
+              "label": "Unit",
+              "name": "results",
+              "type": "select",
+
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Value"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [""]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "Hydrogen",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Value"
+              }
+            ],
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [""]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "carbon",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Value"
+              }
+            ],
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [""]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "carbon",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Value"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Value"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

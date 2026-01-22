@@ -1,0 +1,443 @@
+{
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "JRF List",
+      "redirect": "/jrfListing"
+    },
+    {
+      "title": "External Job Request Form",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jrf/get",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jrf",
+      "isExternal": true,
+      "fields": [
+        {
+          "width": 25,
+          "label": "JRF Details",
+          "styleName": "section_heading",
+          "type": "label",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_status",
+          "label": "Status",
+          "styleName": "custom_status",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "jrf_date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "placeholder": "Enter Date",
+          "pastDate": true,
+          "pastdays": 7,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_no",
+          "label": "JRF No.",
+          "type": "label",
+          "required": true,
+          "value": "To be Generated",
+          "characterLimit": 16,
+          "readOnly": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_referenceno",
+          "label": "Reference No",
+          "type": "label",
+          "value": "To be Generated",
+          "required": true,
+          "errorMsgs": {
+            "pattern": "Please enter Valid Reference no.",
+            "required": "Please enter reference no."
+          },
+          "placeholder": "Enter Reference Number",
+          "characterLimit": 17,
+          "isCapitalValue": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_branch",
+          "label": "Invoice Branch",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/list",
+          "model_name": "branch",
+          "apimethod": "POST",
+          "isSearchable": "true",
+          "optionData": {
+            "id": "br_id",
+            "label": "br_name",
+            "label2": "br_code"
+          },
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_usersalespersonid",
+          "label": "Sales Person",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/sales-user/list/",
+          "apimethod": "GET",
+          "isSearchable": "true",
+          "optionData": {
+            "id": "usr_id",
+            "label": "full_name"
+          },
+          "required": true
+        },
+        {
+          "width": 25,
+          "label": "Company Details",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "fk_clientid",
+          "label": "External Organization Name ",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/customer/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "required": true,
+          "isSearchable": true,
+          "optionData": {
+            "id": "cust_id",
+            "label": "cust_name",
+            "label2": "cust_gstno"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_ext_address",
+          "label": "External Organization Address",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter External Organization Address",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": "-"
+        },
+        {
+          "width": 6,
+          "name": "jrf_ext_contactpersonname",
+          "label": "Name of TCRC Contact Person",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter  Name of TCRC Contact Person",
+          "errorMsgs": {
+            "required": "This field is required",
+            "pattern": "Please enter Valid name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_ext_contactpersonnumber",
+          "label": "Phone No. of TCRC Contact Person",
+          "tooltip": "Enter a 10-digit phone number (e.g., 1234567890).",
+          "type": "phone",
+          "required": true,
+          "placeholder": "Enter  Number of TCRC Contact Person",
+          "errorMsgs": {
+            "required": "This field is required",
+            "pattern": "Please enter Valid Number"
+          },
+          "maxLength": 10
+        },
+        {
+          "width": 6,
+          "name": "jrf_ext_contactpersonemail",
+          "label": "External Contact Person Email Address",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter External Contact Person Email Address",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "maxLength": 10,
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+        },
+        {
+          "width": 6,
+          "name": "jrf_ext_gstno",
+          "label": "GST Number",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter GST Number",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": "-"
+        },
+        {
+          "width": 25,
+          "label": "Sample Specifications",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "jrf_commodity",
+          "label": "Commodity",
+          "required": true,
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/list",
+          "model_name": "commodity",
+          "apimethod": "POST",
+          "isSearchable": true,
+          "optionData": {
+            "id": "cmd_id",
+            "label": "cmd_name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "fk_sub_commodity",
+          "label": "Sub Commodity",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/ji-commodity/get/",
+          "apimethod": "POST",
+          "isSearchable": "true",
+          "optionData": {
+            "id": "sub_cmd_id",
+            "label": "sub_cmd_name"
+          },
+          "customPayload": {
+            "name": "cmd_id",
+            "value": "jrf_commodity"
+          },
+          "isCustomPayload": true,
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": "-"
+        },
+        {
+          "width": 6,
+          "label": "Quantity of Test Sample",
+          "name": "jrf_quanity_sample",
+          "type": "textArea",
+          "placeholder": "Enter quantity of test samples details",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "No. of Packets",
+          "name": "jrf_no_of_packets",
+          "type": "text",
+          "placeholder": "Enter No. of Packets",
+          "useForViewOnly": true
+        },
+        {
+          "width": 25,
+          "label": "Job Description",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Description of the sample",
+          "name": "jrf_desc_of_sample",
+          "type": "textArea",
+          "placeholder": "Description of the sample",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Parameter to be analysed",
+          "name": "jrf_parameters_to_analyze",
+          "type": "textArea",
+          "placeholder": "Parameter to be analysed",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Other Requirement",
+          "name": "jrf_other_info",
+          "type": "textArea",
+          "placeholder": "Add Additional Info (If any)",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Test Report Required after (in days)",
+          "name": "jrf_test_repo_req_on",
+          "type": "numberPlusMinus",
+          "placeholder": "Enter Job Quantity"
+        },
+        {
+          "width": 6,
+          "label": "Test Method",
+          "name": "jrf_test_method",
+          "type": "select",
+          "multiple": true,
+          "styleName": "selectCompWidth",
+          "options": [
+            "IS",
+            "ISO",
+            "ASTM",
+            "SOP",
+            "IMSBC",
+            "DIN",
+            "JSS"
+          ],
+          "specialClass": "maximumWidth",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Test Method Details",
+          "name": "jrf_test_method_details",
+          "type": "textArea",
+          "placeholder": "Test Method Details",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Lab Name",
+          "name": "jrf_lab",
+          "type": "select",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_powid",
+          "label": "Place of Work",
+          "required": true,
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/placeofwork/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "pow_id",
+            "label": "pow_name"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Is Hide Sample Verification",
+          "name": "jrf_is_petro",
+          "type": "radio",
+          "options": [
+            {
+              "label":"Yes",
+              "value":true
+            },
+            {
+              "label":"No",
+              "value":false
+            }
+          ],
+          "defaultValue": false,
+          "useForViewOnly":true
+        },
+        {
+          "width": 6,
+          "label": "Remark",
+          "name": "jrf_remark",
+          "type": "label"
+        },
+        {
+          "label": "",
+          "name": "jrf_terms_and_conditions",
+          "styleName": "jrf_terms_and_conditions_UI",
+          "type": "checkbox",
+          "validation": {
+            "message": "Please select Terms & Conditions"
+          },
+          "errorMsgs": {
+            "pattern": "Please select Terms & Conditions",
+            "required": "Please select Terms & Conditions"
+          },
+          "options": [
+            "Terms & Conditions: The samples will be retained for a duration of 30 days from the date of testing. However, for export vessels, the retention period will be extended to 90 days, where applicable. Any grievances or complaints must be duly lodged within a timeframe of 15 days from the date of issuance of the test report. Both parties will adhere to and uphold a set of compliance code and principles in the provision of services. We do not provides statement of conformity, opinions or interpretations concerning the findings rendered in reports."
+          ],
+          "placeholder": "Enter Job Quantity",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+    "breadcom": [
+        {
+            "title": "Client Listing",
+            "redirect": "/collections/client-list"
+        },
+        {
+            "title": "Client Details",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "moduleType": "ClientDetails",
+            "type": "purchase",
+            "title": "Client Details",
+            "fields": [
+                {
+                    "width": 25,
+                    "label": "Client Details",
+                    "name": "section_heading",
+                    "styleName": "section_heading",
+                    "type": "label"
+                },
+                {
+                    "width": 6,
+                    "name": "cust_name",
+                    "label": "Name",
+                    "type": "label"
+                },
+                {
+                    "width": 6,
+                    "name": "cust_email",
+                    "label": "Email",
+                    "type": "label"
+                },
+                {
+                    "width": 6,
+                    "name": "cust_designation",
+                    "label": "Designation",
+                    "type": "label"
+                },
+                {
+                    "width": 12,
+                    "name": "cust_remark",
+                    "label": "Remark",
+                    "labelWidth": "13%",
+                    "fieldWidth": 100,
+                    "characterLimit": 1024,
+                    "type": "textAreaEditor",
+                    "placeholder": "Enter Remark"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {},
+    "actions": [
+        {
+            "label": "bi bi-eye h6",
+            "value": "View",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/",
+            "permission": "read"
+        }
+    ],
+    "popupMessages": {
+        "download": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

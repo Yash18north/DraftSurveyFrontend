@@ -1,0 +1,754 @@
+{
+    "breadcom": [
+        {
+            "title": "Operation",
+            "redirect": "/operation/invoice-listing"
+        },
+        {
+            "title": "Invoice List",
+            "redirect": "/operation/invoice-listing"
+        },
+        {
+            "title": "Invoice",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/invoices/create/",
+        "read": "",
+        "update": "/invoices/update/",
+        "delete": ""
+    },
+    "sections": [
+        {
+            "title": "Invoice",
+            "moduleType": "invoice",
+            "Heading": "Invoice Details",
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Invoice Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "im_is_regular",
+                    "type": "select",
+                    "placeholder": "",
+                    "label": "Invoice Type",
+                    "width": 6,
+                    "options": [
+                        "Regular",
+                        "Advance",
+                        "Revised"
+                    ]
+                },
+                {
+                    "name": "reference_number",
+                    "type": "text",
+                    "label": "Ref. Number",
+                    "readOnly": true,
+                    "width": 6
+                },
+                {
+                    "name": "im_invoicenumber",
+                    "type": "text",
+                    "readOnly": true,
+                    "placeholder": "To be Generated",
+                    "label": "Invoice Number",
+                    "width": 6,
+                    "useForViewOnly": true
+                },
+                {
+                    "name": "im_invoice_date",
+                    "type": "date",
+                    "label": "Invoice Date",
+                    "width": 6,
+                    "pastdays": 5,
+                    "pastDate": true,
+                    "required": true
+                },
+                {
+                    "width": 12,
+                    "label": "Client & Company Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "width": 6,
+                    "name": "fk_clientid",
+                    "label": "Client Name",
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/masters/customer/list/",
+                    "model_name": "",
+                    "apimethod": "GET",
+                    "required": true,
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "cust_id",
+                        "label": "cust_name",
+                        "label2": "cust_gstno"
+                    },
+                    "isViewTimeText":true
+                },
+                {
+                    "name": "ji_client_address",
+                    "type": "textArea",
+                    "label": "New Client Address",
+                    "placeholder": "Client Address",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "ji_client_gst",
+                    "placeholder": "Client GST Number",
+                    "label": "Client GST Number",
+                    "width": 6,
+                    "type": "text",
+                    "readOnly": true,
+                    "useForViewOnly": true
+                },
+                {},
+                {
+                    "name": "fk_invoice_branchid",
+                    "label": "Inv.Work Branch Code",
+                    "width": 6,
+                    "required": true,
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/masters/list",
+                    "model_name": "branch",
+                    "apimethod": "POST",
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "br_id",
+                        "label": "br_name",
+                        "label2": "br_code"
+                    },
+                    "isViewTimeText":true
+                },
+                {
+                    "name": "actual_work_branch",
+                    "label": "Actual Work Branch Code",
+                    "placeholder": " Enter Actual Work Branch Code",
+                    "width": 6,
+                    "type": "text",
+                    "readOnly": true
+                },
+                {
+                    "name": "iv_jireference",
+                    "type": "text",
+                    "readOnly": true,
+                    "placeholder": "Work Order No.",
+                    "label": "Work Order No.",
+                    "width": 6,
+                    "useForViewOnly": true
+                },
+                {
+                    "name": "iv_work_order_date",
+                    "type": "text",
+                    "placeholder": "Work Ord Dt.",
+                    "label": "Work Ord Dt.",
+                    "width": 6
+                },
+                {
+                    "width": 12,
+                    "label": "Payment Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "im_paymentmode",
+                    "type": "select",
+                    "options": [
+                        "Cheque",
+                        "NEFT / RTGS"
+                    ],
+                    "label": "Mode of Payment.",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_gst_invoice_number",
+                    "type": "text",
+                    "label": "GSTIN (Client)",
+                    "placeholder": "Enter GSTIN (Client)",
+                    "width": 6
+                },
+                {
+                    "name": "state_of_client",
+                    "label": "State of Client",
+                    "width": 6,
+                    "required": true,
+                    "type": "label"
+                },
+                {
+                    "name": "fk_im_state",
+                    "label": "Invoice State",
+                    "width": 6,
+                    "required": true,
+                    "type": "text",
+                    "readOnly": true
+                },
+                {
+                    "width": 12,
+                    "label": "Tax Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "im_tax_type",
+                    "type": "select",
+                    "label": "Tax Type",
+                    "options": [
+                        "Direct Tax",
+                        "Indirect Tax"
+                    ],
+                    "width": 6,
+                    "required": true,
+                    "defaultValue": "Indirect Tax"
+                },
+                {
+                    "name": "im_currency_code",
+                    "type": "select",
+                    "label": "Currency",
+                    "options": [
+                        "INR",
+                        "USD",
+                        "EUR",
+                        "GBP",
+                        "JPY",
+                        "CHF",
+                        "CAD",
+                        "AUD",
+                        "CNY",
+                        "KRW",
+                        "SGD",
+                        "NZD",
+                        "BRL",
+                        "RUB",
+                        "ZAR",
+                        "MXN",
+                        "SAR",
+                        "AED"
+                    ],
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_voucher_type",
+                    "type": "select",
+                    "label": "Voucher Type",
+                    "defaultValue": "Sales",
+                    "options": [
+                        "Sales",
+                        "Barbil-Credit Note",
+                        "Barbil - Sales",
+                        "Bhu-Credit Note",
+                        "Bhu - Sales",
+                        "Che-Credit Note",
+                        "Che - Sales",
+                        "Dha-Credit Note",
+                        "Dha - Sales",
+                        "DHB- Credit Note",
+                        "DHB - Sales",
+                        "Gan-Credit Note",
+                        "Gan - Sales",
+                        "GDM-Sales OS",
+                        "Goa-Credit Note",
+                        "Goa-Sales",
+                        "Hal-Credit Note",
+                        "Hal - Sales",
+                        "Haz-Credit Note",
+                        "Haz - Sales",
+                        "HPT - Credit Note",
+                        "HPT-Sales",
+                        "Kak-Credit Note",
+                        "Kak - Sales",
+                        "Kar - Sales",
+                        "Kri-Credit Note",
+                        "Kri - Sales",
+                        "Ktn - Credit Note",
+                        "Ktn - Sales",
+                        "Mang-Credit Note",
+                        "Mang - Sales",
+                        "Mum-Sales OS",
+                        "Para-Credit Note",
+                        "Para - Sales",
+                        "PDP-Sales OS",
+                        "Rai-Credit Note",
+                        "Rai - Sales",
+                        "Tut-Credit Note",
+                        "Tut - Sales",
+                        "Viz-Credit Note",
+                        "Viz - Sales"
+                    ],
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_salespersonid",
+                    "type": "select",
+                    "label": "Sales Person",
+                    "width": 6,
+                    "apiendpoint": "/users/list/",
+                    "queryString": "sales_person=true",
+                    "apimethod": "GET",
+                    "optionData": {
+                        "id": "usr_id",
+                        "label": "first_name",
+                        "label3": "last_name"
+                    }
+                },
+                {
+                    "name": "im_billtoplace",
+                    "type": "text",
+                    "label": "Bill to Place",
+                    "placeholder": "Enter Bill to Place",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_shiptoplace",
+                    "type": "text",
+                    "label": "Ship to Place",
+                    "placeholder": "Enter Ship to Place",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_naration_no",
+                    "type": "textArea",
+                    "label": "Narration (Certificate No.)",
+                    "placeholder": "Enter Narration (Certificate No.)",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_creditnote",
+                    "type": "text",
+                    "label": "Credit Note (if any)",
+                    "readOnly": true,
+                    "placeholder": "Auto Update Credit Note",
+                    "width": 6,
+                    "isCopy": true
+                },
+                {
+                    "name": "im_remark",
+                    "type": "text",
+                    "label": "Remarks",
+                    "readOnly": true,
+                    "placeholder": "Remarks",
+                    "width": 6,
+                    "useForViewOnly": true
+                },
+                {
+                    "width": 12,
+                    "label": "Courier Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px",
+                    "isCourierData": true
+                },
+                {
+                    "name": "im_courier",
+                    "type": "select",
+                    "label": "Courier Type",
+                    "defaultValue": "direct_courier",
+                    "options": [
+                        {
+                            "value": "direct_courier",
+                            "label": "DIRECT COURIER"
+                        },
+                        {
+                            "value": "hand_delivery",
+                            "label": "HAND DELIVERY"
+                        },
+                        {
+                            "value": "courier_hand_delivery",
+                            "label": "COURIER + HAND DELIVERY"
+                        },
+                        {
+                            "value": "hardcopy",
+                            "label": "HARDCOPY Not Required"
+                        }
+                    ],
+                    "width": 6,
+                    "required": true,
+                    "isCourierData": true
+                },
+                {
+                    "name": "courier_service_name",
+                    "type": "text",
+                    "label": "Courier Service Name",
+                    "placeholder": "Service Name",
+                    "width": 6,
+                    "isCourierData": true,
+                    "required": true
+                },
+                {
+                    "name": "courier_tracking_no",
+                    "type": "text",
+                    "label": "Tracking No.",
+                    "placeholder": "Tracking No.",
+                    "width": 6,
+                    "isCourierData": true,
+                    "required": true
+                },
+                {
+                    "name": "courier_date",
+                    "type": "date",
+                    "label": "Courier Date",
+                    "placeholder": "Courier Date.",
+                    "width": 6,
+                    "isCourierData": true,
+                    "required": true,
+                    "noRestrictionApply": true,
+                    "noDefaultValue": true
+                },
+                {
+                    "name": "courier_recieved_date",
+                    "type": "date",
+                    "label": "Courier Recieved Date",
+                    "placeholder": "Courier Recieved Date.",
+                    "width": 6,
+                    "isCourierData": true,
+                    "noRestrictionApply": true,
+                    "noDefaultValue": true
+                },
+                {
+                    "name": "courier_done_by_executive",
+                    "type": "text",
+                    "label": "Courier Done By Executive",
+                    "placeholder": "Courier Done By Executive",
+                    "width": 6,
+                    "isCourierData": true
+                },
+                {
+                    "name": "courier_address",
+                    "type": "textArea",
+                    "label": "Courier Address",
+                    "placeholder": "Courier Address",
+                    "width": 6,
+                    "isCourierData": true
+                },
+                {
+                    "name": "courier_acknowledge_by",
+                    "type": "text",
+                    "label": "Acknowledged By",
+                    "placeholder": "Acknowledged By",
+                    "width": 6,
+                    "isCourierData": true
+                },
+                {
+                    "name": "courier_persone_name",
+                    "type": "text",
+                    "label": "Person Who Delivered The Docs",
+                    "placeholder": "Person Who Delivered The Docs",
+                    "width": 6,
+                    "isCourierData": true,
+                    "required": true
+                },
+                {
+                    "name": "courier_reciever_name",
+                    "type": "text",
+                    "label": "Docs Recieved By",
+                    "placeholder": "Docs Recieved By",
+                    "width": 6,
+                    "isCourierData": true,
+                    "required": true
+                },
+                {
+                    "name": "courier_date_submission",
+                    "type": "date",
+                    "label": "Date of Submission",
+                    "placeholder": "Date of Submission",
+                    "width": 6,
+                    "isCourierData": true,
+                    "required": true,
+                    "noRestrictionApply": true,
+                    "noDefaultValue": true
+                },
+                {
+                    "name": "courier_submission_address",
+                    "type": "textArea",
+                    "label": "Address of the Docs Submitted Office",
+                    "placeholder": "Address of the Docs Submitted Office",
+                    "width": 6,
+                    "isCourierData": true
+                },
+                {
+                    "name": "courier_remark",
+                    "type": "textArea",
+                    "label": "Remark",
+                    "placeholder": "Remark",
+                    "width": 6,
+                    "isCourierData": true,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "title": "Invoice Details",
+            "type": "tabs",
+            "tabs": [
+                {
+                    "label": "Scope of work ",
+                    "type": "table",
+                    "hidetab": true,
+                    "title": "Scope of Work",
+                    "moduleType": "invoice",
+                    "headers": [
+                        {
+                            "label": "Reference",
+                            "name": "ivd_ref_nos",
+                            "type": "label",
+                            "sortName": "ivd_ref_nos",
+                            "fieldName": "ivd_ref_nos"
+                        },
+                        {
+                            "label": "Activity",
+                            "name": "fk_activitymaster",
+                            "type": "label",
+                            "sortName": "fk_activitymaster",
+                            "fieldName": "fk_activitymaster"
+                        },
+                        {
+                            "label": "Rate",
+                            "name": "ivd_rate",
+                            "type": "text",
+                            "sortName": "ivd_rate",
+                            "fieldName": "ivd_rate"
+                        },
+                        {
+                            "label": "Rate Unit",
+                            "name": "ivd_rate_unit",
+                            "styleName": "selectCompWidth",
+                            "type": "select",
+                            "options": [
+                                "Lumpsum",
+                                "Per Bags",
+                                "Per Barge",
+                                "Per Certificate",
+                                "Per Consignment",
+                                "Per Container",
+                                "Per Day",
+                                "Per Hatch",
+                                "Per Hold",
+                                "Per Location",
+                                "Per Lot",
+                                "Per Machine",
+                                "Per Mines",
+                                "Per Month",
+                                "Per Night",
+                                "Per Person",
+                                "Per Rake",
+                                "Per Sample",
+                                "Per Seal",
+                                "Per Shift",
+                                "Per Shipment",
+                                "Per Size",
+                                "Per Stack",
+                                "Per Survey",
+                                "Per Truck",
+                                "Per Vessel",
+                                "PMT",
+                                "Subject to Minimum",
+                                "Cubic Meter"
+                            ],
+                            "sortName": "ivd_rate_unit",
+                            "fieldName": "ivd_rate_unit",
+                            "isSearchable": true
+                        },
+                        {
+                            "label": "Quantity",
+                            "name": "ivd_qty",
+                            "type": "text",
+                            "sortName": "ivd_qty",
+                            "fieldName": "ivd_qty"
+                        },
+                        {
+                            "label": "Total",
+                            "name": "ivd_activitytotal",
+                            "type": "label",
+                            "sortName": "ivd_activitytotal",
+                            "fieldName": "ivd_activitytotal"
+                        },
+                        {
+                            "label": "Scope Description",
+                            "name": "ivd_scope_description",
+                            "type": "icon",
+                            "popupJSON": {
+                                "title": "Scope Description",
+                                "fields": [
+                                    {
+                                        "width": 12,
+                                        "fieldWidth": "100",
+                                        "name": "ivd_scope_description",
+                                        "type": "textArea",
+                                        "pattern": "^[a-zA-Z0-9 .]{1,30}$",
+                                        "placeholder": "Enter Description"
+                                    }
+                                ]
+                            },
+                            "inputHeight": "100px"
+                        }
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Activity",
+                                "name": "ivd_ref_nos",
+                                "type": "label",
+                                "sortName": "ivd_ref_nos",
+                                "fieldName": "ivd_ref_nos"
+                            },
+                            {
+                                "label": "Activity",
+                                "name": "fk_activitymaster",
+                                "type": "label",
+                                "sortName": "fk_activitymaster",
+                                "fieldName": "fk_activitymaster"
+                            },
+                            {
+                                "label": "Rate",
+                                "name": "ivd_rate",
+                                "type": "number",
+                                "sortName": "ivd_rate",
+                                "fieldName": "ivd_rate"
+                            },
+                            {
+                                "label": "Unit",
+                                "name": "ivd_rate_unit",
+                                "type": "select",
+                                "options": [
+                                    "Lumpsum",
+                                    "Per Bags",
+                                    "Per Barge",
+                                    "Per Certificate",
+                                    "Per Consignment",
+                                    "Per Container",
+                                    "Per Day",
+                                    "Per Hatch",
+                                    "Per Hold",
+                                    "Per Location",
+                                    "Per Lot",
+                                    "Per Machine",
+                                    "Per Mines",
+                                    "Per Month",
+                                    "Per Night",
+                                    "Per Person",
+                                    "Per Rake",
+                                    "Per Sample",
+                                    "Per Seal",
+                                    "Per Shift",
+                                    "Per Shipment",
+                                    "Per Size",
+                                    "Per Stack",
+                                    "Per Survey",
+                                    "Per Truck",
+                                    "Per Vessel",
+                                    "PMT",
+                                    "Subject to Minimum",
+                                    "Cubic Meter"
+                                ],
+                                "sortName": "ivd_rate_unit",
+                                "fieldName": "ivd_rate_unit",
+                                "isSearchable": true,
+                                "fieldWidth": "75",
+                                "upperClass": "popupUpperClass"
+                            },
+                            {
+                                "label": "Quantity",
+                                "name": "ivd_qty",
+                                "type": "number",
+                                "sortName": "ivd_qty",
+                                "fieldName": "ivd_qty"
+                            },
+                            {
+                                "label": "Total",
+                                "name": "ivd_activitytotal",
+                                "type": "text",
+                                "readOnly": true,
+                                "defaultValue": 0,
+                                "sortName": "ivd_activitytotal",
+                                "fieldName": "ivd_activitytotal"
+                            },
+                            {
+                                "label": "Scope Description",
+                                "name": "ivd_scope_description",
+                                "type": "icon",
+                                "popupJSON": {
+                                    "title": "Scope Description",
+                                    "fields": [
+                                        {
+                                            "width": 12,
+                                            "fieldWidth": "100",
+                                            "name": "ivd_scope_description",
+                                            "type": "textArea"
+                                        }
+                                    ]
+                                },
+                                "inputHeight": "100px"
+                            }
+                        ]
+                    ],
+                    "actions": [
+                        {
+                            "label": "bi bi-eye h6",
+                            "value": "View",
+                            "type": "icon",
+                            "status": "vesseListView"
+                        }
+                    ],
+                    "statusesWithIcon": [],
+                    "statusesWithColor": []
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Save",
+            "type": "icon",
+            "redirectUrl": "/operation/invoice-listing",
+            "permission": "save"
+        }
+    ],
+    "popupMessages": {
+        "donwload": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

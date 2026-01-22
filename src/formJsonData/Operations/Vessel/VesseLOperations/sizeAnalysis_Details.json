@@ -1,0 +1,138 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Size Analysis",
+      "type": "manualTable",
+      "headers": [
+        {
+          "name": "group_no",
+          "type": "label",
+          "label": "Group No",
+          "width": 6,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "pa_sample_mark_id",
+          "type": "label",
+          "fieldtype": "object",
+          "label": "Sample Mark",
+          "width": 6,
+          "required": true,
+          "fieldWidth": "100",
+          "noCheckFirstOption":true
+        },
+        {
+          "name": "qty",
+          "type": "label",
+          "label": "Quantity",
+          "width": 6,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "size_analysis",
+          "type": "label",
+          "label": "Parameter",
+          "width": 6,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "result",
+          "type": "label",
+          "label": "Result",
+          "width": 6,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "unit",
+          "type": "label",
+          "label": "Unit",
+          "width": 6,
+          "required": true,
+          "fieldWidth": "100"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "group_no",
+            "type": "number",
+            "label": "Group No",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "pa_sample_mark_id",
+            "type": "text",
+            "fieldtype": "object",
+            "label": "Sample Mark",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100",
+          "noCheckFirstOption":true
+          },
+          {
+            "name": "qty",
+            "type": "number",
+            "label": "Value",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "size_analysis",
+            "type": "text",
+            "label": "Size Analysis",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "result",
+            "type": "number",
+            "label": "Value",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "unit",
+            "type": "text",
+            "label": "Unit.",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

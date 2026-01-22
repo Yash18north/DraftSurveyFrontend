@@ -1,0 +1,413 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/list/",
+    "read": "/sfm/list/",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete",
+    "statuCount":"/sfmstatuwisecount/get"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "SFM List",
+      "redirect": "/SFMList"
+    }
+  ],
+  "sections": [
+    {
+      "title": "SFM List",
+      "type": "list",
+      "headers": [
+        {
+          "label": "Date  of Sample Receipt",
+          "name": "test_memo_ID",
+          "type": "text"
+        },
+        {
+          "label": "SFM Number",
+          "name": "inward_number",
+          "type": "text"
+        },
+        {
+          "label": "Expected Date of Result",
+          "name": "commodity",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "date_receipt_sample",
+          "type": "date"
+        },
+        {
+          "label": "Actual Date of Reporting",
+          "name": "completion_date",
+          "type": "date"
+        },
+        { "label": "Status", "name": "status", "type": "text" },
+
+        { "label": "Action", "name": "action", "type": "text", "colSpan": "9" }
+      ],
+      "rows": [
+        [
+          { "label": "2311", "name": "test_memo_id", "type": "label" },
+          {
+            "label": "5472324455678",
+            "name": "inward_id",
+            "type": "label"
+          },
+          { "label": "Coal", "name": "commodity", "type": "label" },
+          {
+            "label": "2023-12-04",
+            "name": "client_name",
+            "type": "label",
+            "defaultValue": "2023-12-04"
+          },
+          {
+            "label": "2023-12-10",
+            "name": "client_name",
+            "type": "label"
+          },
+          {
+            "label": "In Progress",
+            "name": "status",
+            "type": "label"
+          },
+          {
+            "label": "Edit",
+            "name": "test_memo_edit",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=edit",
+            "icon": "bi bi-pen  h6 "
+          },
+
+          {
+            "label": "bi bi-filetype-csv h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as CSV"
+          },
+          {
+            "label": "bi bi-file-earmark-pdf-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as PDF"
+          },
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          },
+          {
+            "label": "bi bi-x-circle-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Cancel"
+          }
+        ],
+        [
+          { "label": "2312", "name": "test_memo_id", "type": "label" },
+          {
+            "label": "1312",
+            "name": "inward_id",
+            "type": "label"
+          },
+          { "label": "Limestone", "name": "commodity", "type": "label" },
+          {
+            "label": "2023-12-12",
+            "name": "client_name",
+            "type": "label",
+            "defaultValue": "2023-12-12"
+          },
+          {
+            "label": "2023-12-14",
+            "name": "client_name",
+            "type": "label"
+          },
+          {
+            "label": "Alloted",
+            "name": "status",
+            "type": "label"
+          },
+          {
+            "label": "Edit",
+            "name": "test_memo_edit",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=edit",
+            "icon": "bi bi-pen  h6 "
+          },
+
+          {
+            "label": "bi bi-filetype-csv h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as CSV"
+          },
+          {
+            "label": "bi bi-file-earmark-pdf-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as PDF"
+          },
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          },
+          {
+            "label": "bi bi-x-circle-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Cancel"
+          }
+        ],
+        [
+          { "label": "2313", "name": "test_memo_id", "type": "label" },
+          {
+            "label": "1313",
+            "name": "inward_id",
+            "type": "label"
+          },
+          { "label": "Gypsum", "name": "commodity", "type": "label" },
+          {
+            "label": "2023-12-21",
+            "name": "client_name",
+            "type": "label",
+            "defaultValue": "2023-12-04"
+          },
+          {
+            "label": "2023-12-25",
+            "name": "client_name",
+            "type": "label"
+          },
+          {
+            "label": "In Progress",
+            "name": "status",
+            "type": "label"
+          },
+          {
+            "label": "Edit",
+            "name": "test_memo_edit",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=edit",
+            "icon": "bi bi-pen  h6 "
+          },
+
+          {
+            "label": "bi bi-filetype-csv h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as CSV"
+          },
+          {
+            "label": "bi bi-file-earmark-pdf-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as PDF"
+          },
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          },
+          {
+            "label": "bi bi-x-circle-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Cancel"
+          }
+        ]
+      ]
+    }
+  ],
+  "listView": {
+    "title": "Test Memo List",
+    "type": "list",
+    "moduleType": "sfm",
+    "headers": [
+      {
+        "label": "Allotment Number",
+        "name": "allotment_number",
+        "type": "text"
+      },
+      {
+        "label": "Sample Code",
+        "name": "ops_sp_lab_smplcode",
+        "type": "text",
+        "sortName": "ops_sp_lab_smplcode",
+        "fieldName": "ops_sp_lab_smplcode",
+        "isNoSort":true
+      },
+      {
+        "label": "Date of Analysis Started",
+        "name": "sfm_dateanalysisstarted",
+        "type": "date",
+        "sortName": "sfm_dateanalysisstarted"
+      },
+      {
+        "label": "Commodity",
+        "name": "commodity",
+        "type": "text",
+        "sortName": "fk_commodityid__cmd_name"
+      },
+      {
+        "label": "Expected Date of Analysis Completion",
+        "name": "sfm_dateanalysiscompleted",
+        "type": "date",
+        "sortName": "sfm_dateanalysiscompleted"
+      },
+      {
+        "label": "Status",
+        "name": "sfm_status",
+        "type": "text",
+        "sortName": "sfm_status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        { "label": "2311", "name": "test_memo_id", "type": "label" },
+        {
+          "label": "5472324455678",
+          "name": "inward_id",
+          "type": "label"
+        },
+        { "label": "Coal", "name": "commodity", "type": "label" },
+        {
+          "label": "2023-12-04",
+          "name": "client_name",
+          "type": "label",
+          "defaultValue": "2023-12-04"
+        },
+        {
+          "label": "2023-12-10",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Created",
+          "name": "testmemo_status",
+          "type": "label"
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6 ",
+        "type": "icon",
+        "redirectUrl": "#",
+        "value": "View",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-file-earmark-pdf h6",
+        "value": "PDF",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi-x-circle-fill h6 ",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm"
+      },
+      {
+        "label": "Result",
+        "redirectUrl": "/SFMList/result",
+        "status": "SFMResult"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/SFMList/result",
+        "status": "SFMUpdate"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Pending",
+        "name": "pending",
+        "status": "pending",
+        "image": "PendingIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Completed",
+        "name": "completed",
+        "status": "completed",
+        "image": "CompletedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "In Process",
+        "name": "in-process",
+        "status": "in-process",
+        "image": "InprocessIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Rejected",
+        "name": "rejected",
+        "status": "rejected",
+        "image": "RejectedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      { "icon": "saved_sym", "name": "Pending","status":"pending" },
+      { "icon": "completed_sym", "name": "Completed","status":"completed" },
+      { "icon": "inprocess_sym", "name": "In-process","status":"in-process" },
+      { "icon": "rejected_sym", "name": "Rejected", "status": "rejected" }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

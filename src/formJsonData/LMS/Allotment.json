@@ -1,0 +1,93 @@
+{
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Allotment List",
+      "redirect": "/allotmentList"
+    },
+    {
+      "title": "Allotment",
+      "redirect": "/allotmentList"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Test Memo Form",
+      "moduleType": "allotment",
+      "fields": [
+        {
+          "width": 12,
+          "label": "Allotment",
+          "type": "label",
+          "styleName": "section_heading"
+        },
+        {
+          "width": 6,
+          "name": "sa_actualdateofreporting",
+          "label": "Date of Allotment",
+          "type": "date",
+          "required": 1
+        },
+        {
+          "width": 6,
+          "label": "Commodity",
+          "name": "jrf_commodity",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "label": "Sample Alloted to",
+          "name": "sa_sampleallottedto",
+          "type": "select",
+          "options": [],
+          "placeholder": "",
+          "required": 1
+        },
+        {
+          "width": 6,
+          "name": "sa_expdateofresult",
+          "label": "Expected Date of Completion",
+          "type": "date",
+          "required": 1
+        },
+        {
+          "width": 6,
+          "label": "Remark",
+          "name": "sa_remarks",
+          "type": "text",
+
+          "placeholder": "Enter Remark (if Any)"
+        },
+        {
+          "width": 6,
+          "name": "sa_inward_no",
+          "label": "Inward Number",
+          "type": "label",
+          "required": 1
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "allotment": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to allot?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

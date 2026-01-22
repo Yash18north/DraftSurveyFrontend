@@ -1,0 +1,168 @@
+{
+  "breadcom": [
+    {
+      "title": "Vessel List",
+      "redirect": "/operation/vessel-ji-list"
+    },
+    {
+      "title": "Vessel Operations",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "fields": [],
+      "subSections": []
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Sample Information",
+          "type": "table",
+          "isUseForVessel": true,
+          "isSeperatePopupOpen": true,
+          "headers": [
+            {
+              "name": "jism_sampling_date",
+              "type": "label",
+              "label": "Date of Sampling",
+              "width": 6,
+              "fieldWidth": "100",
+              "isShowTable": true
+            },
+            {
+              "name": "jism_client_sample_mark",
+              "type": "label",
+              "label": "Client Sample Mark",
+              "width": 6,
+              "fieldWidth": "100",
+              "isShowTable": true
+            },
+            {
+              "name": "jism_marknumber",
+              "type": "label",
+              "label": "Sample Mark",
+              "width": 6,
+              "fieldWidth": "100",
+              "isShowTable": true
+            },
+            {
+              "name": "jism_truck_no",
+              "type": "label",
+              "label": "No. of Truck",
+              "width": 6,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jism_quantity",
+              "type": "label",
+              "label": "Lot Quantity",
+              "width": 6,
+              "fieldWidth": "100",
+              "isShowTable": true
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "jism_sampling_date",
+                "type": "date",
+                "label": "Date of Sampling",
+                "width": 6,
+                "fieldWidth": "100",
+                "isShowTable": true
+              },
+              {
+                "name": "jism_client_sample_mark",
+                "type": "text",
+                "label": "Client Sample Mark",
+                "width": 6,
+                "fieldWidth": "100",
+                "value": "",
+                "isShowTable": true
+              },
+              {
+                "name": "jism_marknumber",
+                "type": "label",
+                "label": "Sample Mark",
+                "width": 6,
+                "fieldWidth": "100",
+                "value": "To be Generated",
+                "isShowTable": true
+              },
+              {
+                "name": "jism_truck_no",
+                "type": "number",
+                "label": "No. of Trucks",
+                "width": 6,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "jism_quantity",
+                "type": "number",
+                "label": "Quantity",
+                "width": 6,
+                "fieldWidth": "100",
+                "isShowTable": true
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

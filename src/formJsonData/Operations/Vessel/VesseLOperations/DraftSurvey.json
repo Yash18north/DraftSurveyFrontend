@@ -1,0 +1,79 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label":"Draft Survey",
+      "type": "draftSurveyTable",
+      "isUseForVessel": true,
+      "headers1": [
+        {
+          "label": "Fresh Water",
+          "name":"fresh_water"
+        },
+        {
+          "label": "Ballast Water",
+          "name":"ballast_water"
+        },
+        {
+          "label": "Fuel/Heavy Oil",
+          "name":"fuel_heavy_water"
+        },
+        {
+          "label": "Diesel Oil",
+          "name":"diesel_water"
+        },
+        {
+          "label": "Lube Oil",
+          "name":"lube_water"
+        },
+        {
+          "label": "Other",
+          "name":"other"
+        }
+      ],
+      "headers2": [
+        {
+          "label": "Mean Forward",
+          "name":"mean_forward"
+        },
+        {
+          "label": "Mean Aft",
+          "name":"mean_aft"
+        },
+        {
+          "label": "Port Mid Ship",
+          "name":"port_mid_ship"
+        },
+        {
+          "label": "Starboard MidShip",
+          "name":"starboard_ship"
+        },
+        {
+          "label": "Corrected Mean of Means",
+          "name":"corrected_mean_of_means"
+        },
+        {
+          "label": "Displacement",
+          "name":"displacement"
+        },
+        {
+          "label": "Trim Correction",
+          "name":"trim_correction"
+        },
+        {
+          "label": "Observed Density",
+          "name":"observed_density"
+        },
+        {
+          "label": "Density Correction",
+          "name":"density_correction"
+        },
+        {
+          "label": "Corrected Displacement",
+          "name":"corrected_displacement"
+        }
+      ]
+    }
+  ]
+}

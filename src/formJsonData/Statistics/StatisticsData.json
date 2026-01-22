@@ -1,0 +1,83 @@
+{
+    "title": "Statistics Data",
+    "summary": [
+        {
+            "label": "TOTAL UNIQUE USERS / TOTAL LOGINS",
+            "value": "0 / 0"
+        }
+    ],
+    "BarChartsData": [
+        {
+            "title": "LMS METRICS - Total and Today's Count",
+            "chartType": "bar",
+            "data": [
+                
+            ],
+            "labels": {
+                "total": "Total",
+                "today": "Today's"
+            },
+            "width": 6
+        },
+        {
+            "title": "Operations Metrics - Total and Today's Count",
+            "chartType": "bar",
+            "data": [],
+            "labels": {
+                "total": "Total",
+                "today": "Today's"
+            },
+            "width": 6
+        },
+        {
+            "title": "Job Instructions Breakdown - Total and Today's Count",
+            "chartType": "bar",
+            "data": [],
+            "labels": {
+                "total": "Total",
+                "today": "Today's"
+            },
+            "width": 12
+        },
+        {
+            "width": 12,
+            "title": "Job Instructions by Activities",
+            "chartType": "bar",
+            "data": [],
+            "labels": {
+                "total": "Total",
+                "today": "Today's"
+            },
+            "isCustomFilter": 1,
+            "filterFields": [
+                {
+                    "width": 3,
+                    "name": "sub_module_type",
+                    "placeholder": "Select Module Type",
+                    "label": "Module",
+                    "type": "select",
+                    "options": [
+                        "Job Instructions",
+                        "Invoice",
+                        "Certificates"
+                    ],
+                    "defaultValue": "Job Instructions",
+                    "upperClass": "popupUpperClass"
+                },
+                {
+                    "width": 3,
+                    "name": "sub_record_type",
+                    "placeholder": "Select Record Type",
+                    "label": "Type",
+                    "type": "select",
+                    "options": [
+                        "Activity",
+                        "Branch"
+                    ],
+                    "defaultValue": "Activity",
+                    "upperClass": "popupUpperClass"
+                }
+            ]
+        }
+    ]
+}

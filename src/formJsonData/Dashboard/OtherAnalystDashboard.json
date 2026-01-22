@@ -1,0 +1,173 @@
+{
+    "title": "Other Operations Analytics Dashboard",
+    "summary": [
+        {
+            "label": "Loading vs Unloading",
+            "value": "0 / 0"
+        }
+    ],
+    "isFilter": true,
+    "moduleType":"OTHER",
+    "filterListing": [
+        {
+            "width": 12,
+            "label": "Filters",
+            "styleName": "section_heading",
+            "type": "label",
+            "errorMsgs": {
+                "required": "This field is required"
+            }
+        },
+        {
+            "width": 3,
+            "name": "start_date",
+            "placeholder": "Start date",
+            "type": "date",
+            "filterType": "Date",
+            "upperClass": "popupUpperClass",
+            "label": "Start Date",
+            "noDefaultValue": true
+        },
+        {
+            "width": 3,
+            "name": "end_date",
+            "placeholder": "End date",
+            "type": "date",
+            "filterType": "Date",
+            "upperClass": "popupUpperClass",
+            "label": "End Date",
+            "noDefaultValue": true
+        },
+        {
+            "width": 3,
+            "name": "commodity_id",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/masters/list",
+            "model_name": "commodity",
+            "apimethod": "POST",
+            "isSearchable": true,
+            "optionData": {
+                "id": "cmd_id",
+                "label": "cmd_name"
+            },
+            "upperClass": "popupUpperClass",
+            "label": "Commodity"
+        },
+        {
+            "width": 3,
+            "labelWidth": "50%",
+            "name": "port_country_id",
+            "placeholder": "Select",
+            "label": "Port country",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/masters/list",
+            "model_name": "country",
+            "apimethod": "POST",
+            "isSearchable": true,
+            "optionData": {
+                "id": "country_id",
+                "label": "country_name"
+            },
+            "upperClass": "popupUpperClass"
+        },
+        {
+            "width": 3,
+            "name": "port_id",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/countrywise-port/get/",
+            "apimethod": "POST",
+            "isSearchable": "true",
+            "optionData": {
+                "id": "port_id",
+                "label": "port_name"
+            },
+            "customPayload": {
+                "name": "country_id",
+                "value": "port_country_id"
+            },
+            "isCustomPayload": true,
+            "options": [],
+            "label": "Port Name",
+            "upperClass": "popupUpperClass"
+        },
+        {
+            "width": 3,
+            "name": "state_id",
+            "placeholder": "Select",
+            "label": "State Name",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/masters/list",
+            "model_name": "state",
+            "apimethod": "POST",
+            "isSearchable": true,
+            "isCustomPayload": true,
+            "optionData": {
+                "id": 0,
+                "label": 1
+            },
+            "customPayload": {
+                "name": "selected_id",
+                "value": "port_country_id"
+            },
+            "upperClass": "popupUpperClass"
+        },
+        {
+            "width": 3,
+            "name": "branch_id",
+            "type": "select",
+            "multiple": true,
+            "apiendpoint": "/masters/list",
+            "model_name": "branch",
+            "apimethod": "POST",
+            "isSearchable": true,
+            "optionData": {
+                "id": "br_id",
+                "label": "br_name",
+                "label2": "br_code"
+            },
+            "upperClass": "popupUpperClass",
+            "label": "Branch"
+        },
+        {
+            "width": 3,
+            "name": "operation_type_id",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "masters/opmaster/list/",
+            "apimethod": "GET",
+            "isSearchable": "true",
+            "optionData": {
+                "id": "ops_id",
+                "label": "ops_name"
+            },
+            "upperClass": "popupUpperClass",
+            "label": "Mode of Work"
+        }
+    ],
+    "BarChartsData": [
+        {
+            "title": "Place-wise Quantity: Loaded vs Unloaded (MT)",
+            "chartType": "bar",
+            "isExport": 1,
+            "apiEndPoint": "/analytics/port-loading-unloading-count/",
+            "data": [],
+            "labels": {
+                "unloading_count": "UnLoading",
+                "loading_count": "Loading"
+            },
+            "filterType": "yearly",
+            "isQuantity":1
+        },
+        {
+            "title": "Branch wise loading unloading Count",
+            "chartType": "bar",
+            "isExport": 1,
+            "apiEndPoint": "/analytics/branch-loading-unloading-count/",
+            "data": [],
+            "labels": {
+                "unloading_count": "UnLoading",
+                "loading_count": "Loading"
+            },
+            "filterType": "yearly"
+        }
+    ]
+}

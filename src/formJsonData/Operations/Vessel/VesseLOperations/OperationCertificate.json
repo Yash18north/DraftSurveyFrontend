@@ -1,0 +1,555 @@
+{
+  "breadcom": [
+    {
+      "title": "Operation",
+      "redirect": "#"
+    },
+    {
+      "title": "Commercial Certificate List",
+      "redirect": "#"
+    },
+    {
+      "title": "Commercial Certificate",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jobinstruction/get/",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "operationCertificate",
+      "isExternal": true,
+      "fields": [
+        {
+          "width": 12,
+          "label": "Certificate",
+          "styleName": "section_heading",
+          "type": "label",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "cert_number",
+          "label": "Certificate No.",
+          "type": "label",
+          "isPatternMessage": true,
+          "tooltip": "The input should start with a letter, followed by digits, then another letter, and ending with digits. Example: C04272425H1624.",
+          "value": "To be Generated"
+        },
+        {
+          "width": 6,
+          "name": "ji_reference_number",
+          "label": "Reference No",
+          "type": "text",
+          "errorMsgs": {
+            "pattern": "Please enter Valid Reference no.",
+            "required": "Please enter reference no."
+          },
+          "placeholder": "Enter Reference Number",
+          "isCapitalValue": true,
+          "tooltip": "Before inputting the Ref. No., note its format: State GST (27),Company Code(C) ,Financial Year (2324), Work Location (B), Commodity (01), Transport (VL), Serial Number (0001). Ensure accuracy for precision.",
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "ji_date",
+          "label": "Date",
+          "type": "date",
+          "placeholder": "Enter Date",
+          "pastDate": true,
+          "pastdays": 7,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "ji_sub_commodity_name",
+          "label": "Cargo",
+          "type": "text",
+          "placeholder": "Enter Cargo Name",
+          "pastDate": true,
+          "pastdays": 7,
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "cc_accountof",
+          "label": "Account of",
+          "type": "text",
+          "placeholder": "Enter Account",
+          "pastDate": true,
+          "pastdays": 7,
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "cc_eia",
+          "label": "EIA",
+          "type": "text",
+          "placeholder": "Enter EIA"
+        },
+        {
+          "width": 6,
+          "name": "cc_show_rounded_qty",
+          "label": "Is Rounded Qty show",
+          "type": "checkbox",
+          "options": [
+            true
+          ]
+        },
+        {
+          "width": 6,
+          "name": "cc_is_hide_basis",
+          "label": "Is Hide Basis",
+          "type": "checkbox",
+          "options": [
+            true
+          ]
+        },
+        {
+          "width": 6,
+          "name": "cc_is_qty_display",
+          "label": "Is Qty Display",
+          "type": "checkbox",
+          "options": [
+            true
+          ]
+        },
+        {
+          "width": 12,
+          "name": "jrf_header",
+          "label": "Top Header",
+          "labelWidth": "13%",
+          "fieldWidth": 100,
+          "characterLimit": 1024,
+          "type": "textAreaEditor",
+          "placeholder": "Enter Top Header",
+          "pastDate": true,
+          "pastdays": 7,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 12,
+          "name": "jrf_bottom",
+          "label": "Bottom Header",
+          "type": "textAreaEditor",
+          "labelWidth": "13%",
+          "fieldWidth": 100,
+          "characterLimit": 1024,
+          "placeholder": "Enter Bottom Header",
+          "pastDate": true,
+          "pastdays": 7,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 12,
+          "name": "cc_additional_remark",
+          "label": "Remark",
+          "labelWidth": "13%",
+          "fieldWidth": 100,
+          "characterLimit": 1024,
+          "type": "textAreaEditor",
+          "placeholder": "Enter Remark",
+          "pastDate": true,
+          "pastdays": 7,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "cc_remark",
+          "label": "Reject Remark",
+          "type": "text",
+          "placeholder": "",
+          "readOnly": true
+        },
+        {
+          "width": 12,
+          "label": "Header Details",
+          "styleName": "section_heading",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "cc_supp_buyer",
+          "label": "Supplier / Buyer",
+          "placeholder": "Enter  Supplier / Buyer",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/supplier/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "supl_id",
+            "label": "supl_name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "cc_fk_place_pf_work_id",
+          "label": "Place of Work",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/placeofwork/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "pow_id",
+            "label": "pow_name"
+          }
+        },
+        {
+          "name": "cc_other_placework",
+          "type": "text",
+          "label": "Other Place of Work",
+          "width": 6,
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "cc_fk_sub_commodity_id",
+          "label": "Sub Commodity",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/ji-commodity/get/",
+          "apimethod": "POST",
+          "isSearchable": "true",
+          "optionData": {
+            "id": "sub_cmd_id",
+            "label": "sub_cmd_name"
+          },
+          "customPayload": {
+            "name": "cmd_id",
+            "value": "fk_commodityid"
+          },
+          "isCustomPayload": true
+        },
+        {
+          "width": 6,
+          "label": "Appointed Quantity",
+          "labelWidth": "30",
+          "name": "cc_appointed_totalqty",
+          "secondName": "cc_appointed_qty_unit",
+          "type": "doubleText",
+          "fieldWidth": 75,
+          "upperFieldWidth": "75",
+          "secondPlaceholder": "Unit",
+          "placeholder": "Quantity",
+          "secondType": "text",
+          "secondValue": "MT",
+          "required": true,
+          "isShowDefaultDash": true
+        },
+        {
+          "width": 6,
+          "name": "cc_is_rake_details",
+          "label": "Is Rake details show",
+          "type": "checkbox",
+          "options": [
+            true
+          ]
+        },
+        {
+          "width": 6,
+          "label": "Sample Mark",
+          "name": "cc_physical_report_sample_marks",
+          "type": "select",
+          "multiple": true,
+          "options": [],
+          "placeholder": "Sample Mark"
+        },
+        {
+          "width": 6,
+          "name": "cc_is_other_format",
+          "label": "Is Other Format?",
+          "type": "checkbox",
+          "options": [
+            true
+          ]
+        },
+        {
+          "width": 6,
+          "name": "fk_cc_cert_format_id",
+          "label": "Other Format Type",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/client-certificate-format/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "client_certificate_format_id",
+            "label": "client_certificate_format_name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "eic_bl_number",
+          "label": "BL Number",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "eic_weight_avg_moisture",
+          "label": "WTD Avg. moisture",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "eic_eia_code",
+          "label": "EIA Code",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "dpl_source",
+          "label": "Source",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "dpl_name_colliery",
+          "label": "Name of Colliery",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "dpl_analysis_completed_on",
+          "label": "Analysis completed on",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "dpl_smpl_mark_date",
+          "label": "Sample Mark and Date(which is diff. from regular sample mark)",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Rake Details",
+          "type": "tabs",
+          "hidetab": true,
+          "fields": [
+            {
+              "width": 12,
+              "label": "Rake Details",
+              "styleName": "section_heading",
+              "type": "label",
+              "errorMsgs": {
+                "required": "This field is required"
+              }
+            },
+            {
+              "width": 6,
+              "name": "wagon",
+              "label": "Wagon",
+              "type": "radio",
+              "options": [
+                "Loading",
+                "Unloading"
+              ]
+            },
+            {
+              "width": 6
+            },
+            {
+              "width": 6,
+              "name": "no_of_wagons",
+              "label": "No. of Wagons",
+              "type": "text",
+              "placeholder": "No. of Wagons"
+            },
+            {
+              "width": 6,
+              "name": "indent_no",
+              "label": "Indent No. ",
+              "type": "text",
+              "placeholder": "Enter Indent No."
+            },
+            {
+              "width": 6,
+              "name": "indent_datetime",
+              "label": "Indent Date / Time",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD /  HH : MM",
+              "fieldWidth": "75",
+              "showTimeSelect": true,
+              "noDefaultValue": true
+            },
+            {
+              "width": 6,
+              "name": "placement_datetime",
+              "label": "Placement Date/Time",
+              "type": "date",
+              "showTimeSelect": true,
+              "fieldWidth": "75",
+              "placeholder": "YYYY-MM-DD /  HH : MM",
+              "noDefaultValue": true
+            },
+            {
+              "width": 6,
+              "name": "commenced_datetime",
+              "label": "Commenced Date / Time",
+              "type": "date",
+              "fieldWidth": "75",
+              "placeholder": "YYYY-MM-DD /  HH : MM",
+              "showTimeSelect": true,
+              "noDefaultValue": true
+            },
+            {
+              "width": 6,
+              "name": "completed_datetime",
+              "label": "Completed Date/Time",
+              "type": "date",
+              "showTimeSelect": true,
+              "fieldWidth": "75",
+              "placeholder": "YYYY-MM-DD /  HH : MM",
+              "noDefaultValue": true
+            },
+            {
+              "width": 6,
+              "name": "r_r_number",
+              "label": "R.R Number",
+              "type": "text",
+              "placeholder": "Enter R.R Number",
+              "errorMsgs": {
+                "required": "This field is required"
+              }
+            },
+            {
+              "width": 6,
+              "name": "r_r_datetime",
+              "label": "R.R Date",
+              "type": "date",
+              "fieldWidth": "75",
+              "placeholder": "YYYY-MM-DD",
+              "errorMsgs": {
+                "required": "This field is required"
+              },
+              "noDefaultValue": true
+            },
+            {
+              "width": 6,
+              "label": "R.R Qty.",
+              "name": "r_r_qty",
+              "secondName": "r_r_qty_unit",
+              "type": "doubleText",
+              "firstType": "text",
+              "secondType": "text",
+              "fieldWidth": 75,
+              "upperFieldWidth": "75",
+              "secondValue": "MT"
+            },
+            {
+              "width": 6,
+              "label": "Assessment Qty.",
+              "name": "assessment_qty",
+              "secondName": "assessment_qty_unit",
+              "type": "doubleText",
+              "firstType": "text",
+              "secondType": "text",
+              "upperFieldWidth": "75",
+              "fieldWidth": 75,
+              "secondValue": "MT"
+            },
+            {
+              "width": 6,
+              "name": "rot_number",
+              "label": "Received Quantity",
+              "type": "text",
+              "placeholder": "Enter Received Quantity",
+              "errorMsgs": {
+                "required": "This field is required"
+              },
+              "value": ""
+            },
+            {
+              "width": 6,
+              "name": "density",
+              "label": "Density",
+              "type": "text",
+              "placeholder": "Enter Density",
+              "errorMsgs": {
+                "required": "This field is required"
+              },
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "r_r_wgn_typ",
+              "label": "Type of Wagon",
+              "type": "text",
+              "placeholder": "Enter Type of Wagon"
+            },
+            {
+              "width": 6,
+              "name": "r_r_sft_qty",
+              "label": "Shifted Quantity",
+              "type": "number",
+              "placeholder": "Enter Shifted Quantity"
+            },
+            {
+              "width": 6,
+              "name": "r_r_cll_nam",
+              "label": "Name of Colliery",
+              "type": "text",
+              "placeholder": "Enter Name of Colliery"
+            },
+            {
+              "width": 6,
+              "name": "r_r_tp_qty",
+              "label": "TP Quantity",
+              "type": "number",
+              "placeholder": "Enter TP Quantity"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

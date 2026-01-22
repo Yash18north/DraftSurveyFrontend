@@ -1,0 +1,928 @@
+{
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Sample Inward List",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Sample Inward List",
+      "type": "list",
+      "headers": [
+        {
+          "label": "Inward Date",
+          "name": "inward_date",
+          "type": "text"
+        },
+        {
+          "label": "Inward Number",
+          "name": "inward_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "text"
+        },
+        { "label": "JRF No.", "name": "jrf_number", "type": "text" },
+
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text",
+          "textAlign":"left",
+          "fieldName": "status"
+        },
+
+        { "label": "Action", "name": "action", "type": "text", "colSpan": "8" }
+      ],
+      "rows": [
+        [
+          { "label": "5472324455678", "name": "inward_id", "type": "label" },
+          {
+            "label": "gypsum",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455679",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7071",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Inwarded",
+            "name": "status",
+            "type": "label"
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment"
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455679", "name": "inward_id", "type": "label" },
+          {
+            "label": "Limestone",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455680",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7072",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Parameterized",
+            "name": "status",
+            "type": "label"
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create"
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455680", "name": "inward_id", "type": "label" },
+          {
+            "label": "Gypsum",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455679",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7073",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Test Memo",
+            "name": "status",
+            "type": "label",
+            "disabled": true
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455681", "name": "inward_id", "type": "label" },
+          {
+            "label": "Coal",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455679",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7074",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Alloted",
+            "name": "status",
+            "type": "label",
+            "disabled": true
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455682", "name": "inward_id", "type": "label" },
+          {
+            "label": "Limestone",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455679",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7075",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "SFM",
+            "name": "status",
+            "type": "label",
+            "disabled": true
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455683", "name": "inward_id", "type": "label" },
+          {
+            "label": "Gypsum",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455679",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7071",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Results",
+            "name": "status",
+            "type": "label",
+            "disabled": true
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455684", "name": "inward_id", "type": "label" },
+          {
+            "label": "Coal",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455682",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7071",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Certified",
+            "name": "status",
+            "type": "label",
+            "disabled": true
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455685", "name": "inward_id", "type": "label" },
+          {
+            "label": "Limestone",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455679",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7071",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Cancelled",
+            "name": "status",
+            "type": "label",
+            "disabled": true
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ]
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/sampleinward/list/",
+    "read": "/sampleinward/list/",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete",
+    "statuCount": "/inwardstatuscount/get",
+    "exportExcel": "/inward_excel/get"
+  },
+  "listView": {
+    "title": "Sample Inward List",
+
+    "moduleType": "sampleinward",
+    "type": "list",
+    "headers": [
+      {
+        "label": "Date of receipt",
+        "name": "smpl_dos",
+        "type": "date",
+        "sortName": "smpl_dos"
+      },
+      {
+        "label": "JRF No.",
+        "name": "smpl_jrf_no",
+        "type": "text",
+        "sortName": "smpl_jrf_no"
+      },
+      {
+        "label": "Inward Number",
+        "name": "smpl_inward_number",
+        "type": "text",
+        "sortName": "smpl_inward_number"
+      },
+      {
+        "label": "Sample ID(From - To)",
+        "name": "sample_ids_from_to",
+        "type": "text",
+        "sortName": "sample_ids_from_to",
+        "isNoSort":true
+      },
+      {
+        "label": "Commodity",
+        "name": "smpl_commodity_detail",
+        "type": "text",
+        "sortName": "commodity"
+      },
+      {
+        "label": "Status",
+        "name": "smpl_status",
+        "type": "text",
+        "sortName": "smpl_status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+        { "label": "5472324455678", "name": "inward_id", "type": "label" },
+        {
+          "label": "gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455679",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7071",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Inwarded",
+          "name": "inward_status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+
+        { "label": "5472324455679", "name": "inward_id", "type": "label" },
+        {
+          "label": "Limestone",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455680",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7072",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Parameterized",
+          "name": "inward_status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+
+        { "label": "5472324455680", "name": "inward_id", "type": "label" },
+        {
+          "label": "Gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455681",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7073",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Test Memo",
+          "name": "status",
+          "type": "label",
+          "disabled": true
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+
+        { "label": "5472324455681", "name": "inward_id", "type": "label" },
+        {
+          "label": "Coal",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455682",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7074",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Alloted",
+          "name": "status",
+          "type": "label",
+          "disabled": true
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+
+        { "label": "5472324455682", "name": "inward_id", "type": "label" },
+        {
+          "label": "Limestone",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455683",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7075",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "SFM",
+          "name": "status",
+          "type": "label",
+          "disabled": true
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+
+        { "label": "5472324455683", "name": "inward_id", "type": "label" },
+        {
+          "label": "Gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455684",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7076",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Results",
+          "name": "inward_status",
+          "type": "label",
+          "disabled": true
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+
+        { "label": "5472324455684", "name": "inward_id", "type": "label" },
+        {
+          "label": "Coal",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455685",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7077",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Certified",
+          "name": "inward_status",
+          "type": "label",
+          "disabled": true
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+
+        { "label": "5472324455685", "name": "inward_id", "type": "label" },
+        {
+          "label": "Limestone",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455686",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7078",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Cancelled",
+          "name": "inward_status",
+          "type": "label",
+          "disabled": true
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "value": "View",
+        "status": "inward",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-pen h6",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "value": "Edit",
+        "status": "inward",
+        "permission": "change"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon",
+        "redirectUrl": "/module-history",
+        "status": "History"
+      },
+      {
+        "label": "Create Test Memo",
+        "redirectUrl": "/testmemoList/testmemo",
+        "status": "testMemo"
+      },
+      {
+        "label": "Assignment",
+        "redirectUrl": "/inwardList/groupAssignment",
+        "status": "assignment"
+      },
+      {
+        "label": "Sample Inward",
+        "redirectUrl": "/inwardList/inwardForm",
+        "status": "inward"
+      },
+      {
+        "label": "Test Report",
+        "redirectUrl": "/testReport/preview",
+        "status": "testReport"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Created",
+        "status": "created",
+        "name": "created",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Saved",
+        "status": "saved",
+        "name": "saved",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-check-lg",
+        "label": "Inwarded",
+        "status": "inwarded",
+        "name": "inwarded",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Assigining",
+        "status": "assigining",
+        "name": "assigining"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Assigned",
+        "status": "assigned",
+        "name": "assigned",
+        "image": "AcceptedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Sent To Lab",
+        "name": "sent to lab",
+        "status": "sent to lab",
+        "image": "InprocessIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Certified",
+        "name": "certified",
+        "status": "certified",
+        "image": "CompletedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Test Memo Created",
+        "name": "tm-created",
+        "status": "tm-created",
+        "image": "CompletedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      { "icon": "posted_sym", "name": "Created", "status": "created" },
+      { "icon": "saved_sym", "name": "Saved", "status": "saved" },
+      { "icon": "accepted_sym", "name": "Inwarded", "status": "inwarded" },
+      { "icon": "rejected_sym", "name": "Assigning", "status": "assigning" },
+      { "icon": "inprocess_sym", "name": "Assigned", "status": "assigned" },
+      { "icon": "overdue_sym", "name": "Sent to Lab", "status": "sent to lab" },
+      { "icon": "completed_sym", "name": "Certified", "status": "certified" },
+      {
+        "icon": "tmCreated_sym",
+        "name": "Test Memo Created",
+        "status": "tm-created"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

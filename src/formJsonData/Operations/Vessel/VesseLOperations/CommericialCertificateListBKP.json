@@ -1,0 +1,236 @@
+{
+  "breadcom": [
+    {
+      "title": "Operation",
+      "redirect": "#"
+    },
+    {
+      "title": "Certificates",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "commercialCertificateList",
+      "moduleSubType": "vesselList",
+      "fields": []
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Scope of work Information",
+          "type": "tableListPagination",
+          "listView": {
+            "title": "JRF List",
+            "moduleType": "vesselOperation",
+            "subModuleType": "commercialCertificate",
+            "headers": [
+              {
+                "label": "Date",
+                "name": "cc_created_time",
+                "type": "date",
+                "sortName": "cc_created_time"
+              },
+              {
+                "label": "Certificate No.",
+                "name": "cc_certificatenumber",
+                "type": "number",
+                "sortName": "fk_commodityid"
+              },
+              {
+                "label": "Reference No.",
+                "name": "cc_refencenumber",
+                "type": "number",
+                "sortName": "cc_refencenumber"
+              },
+              {
+                "label": "Activity",
+                "name": "activity",
+                "type": "text",
+                "sortName": "fk_operationtypetid",
+                "fieldName": "activity"
+              },
+              {
+                "label": "Company Name",
+                "name": "company",
+                "type": "text",
+                "sortName": "cmp_code",
+                "fieldName": "cmp_code",
+                "fromType":"array"
+              },
+              {
+                "label": "Branch Name",
+                "name": "branch",
+                "type": "text",
+                "sortName": "branch_name",
+                "fieldName": "br_name",
+                "fieldName2": "br_code",
+                "fromType":"array"
+              },
+              {
+                "label": "Status",
+                "name": "status",
+                "type": "text",
+                "sortName": "status",
+                "fieldName": "status"
+              }
+            ],
+            "rows": [
+              [
+                {
+                  "label": "1122324455678",
+                  "name": "cc_created_time",
+                  "type": "date"
+                },
+                {
+                  "label": "1122324455678",
+                  "name": "cc_certificatenumber",
+                  "type": "label"
+                },
+                {
+                  "label": "1122324455678",
+                  "name": "cc_refencenumber",
+                  "type": "label"
+                },
+                {
+                  "label": "27C2324J01VL7071",
+                  "name": "rpc_is_smpl_wghtorunit",
+                  "type": "label"
+                },
+                {
+                  "label": "TCRC Quality Controls LLP",
+                  "name": "rpc_is_smpl_type",
+                  "type": "label"
+                },
+                {
+                  "label": "In Progress",
+                  "name": "status",
+                  "type": "label"
+                }
+              ]
+            ],
+            "actions": [
+              {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "status": "vesseListView"
+              }
+            ],
+            "statusesWithIcon": [],
+            "statusesWithColor": [
+              {
+                "icon": "completed_sym",
+                "name": "Published",
+                "status": "published"
+              },
+              {
+                "icon": "inprocess_sym",
+                "name": "Pending",
+                "status": "pending"
+              },
+              {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+              },
+              {
+                "icon": "inprocess_sym",
+                "name": "Created",
+                "status": "created"
+              },
+              {
+                "icon": "posted_sym",
+                "name": "Approved",
+                "status": "approved"
+              },
+              {
+                "icon": "accepted_sym",
+                "name": "Posted",
+                "status": "posted"
+              },
+              {
+                "icon": "completed_sym",
+                "name": "Sent For Approval",
+                "status": "sent_for_approval"
+              }
+            ],
+            "isCustomFilter": true,
+            "filterListing": [
+              {
+                "width": 2,
+                "name": "activity",
+                "placeholder": "Activity",
+                "type": "select",
+                "fieldWidth": "100",
+                "filterType": "activity"
+              },
+              {
+                "width": 2,
+                "name": "fk_branchid",
+                "placeholder": "Branch",
+                "type": "select",
+                "fieldWidth": "100",
+                "filterType": "fk_branchid"
+              }
+              
+            ]
+          },
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

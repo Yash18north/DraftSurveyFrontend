@@ -1,0 +1,334 @@
+{
+  "breadcom": [
+    {
+      "title": "Job Instruction List",
+      "redirect": "/operation/jrfInstructionListing"
+    },
+    {
+      "title": "Job Instruction",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "fields": [],
+      "isSingleSetOnly":true
+    },
+    {
+      "title": "Tabs Section",
+      "styleName": "section_heading",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Scope of work",
+          "type": "table",
+          "headers": [
+            {
+              "name": "fk_activitymasterid",
+              "type": "label",
+              "label": "Scope of Work",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "fk_activitymasterid",
+                "type": "select",
+                "label": "Scope of Work",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        },
+        {
+          "label": "Group and Parameters",
+          "type": "tablePreview",
+          "groupAssignment": true,
+          "isSubPreview": true,
+          "moduleType": "groupAssignmentPreview",
+          "headers": [
+            {
+              "label": "Type",
+              "name": "samples",
+              "type": "label",
+              "required": true
+            },
+            {
+              "label": "Groups of Parameter",
+              "name": "Groups",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "width": 8,
+                "name": "is_group_param",
+                "subname": "isGroup",
+                "type": "radio",
+                "options": [
+                  "Group",
+                  "Parameter"
+                ],
+                "required": true,
+                "readOnly": true,
+                "fieldWidth": "100",
+                "placeholder": "1633",
+                "multiple": true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_paramjson",
+                "subname": "param_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_groupjson",
+                "subname": "group_id",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_testmethodjson",
+                "subname": "std_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "errorlabel": "Test Method"
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_basisjson",
+                "subname": "basis",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "multiple": true,
+                "errorlabel": "Basis"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        },
+        {
+          "label": "Nomination Details",
+          "fields": [
+            {
+              "width": 25,
+              "label": "Nomination Details",
+              "styleName": "section_heading",
+              "type": "label"
+            },
+            {
+              "width": 6,
+              "name": "ji_branch_name",
+              "label": "Branch Name",
+              "type": "label",
+              "required": true,
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "fk_userbranchheadid",
+              "label": "Branch Head",
+              "type": "label",
+              "required": true,
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "ji_branch_ex_name",
+              "label": "Operation Executive",
+              "type": "label",
+              "required": true,
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "ji_branch_ex_heade_name",
+              "label": "Operation Executive (Head Office)",
+              "type": "label",
+              "required": true,
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "ji_branch_sales_person_name",
+              "label": "Sales Person",
+              "type": "label",
+              "required": true,
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "ji_branch_captain_name",
+              "label": "Branch Captain",
+              "type": "label",
+              "required": true,
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "fk_userbranchcaptainid",
+              "label": "Branch Captain",
+              "type": "label",
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "ji_additional_remark",
+              "label": "Remark",
+              "type": "textArea",
+              "characterLimit":255,
+              "value": ""
+            },
+            {
+              "width": 12,
+              "label": "Billing Details",
+              "styleName": "section_heading",
+              "type": "label"
+            },
+            {
+              "width": 6,
+              "name": "ji_billing",
+              "label": "Billing Details",
+              "type": "text",
+              "characterLimit":255,
+              "value": "",
+              "required":true
+            },
+            {
+              "width": 6,
+              "name": "ji_client_cc_emails",
+              "label": "CC Emails",
+              "type": "InputMultiEmail",
+              "characterLimit":255,
+              "value": "",
+              "required": true,
+              "isNoEmailSuggest":true,
+              "readOnly": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

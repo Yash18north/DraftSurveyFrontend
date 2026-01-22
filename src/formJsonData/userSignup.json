@@ -1,0 +1,48 @@
+{
+  "sections": [
+    {
+      "title": "Default Section",
+      "fields": [
+        {"width": 6, "name": "itemName", "label": "Item Name", "type": "text", "required": true},
+        {"width": 6, "name": "itemCode", "label": "Item Code", "type": "text", "required": true},
+        {"width": 6, "name": "quantity", "label": "Quantity", "type": "text", "required": true},
+        {"width": 6, "name": "price", "label": "Price", "type": "text", "required": true},
+        {"width": 6, "name": "supplier", "label": "Supplier", "type": "text", "required": true},
+        {"width": 6, "name": "purchaseDate", "label": "Purchase Date", "type": "date", "required": true}
+      ]
+    },
+    {
+      "title": "Stock Information",
+      "fields": [
+        {"width": 6, "name": "currentStock", "label": "Current Stock", "type": "text", "required": true},
+        {"width": 6, "name": "minStock", "label": "Min Stock", "type": "text", "required": true},
+        {"width": 6, "name": "maxStock", "label": "Max Stock", "type": "text", "required": true},
+        {"width": 6, "name": "stockLocation", "label": "Stock Location", "type": "text", "required": true},
+        {"width": 6, "name": "lastStockUpdate", "label": "Last Stock Update", "type": "date", "required": true},
+        {"width": 6, "name": "stockThreshold", "label": "Stock Threshold", "type": "text", "required": true}
+      ]
+    },
+    {
+      "title": "Purchase History",
+      "type": "table",
+      "headers": [
+        {"label": "Item", "name": "item", "type": "text", "required": true},
+        {"label": "Quantity", "name": "quantity", "type": "number", "required": true},
+        {"label": "Price", "name": "price",  "type": "number","required": true},
+        {"label": "Supplier", "name": "supplier", "type": "text", "required": true},
+        {"label": "Date", "name": "date", "type": "date", "required": true},
+        {"label": "Notes", "name": "notes", "type": "text", "required": false}
+      ],
+      "rows": [
+        [
+          {"type": "text", "name": "item", "required": true},
+          {"type": "text", "name": "quantity", "required": true},
+          {"type": "text", "name": "price", "required": true},
+          {"type": "text", "name": "supplier", "required": true},
+          {"type": "date", "name": "date", "required": true},
+          {"type": "text", "name": "notes", "required": false}
+        ]
+      ]
+    }
+  ]
+}

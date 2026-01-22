@@ -1,0 +1,414 @@
+{
+    "breadcom": [
+        {
+            "title": "Operation",
+            "redirect": "#"
+        },
+        {
+            "title": "Invoice List",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/invoices/create/",
+        "read": "/invoices/list/",
+        "update": "/invoices/update/",
+        "delete": "/invoices/delete/",
+        "statuCount": "/invoice/status-count/"
+    },
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text",
+                    "colSpan": "8"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text",
+                    "colSpan": "8"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "listView": {
+        "title": "Invoice Details",
+        "isCustomTitle": true,
+        "moduleType": "invoice",
+        "subModuleType": "invoice",
+        "headers": [
+            {
+                "label": "Invoice Date",
+                "name": "im_invoice_date",
+                "sortName": "im_invoice_date",
+                "type": "date"
+            },
+            {
+                "label": "Invoice Number \n (Voucher Number)",
+                "name": "im_invoicenumber",
+                "sortName": "im_invoicenumber",
+                "fieldName": "im_invoicenumber",
+                "type": "text"
+            },
+            {
+                "label": "Client Name",
+                "name": "cust_name",
+                "sortName": "fk_client",
+                "fieldName": "cust_name",
+                "type": "text"
+            },
+            {
+                "label": "GSTIN(Client)",
+                "name": "im_gst_invoice_number",
+                "sortName": "im_gst_invoice_number",
+                "fieldName": "im_gst_invoice_number",
+                "type": "text"
+            },
+            {
+                "label": "Inv. Work \n Branch Code",
+                "name": "fk_invoice_branchid",
+                "sortName": "fk_invoice_branchid",
+                "fieldName": "fk_invoice_branchid",
+                "type": "text"
+            },
+            {
+                "label": "Reference Number",
+                "name": "ivd_ref_no",
+                "sortName": "br_code",
+                "fieldName": "br_code",
+                "type": "text",
+                "isNoSort": true
+            },
+            {
+                "label": "Invoice Ageing",
+                "name": "invoice_ageing",
+                "type": "statusAgeing",
+                "sortName": "im_invoice_date",
+                "todate": "im_invoice_date",
+                "isNoSort": true
+            },
+            {
+                "label": "Invoice Type",
+                "name": "im_is_regular",
+                "sortName": "im_is_regular",
+                "fieldName": "im_is_regular",
+                "type": "text"
+            },
+            {
+                "label": "Total Amount",
+                "name": "im_total",
+                "sortName": "im_total",
+                "fieldName": "im_total",
+                "type": "text"
+            },
+            {
+                "label": "Total Amount With GST",
+                "name": "im_total_gst",
+                "sortName": "im_total_gst",
+                "fieldName": "im_total_gst",
+                "type": "text"
+            },
+            {
+                "label": "Paid Amount",
+                "name": "im_paid",
+                "sortName": "im_paid",
+                "fieldName": "im_paid",
+                "type": "text"
+            },
+            {
+                "label": "Outstanding Amount",
+                "name": "im_balance",
+                "sortName": "im_balance",
+                "fieldName": "im_balance",
+                "type": "text"
+            },
+            {
+                "label": "Sales Person Name",
+                "name": "sales_person",
+                "sortName": "im_balance",
+                "fieldName": "full_name",
+                "type": "text"
+            },
+            {
+                "label": "Company Name",
+                "name": "company_details",
+                "sortName": "company_name",
+                "fieldName": "company_name",
+                "type": "text"
+            },
+            {
+                "label": "Status",
+                "name": "im_status",
+                "sortName": "im_status",
+                "fieldName": "status",
+                "type": "text"
+            }
+        ],
+        "rows": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/operation/invoice-listing/create-invoice",
+                "permission": "view"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/operation/vessel-ji-list-view",
+                "status": "saved"
+            },
+            {
+                "label": "Share Invoice",
+                "redirectUrl": "/operation/vessel-ji-list-view",
+                "status": "invoice_generated"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/inwardList/inwardForm",
+                "permission": "delete"
+            },
+            {
+                "label": "bi bi-eye h6",
+                "value": "View Invoice",
+                "type": "icon",
+                "redirectUrl": "/operation/invoice-listing/create-invoice",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-eye h6",
+                "value": "Create Debit",
+                "type": "icon",
+                "redirectUrl": "/operation/invoice-listing/create-invoice",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-eye h6",
+                "value": "Edit Debit",
+                "type": "icon",
+                "redirectUrl": "/operation/invoice-listing/create-invoice",
+                "permission": "view"
+            },
+            {
+                "label": "View Invoice",
+                "redirectUrl": "/operation/vessel-ji-list-view",
+                "status": "debitted"
+            },
+            {
+                "label": "Edit Debit",
+                "redirectUrl": "/operation/vessel-ji-list-view",
+                "status": "debit_save"
+            },
+            {
+                "label": "bi bi-truck h6",
+                "value": "Courier Details",
+                "type": "icon",
+                "redirectUrl": "/operation/invoice-listing/create-invoice",
+                "permission": "view"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "saved_sym",
+                "name": "Debit Saved",
+                "status": "debit_save"
+            },
+            {
+                "icon": "inprocess_sym",
+                "name": "Generated",
+                "status": "Generated"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Debit Posted",
+                "status": "debit_post"
+            },
+            {
+                "icon": "accepted_sym",
+                "name": "Collected By Tally",
+                "status": "Collected By Tally",
+                "color": ""
+            },
+            {
+                "icon": "generated_sym",
+                "name": "Generated Invoice",
+                "status": "generated invoice",
+                "color": ""
+            },
+            {
+                "icon": "accepted_sym",
+                "name": "Debitted",
+                "status": "debitted",
+                "color": ""
+            },
+            {
+                "icon": "completed_sym",
+                "name": "Invoice Generated",
+                "status": "invoice_generated",
+                "color": ""
+            },
+            {
+                "icon": "rejected_sym",
+                "name": "Cancelled",
+                "status": "cancelled"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "Saved",
+                "status": "Saved",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "Posted",
+                "status": "Posted",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Generated",
+                "name": "Generated",
+                "status": "Generated",
+                "image": "CompletedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Collected By Tally",
+                "name": "Collected By Tally",
+                "status": "Collected By Tally",
+                "image": "CompletedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Invoice Generated",
+                "name": "invoice_generated",
+                "status": "invoice_generated",
+                "image": "CompletedIcon"
+            },
+            {
+                "icon": "bi bi-x-circle-fill",
+                "label": "Cancelled",
+                "name": "cancelled",
+                "status": "cancelled",
+                "image": "RejectedIcon"
+            },
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Debit Saved",
+                "name": "debit_save",
+                "status": "debit_save",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Debit Posted",
+                "name": "debit_post",
+                "status": "debit_post",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Current Year Sales",
+                "name": "sales_april_to_prev_month",
+                "status": "sales_april_to_prev_month",
+                "image": "CompletedIcon",
+                "isSmallValue": true,
+                "isNotClickable": true
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Current Month Sales",
+                "name": "sales_current_month",
+                "status": "sales_current_month",
+                "image": "PostedIcon",
+                "isSmallValue": true,
+                "isNotClickable": true
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Current Year Collection",
+                "name": "collection_april_to_prev_month",
+                "status": "collection_april_to_prev_month",
+                "image": "AcceptedIcon",
+                "isSmallValue": true,
+                "isNotClickable": true
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Current Month Collection",
+                "name": "collection_current_month",
+                "status": "collection_current_month",
+                "image": "PartialIcon",
+                "isSmallValue": true,
+                "isNotClickable": true
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Outstanding By TCRC",
+                "name": "tcrc_outstanding",
+                "status": "tcrc_outstanding",
+                "image": "InvoicedSVG",
+                "isSmallValue": true,
+                "isNotClickable": true
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Outstanding By TIPL",
+                "name": "tipl_outstanding",
+                "status": "tipl_outstanding",
+                "image": "RupeeIcon",
+                "isSmallValue": true,
+                "isNotClickable": true
+            }
+        ],
+        "popupMessages": []
+    }
+}

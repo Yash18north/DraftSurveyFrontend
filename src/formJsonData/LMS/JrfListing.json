@@ -1,0 +1,413 @@
+{
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "JRF List",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jrf/list/",
+    "read": "/jrf/list/",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete",
+    "statuCount": "/jrfstatuscount/get",
+    "exportExcel": "/jrf_excel/get"
+  },
+  "listView": {
+    "title": "JRF List",
+    "moduleType": "jrf",
+    "headers": [
+      {
+        "label": "Created Date",
+        "name": "jrf_date",
+        "sortName": "jrf_date",
+        "type": "date"
+      },
+      {
+        "label": "Reference Number",
+        "name": "jrf_referenceno",
+        "type": "text",
+        "sortName": "jrf_referenceno"
+      },
+      {
+        "label": "JRF No.",
+        "name": "jrf_no",
+        "type": "number",
+        "sortName": "jrf_commodity__cmd_name"
+      },
+      {
+        "label": "Commodity",
+        "name": "jrf_commodity_detail",
+        "type": "number",
+        "sortName": "jrf_commodity__cmd_name"
+      },
+      {
+        "label": "Customer Name",
+        "name": "jrf_company_detail",
+        "type": "text",
+        "sortName": "jrf_company__cmp_name",
+        "fieldName": "cmp_code"
+      },
+      {
+        "label": "Branch Name",
+        "name": "jrf_branch_detail",
+        "type": "text",
+        "sortName": "jrf_branch__br_name"
+      },
+      {
+        "label": "Lab Name",
+        "name": "jrf_lab_detail",
+        "type": "text",
+        "sortName": "jrf_lab__lab_name",
+        "fieldName": "jrf_lab__lab_name"
+      },
+      {
+        "label": "Status",
+        "name": "jrf_status",
+        "type": "text",
+        "sortName": "jrf_status",
+        "textAlign": "center",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "23-12-2022",
+          "name": "created_date",
+          "type": "label"
+        },
+        {
+          "label": "1122324455678",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7071",
+          "name": "reference_number",
+          "type": "label"
+        },
+        {
+          "label": "COAL",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "In Progress",
+          "name": "jrf_status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "created_date",
+          "type": "label"
+        },
+        {
+          "label": "1122324455679",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7072",
+          "name": "reference_number",
+          "type": "label"
+        },
+        {
+          "label": "Gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Submitted",
+          "name": "jrf_status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "created_date",
+          "type": "label"
+        },
+        {
+          "label": "1122324455680",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7073",
+          "name": "reference_number",
+          "type": "label"
+        },
+        {
+          "label": "Limestone",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Completed",
+          "name": "jrf_status",
+          "type": "label"
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-pencil h6",
+        "value": "Edit",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "change"
+      },
+      {
+        "label": "bi bi-trash h6",
+        "value": "Delete",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "delete"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi-download h6",
+        "value": "Download",
+        "type": "icon"
+      },
+      {
+        "label": "Verify Checklist",
+        "redirectUrl": "/jrfListing/inwardForm-checklist",
+        "status": "checklist"
+      },
+      {
+        "label": "Test Report",
+        "redirectUrl": "/testReport/preview",
+        "status": "testReport"
+      },
+      {
+        "label": "Sample Inward",
+        "redirectUrl": "/inwardList/inwardForm",
+        "status": "inward"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/jrfListing/jrf",
+        "status": "Edit",
+        "isDupplicate": true
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/jrfListing/jrf",
+        "status": "Saved",
+        "isDupplicate": true
+      },
+      {
+        "label": "bi bi-file-earmark-medical h6",
+        "value": "Documents",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi bi-x-octagon-fill h6",
+        "value": "Reject",
+        "type": "icon",
+        "permission": "view"
+        
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Saved",
+        "description": "Partial Jobs Created",
+        "name": "saved",
+        "status": "saved",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Posted",
+        "description": "Total Job Posted",
+        "name": "posted",
+        "status": "posted",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-shield-check",
+        "label": "Completed",
+        "description": "Completed Jobs",
+        "name": "completed",
+        "status": "completed",
+        "image": "CompletedIcon"
+      },
+      {
+        "icon": "bi bi-check-lg",
+        "label": "Accepted",
+        "description": "Accepted Jobs",
+        "name": "accepted",
+        "status": "accepted",
+        "image": "AcceptedIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Rejected",
+        "description": "Jobs Rejected",
+        "name": "rejected",
+        "status": "rejected",
+        "image": "RejectedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Tasked",
+        "description": "Jobs Tasked",
+        "name": "tasked",
+        "status": "tasked",
+        "image": "InprocessIcon"
+      },
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Approval Pending",
+        "name": "awaited",
+        "description": "Jobs In Progress",
+        "status": "awaited",
+        "image": "PartialIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "saved_sym",
+        "name": "Saved",
+        "status": "saved"
+      },
+      {
+        "icon": "posted_sym",
+        "name": "Posted",
+        "status": "posted"
+      },
+      {
+        "icon": "accepted_sym",
+        "name": "Accepted",
+        "status": "accepted"
+      },
+      {
+        "icon": "rejected_sym",
+        "name": "Rejected",
+        "status": "rejected"
+      },
+      {
+        "icon": "inprocess_sym",
+        "name": "Tasked",
+        "status": "tasked"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Completed",
+        "status": "completed"
+      },
+      {
+        "icon": "saved_sym",
+        "name": "Approval Pending",
+        "status": [
+          "awaited",
+          "approval_pending"
+        ]
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

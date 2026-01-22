@@ -1,0 +1,446 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/list/",
+    "read": "/testmemo/list",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Test Memo",
+      "redirect": "/testmemoList"
+    },
+    {
+      "title": "Test Memo Form",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Test Memo Form",
+      "moduleType": "testmemomain",
+      "fields": [
+        {
+          "width": 12,
+          "label": "Test Memo Form Details",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "label": "Commodity",
+          "name": "jrf_commodity",
+          "type": "label",
+          "required": true,
+          "placeholder": "Enter Name of commodity"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "name": "smpl_dos",
+          "label": "Sample Receipt Date",
+          "type": "date",
+          "isDisabled":true
+        },
+        {
+          "width": 6,
+          "label": "Condition of Sample",
+          "name": "sample_condition",
+          "type": "label",
+          "value": "-",
+          "required": true,
+          "placeholder": "Enter Condition of Sample",
+          "characterLimit": 16
+        },
+        {
+          "width": 6,
+          "name": "tm_datestartinganalysis",
+          "required": true,
+          "label": "Date of Starting Analysis",
+          "type": "date",
+          "value": "-"
+        },
+        {
+          "width": 6,
+          "name": "tm_datecompletion",
+          "required": true,
+          "label": "Date of Completion",
+          "type": "date",
+          "value": "-"
+        },
+        {
+          "width": 6,
+          "name": "tm_remarks",
+          "required": true,
+          "label": "Remark",
+          "type": "label",
+          "value": ""
+        },
+        {
+          "width": 6,
+          "name": "tm_smpl_inward_number",
+          "required": true,
+          "label": "Inward Number",
+          "type": "label",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "label": "Test Memo",
+      "type": "testMemoTabs",
+      "headers": [
+        {
+          "label": "Non-Scope",
+          "name": "non_scope",
+          "type": "label",
+          "required": true,
+          "rowSpan": 3,
+          "readOnly": true
+        },
+        {
+          "label": "Parameters",
+          "name": "parameters",
+          "type": "label",
+          "required": true,
+          "rowSpan": 3
+        },
+        {
+          "label": "Test Method",
+          "name": "std_name",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "placeholder": "Enter Parameter",
+          "rowSpan": 3
+        }
+      ],
+      "fields": [
+        {
+          "width": 8,
+          "name": "smpl_set_smpljson",
+          "options": [],
+          "type": "select",
+          "required": true,
+          "fieldWidth": 100,
+          "multiple": 1
+        },
+        {
+          "width": 8,
+          "name": "smpl_set_groupjson",
+          "type": "select",
+          "options": [],
+          "required": true,
+          "readOnly": true,
+          "placeholder": "1633",
+          "fieldWidth": 100,
+          "multiple": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "non_scope",
+            "type": "checkbox",
+            "label": "",
+            "options": [
+              "Yes"
+            ],
+            "isOptionLabelNotShow": true
+          },
+          {
+            "name": "param_name",
+            "type": "label",
+            "label": "",
+            "placeholder": "Enter Condition of Sample"
+          },
+          {
+            "name": "std_name",
+            "type": "label",
+            "label": "",
+            "placeholder": "Enter Condition of Sample"
+          }
+        ]
+      ],
+      "tabs": [
+        {
+          "label": "SET 1",
+          "type": "tableadv",
+          "headers": [
+            {
+              "label": "Non-Scope",
+              "name": "parameters",
+              "type": "label",
+              "required": true,
+              "rowSpan": 3
+            },
+            {
+              "label": "Parameters",
+              "name": "parameters",
+              "type": "label",
+              "required": true,
+              "rowSpan": 3
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Enter Parameter",
+              "rowSpan": 3
+            },
+            {
+              "label": "Values",
+              "name": "value",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Unit",
+              "name": "results",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [
+                  ""
+                ]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "carbon",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              }
+            ]
+          ]
+        },
+        {
+          "label": "SET 2",
+          "type": "tableadv",
+          "headers": [
+            {
+              "label": "Non-Scope",
+              "name": "parameters",
+              "type": "label",
+              "required": true,
+              "rowSpan": 3
+            },
+            {
+              "label": "Parameters",
+              "name": "parameters",
+              "type": "label",
+              "required": true,
+              "rowSpan": 3
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Enter Parameter",
+              "rowSpan": 3
+            },
+            {
+              "label": "Values",
+              "name": "value",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Unit",
+              "name": "results",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [
+                  ""
+                ]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "Hydrogen",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              }
+            ],
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [
+                  ""
+                ]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "carbon",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              }
+            ],
+            [
+              {
+                "name": "non_scope",
+                "type": "checkbox",
+                "label": "",
+                "options": [
+                  ""
+                ]
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "carbon",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "ISO11722:2018",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "00",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              },
+              {
+                "name": "parameter",
+                "type": "label",
+                "value": "%",
+                "label": "",
+                "placeholder": "Enter Condition of Sample"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "sendToLab": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to sent to lab?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "reassign": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to reassign?"
+    }
+  }
+}

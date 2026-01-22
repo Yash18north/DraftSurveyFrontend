@@ -1,0 +1,297 @@
+{
+    "title": "TCRC OPERATIONS DASHBOARD",
+    "summary": [
+        {
+            "label": "Total Samples Analysed",
+            "value": "234 / 1056"
+        },
+        {
+            "label": "Samples Submitted by External Clients",
+            "value": "432 / 2056"
+        },
+        {
+            "label": "Revenue & Payments Collected",
+            "value": 0
+        },
+        {
+            "label": "Average Analysis Per Analyst",
+            "value": 34.5
+        },
+        {
+            "label": "Revenue & Sales Growth",
+            "value": "93 %"
+        },
+        {
+            "label": "Number of Commodities Handled",
+            "value": "55"
+        },
+        {
+            "label": "Costing & Expenses per Branch",
+            "value": "0"
+        },
+        {
+            "label": "Loading vs Unloading",
+            "value": "453 / 554"
+        },
+        {
+            "label": "Quality & Quantity at Load vs Discharge Port",
+            "value": "45443 / 7574"
+        }
+    ],
+    "BarChartsData": [
+        {
+            "title": "Samples analyzed per commodity/client",
+            "chartType": "bar",
+            "data": [
+                {
+                    "name": "C - Paradip",
+                    "jobInstruction": 28,
+                    "jlscopeofwork": 11,
+                    "tpimain": 48,
+                    "commercialCertificate": 32
+                },
+                {
+                    "name": "C - Bhubaneswar",
+                    "jobInstruction": 20,
+                    "jlscopeofwork": 21,
+                    "tpimain": 32,
+                    "commercialCertificate": 15
+                }
+            ],
+            "labels": {
+                "jobInstruction": "Job Instruction",
+                "jlscopeofwork": "JL Scope of Work",
+                "tpimain": "TPI Main",
+                "commercialCertificate": "Commercial Certificate"
+            }
+        },
+        {
+            "title": "Analyst-wise sample analysis per day",
+            "chartType": "heatmap",
+            "data": [
+                [5, 10, 15, 20, 25],
+                [4, 8, 12, 16, 20],
+                [3, 6, 9, 12, 15],
+                [2, 4, 6, 8, 10],
+                [1, 2, 3, 3, 5]
+              ],
+            "xLabels": ["Improbable", "Remote", "Occasional", "Probable", "Frequent"],
+            "yLabels": ["Catastrophic", "Significant", "Moderate", "Low", "Negligible"]
+        },
+        {
+            "title": "Analyst-wise sample analysis per day",
+            "chartType": "line",
+            "data": [
+                {
+                    "month": "Jan",
+                    "revenue": 4000,
+                    "profit": 2400
+                },
+                {
+                    "month": "Feb",
+                    "revenue": 3000,
+                    "profit": 1398
+                },
+                {
+                    "month": "Mar",
+                    "revenue": 5000,
+                    "profit": 2800
+                },
+                {
+                    "month": "Apr",
+                    "revenue": 4780,
+                    "profit": 3908
+                }
+            ],
+            "labels": {
+                "revenue": "Revenue",
+                "profit": "Profit"
+            }
+        },
+        {
+            "title": "Revenue breakdown by client",
+            "chartType": "pie",
+            "data": [
+                {
+                    "name": "Toys",
+                    "value": 14
+                },
+                {
+                    "name": "Furniture",
+                    "value": 28
+                },
+                {
+                    "name": "Home Decor",
+                    "value": 15
+                },
+                {
+                    "name": "Electronics",
+                    "value": 43
+                }
+            ],
+            "labels": "Sales Chart"
+        },
+        {
+            "title": "Payment status (Pending vs Received)",
+            "chartType": "gauge",
+            "data": [
+                {
+                    "name": "Low",
+                    "value": 30,
+                    "color": "#FF4D4D"
+                },
+                {
+                    "name": "Medium",
+                    "value": 40,
+                    "color": "#FFA500"
+                },
+                {
+                    "name": "High",
+                    "value": 30,
+                    "color": "#4CAF50"
+                }
+            ],
+            "labels": "Sales Chart"
+        },
+        {
+            "title": "Month-on-Month sales trends",
+            "chartType": "line",
+            "data": [
+                {
+                    "month": "Jan",
+                    "revenue": 4000
+                },
+                {
+                    "month": "Feb",
+                    "revenue": 3000
+                },
+                {
+                    "month": "Mar",
+                    "revenue": 5000
+                },
+                {
+                    "month": "Apr",
+                    "revenue": 4780
+                }
+            ],
+            "labels": {
+                "revenue": "Revenue"
+            }
+        },
+        {
+            "title": "Inspection types handled per branch",
+            "chartType": "stackedBar",
+            "data": [
+                {
+                    "category": "Architecture & Engineering",
+                    "Stayed": 60,
+                    "Left": 40
+                },
+                {
+                    "category": "Installation, Maintenance & Repair",
+                    "Stayed": 55,
+                    "Left": 45
+                },
+                {
+                    "category": "Computer & Mathematical",
+                    "Stayed": 50,
+                    "Left": 50
+                },
+                {
+                    "category": "Production",
+                    "Stayed": 48,
+                    "Left": 52
+                },
+                {
+                    "category": "Business Operations",
+                    "Stayed": 45,
+                    "Left": 55
+                },
+                {
+                    "category": "Arts, Design, Entertainment & Media",
+                    "Stayed": 42,
+                    "Left": 58
+                },
+                {
+                    "category": "Management",
+                    "Stayed": 40,
+                    "Left": 60
+                },
+                {
+                    "category": "Office & Administrative Support",
+                    "Stayed": 35,
+                    "Left": 65
+                },
+                {
+                    "category": "Community & Social Services",
+                    "Stayed": 30,
+                    "Left": 70
+                },
+                {
+                    "category": "Personal Care",
+                    "Stayed": 28,
+                    "Left": 72
+                },
+                {
+                    "category": "Education, Library & Training",
+                    "Stayed": 25,
+                    "Left": 75
+                },
+                {
+                    "category": "Financial Specialists",
+                    "Stayed": 22,
+                    "Left": 78
+                },
+                {
+                    "category": "Transportation & Material Moving",
+                    "Stayed": 20,
+                    "Left": 80
+                },
+                {
+                    "category": "Healthcare Support",
+                    "Stayed": 18,
+                    "Left": 82
+                },
+                {
+                    "category": "Sales & Related",
+                    "Stayed": 15,
+                    "Left": 85
+                }
+            ],
+            "labels": {
+                "Stayed": "Stayed in the Same Area",
+                "Left": "Switched to a Different Area"
+            },
+            "colors": {
+                "Stayed": "#4CAF50",
+                "Left": "#FF9800"
+            }
+        },
+        {
+            "title": "Load vs Discharge port metrics",
+            "chartType": "bar",
+            "data": [
+                {
+                    "name": "C - Paradip",
+                    "jobInstruction": 28,
+                    "jlscopeofwork": 11,
+                    "tpimain": 48,
+                    "commercialCertificate": 32
+                },
+                {
+                    "name": "C - Bhubaneswar",
+                    "jobInstruction": 20,
+                    "jlscopeofwork": 21,
+                    "tpimain": 32,
+                    "commercialCertificate": 15
+                }
+            ],
+            "labels": {
+                "jobInstruction": "Job Instruction",
+                "jlscopeofwork": "JL Scope of Work",
+                "tpimain": "TPI Main",
+                "commercialCertificate": "Commercial Certificate"
+            }
+        }
+    ]
+}

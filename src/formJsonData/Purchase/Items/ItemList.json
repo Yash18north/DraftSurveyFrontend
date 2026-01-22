@@ -1,0 +1,182 @@
+{
+    "breadcom": [
+        {
+            "title": "Purchase",
+            "redirect": "#"
+        },
+        {
+            "title": "Item List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "/item-master/list/",
+        "update": "",
+        "delete": "",
+        "statuCount": "",
+        "exportExcel": "/item_master_excel/create/",
+        "exportMethod":"GET"
+    },
+    "listView": {
+        "title": "Item List",
+        "isCustomTitle": true,
+        "moduleType": "purchaseItems",
+        "headers": [
+            {
+                "label": "Item Code",
+                "name": "item_rm_code",
+                "type": "text",
+                "sortName": "item_rm_code"
+            },
+            {
+                "label": "Description",
+                "name": "item_description",
+                "type": "text",
+                "sortName": "item_description"
+            },
+            {
+                "label": "Rate",
+                "name": "item_rate",
+                "type": "number",
+                "sortName": "item_rate"
+            },
+            {
+                "label": "Unit",
+                "name": "item_uom",
+                "type": "text",
+                "sortName": "item_uom"
+            },
+            {
+                "label": "Make",
+                "name": "item_make",
+                "type": "text",
+                "sortName": "item_make"
+            },
+            {
+                "label": "Model",
+                "name": "item_model",
+                "type": "text",
+                "sortName": "item_model"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/inwardForm",
+                "permission": "read"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Edit",
+                "type": "icon",
+                "redirectUrl": "/inwardForm",
+                "permission": "update"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/inwardForm",
+                "permission": "delete"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "History",
+                "type": "icon",
+                "permission": "history"
+            },
+            {
+                "label": "bi bi-file-earmark-medical h6",
+                "value": "Documents",
+                "type": "icon"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "0",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "PostedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

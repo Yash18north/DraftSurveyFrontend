@@ -1,0 +1,104 @@
+{
+    "breadcom": [
+        {
+            "title": "Collections",
+            "redirect": "#"
+        },
+        {
+            "title": "Clients List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "users List",
+            "type": "list",
+            "listView": true,
+            "headers": []
+        }
+    ],
+    "apiEndpoints": {
+        "read": "/masters/customer/list/",
+        "isReadMethod":"POST"
+    },
+    "listView": {
+        "title": "Clients List",
+        "moduleType": "ClientDetails",
+        "headers": [
+            {
+                "label": "Client Name",
+                "name": "cust_name",
+                "sortName": "cust_name",
+                "type": "text"
+            },
+            {
+                "label": "Contact Number",
+                "name": "cust_tel_num",
+                "sortName": "cust_tel_num",
+                "type": "text"
+            },
+            {
+                "label": "Email ID",
+                "name": "cust_email",
+                "type": "text",
+                "sortName": "cust_email"
+            },
+            {
+                "label": "Designation",
+                "name": "cust_designation",
+                "type": "text",
+                "sortName": "cust_designation"
+            },
+            {
+                "label": "Remarks",
+                "name": "cust_remark",
+                "type": "text",
+                "sortName": "usr_remark",
+                "isHTMLText":true
+            }
+        ],
+        "rows": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/inwardForm"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Add Remark",
+                "type": "icon",
+                "redirectUrl": "/inwardForm"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "0",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "PostedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    }
+}

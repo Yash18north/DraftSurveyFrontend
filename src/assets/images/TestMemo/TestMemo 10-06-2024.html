@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Memo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: inter;
+        display: table;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 21px;
+      }
+
+      h2 {
+        margin-top: 16px;
+        margin-bottom: 4px;
+        text-align: center;
+      }
+
+      .note {
+        font-size: 12px;
+      }
+
+      .header {
+        text-align: center;
+      }
+
+      input[type="checkbox"] {
+        margin: 0px 8px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .space_between {
+        display: flex;
+        justify-content: space-between;
+        word-wrap: break-word;
+        width: 70%;
+      }
+
+      li {
+        padding-left: 20px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .terms_conditions {
+        display: flex;
+        gap: 32px;
+      }
+      .container {
+        background-image: url("./bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 50px 100px 100px 150px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .logo-description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo-description > div > h1 {
+        color: #E11D07;
+
+        width: 50%;
+      }
+      .logo-description > div > h1 > span {
+        font-size: 12px;
+      }
+      .logo-description > div > p {
+        font-size: 13px;
+        width: 50%;
+      }
+      .tcrcHeaderLogo {
+        width: 30vw;
+        height: 100px;
+      }
+      .heading_h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 32px;
+      }
+      .nablImg {
+        display: flex;
+        justify-content: space-around;
+      }
+      /* .nablImg > img {
+        width: 150px;
+        height: 150px;
+      } */
+      .ulr_details {
+        display: flex;
+        justify-content: space-between;
+      }
+      .job-details > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .job-details > div > p {
+        width: 46%;
+      }
+      .job-details > div > span {
+        width: 8%;
+        display: flex;
+        align-items: center;
+      }
+      footer > img {
+        width: 100%;
+        height: 250px;
+        margin-top: 60px;
+      }
+      .roles {
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .roles > div {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+      }
+      .end {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .first_td {
+        border: 2px solid #E11D07;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 600;
+      }
+      .second_td {
+        border: 1px solid #E11D07;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-description">
+        <div>
+          <h1>
+            TCRC QUALITY CONTROLS LLP<br />
+            <span
+              >(Formerly Known As Therapeutics Chemical Research
+              Corporation)</span
+            >
+          </h1>
+          <p>
+            D. No 25-12-39, 2nd Floot, Godeyvari Street Near SBI Building Town
+            Ward - 25, Village: Visakhpatname (U) Mandal, Visakhapayname
+            District Tel: +91 891 2563450 | Email: Vizag@tcrcgroup.com
+          </p>
+        </div>
+        <img src="./TCRC LOGO.jpg" class="tcrcHeaderLogo" />
+      </div>
+
+      <h1 class="heading_h1">Test Report</h1>
+      <div class="nablImg">
+        <img src="./TPBPL MUMBAI NABL SYMBOL.png" />
+        <img src="./TIPL VIZAG NABL QR CODE.png" />
+      </div>
+
+      <div class="ulr_details">
+        <div>
+          <h3>ULR - TC1022924000000411f</h3>
+          <h3>Chemical Testing: I Solid Fuels</h3>
+          <h3>Certificate No: 2324C27SS01681 - 2324C27SS01687</h3>
+        </div>
+        <div>
+          <h3>Date: 21-02-2024</h3>
+          <h3>Page 1 of 2</h3>
+        </div>
+      </div>
+      <div class="job-details">
+        <div>
+          <p>1 Name of the Customer with Address</p>
+          <span>:</span>
+          <p>
+            M/s TCRC Quality Controls LLP, Ward No-9, Holding No-N33/27,
+            Durgachak colony market, Haldia, West Bengal, Pin-721602
+          </p>
+        </div>
+        <div>
+          <p>2 Description of the Sample</p>
+          <span>:</span>
+          <p>Coal</p>
+        </div>
+        <div>
+          <p>3 Marks and Sample</p>
+          <span>:</span>
+          <p>TCRC / HLD / 23-24/896-902 / 21-22 / 21-02-2024 / 21-02-2024 /</p>
+        </div>
+        <div>
+          <p>4 Condition of Sample</p>
+          <span>:</span>
+          <p>
+            Approx. 50g powder sample received in good condition in a sealed
+          </p>
+        </div>
+        <div>
+          <p>5 sampling</p>
+          <span>:</span>
+          <p>
+            Sampls are not drown under our supervision. The samples are drawn by
+          </p>
+        </div>
+        <div>
+          <p>6 Date of receipt of the Sample</p>
+          <span>:</span>
+          <p>16-02-2024</p>
+        </div>
+        <div>
+          <p>7 Date of Analysis</p>
+          <span>:</span>
+          <p>16-02-2024 to 16-02-2024</p>
+        </div>
+      </div>
+
+      <table cellpadding="1" cellspacing="0" class="first_td">
+        <tr>
+          <td rowspan="5" class="first_td">hello</td>
+          <td rowspan="5" class="first_td">hello</td>
+          <td colspan="3" class="first_td">hello</td>
+        </tr>
+        <tr>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+        </tr>
+        <tr>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+        </tr>
+        <tr>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+        </tr>
+        <tr>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+          <td class="first_td">Hello</td>
+        </tr>
+
+        <tr>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+        </tr>
+
+        <tr>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+        </tr>
+
+        <tr>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+        </tr>
+
+        <tr>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+          <td class="second_td">Hello</td>
+        </tr>
+      </table>
+      <div class="roles">
+        <div>
+          <p>Prepared By</p>
+          <p>(Lab Receptionist)</p>
+        </div>
+        <div>
+          <p>Verified By</p>
+          <p>(Quality Manager)</p>
+        </div>
+        <div>
+          <p>Authorized Signatory</p>
+          <p>(Technical Manager)</p>
+        </div>
+      </div>
+
+      <div class="end">END OF TEST REPORT</div>
+
+      <footer>
+        <img src="./footer.jpg" />
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,462 @@
+{
+    "breadcom": [
+        {
+            "title": "Purchase",
+            "redirect": "#"
+        },
+        {
+            "title": "Purchase Requistion List",
+            "redirect": "/PurchRequistion"
+        },
+        {
+            "title": "Purchase Requistion",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "",
+        "update": "",
+        "delete": ""
+    },
+    "sections": [
+        {
+            "title": "Add Purchase Requisition",
+            "moduleType": "purchaseReq",
+            "customField": {
+                "title": "Approval Details",
+                "buttons": {
+                    "cancel": {
+                        "title": "Cancel"
+                    },
+                    "confirm": {
+                        "title": "Send"
+                    }
+                },
+                "fields": [
+                    {
+                        "width": 12,
+                        "name": "req_fk_approval_id",
+                        "label": "Approval User",
+                        "type": "DropDownWithLoadMore",
+                        "apiendpoint": "/users/list/",
+                        "apimethod": "GET",
+                        "isSearchable": "true",
+                        "optionData": {
+                            "id": "usr_id",
+                            "label": "first_name",
+                            "label2": "usr_emp_id",
+                            "label3": "last_name"
+                        },
+                        "customPayload": {
+                            "name": "purchase_user",
+                            "defaultValue": true
+                        },
+                        "isCustomPayload": true
+                    }
+                ]
+            },
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Add Purchase Requisition",
+                    "type": "label",
+                    "name": "",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "request_no",
+                    "label": "Requesition No",
+                    "type": "text",
+                    "width": 6,
+                    "placeholder": "To be Genderated",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "fk_pr_companyid",
+                    "label": "Company",
+                    "required": true,
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/masters/list",
+                    "model_name": "company",
+                    "apimethod": "POST",
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "cmp_id",
+                        "label": "cmp_name"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "fk_branchid",
+                    "label": "Branch Name",
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/company-branches/get/",
+                    "apimethod": "POST",
+                    "isSearchable": "true",
+                    "optionData": {
+                        "id": "branch_id",
+                        "label": "branch_name",
+                        "label2": "branch_code"
+                    },
+                    "customPayload": {
+                        "name": "company_id",
+                        "value": "fk_pr_companyid"
+                    },
+                    "isCustomPayload": true,
+                    "required": true
+                },
+                {
+                    "name": "req_date",
+                    "label": "Select Date",
+                    "type": "date",
+                    "width": 6,
+                    "required": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    },
+                    "noDefaultValue": true,
+                    "pastDate": true,
+                    "pastdays": 15
+                },
+                {
+                    "name": "fk_departmentid",
+                    "label": "Select Department",
+                    "type": "select",
+                    "width": 6,
+                    "required": true,
+                    "options": [
+                        "Field Sampling",
+                        "Chemical Analysis",
+                        "Quality Assurance",
+                        "Instrumentation & Calibration",
+                        "Reporting",
+                        "Field Instrumentation & Survey"
+                    ]
+                },
+                {
+                    "name": "req_type",
+                    "label": "Select Type",
+                    "type": "select",
+                    "width": 6,
+                    "required": true,
+                    "options": [
+                        "Consumable",
+                        "Non-Consumable"
+                    ]
+                },
+                {
+                    "name": "req_remark",
+                    "label": "Reject Remark",
+                    "type": "label",
+                    "width": 6
+                }
+            ]
+        },
+        {
+            "title": "Purchase Requisition Item",
+            "moduleType": "purchaseReq",
+            "Heading": "Purchase Requisition Item",
+            "type": "tabs",
+            "tabs": [
+                {
+                    "label": "Purchase Requisition Item",
+                    "type": "table",
+                    "hidetab": true,
+                    "title": "Purchase Requisition Item",
+                    "moduleType": "purchaseReq",
+                    "headers": [
+                        {
+                            "width": 6,
+                            "label": "Item Code",
+                            "name": "prd_item_code",
+                            "placeholder": "Item Code",
+                            "type": "DropDownWithLoadMore",
+                            "isSearchable": true,
+                            "apiendpoint": "/item-master/list/",
+                            "apimethod": "GET",
+                            "required": true,
+                            "optionData": {
+                                "id": "item_id",
+                                "label": "item_rm_code",
+                                "label2": "item_description"
+                            }
+                        },
+                        {
+                            "label": "Description of Item",
+                            "name": "prd_item_description",
+                            "type": "label",
+                            "sortName": "prd_item_description",
+                            "fieldName": "prd_item_description",
+                            "placeholder": "Descripton of Item",
+                            "required": true,
+                            "maxLength": 200
+                        },
+                        {
+                            "label": "UOM",
+                            "name": "prd_uom",
+                            "type": "label",
+                            "sortName": "prd_uom",
+                            "fieldName": "prd_uom",
+                            "placeholder": "UOM",
+                            "required": true
+                        },
+                        {
+                            "label": "Manufacturing Time",
+                            "name": "prd_manufacture_time",
+                            "type": "label",
+                            "sortName": "prd_manufacture_time",
+                            "fieldName": "prd_manufacture_time",
+                            "placeholder": "Manufacturing Time",
+                            "required": true
+                        },
+                        {
+                            "label": "Request Qty",
+                            "name": "prd_quantity",
+                            "type": "label",
+                            "sortName": "prd_quantity",
+                            "fieldName": "prd_quantity",
+                            "placeholder": "Request Qty"
+                        },
+                        {
+                            "label": "Detail Tech. Specification",
+                            "name": "prd_tech_specification",
+                            "type": "Time",
+                            "sortName": "prd_tech_specification",
+                            "fieldName": "prd_tech_specification",
+                            "placeholder": "Detail Tech. Specification",
+                            "maxLength": 200
+                        },
+                        {
+                            "label": "Specifications",
+                            "name": "prd_specification",
+                            "type": "label",
+                            "sortName": "prd_specification",
+                            "fieldName": "prd_specification",
+                            "placeholder": "Specifications"
+                        },
+                        {
+                            "label": "Avg Monthly Consumption",
+                            "name": "prd_avg_monthly_consumption",
+                            "type": "label",
+                            "sortName": "prd_avg_monthly_consumption",
+                            "fieldName": "prd_avg_monthly_consumption",
+                            "placeholder": "Avg Monthly Consumption",
+                            "required": true
+                        },
+                        {
+                            "label": "Buffer (Safety) Stock",
+                            "name": "prd_buffer_stock",
+                            "type": "label",
+                            "sortName": "prd_buffer_stock",
+                            "fieldName": "prd_buffer_stock",
+                            "placeholder": "Buffer (Safety) Stock",
+                            "required": true
+                        },
+                        {
+                            "label": "Closing Stock",
+                            "name": "prd_closing_stock",
+                            "type": "label",
+                            "sortName": "prd_closing_stock",
+                            "fieldName": "prd_closing_stock",
+                            "placeholder": "Closing Stock",
+                            "required": true
+                        },
+                        {
+                            "label": "Consumption Per Day",
+                            "name": "prd_consumption_per_day",
+                            "type": "label",
+                            "sortName": "prd_consumption_per_day",
+                            "fieldName": "prd_consumption_per_day",
+                            "placeholder": "Consumption Per Day",
+                            "required": true
+                        },
+                        {
+                            "label": "Available Stocks Per For Day",
+                            "name": "prd_available_stock_days",
+                            "type": "label",
+                            "sortName": "prd_available_stock_days",
+                            "fieldName": "prd_available_stock_days",
+                            "placeholder": "Available Stocks Per Day",
+                            "required": true
+                        },
+                        {
+                            "label": "Requested Delivery Date",
+                            "name": "prd_requested_delivery_date",
+                            "type": "label",
+                            "sortName": "prd_requested_delivery_date",
+                            "fieldName": "prd_requested_delivery_date",
+                            "placeholder": "Requested Delivery Date",
+                            "required": true,
+                            "pastDate": true,
+                            "pastdays": 15
+                        },
+                        {
+                            "label": "Remark",
+                            "name": "prd_remark",
+                            "type": "label",
+                            "sortName": "prd_remark",
+                            "fieldName": "prd_remark",
+                            "placeholder": "Remark",
+                            "required": true
+                        }
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Item Code",
+                                "name": "prd_item_code",
+                                "type": "label",
+                                "sortName": "prd_item_code",
+                                "fieldName": "prd_item_code",
+                                "required": true
+                            },
+                            {
+                                "label": "Descripton of Item",
+                                "name": "prd_item_description",
+                                "type": "label",
+                                "sortName": "prd_item_description",
+                                "fieldName": "prd_item_description",
+                                "required": true
+                            },
+                            {
+                                "label": "UOM",
+                                "name": "prd_uom",
+                                "type": "label",
+                                "sortName": "prd_uom",
+                                "fieldName": "prd_uom",
+                                "required": true
+                            },
+                            {
+                                "label": "Manufacturing  Time",
+                                "name": "prd_manufacture_time",
+                                "type": "label",
+                                "sortName": "prd_manufacture_time",
+                                "fieldName": "prd_manufacture_time",
+                                "required": true
+                            },
+                            {
+                                "label": "Request Qty",
+                                "name": "prd_quantity",
+                                "type": "label",
+                                "sortName": "prd_quantity",
+                                "fieldName": "prd_quantity",
+                                "required": true
+                            },
+                            {
+                                "label": "Detail Tech. Specification",
+                                "name": "prd_tech_specification",
+                                "type": "Time",
+                                "sortName": "prd_tech_specification",
+                                "fieldName": "prd_tech_specification"
+                            },
+                            {
+                                "label": "Specifications",
+                                "name": "prd_specification",
+                                "type": "label",
+                                "sortName": "prd_specification",
+                                "fieldName": "prd_specification",
+                                "placeholder": "Total"
+                            },
+                            {
+                                "label": "Avg Monthly Consumption",
+                                "name": "prd_avg_monthly_consumption",
+                                "type": "label",
+                                "sortName": "prd_avg_monthly_consumption",
+                                "fieldName": "prd_avg_monthly_consumption",
+                                "required": true
+                            },
+                            {
+                                "label": "Buffer (Safety) Stock",
+                                "name": "prd_buffer_stock",
+                                "type": "label",
+                                "sortName": "prd_buffer_stock",
+                                "fieldName": "prd_buffer_stock",
+                                "required": true
+                            },
+                            {
+                                "label": "Closing Stock",
+                                "name": "prd_closing_stock",
+                                "type": "label",
+                                "sortName": "prd_closing_stock",
+                                "fieldName": "prd_closing_stock",
+                                "required": true
+                            },
+                            {
+                                "label": "Consumption Per Day",
+                                "name": "prd_consumption_per_day",
+                                "type": "label",
+                                "sortName": "prd_consumption_per_day",
+                                "fieldName": "prd_consumption_per_day",
+                                "required": true
+                            },
+                            {
+                                "label": "Available Stocks Per Day",
+                                "name": "prd_available_stock_days",
+                                "type": "label",
+                                "sortName": "prd_available_stock_days",
+                                "fieldName": "prd_available_stock_days",
+                                "required": true
+                            },
+                            {
+                                "label": "Requested Delivery Date",
+                                "name": "prd_requested_delivery_date",
+                                "type": "label",
+                                "sortName": "prd_requested_delivery_date",
+                                "fieldName": "prd_requested_delivery_date",
+                                "required": true
+                            },
+                            {
+                                "label": "Remark",
+                                "name": "prd_remark",
+                                "type": "label",
+                                "sortName": "prd_remark",
+                                "fieldName": "prd_remark",
+                                "required": true,
+                                "maxLength": 200
+                            }
+                        ]
+                    ],
+                    "actions": [],
+                    "statusesWithIcon": [],
+                    "statusesWithColor": []
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Save",
+            "type": "icon",
+            "redirectUrl": "",
+            "permission": "save"
+        }
+    ],
+    "popupMessages": {
+        "donwload": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "approved": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to approved?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to Delete?"
+        }
+    }
+}

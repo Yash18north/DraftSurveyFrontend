@@ -1,0 +1,483 @@
+{
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "JRF List",
+      "redirect": "/jrfListing"
+    },
+    {
+      "title": "Job Request Form",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jrf/get",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jrf",
+      "fields": [
+        {
+          "width": 25,
+          "label": "JRF Details",
+          "styleName": "section_heading",
+          "type": "label",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_status",
+          "label": "Status",
+          "styleName": "custom_status",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "jrf_date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "placeholder": "Enter Date",
+          "pastDate": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_no",
+          "label": "JRF No.",
+          "type": "label",
+          "required": true,
+          "value": "To be Generated",
+          "characterLimit": 16,
+          "readOnly": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_referenceno",
+          "label": "Reference No",
+          "type": "text",
+          "required": true,
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "",
+          "label": "",
+          "type": "label",
+          "value": ""
+        },
+        {
+          "type": "hr"
+        },
+        {
+          "width": 25,
+          "label": "Company Details",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "jrf_company_name",
+          "label": "Organization Name",
+          "type": "label",
+          "required": true,
+          "placeholder": "Enter Name of Organization",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": "-"
+        },
+        {
+          "width": 6,
+          "name": "cmp_address",
+          "label": "Organization Address",
+          "type": "label",
+          "required": true,
+          "placeholder": "Enter Organization Address",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": "-"
+        },
+        {
+          "width": 6,
+          "name": "jrf_contact_person",
+          "label": "Name of Contact Person",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter  Name of Contact Person",
+          "errorMsgs": {
+            "required": "This field is required",
+            "pattern": "Please enter Valid name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "jrf_contact_person_number",
+          "label": "Phone No. of Contact Person",
+          "tooltip": "Enter a 10-digit phone number (e.g., 1234567890).",
+          "type": "phone",
+          "required": true,
+          "placeholder": "Enter  Number of Contact Person",
+          "errorMsgs": {
+            "required": "This field is required",
+            "pattern": "Please enter Valid Number"
+          }
+        },
+        {
+          "type": "hr"
+        },
+        {
+          "width": 25,
+          "label": "Commodity Details",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "jrf_commodity",
+          "label": "Commodity",
+          "type": "label",
+          "value": "Commodity",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "label": "Sub Commodity",
+          "name": "fk_sub_commodity",
+          "type": "select",
+          "placeholder": "Select",
+          "readOnly": true,
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Quantity of Test Sample",
+          "name": "jrf_quanity_sample",
+          "type": "textArea",
+          "placeholder": "Enter quantity of test samples details",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "No. of Packets",
+          "name": "jrf_no_of_packets",
+          "type": "text",
+          "placeholder": "Enter No. of Packets",
+          "useForViewOnly": true
+        },
+        {
+          "width": 25,
+          "label": "Job Description",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Description of the sample",
+          "name": "jrf_desc_of_sample",
+          "type": "textArea",
+          "placeholder": "Description of the sample",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "label": "Parameter to be analysed",
+          "name": "jrf_parameters_to_analyze",
+          "type": "textArea",
+          "placeholder": "Parameter to be analysed",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "label": "Other Requirement",
+          "name": "jrf_other_info",
+          "type": "textArea",
+          "placeholder": "Add Additional Info (If any)",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Test Report Required after (in days)",
+          "name": "jrf_test_repo_req_on",
+          "type": "numberPlusMinus",
+          "placeholder": "Enter Job Quantity"
+        },
+        {
+          "width": 6,
+          "label": "Test Method Details",
+          "name": "jrf_test_method_details",
+          "type": "textArea",
+          "placeholder": "Test Method Details",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "required": true,
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "label": "Lab Name",
+          "name": "jrf_lab",
+          "type": "select",
+          "required": true,
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "label": "Is Hide Sample Verification",
+          "name": "jrf_is_petro",
+          "type": "radio",
+          "options": [
+            {
+              "label": "Yes",
+              "value": true
+            },
+            {
+              "label": "No",
+              "value": false
+            }
+          ],
+          "defaultValue": false,
+          "useForViewOnly":true
+        },
+        {
+          "width": 6,
+          "label": "Remark",
+          "name": "jrf_remark",
+          "type": "label"
+        },
+        {
+          "label": "",
+          "name": "jrf_terms_and_conditions",
+          "styleName": "jrf_terms_and_conditions_UI",
+          "type": "checkbox",
+          "validation": {
+            "message": "Please select Terms & Conditions"
+          },
+          "errorMsgs": {
+            "pattern": "Please select Terms & Conditions",
+            "required": "Please select Terms & Conditions"
+          },
+          "options": [
+            "Terms & Conditions: The samples will be retained for a duration of 30 days from the date of testing. However, for export vessels, the retention period will be extended to 90 days, where applicable. Any grievances or complaints must be duly lodged within a timeframe of 15 days from the date of issuance of the test report. Both parties will adhere to and uphold a set of compliance code and principles in the provision of services. We do not provides statement of conformity, opinions or interpretations concerning the findings rendered in reports."
+          ],
+          "placeholder": "Enter Job Quantity",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Job Description",
+          "type": "tablePreview",
+          "moduleType": "JRFOperationAssignment",
+          "isViewOnly": "View",
+          "headers": [
+            {
+              "label": "Sample Marks",
+              "name": "samples",
+              "type": "label",
+              "required": true
+            },
+            {
+              "label": "Type",
+              "name": "samples",
+              "type": "label",
+              "required": true
+            },
+            {
+              "label": "Groups of Parameter",
+              "name": "Groups",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "width": 8,
+                "name": "is_group_param",
+                "subname": "isGroup",
+                "type": "radio",
+                "options": [
+                  "Group",
+                  "Parameter"
+                ],
+                "required": true,
+                "readOnly": true,
+                "fieldWidth": "100",
+                "placeholder": "1633",
+                "multiple": true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_paramjson",
+                "subname": "param_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_groupjson",
+                "subname": "group_id",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_testmethodjson",
+                "subname": "std_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "errorlabel": "Test Method"
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_basisjson",
+                "subname": "basis",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "multiple": true,
+                "errorlabel": "Basis"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

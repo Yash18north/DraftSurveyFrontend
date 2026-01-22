@@ -1,0 +1,192 @@
+{
+  "breadcom": [
+    {
+      "title": "Vessel List",
+      "redirect": "/operation/vessel-ji-list"
+    },
+    {
+      "title": "Plant Operations",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "fields": []
+    },
+    {
+      "label": "Groups And Parameters",
+      "type": "sampleAssignmentTabs",
+      "tabs": [
+        {
+          "label": "Groups And Parameters",
+          "type": "table",
+          "SampleAssignment": true,
+          "headers": [
+            {
+              "label": "Is Groups or Parameter",
+              "name": "is_group_param",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Select Group and Parameter"
+            },
+            {
+              "label": "Groups of Parameter",
+              "name": "Groups",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            
+            {
+              "label": "Test Method",
+              "name": "smpl_set_testmethodjson",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "smpl_set_basisjson",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Unit",
+              "name": "Unit",
+              "type": "select",
+              "required": true,
+              "options": [
+              ],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "width": 8,
+                "name": "is_group_param",
+                "subname": "isGroup",
+                "type": "radio",
+                "options": [
+                  "Group",
+                  "Parameter"
+                ],
+                "required": true,
+                "readOnly": true,
+                "fieldWidth": "100",
+                "placeholder": "1633",
+                "multiple": true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_paramjson",
+                "subname": "param_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "isSearchable": true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_groupjson",
+                "subname": "group_id",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              
+              {
+                "width": 8,
+                "name": "smpl_set_testmethodjson",
+                "subname": "std_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "errorlabel": "Test Method"
+              },
+
+              {
+                "width": 8,
+                "name": "smpl_set_basisjson",
+                "subname": "basis",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 75,
+                "multiple": true,
+                "errorlabel": "Basis"
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_unit",
+                "subname": "param_unit",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "postOther": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post External Results?"
+    },
+    "postJRF": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post JRF?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

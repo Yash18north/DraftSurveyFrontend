@@ -1,0 +1,301 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Rake Details",
+      "type": "tabs",
+      "fields": [
+        {
+          "width": 12,
+          "label": "Rake Details",
+          "styleName": "section_heading",
+          "type": "label",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "wagon",
+          "label": "Wagon",
+          "type": "radio",
+          "options": [
+            "Loading",
+            "Unloading"
+          ]
+        },
+        {
+          "width": 6
+        },
+        {
+          "width": 6,
+          "name": "no_of_wagons",
+          "label": "No. of Wagons",
+          "type": "text",
+          "placeholder": "No. of Wagons"
+        },
+        {
+          "width": 6,
+          "name": "indent_no",
+          "label": "Indent No. ",
+          "type": "text",
+          "placeholder": "Enter Indent No."
+        },
+        {
+          "width": 6,
+          "name": "indent_datetime",
+          "label": "Indent Date / Time",
+          "type": "date",
+          "placeholder": "YYYY-MM-DD /  HH : MM",
+          "fieldWidth": "75",
+          "showTimeSelect": true
+        },
+        {
+          "width": 6,
+          "name": "placement_datetime",
+          "label": "Placement Date/Time",
+          "type": "date",
+          "showTimeSelect": true,
+          "fieldWidth": "75",
+          "placeholder": "YYYY-MM-DD /  HH : MM",
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "commenced_datetime",
+          "label": "Commenced Date / Time",
+          "type": "date",
+          "fieldWidth": "75",
+          "placeholder": "YYYY-MM-DD /  HH : MM",
+          "showTimeSelect": true
+        },
+        {
+          "width": 6,
+          "name": "completed_datetime",
+          "label": "Completed Date/Time",
+          "type": "date",
+          "showTimeSelect": true,
+          "fieldWidth": "75",
+          "placeholder": "YYYY-MM-DD /  HH : MM"
+        },
+        {
+          "width": 6,
+          "name": "r_r_number",
+          "label": "R.R Number",
+          "type": "text",
+          "placeholder": "Enter R.R Number",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "r_r_datetime",
+          "label": "R.R Date",
+          "type": "date",
+          "fieldWidth": "75",
+          "placeholder": "YYYY-MM-DD",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "label": "R.R Qty.",
+          "name": "r_r_qty",
+          "secondName": "r_r_qty_unit",
+          "type": "doubleText",
+          "firstType": "text",
+          "secondType": "text",
+          "fieldWidth": 75,
+          "upperFieldWidth": "75",
+          "secondValue": "MT"
+        },
+        {
+          "width": 6,
+          "label": "Assessment Qty.",
+          "name": "assessment_qty",
+          "secondName": "assessment_qty_unit",
+          "type": "doubleText",
+          "firstType": "text",
+          "secondType": "text",
+          "upperFieldWidth": "75",
+          "fieldWidth": 75,
+          "secondValue": "MT"
+        },
+        {
+          "width": 6,
+          "name": "rot_number",
+          "label": "Received Quantity",
+          "type": "text",
+          "placeholder": "Enter Received Quantity",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": ""
+        },
+        {
+          "width": 6,
+          "name": "density",
+          "label": "Density",
+          "type": "text",
+          "placeholder": "Enter Density",
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "label": "Quantity Assessment",
+      "type": "manualTable",
+      "isUseForVessel": true,
+      "headers": [
+        {
+          "name": "wagon_no",
+          "type": "label",
+          "label": "Wagon No.",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "box_type",
+          "type": "label",
+          "label": "Box Type",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "cc_in_mt",
+          "type": "label",
+          "label": "CC In MT",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "area_in_sq_mtr",
+          "type": "label",
+          "label": "Area in Sq.Mtr",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "loaded_height_in_mtr",
+          "type": "label",
+          "label": "Loaded Height In Mtr.",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "rk_density",
+          "type": "label",
+          "label": "Density",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "valume_in_cubic_mtr",
+          "type": "label",
+          "label": "Volumne In Cubic Mtr.",
+          "width": 6,
+          "fieldWidth": "100",
+          "readOnly": true
+        },
+        {
+          "name": "measurement_qty_in_mt",
+          "type": "label",
+          "label": "Measurement Qty. In Mt.",
+          "width": 6,
+          "fieldWidth": "100"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "wagon_no",
+            "type": "text",
+            "label": "Wagon No.",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "box_type",
+            "type": "text",
+            "label": "Box Type",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "cc_in_mt",
+            "type": "number",
+            "label": "CC In MT",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "area_in_sq_mtr",
+            "type": "number",
+            "label": "Area in Sq.Mtr",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "loaded_height_in_mtr",
+            "type": "number",
+            "label": "Loaded Height In Mtr.",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rk_density",
+            "type": "number",
+            "label": "Density",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "valume_in_cubic_mtr",
+            "type": "text",
+            "label": "Volumne In Cubic Mtr.",
+            "width": 6,
+            "fieldWidth": "100",
+            "readOnly": true
+          },
+          {
+            "name": "measurement_qty_in_mt",
+            "type": "text",
+            "label": "Measurement Qty. In Mt.",
+            "width": 6,
+            "fieldWidth": "100",
+            "readOnly": true
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

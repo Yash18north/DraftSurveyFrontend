@@ -1,0 +1,156 @@
+{
+  "breadcom": [
+    {
+      "title": "Job Instruction List",
+      "redirect": "/jrfListing"
+    },
+    {
+      "title": "Job Instruction",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "subSections": [
+        {
+          "fields":[]
+        },
+        {
+          "fields": [
+            {
+              "width": 12,
+              "label": "Nomination Details",
+              "styleName": "section_heading",
+              "type": "label"
+            },
+            {
+              "width": 6,
+              "name": "ji_branch_name",
+              "label": "Branch Name",
+              "type": "label",
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "fk_userbranchheadid",
+              "label": "Branch Head",
+              "type": "select",
+              "value": "-",
+              "noCheckFirstOption":true,
+              "required":true
+            },
+            {
+              "width": 6,
+              "name": "fk_useropsexecutiveid",
+              "label": "Operation Executive",
+              "required": true,
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/users/list/",
+              "queryString":"branch_user=true",
+              "apimethod": "GET",
+              "isSearchable": true,
+              "optionData": {
+                "id": "usr_id",
+                "label": "first_name",
+                "label2": "usr_emp_id"
+              }
+            },
+            {
+              "width": 6,
+              "name": "fk_useropsexecutiveheadid",
+              "label": "Operation Executive (Head Office)",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/users/list/",
+              "queryString":"ops_exec_head=true",
+              "apimethod": "GET",
+              "isSearchable": true,
+              "optionData": {
+                "id": "usr_id",
+                "label": "first_name",
+                "label2": "usr_emp_id"
+              }
+            },
+            {
+              "width": 6,
+              "name": "fk_usersalespersonid",
+              "label": "Sales Person",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/users/list/",
+              "queryString":"sales_person=true",
+              "apimethod": "GET",
+              "isSearchable": true,
+              "optionData": {
+                "id": "usr_id",
+                "label": "first_name",
+                "label2": "usr_emp_id"
+              },
+              "required":true
+            },
+            {
+              "width": 6,
+              "name": "fk_userbranchcaptainid",
+              "label": "Branch Captain",
+              "type": "select",
+              "value": "-",
+              "noCheckFirstOption":true,
+              "required":true
+            },
+            {
+              "width": 6,
+              "name": "ji_additional_remark",
+              "label": "Remark",
+              "type": "textArea",
+              "characterLimit":255,
+              "value": ""
+            },
+            {
+              "width": 12,
+              "label": "Billing Details",
+              "styleName": "section_heading",
+              "type": "label"
+            },
+            {
+              "width": 6,
+              "name": "ji_billing",
+              "label": "Billing Details",
+              "type": "text",
+              "characterLimit":255,
+              "value": "",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

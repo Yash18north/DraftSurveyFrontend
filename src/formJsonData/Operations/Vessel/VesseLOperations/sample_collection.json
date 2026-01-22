@@ -1,0 +1,119 @@
+{
+    "title": "Tabs Section",
+    "type": "tabs",
+    "tabs": [
+      {
+        "label": "Size Analysis",
+        "type": "manualTable",
+        "headers": [
+          {
+            "name": "sampling_date",
+            "type": "label",
+            "label": "Sampling Date",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "lot_no",
+            "type": "label",
+            "label": "Lot No.",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "sample_qty",
+            "type": "label",
+            "label": "LOT QUANTITY",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "no_of_bags",
+            "type": "label",
+            "label": "No. of Bags",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "sample_collected",
+            "type": "label",
+            "label": "Sample Collected in Kg",
+            "width": 6,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "name": "sampling_date",
+              "type": "date",
+              "label": "Sampling Date",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100",
+              "noLimitation":true
+            },
+            {
+              "name": "lot_no",
+              "type": "text",
+              "label": "Lot No.",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "sample_qty",
+              "type": "text",
+              "label": "LOT QUANTITY",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "no_of_bags",
+              "type": "text",
+              "label": "No. of Bags",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "sample_collected",
+              "type": "text",
+              "label": "Sample Collected in Kg",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            }
+          ]
+        ],
+        "actions": [
+          {
+            "label": "bi bi-pencil h6",
+            "value": "Edit",
+            "type": "icon",
+            "redirectUrl": "/inwardList/inwardForm",
+            "permission": "update"
+          },
+          {
+            "label": "bi bi-trash h6",
+            "value": "Delete",
+            "type": "icon",
+            "redirectUrl": "/inwardList/inwardForm",
+            "permission": "delete"
+          },
+          {
+            "label": "bi bi-clock-history h6",
+            "value": "History",
+            "type": "icon",
+            "permission": "history"
+          }
+        ]
+      }
+    ]
+  }

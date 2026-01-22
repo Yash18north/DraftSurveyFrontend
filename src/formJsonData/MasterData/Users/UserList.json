@@ -1,0 +1,114 @@
+{
+    "breadcom": [
+        {
+            "title": "Master Data",
+            "redirect": "#"
+        },
+        {
+            "title": "User List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "users List",
+            "type": "list",
+            "listView": true,
+            "headers": []
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/User/list",
+        "read": "/users/list/",
+        "update": "/api/orders/update",
+        "delete": "/api/orders/delete"
+    },
+    "listView": {
+        "title": "users List",
+        "moduleType": "userMaster",
+        "headers": [
+            {
+                "label": "Date",
+                "name": "date_joined",
+                "sortName": "usr_creation_time",
+                "type": "date"
+            },
+            {
+                "label": "Employee ID",
+                "name": "usr_emp_id",
+                "type": "text",
+                "sortName": "usr_emp_id"
+            },
+            {
+                "label": "Employee Name",
+                "name": "first_name",
+                "type": "text",
+                "sortName": "first_name"
+            },
+            {
+                "label": "Designation",
+                "name": "usr_designation",
+                "type": "number",
+                "sortName": "usr_designation"
+            },
+            {
+                "label": "Role",
+                "name": "group",
+                "type": "number",
+                "sortName": "role",
+                "fieldName": "name"
+            },
+            {
+                "label": "Is Active",
+                "name": "is_active",
+                "type": "boolean",
+                "sortName": "is_active"
+            }
+        ],
+        "rows": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/inwardForm",
+                "permission": "read"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Edit",
+                "type": "icon",
+                "redirectUrl": "/inwardForm",
+                "permission": "update"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "0",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "PostedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    }
+}

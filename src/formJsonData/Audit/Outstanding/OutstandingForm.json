@@ -1,0 +1,157 @@
+{
+    "apiEndpoints": {
+        "create": "/outstanding/create/",
+        "read": "",
+        "update": "/outstanding/update/",
+        "delete": ""
+    },
+    "breadcom": [
+        {
+            "title": "Outstanding",
+            "redirect": "/audit/outstanding-list"
+        },
+        {
+            "title": "Add Outstanding",
+            "redirect": "/"
+        }
+    ],
+    "moduleName": "auditOutstanding",
+    "sections": [
+        {
+            "title": "Add Outstanding",
+            "moduleType": "auditOutstanding",
+            "fields": [
+                {
+                    "width": 25,
+                    "label": "Add Outstanding",
+                    "name": "section_heading",
+                    "type": "label",
+                    "required": true,
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "width": 6,
+                    "name": "company",
+                    "label": "Select Company",
+                    "type": "select",
+                    "required": true,
+                    "readOnly":true
+                 
+                },
+                {
+                    "width": 6,
+                    "name": "branch",
+                    "label": "Select Branch",
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/company-branches/get/",
+                    "apimethod": "POST",
+                    "isSearchable": "true",
+                    "optionData": {
+                        "id": "branch_id",
+                        "label": "branch_name"
+                    },
+                    "customPayload": {
+                        "name": "company_id",
+                        "value": "company"
+                    },
+                    "isCustomPayload": true,
+                    "required": true
+
+                },
+                {
+                    "width": 6,
+                    "name": "month",
+                    "label": "Select Month",
+                    "styleName": "custom_status",
+                    "type": "select",
+                    "required": true,
+                    "readOnly":true
+                },
+                {
+                    "width": 6,
+                    "name": "year",
+                    "label": "Select Year",
+                    "styleName": "custom_status",
+                    "type": "select",
+                    "required": true,
+                    "readOnly":true
+                },
+                {
+                    "width": 25,
+                    "label": "Outstanding Details",
+                    "name": "section_heading",
+                    "type": "label",
+                    "required": true,
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "width": 6,
+                    "name": "branch_name",
+                    "label": "Select Branch",
+                    "type": "select",
+                    "multiple": true,
+                    "options": [],
+                    "placeholder": "Select Branch",
+                    "readOnly":false
+                },
+                {
+                    "type": "hr"
+                },
+                {
+                    "width": 25,
+                    "label": "Total",
+                    "name": "section_heading",
+                    "type": "label",
+                    "required": true,
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "label": "Total Outstanding",
+                    "name": "total_outstanding_amt",
+                    "type": "numbet",
+                    "readOnly":true,
+                    "placeholder": "Total Outstanding",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    },
+                    "defaultValue":0
+                }
+            ]
+        }
+    ],
+    "popupMessages": {
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "assignment": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

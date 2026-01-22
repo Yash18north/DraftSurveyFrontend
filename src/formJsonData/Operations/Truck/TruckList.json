@@ -1,0 +1,205 @@
+{
+  "breadcom": [
+    {
+      "title": "Vessel List",
+      "redirect": "/operation/vessel-ji-list"
+    },
+    {
+      "title": "Truck Operation",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "moduleSubType": "truckList",
+      "fields": []
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Truck Operation",
+          "type": "tableList",
+          
+          "listView": {
+            "title": "Truck Operation",
+            "moduleType": "truckOperation",
+            "redirectUrl":"/operation/truck-list/truck-details-list/",
+            "headers": [
+              {
+                "label": "Date",
+                "name": "ji_date",
+                "sortName": "ji_date",
+                "type": "date"
+              },
+             
+              {
+                "label": "Activity",
+                "name": "activity_master",
+                "type": "text",
+                "sortName": "client_details",
+                "fieldName": "activity_name",
+                "fromType": "array"
+              },
+              {
+                "label": "Customer Name",
+                "name": "client_details",
+                "type": "text",
+                "sortName": "client_details",
+                "fieldName": "client_name",
+                "fromType": "array"
+              },
+        
+
+              {
+                "label": "Status",
+                "name": "status",
+                "type": "text",
+                "sortName": "status",
+                "fieldName": "status"
+              }
+            ],
+            "rows": [
+              [
+                {
+                  "label": "23-12-2022",
+                  "name": "created_date",
+                  "type": "label"
+                },
+                {
+                  "label": "1122324455678",
+                  "name": "jrf_number",
+                  "type": "label"
+                },
+                {
+                  "label": "27C2324J01VL7071",
+                  "name": "reference_number",
+                  "type": "label"
+                },
+                {
+                  "label": "COAL",
+                  "name": "commodity",
+                  "type": "label"
+                },
+                {
+                  "label": "TCRC Quality Controls LLP",
+                  "name": "client_name",
+                  "type": "label"
+                },
+                {
+                  "label": "In Progress",
+                  "name": "jrf_status",
+                  "type": "label"
+                },
+                {
+                  "label": "In Progress",
+                  "name": "jrf_status",
+                  "type": "label"
+                },
+                {
+                  "label": "In Progress",
+                  "name": "jrf_status",
+                  "type": "label"
+                },
+                {
+                  "label": "In Progress",
+                  "name": "jrf_status",
+                  "type": "label"
+                }
+              ]
+            ],
+            "actions": [
+              {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "status": "vesseListView"
+              },
+              {
+                "label": "bi bi-file-earmark-pdf h6",
+                "value": "Man Power",
+                "type": "icon"
+              }
+            ],
+            "statusesWithIcon": [],
+            "statusesWithColor": [
+              {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+              },
+              {
+                "icon": "saved_sym",
+                "name": "Tasked",
+                "status": "tasked"
+              },
+              {
+                "icon": "inprocess_sym",
+                "name": "In-process",
+                "status": "in-process"
+              },
+              {
+                "icon": "posted_sym",
+                "name": "Input Completed",
+                "status": "input-completed"
+              }
+            ]
+          },
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

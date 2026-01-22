@@ -1,0 +1,137 @@
+{
+    "breadcom": [
+        {
+            "title": "Purchase",
+            "redirect": "#"
+        },
+        {
+            "title": "Category List",
+            "redirect": "/categoriesList"
+        }
+    ],
+    "sections": [
+        {
+            "title": "Category List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF no.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "read": "/category-master/list/"
+    },
+    "listView": {
+        "title": "Category List",
+        "isCustomTitle": true,
+        "moduleType": "category",
+        "headers": [
+            {
+                "name": "category_name",
+                "label": "Category Name",
+                "type": "text",
+                "sortName": "category_name"
+            },
+            {
+                "name": "category_description",
+                "label": "Category Description",
+                "type": "textarea",
+                "sortName": "category_description"
+            },
+            {
+                "name": "category_status",
+                "label": "Status",
+                "sortName": "category_status"
+            }
+        ],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/categoryListing/categoryForm",
+                "permission": "read"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Edit",
+                "type": "icon",
+                "redirectUrl": "/categoryListing/categoryForm",
+                "permission": "update"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/categoryListing/categoryForm",
+                "permission": "delete"
+            }
+        ],
+        "statusesWithIcon": [],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            }
+        ]
+    },
+    "popupMessages": {
+        "download": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

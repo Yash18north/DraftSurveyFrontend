@@ -1,0 +1,113 @@
+{
+    "sections": [
+      
+      {
+        "title": "Customer Information",
+        "fields": [
+            { "width": 6, "name": "fname",
+            "label": "First Name", "type": "text", "required": true },
+            { "width": 6,"name": "lname",
+            "label": "Last Name", "type": "text", "required": true },
+            {
+              "name": "orderno",
+              "label": "Order no",
+              "type": "text",
+              "width": 6,
+              "required": true,
+              "validation": {
+                "pattern": "^[a-zA-Z0-9_-]+$",
+                "message": "Only letters, numbers, underscores, and hyphens are allowed."
+              }
+            },
+            {
+              "name": "oreder_date",
+              "label": "Order Date",
+              "width": 6,
+              "type": "date",
+              "required": true,
+              "validation": {
+                "pattern": "",
+                "message": "Invalid Date."
+              }
+            }
+          ]
+      },
+      {
+        "title": "Work Order Info",
+        "type": "table",
+        "headers": [
+          { "label": "Column 1", "name": "Column 1", "type": "text", "required": true },
+          { "label": "Column 2", "name": "Column 2", "required": false },
+          { "label": "Column 3", "name": "Column 3", "type": "select", "options": ["Option 1", "Option 2"] }
+        ],
+        "rows": [
+          [
+            { "type": "text", "name": "ordernumber", "required": true },
+            { "type": "text", "name": "weight", "required": false },         
+            { "type": "select", "name": "weight", "required": false, "options": ["Option A", "Option B"] }
+
+          ]
+        ]
+      },
+      {
+        "title": "Add Scope of Work",
+        "type": "accordion",
+        "Accordiontitle": "Vessel",
+        "sections": [
+          {
+            "title": "Add vessel Info",
+            "fields": [
+              {
+                "width": 6,
+                "name": "Vessel Name",
+                "label": "Vessel Name",
+                "type": "text",
+                "required": true
+              },
+              {
+                "width": 6,
+                "name": "Commodity",
+                "label": "Commodity",
+                "type": "text",
+                "required": false
+              },
+              {
+                "width": 6,
+                "name": "Port",
+                "label": "Port",
+                "type": "text",
+                "required": false
+              },
+              {
+                "width": 6,
+                "name": "Quantity",
+                "label": "Quantity",
+                "type": "text",
+                "required": false
+              }
+            ],
+            "type": "inner"
+          },
+          {
+            "title": "Inner Section 2",
+            "fields": [
+              {
+                "name": "field3",
+                "label": "Field 3",
+                "type": "text",
+                "required": true
+              },
+              {
+                "name": "field4",
+                "label": "Field 4",
+                "type": "text",
+                "required": false
+              }
+            ],
+            "type": "inner"
+          }
+        ]
+      }
+    ]
+  }
+  

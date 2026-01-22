@@ -1,0 +1,636 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jrf/get",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Sample Inward List",
+      "redirect": "/inwardList"
+    },
+    {
+      "title": "Sample Inward Form",
+      "redirect": "#"
+    }
+  ],
+  "moduleName": "sammple-inward",
+  "sections": [
+    {
+      "title": "Sample Inward Form",
+      "moduleType": "sampleinward",
+      "fields": [
+        {
+          "width": 25,
+          "label": "Sample Inward Details",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "smpl_inwrd_No",
+          "label": "Inward No.",
+          "type": "label",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "smpl_status",
+          "label": "Inward Status",
+          "styleName": "custom_status",
+          "type": "label",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_referenceno",
+          "label": "Reference Number",
+          "type": "text",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_no",
+          "label": "JRF No.",
+          "type": "text",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_company_name",
+          "label": "Organization Name",
+          "type": "label",
+          "required": true,
+          "value": "TCRC Haldia",
+          "readOnly": true
+        },
+        {
+          "type": "hr"
+        },
+        {
+          "width": 25,
+          "label": "Sample Specifications",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "jrf_commodity",
+          "label": "Commodity",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "label": "Quantity of Test Sample",
+          "name": "jrf_quanity_sample",
+          "type": "textArea",
+          "placeholder": "Enter quantity of test samples details",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "No. of Packets",
+          "name": "jrf_no_of_packets",
+          "type": "text",
+          "placeholder": "Enter No. of Packets",
+          "useForViewOnly": true
+        },
+        {
+          "type": "hr"
+        },
+        {
+          "width": 25,
+          "label": "Job Description",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Description of the sample",
+          "name": "jrf_desc_of_sample",
+          "type": "textArea",
+          "placeholder": "Description of the sample",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Parameter to be analysed",
+          "name": "jrf_parameters_to_analyze",
+          "type": "textArea",
+          "placeholder": "Parameter to be analysed",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Other Requirement",
+          "name": "jrf_other_info",
+          "type": "textArea",
+          "placeholder": "Add Additional Info (If any)",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Test Report Required after (in days)",
+          "name": "jrf_test_repo_req_on",
+          "type": "numberPlusMinus",
+          "placeholder": "Enter Job Quantity"
+        },
+        {
+          "width": 6,
+          "label": "Test Method",
+          "name": "jrf_test_method",
+          "styleName": "selectCompWidth",
+          "type": "select",
+          "options": [
+            "IS",
+            "ISO",
+            "ASTM",
+            "DIN"
+          ],
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Branch Name",
+          "name": "jrf_branch_name",
+          "type": "select",
+          "required": true
+        },
+        {
+          "fieldWidth": "75",
+          "width": 6,
+          "name": "smpl_detail_dos",
+          "label": "Date of Receipt",
+          "type": "date",
+          "required": true,
+          "placeholder": "DOS",
+          "pastDate": true,
+          "pastdays": 7
+        },
+        {
+          "name": "smpl_detail_recpt_mode",
+          "width": 6,
+          "label": "Sample Receipt Mode",
+          "type": "select",
+          "options": [
+            "Self-delivery",
+            "By courier"
+          ],
+          "required": true,
+          "fieldWidth": "75",
+          "placeholder": "Receipt Mode"
+        }
+      ]
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Sample Inward Details",
+          "type": "table",
+          "headers": [
+            {
+              "name": "sample_id",
+              "type": "text",
+              "label": "Sample Id",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Sample Id",
+              "pattern": "^\\d{4}[A-Z]\\d{2}[A-Z]{2}\\d{4,5}$",
+              "tooltip": "Before inputting the Sample Id., note its format: 2425 - Finanacial year, C - Company code, 27-State GST code, SS - Submitted sample, 00023- Sequene number(5 digit). Ensure accuracy for precision.",
+              "isPatternMessage": true
+            },
+            {
+              "fieldWidth": "100",
+              "width": 6,
+              "name": "smpl_detail_dos",
+              "label": "Date of Receipt",
+              "type": "date",
+              "required": true,
+              "placeholder": "DOS",
+              "pastDate": true,
+              "pastdays": 7
+            },
+            {
+              "name": "smpl_detail_recpt_mode",
+              "width": 6,
+              "label": "Sample Receipt Mode",
+              "type": "select",
+              "options": [
+                "Self-delivery",
+                "By courier"
+              ],
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Receipt Mode",
+              "readOnly": true
+            },
+            {
+              "name": "smpl_detail_pkging_condition",
+              "label": "Packaging Condition",
+              "width": 6,
+              "type": "select",
+              "options": [
+                "Sealed",
+                "Unsealed",
+                "Intact"
+              ],
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Packaging Condition"
+            },
+            {
+              "name": "smpl_detail_seal_number",
+              "label": "Seal Number",
+              "width": 6,
+              "type": "text",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Seal No."
+            },
+            {
+              "name": "smpl_detail_sample_mark",
+              "subname": "jism_marknumber",
+              "label": "Sample Mark",
+              "width": 6,
+              "type": "text",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Sample Mark"
+            },
+            {
+              "label": "Sample Condition",
+              "width": 6,
+              "name": "smpl_detail_smpl_condtion",
+              "type": "select",
+              "options": [
+                "Dry",
+                "Wet",
+                "Raw Sample",
+                "Powdered Sample",
+                "Raw and Powdered Sample",
+                "Physical Sample",
+                "Physical and Raw Sample",
+                "Physical,Raw and Powdered Sample"
+              ],
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample Condition"
+            },
+            {
+              "name": "smpl_detail_smpl_qty",
+              "width": 6,
+              "label": "Sample Quantity",
+              "type": "text",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Quantity of Received Sample"
+            },
+            {
+              "name": "smpl_detail_smpl_qty_unit",
+              "width": 6,
+              "label": "Sample Quantity Unit",
+              "type": "select",
+              "required": true,
+              "fieldWidth": "100"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "sample_id",
+                "type": "label",
+                "label": "Sample Id",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "To be generated",
+                "readOnly": true,
+                "value": "To be generated"
+              },
+              {
+                "fieldWidth": "100",
+                "width": 6,
+                "name": "smpl_detail_dos",
+                "label": "Date of Receipt",
+                "type": "date",
+                "required": true,
+                "placeholder": "DOS",
+                "pastDate": true,
+                "pastdays": 7
+              },
+              {
+                "name": "smpl_detail_recpt_mode",
+                "width": 6,
+                "label": "Sample Receipt Mode",
+                "type": "select",
+                "options": [
+                  "Self-delivery",
+                  "By courier"
+                ],
+                "required": true,
+                "fieldWidth": "100",
+                "readOnly": true,
+                "placeholder": "Receipt Mode"
+              },
+              {
+                "name": "smpl_detail_pkging_condition",
+                "label": "Packaging Condition",
+                "width": 6,
+                "type": "select",
+                "options": [
+                  "Sealed",
+                  "Unsealed",
+                  "Intact"
+                ],
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Enter Packaging Condition"
+              },
+              {
+                "name": "smpl_detail_seal_number",
+                "label": "Seal Number",
+                "width": 6,
+                "type": "text",
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Seal No."
+              },
+              {
+                "name": "smpl_detail_sample_mark",
+                "subname": "jism_marknumber",
+                "label": "Sample Mark",
+                "width": 6,
+                "type": "text",
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Sample Mark"
+              },
+              {
+                "label": "Sample Condition",
+                "width": 6,
+                "name": "smpl_detail_smpl_condtion",
+                "type": "select",
+                "options": [
+                  "Dry",
+                  "Wet",
+                  "Raw Sample",
+                  "Powdered Sample",
+                  "Row and Powdered"
+                ],
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Enter Sample Condition"
+              },
+              {
+                "name": "smpl_detail_smpl_qty",
+                "width": 6,
+                "label": "Sample Quantity",
+                "type": "number",
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Enter Quantity of Received Sample"
+              },
+              {
+                "name": "smpl_detail_smpl_qty_unit",
+                "width": 6,
+                "label": "Sample Quantity Unit",
+                "type": "select",
+                "required": true,
+                "fieldWidth": "100"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        },
+        {
+          "label": "Sample Assignment Set List",
+          "type": "tablePreview",
+          "groupAssignment": true,
+          "isSubPreview": true,
+          "moduleType": "groupAssignmentPreview",
+          "headers": [
+            {
+              "label": "Samples",
+              "name": "samples",
+              "type": "label",
+              "required": true
+            },
+            {
+              "label": "Type",
+              "name": "samples",
+              "type": "label",
+              "required": true
+            },
+            {
+              "label": "Groups of Parameter",
+              "name": "Groups",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "width": 8,
+                "name": "is_group_param",
+                "subname": "isGroup",
+                "type": "radio",
+                "options": [
+                  "Group",
+                  "Parameter"
+                ],
+                "required": true,
+                "readOnly": true,
+                "fieldWidth": "100",
+                "placeholder": "1633",
+                "multiple": true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_paramjson",
+                "subname": "param_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_groupjson",
+                "subname": "group_id",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_testmethodjson",
+                "subname": "std_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "errorlabel": "Test Method"
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_basisjson",
+                "subname": "basis",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "multiple": true,
+                "errorlabel": "Basis"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "assignment": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    }
+  }
+}

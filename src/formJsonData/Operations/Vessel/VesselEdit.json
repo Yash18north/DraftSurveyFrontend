@@ -1,0 +1,413 @@
+{
+  "breadcom": [
+    {
+      "title": "Job Instruction List",
+      "redirect": "/jrfInstructionListing"
+    },
+    {
+      "title": "Job Instruction",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "fields": []
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Quality Analysis",
+          "type": "table",
+          "headers": [
+            {
+              "name": "fk_operationtypetid",
+              "type": "label",
+              "label": "ROT. No.",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "fk_activitymasterid",
+              "type": "label",
+              "label": "Quantity",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "fk_scopeworkid",
+              "type": "label",
+              "label": "Sample Mark",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jis_nameofopsmode",
+              "type": "label",
+              "label": "Sample Qty",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jis_loading_or_soure_id",
+              "type": "label",
+              "label": "Sample Weight",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jis_discharge_or_destination_id",
+              "type": "label",
+              "label": "Type of Sample",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "fk_operationtypetid",
+                "type": "number",
+                "label": "Type Of Operation",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "fk_activitymasterid",
+                "type": "text",
+                "label": "Scope of Work",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "fk_scopeworkid",
+                "type": "text",
+                "label": "Stock Item",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "jis_nameofopsmode",
+                "type": "number",
+                "label": "Name of operation Mode",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        },
+        {
+          "label": "Analysis Details",
+          "type": "table",
+          "headers": [
+            {
+              "name": "fk_operationtypetid",
+              "type": "label",
+              "label": "Sample Mark",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "fk_activitymasterid",
+              "type": "label",
+              "label": "Group / Parameter",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "fk_scopeworkid",
+              "type": "label",
+              "label": "Parameter",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jis_nameofopsmode",
+              "type": "label",
+              "label": "Test Method",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jis_loading_or_soure_id",
+              "type": "label",
+              "label": "Basis",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jis_discharge_or_destination_id",
+              "type": "label",
+              "label": "Unit",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "jis_discharge_or_destination_id",
+              "type": "radio",
+              "label": "Select For JRF",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+
+            {
+              "name": "jis_discharge_or_destination_id",
+              "type": "radio",
+              "label": "Select For TPI",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "fk_operationtypetid",
+                "type": "text",
+                "label": "Type Of Operation",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "fk_activitymasterid",
+                "type": "text",
+
+                "label": "Scope of Work",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "fk_scopeworkid",
+                "type": "text",
+
+                "label": "Stock Item",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "jis_nameofopsmode",
+                "type": "text",
+                "label": "Name of operation Mode",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "jis_loading_or_soure_id",
+                "type": "text",
+
+                "label": "Loading / Source",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "jis_discharge_or_destination_id",
+                "type": "text",
+
+                "label": "UnLoading / Destination",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+
+              {
+                "name": "jis_discharge_or_destination_id",
+                "type": "radio",
+                "options": [""],
+                "label": "UnLoading / Destination",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "jis_discharge_or_destination_id",
+                "type": "radio",
+                "options": [""],
+                "label": "UnLoading / Destination",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        },
+        {
+            "label": "Size Analysis",
+            "type": "table",
+            "headers": [
+              {
+                "name": "fk_operationtypetid",
+                "type": "label",
+                "label": "Size Analysis",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "fk_activitymasterid",
+                "type": "label",
+                "label": "Qty.",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "fk_scopeworkid",
+                "type": "label",
+                "label": "Unit",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              }
+            ],
+            "rows": [
+              [
+                {
+                  "name": "fk_operationtypetid",
+                  "type": "text",
+                  "label": "Type Of Operation",
+                  "width": 6,
+                  "required": true,
+                  "fieldWidth": "100"
+                },
+                {
+                  "name": "fk_activitymasterid",
+                  "type": "text",
+                  "label": "Scope of Work",
+                  "width": 6,
+                  "required": true,
+                  "fieldWidth": "100"
+                },
+                {
+                  "name": "fk_scopeworkid",
+                  "type": "text",
+                  "label": "Stock Item",
+                  "width": 6,
+                  "required": true,
+                  "fieldWidth": "100"
+                }
+              ]
+            ],
+            "actions": [
+              {
+                "label": "bi bi-pencil h6",
+                "value": "Edit",
+                "type": "icon",
+                "redirectUrl": "/inwardList/inwardForm",
+                "permission": "update"
+              },
+              {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/inwardList/inwardForm",
+                "permission": "delete"
+              },
+              {
+                "label": "bi bi-clock-history h6",
+                "value": "History",
+                "type": "icon",
+                "permission": "history"
+              }
+            ]
+          }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

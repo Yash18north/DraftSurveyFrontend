@@ -1,0 +1,268 @@
+{
+  "breadcom": [
+    {
+      "title": "Job Instruction List",
+      "redirect": "/jrfListing"
+    },
+    {
+      "title": "Job Instruction",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "label": "Scope of work Information",
+      "subSections": [
+        {
+          "fields": [
+           
+          ]
+        },
+        {
+          "fields": [
+            {
+              "width": 12,
+              "label": "Sampling and Analysis Attributes",
+              "headerLength": "100%",
+              "type": "label",
+              "color": "$danger",
+              "textDecoration": "none",
+              "styleName": "section_heading",
+              "fontSize": "16px"
+            },
+            {
+              "width": 6,
+              "name": "ji_type_of_sampling",
+              "label": "Type of Sampling",
+              "type": "select",
+              "required": true,
+              "value": "-",
+              "options": [
+                "Jointly",
+                "Independently",
+                "Joint + Independently"
+              ]
+            },
+            {
+              "width": 6,
+              "name": "ji_with_whom",
+              "label": "With Whom?",
+              "type": "text",
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "ji_type_of_analysis",
+              "label": "Type of Analysis",
+              "type": "select",
+              "required": true,
+              "value": "-",
+              "options": [
+                "Jointly",
+                "Independently",
+                "Joint + Independently"
+              ]
+            },
+            {
+              "width": 6,
+              "name": "ji_analysis_with_whom",
+              "label": "Analysis With Whom?",
+              "type": "text",
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "ji_analysis",
+              "label": "Analysis",
+              "type": "select",
+              "required": true,
+              "value": "-",
+              "options": [
+                "Lot Wise",
+                "Composite",
+                "Lot + Composite"
+              ]
+            },
+            {
+              "width": 6,
+              "name": "ji_sampling_methods",
+              "label": "Sampling Method",
+              "styleName": "selectCompWidth",
+              "type": "select",
+              "required": true,
+              "value": "-",
+              "options": [],
+              "multiple": true
+            }
+          ]
+        }
+      ],
+      "isSingleSetOnly": true
+    },
+    {
+      "label": "Group and Parameters",
+      "type": "sampleAssignmentTabs",
+      "tabs": [
+        {
+          "label": "Groups And Parameters",
+          "type": "table",
+          "SampleAssignment": true,
+          "headers": [
+            {
+              "label": "Is Groups or Parameter",
+              "name": "is_group_param",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Select Group and Parameter"
+            },
+            {
+              "label": "Groups of Parameter",
+              "name": "Groups",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Test Method",
+              "name": "smpl_set_testmethodjson",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "smpl_set_basisjson",
+              "type": "select",
+              "required": true,
+              "options": [
+                "ASTM",
+                "IS",
+                "ISO"
+              ],
+              "placeholder": "Enter Parameter",
+              "noCheckFirstOption":true
+            },
+            {
+              "label": "Unit",
+              "name": "Unit",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "width": 8,
+                "name": "is_group_param",
+                "subname": "isGroup",
+                "type": "radio",
+                "options": [
+                  "Group",
+                  "Parameter"
+                ],
+                "required": true,
+                "readOnly": true,
+                "fieldWidth": "100",
+                "placeholder": "1633",
+                "multiple": true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_paramjson",
+                "subname": "param_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "isSearchable": true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_groupjson",
+                "subname": "group_id",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_testmethodjson",
+                "subname": "std_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "errorlabel": "Test Method",
+              "noCheckFirstOption":true
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_basisjson",
+                "subname": "basis",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 75,
+                "multiple": true,
+                "errorlabel": "Basis"
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_unit",
+                "subname": "param_unit",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Test Report",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Test Report",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "ic_refenence",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text",
+          "fieldName": "status"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/internalcertificate/list/",
+    "read": "/internalcertificate/list/",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete",
+    "statuCount": "/iccount/get"
+  },
+  "listView": {
+    "title": "Test Report",
+    "moduleType": "internalcertificate",
+    "customField": {
+      "title": "Transfer Details",
+      "buttons": {
+        "cancel": {
+          "title": "Cancel"
+        },
+        "confirm": {
+          "title": "Save"
+        }
+      },
+      "fields": [
+        {
+          "width": 12,
+          "name": "fk_ic_certificate_transfered_to",
+          "label": "Lab Receptionist",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/users/list/",
+          "queryString": "lab_receptionist=true",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "usr_id",
+            "label": "first_name",
+            "label2": "usr_emp_id"
+          }
+        }
+      ]
+    },
+    "headers": [
+      {
+        "label": "Reference Number",
+        "name": "ic_refenence",
+        "type": "text",
+        "sortName": "ic_refenence"
+      },
+      {
+        "label": "External",
+        "name": "ic_is_external_jrf",
+        "type": "boolean",
+        "sortName": "ic_is_external_jrf"
+      },
+      {
+        "label": "Test Report Date",
+        "name": "ic_dateanalysiscompleted",
+        "sortName": "ic_dateanalysiscompleted",
+        "type": "date"
+      },
+      {
+        "label": "TEST REPORT NO(From - To.)",
+        "name": "sample_ids_from_to",
+        "type": "text",
+        "sortName": "sample_ids_from_to",
+        "isNoSort": true
+      },
+      {
+        "label": "INWARD NO.",
+        "name": "sample_inward",
+        "type": "text",
+        "sortName": "sample_inward_no",
+        "fieldName": "sample_inward_no",
+        "isNoSort": true
+      },
+      {
+        "label": "ULR Number",
+        "name": "ic_ulrno",
+        "type": "text",
+        "sortName": "ic_ulrno"
+      },
+      {
+        "label": "Commodity",
+        "name": "ic_descofsmpl",
+        "type": "number",
+        "sortName": "ic_descofsmpl"
+      },
+      {
+        "label": "Customer Name",
+        "name": "ic_customername",
+        "type": "text",
+        "sortName": "ic_customername"
+      },
+      {
+        "label": "Ageing",
+        "name": "ic_ageing",
+        "type": "statusAgeing",
+        "sortName": "ic_ageing",
+        "todate": "jrf_date",
+        "isNoSort": true
+      },
+      {
+        "label": "Invoice Status",
+        "name": "ic_iv_status",
+        "type": "text",
+        "sortName": "ic_iv_status"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "23-12-2022",
+          "name": "created_date",
+          "type": "label"
+        },
+        {
+          "label": "1122324455678",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7071",
+          "name": "reference_number",
+          "type": "label"
+        },
+        {
+          "label": "COAL",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "In Progress",
+          "name": "jrf_status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "created_date",
+          "type": "label"
+        },
+        {
+          "label": "1122324455679",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7072",
+          "name": "reference_number",
+          "type": "label"
+        },
+        {
+          "label": "Gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Submitted",
+          "name": "jrf_status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "23-12-2022",
+          "name": "created_date",
+          "type": "label"
+        },
+        {
+          "label": "1122324455680",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "27C2324J01VL7073",
+          "name": "reference_number",
+          "type": "label"
+        },
+        {
+          "label": "Limestone",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "TCRC Quality Controls LLP",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Completed",
+          "name": "jrf_status",
+          "type": "label"
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-download h6",
+        "redirectUrl": "/testReport/test-results",
+        "value": "Preview Report",
+        "type": "icon",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-pencil h6",
+        "value": "Edit",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "change"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "Verify",
+        "redirectUrl": "/testReport/test-results",
+        "status": "verifyByTm",
+        "isDupplicate": true
+      },
+      {
+        "label": "Verify",
+        "redirectUrl": "/testReport/test-results",
+        "status": "verifyByDTM",
+        "isDupplicate": true
+      },
+      {
+        "label": "Publish",
+        "redirectUrl": "/testReport/test-results",
+        "status": "publishBtn"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/testReport/test-results",
+        "status": "dtmReject",
+        "isDupplicate": true
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/testReport/test-results",
+        "status": "tmReject",
+        "isDupplicate": true
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Saved",
+        "name": "saved",
+        "status": "saved",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Approved",
+        "name": "approved",
+        "status": "approved",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Rejected",
+        "name": "rejected",
+        "status": "rejected",
+        "image": "RejectedIcon"
+      },
+      {
+        "icon": "bi bi-check-lg",
+        "label": "Pending",
+        "name": "pending",
+        "status": "pending",
+        "image": "AcceptedIcon"
+      },
+      {
+        "icon": "bi bi-shield-check",
+        "label": "Published",
+        "name": "publish",
+        "status": "publish",
+        "image": "CompletedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "posted_sym",
+        "name": "Saved",
+        "status": "saved"
+      },
+      {
+        "icon": "accepted_sym",
+        "name": "Approved",
+        "status": [
+          "tm-approved",
+          "dtm-approved"
+        ]
+      },
+      {
+        "icon": "rejected_sym",
+        "name": "Rejected",
+        "status": [
+          "tm-reject",
+          "dtm-reject"
+        ]
+      },
+      {
+        "icon": "inprocess_sym",
+        "name": "Pending",
+        "status": "pending"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Published",
+        "status": "publish"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "approve": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to Approve?"
+    }
+  }
+}

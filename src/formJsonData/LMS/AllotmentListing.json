@@ -1,0 +1,340 @@
+{
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Allotment List",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Sample Inward List",
+      "type": "list",
+      "headers": [
+        {
+          "label": "SFM ID",
+          "name": "inward_date",
+          "type": "text"
+        },
+        {
+          "label": "Chemist Name",
+          "name": "inward_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "text"
+        },
+        {
+          "label": "Date of Receipt Sample",
+          "name": "jrf_number",
+          "type": "text"
+        },
+
+        {
+          "label": "Completion Date",
+          "name": "reference_number",
+          "type": "text"
+        },
+        { "label": "Status", "name": "status", "type": "text" },
+
+        { "label": "Action", "name": "action", "type": "text", "colSpan": "8" }
+      ],
+      "rows": [
+        [
+          { "label": "5472324455678", "name": "inward_id", "type": "label" },
+          {
+            "label": "gypsum",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455679",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7071",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Inwarded",
+            "name": "status",
+            "type": "label"
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment"
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create",
+            "disabled": true
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ],
+        [
+          { "label": "5472324455679", "name": "inward_id", "type": "label" },
+          {
+            "label": "Limestone",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "1122324455680",
+            "name": "date_sample_receipt",
+            "type": "label"
+          },
+
+          {
+            "label": "27C2324J01VL7072",
+            "name": "jrf_number",
+            "type": "label"
+          },
+          {
+            "label": "Parameterized",
+            "name": "status",
+            "type": "label"
+          },
+
+          {
+            "label": "Assignment",
+            "name": "group_assignment",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/inwardList/groupAssignment",
+            "disabled": true
+          },
+          {
+            "label": "Test Memo",
+            "name": "test_memo",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=create"
+          },
+
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          }
+        ]
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/sampleinward/list/",
+    "read": "/allotment/list/",
+    "readUserWise": "allotmentuserwise/list/",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete",
+    "statuCount":"/allotmentstatuscount/get",
+    "exportExcel":"/allotment_excel/get"
+  },
+  "listView": {
+    "title": "Sample Inward List",
+
+    "moduleType": "allotment",
+    "type": "list",
+    "headers": [
+      {
+        "label": "Date of allotment",
+        "name": "sa_actualdateofreporting",
+        "type": "date",
+        "sortName": "sa_actualdateofreporting"
+      },
+      {
+        "label": "Allotment No",
+        "name": "sa_allotment_no",
+        "type": "text",
+        "sortName": "sa_allotment_no"
+      },
+      {
+        "label": "Sample Code",
+        "name": "ops_sp_lab_smplcode",
+        "type": "text",
+        "sortName": "ops_sp_lab_smplcode",
+        "fieldName": "ops_sp_lab_smplcode",
+        "isNoSort":true
+      },
+      {
+        "label": "Inward No",
+        "name": "inward_number",
+        "type": "text",
+        "sortName": "sa_allotment_no"
+      },
+      {
+        "label": "Chemist Name",
+        "name": "sample_allotedto_data",
+        "type": "text",
+        "sortName": "sa_sampleallottedto__first_name"
+      },
+      {
+        "label": "Commodity",
+        "name": "commodity_detail",
+        "fieldName": "commodity",
+        "type": "text",
+        "sortName": "fkey_commodity__cmd_name"
+      },
+      {
+        "label": "Completion Date",
+        "name": "sa_expdateofresult",
+        "fieldName": "sa_expdateofresult",
+        "type": "date",
+        "sortName": "sa_expdateofresult"
+      },
+      
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "fieldName": "status",
+        "sortName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "23-12-2022",
+          "name": "inward_created_date",
+          "type": "label"
+        },
+        { "label": "5472324455678", "name": "inward_id", "type": "label" },
+        {
+          "label": "gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "1122324455679",
+          "name": "date_sample_receipt",
+          "type": "label"
+        },
+
+        {
+          "label": "27C2324J01VL7071",
+          "name": "jrf_number",
+          "type": "label"
+        },
+        {
+          "label": "Inwarded",
+          "name": "inward_status",
+          "type": "label"
+        }
+      ]
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Pending",
+        "status": "pending",
+        "name": "pending",
+        "image": "PendingIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Allotted",
+        "status": "allotted",
+        "name": "allotted",
+        "image": "AllotedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Completed",
+        "status": "completed",
+        "name": "completed",
+        "image": "CompletedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      { "icon": "posted_sym", "name": "Pending", "status": "pending" },
+      { "icon": "saved_sym", "name": "Allotted", "status": "allotted" },
+      { "icon": "completed_sym", "name": "Completed", "status": "completed" }
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "type": "icon",
+
+        "redirectUrl": "/allotmentList/allotment",
+        "value": "View",
+        "status": "inward",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "Allot",
+        "redirectUrl": "/allotmentList/allotment",
+        "status": "allot"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/allotmentList/allotment",
+        "status": "Edit"
+      },
+      {
+        "label": "Verification",
+        "redirectUrl": "/verificationList/sampleVerification",
+        "status": "verification"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

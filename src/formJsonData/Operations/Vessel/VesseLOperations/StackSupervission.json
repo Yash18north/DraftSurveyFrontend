@@ -1,0 +1,157 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Stack Supervission",
+      "type": "table",
+      "isUseForVessel": true,
+      "isUseForActivity": true,
+      "headers": [
+        {
+          "name": "st_sv_stack_no",
+          "type": "label",
+          "label": "STACK NO.",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "st_sv_date_of_sampling",
+          "type": "label",
+          "label": "DATE OF SAMPLING",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "st_sv_qty",
+          "type": "label",
+          "label": "QUANTITY IN MTS (APPROX.)",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "st_sv_plot_no",
+          "type": "label",
+          "label": "PLOT NO.",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "st_sv_weather_condtion",
+          "type": "label",
+          "label": "WEATHER CONDITION",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "st_sv_param_basis_unit",
+          "type": "label",
+          "label": "PARAMETERS / BASIS/ UNITS",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "st_sv_remarks",
+          "type": "label",
+          "label": "REMARKS",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "st_sv_stack_no",
+            "type": "text",
+            "label": "STACK NO.",
+            "width": 6,
+            
+            "fieldWidth": "100",
+            "required":true
+          },
+          {
+            "name": "st_sv_date_of_sampling",
+            "type": "date",
+            "label": "DATE OF SAMPLING",
+            "width": 6,
+            
+            "fieldWidth": "100",
+            "required":true
+          },
+          {
+            "name": "st_sv_qty",
+            "type": "text",
+            "label": "QUANTITY IN MTS (APPROX.)",
+            "width": 6,
+            "showTimeSelect":true,
+            "fieldWidth": "100",
+            "required":true
+          },
+          {
+            "name": "st_sv_plot_no",
+            "type": "text",
+            "label": "PLOT NO.",
+            "width": 6,
+            "showTimeSelect":true,
+            "fieldWidth": "100",
+            "required":true
+          },
+          {
+            "name": "st_sv_weather_condtion",
+            "type": "text",
+            "label": "WEATHER CONDITION",
+            "width": 6,
+            "showTimeSelect":true,
+            "fieldWidth": "100",
+            "required":true
+          },
+          {
+            "name": "st_sv_param_basis_unit",
+            "type": "text",
+            "label": "PARAMETERS/BASIS/UNITS",
+            "width": 6,
+            "showTimeSelect":true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "st_sv_remarks",
+            "type": "text",
+            "label": "REMARKS",
+            "width": 6,
+            
+            "fieldWidth": "100"
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,661 @@
+{
+    "breadcom": [
+        {
+            "title": "Purchase",
+            "redirect": "#"
+        },
+        {
+            "title": "Purchase Order List",
+            "redirect": "/purchase"
+        },
+        {
+            "title": "Purchase Order",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "",
+        "update": "",
+        "delete": ""
+    },
+    "sections": [
+        {
+            "title": "Create Purchase Order",
+            "moduleType": "purchase",
+            "customField": {
+                "title": "Approval Details",
+                "buttons": {
+                    "cancel": {
+                        "title": "Cancel"
+                    },
+                    "confirm": {
+                        "title": "Send"
+                    }
+                },
+                "fields": [
+                    {
+                        "width": 12,
+                        "name": "fk_approval_id",
+                        "label": "Approval User",
+                        "type": "DropDownWithLoadMore",
+                        "apiendpoint": "/users/list/",
+                        "apimethod": "GET",
+                        "isSearchable": "true",
+                        "optionData": {
+                            "id": "usr_id",
+                            "label": "first_name",
+                            "label2": "usr_emp_id",
+                            "label3": "last_name"
+                        },
+                        "customPayload": {
+                            "name": "purchase_user",
+                            "defaultValue": true
+                        },
+                        "isCustomPayload": true
+                    }
+                ]
+            },
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Create Purchase Order",
+                    "type": "label",
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px",
+                    "required": true
+                },
+                {
+                    "name": "po_no",
+                    "label": "Purchase Order No",
+                    "type": "text",
+                    "width": 6,
+                    "readOnly": true
+                },
+                {
+                    "name": "po_date",
+                    "label": "Purchase Order Date",
+                    "type": "date",
+                    "width": 6,
+                    "required": true,
+                    "pastDate": true,
+                    "pastdays": 15
+                },
+                {
+                    "name": "fk_supplier_id",
+                    "label": "PO To",
+                    "width": 6,
+                    "filterType": "suppliers",
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/suppliers/list/",
+                    "apimethod": "GET",
+                    "isSearchable": "true",
+                    "optionData": {
+                        "id": "sup_id",
+                        "label": "sup_name",
+                        "label2": "sup_gst_no"
+                    },
+                    "required": true
+                },
+                {
+                    "name": "po_gst_type",
+                    "label": "GST Type",
+                    "type": "select",
+                    "width": 6,
+                    "required": true,
+                    "placeholder": "GST Type",
+                    "options": [
+                        {
+                            "label": "Inclusive",
+                            "value": "inclusive"
+                        },
+                        {
+                            "label": "Exclusive",
+                            "value": "exclusive"
+                        }
+                    ]
+                },
+                {
+                    "name": "po_gst_no",
+                    "label": "GST No",
+                    "type": "text",
+                    "width": 6,
+                    "required": true,
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "po_billing_address",
+                    "label": "Select Billing Address",
+                    "type": "text",
+                    "required": true,
+                    "isSearchable": true,
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "po_ship_to",
+                    "label": "Ship To",
+                    "required": true,
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/masters/list",
+                    "model_name": "company",
+                    "apimethod": "POST",
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "cmp_id",
+                        "label": "cmp_name"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "po_ship_address",
+                    "label": "Ship Address",
+                    "required": true,
+                    "type": "text"
+                },
+                {
+                    "name": "po_payment_term",
+                    "label": "Payment Term",
+                    "type": "text",
+                    "width": 6,
+                    "required": true,
+                    "readOnly": true,
+                    "placeholder": "Payement Terms"
+                },
+                {
+                    "name": "po_quotation_no",
+                    "label": "Quotation No",
+                    "type": "text",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "po_quotation_date",
+                    "label": "Quotation Date",
+                    "type": "date",
+                    "width": 6,
+                    "required": true,
+                    "pastDate": true,
+                    "pastdays": 15
+                },
+                {
+                    "name": "po_delivery_date",
+                    "label": "Delivery Date",
+                    "type": "date",
+                    "width": 6,
+                    "required": true,
+                    "pastDate": true,
+                    "pastdays": 15
+                },
+                {
+                    "name": "po_requisition_no",
+                    "label": "Requistion No",
+                    "type": "text",
+                    "width": 6,
+                    "required": true,
+                    "readOnly": true
+                },
+                {
+                    "name": "po_requisition_date",
+                    "label": "Requistion Date",
+                    "type": "label",
+                    "width": 6
+                },
+                {
+                    "name": "po_terms_conditions",
+                    "label": "Other Terms & conditions",
+                    "type": "textAreaEditor",
+                    "placeholder": "Please add a ';' to insert a line break.",
+                    "width": 12,
+                    "defaultValue": "<ul> <li>Immediate Delivery at our Mumbai office.</li> <li>Taxes: Extra in actual cost.</li> <li>P &amp; F: Included in above Price.</li> <li>Transportation: Included in above Price.</li> <li>Documents: 2 copies of invoice for our record.</li> <li>Payments: 100% Payment against Delivery.</li> </ul>",
+                    "labelWidth": "13%",
+                    "fieldWidth": 100,
+                    "characterLimit": 1024
+                },
+                {
+                    "width": 6,
+                    "name": "po_reject_remark",
+                    "label": "Reject Remark",
+                    "type": "text",
+                    "placeholder": "",
+                    "readOnly": true
+                },
+                {
+                    "width": 12,
+                    "label": "Vendor Rating Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "po_vendor_type",
+                    "label": "Vendor Type",
+                    "type": "text",
+                    "width": 6
+                },
+                {
+                    "name": "po_qty_ordered",
+                    "label": "Total quantity ordered",
+                    "type": "text",
+                    "width": 6
+                },
+                {
+                    "name": "po_qty_accepted",
+                    "label": "Accepted Qty",
+                    "type": "text",
+                    "width": 6
+                },
+                {
+                    "name": "po_qty_accepted_under_deviation",
+                    "label": "Accepted Qty under deviation",
+                    "type": "text",
+                    "width": 6
+                },
+                {
+                    "name": "po_qty_rejected",
+                    "label": "Rejection Qty",
+                    "type": "text",
+                    "width": 6
+                },
+                {
+                    "name": "po_quality_rating",
+                    "label": "Quality Rating",
+                    "type": "text",
+                    "width": 6
+                },
+                {
+                    "name": "po_item_targeted_date",
+                    "label": "Targeted delivery date",
+                    "type": "date",
+                    "width": 6,
+                    "noRestrictionApply": true
+                },
+                {
+                    "name": "po_item_rcv_date",
+                    "label": "Item received on",
+                    "type": "date",
+                    "width": 6,
+                    "noRestrictionApply": true
+                },
+                {
+                    "name": "po_delivery_days",
+                    "label": "Delivery in days",
+                    "type": "number",
+                    "width": 6
+                },
+                {
+                    "name": "po_discount_per",
+                    "label": "Discount offered (in %)",
+                    "type": "number",
+                    "width": 6
+                }
+            ]
+        },
+        {
+            "title": "Purchase Order",
+            "moduleType": "purchase",
+            "Heading": "Purchase Order",
+            "type": "tabs",
+            "tabs": [
+                {
+                    "label": "Purchase Order",
+                    "name": "Purchase Order",
+                    "type": "table",
+                    "required": true,
+                    "hidetab": true,
+                    "title": "Purchase Order",
+                    "moduleType": "purchase",
+                    "headers": [
+                        {
+                            "label": "Item Code",
+                            "name": "prd_item_code_text",
+                            "type": "label",
+                            "sortName": "prd_item_code_text",
+                            "fieldName": "prd_item_code_text",
+                            "required": true
+                        },
+                        {
+                            "label": "Descripton of Item",
+                            "name": "prd_item_description",
+                            "type": "label",
+                            "sortName": "prd_item_description",
+                            "fieldName": "prd_item_description"
+                        },
+                        {
+                            "label": "Specifications",
+                            "name": "prd_specification",
+                            "type": "label",
+                            "sortName": "prd_specification",
+                            "fieldName": "prd_specification",
+                            "placeholder": "Specifications"
+                        },
+                        {
+                            "label": "Qty",
+                            "name": "prd_quantity",
+                            "type": "label",
+                            "sortName": "prd_quantity",
+                            "fieldName": "prd_quantity"
+                        },
+                        {
+                            "label": "Unit",
+                            "name": "prd_uom",
+                            "type": "label",
+                            "sortName": "prd_uom",
+                            "fieldName": "prd_uom"
+                        },
+                        {
+                            "label": "Manufacturing Time",
+                            "name": "prd_manufacture_time",
+                            "type": "Time",
+                            "sortName": "prd_manufacture_time",
+                            "fieldName": "prd_manufacture_time"
+                        },
+                        {
+                            "label": "Unit Price",
+                            "name": "prd_unit_price",
+                            "type": "label",
+                            "sortName": "prd_unit_price",
+                            "fieldName": "prd_unit_price",
+                            "placeholder": "Unit Price"
+                        },
+                        {
+                            "label": "Disc%",
+                            "name": "prd_discount",
+                            "type": "label",
+                            "sortName": "prd_discount",
+                            "fieldName": "prd_discount",
+                            "placeholder": "Disc%"
+                        },
+                        {
+                            "label": "Price",
+                            "name": "prd_price",
+                            "type": "label",
+                            "sortName": "prd_price",
+                            "fieldName": "prd_price",
+                            "placeholder": "Price"
+                        },
+                        {
+                            "label": "Total",
+                            "name": "prd_total",
+                            "type": "label",
+                            "sortName": "prd_total",
+                            "fieldName": "prd_total",
+                            "placeholder": "Total"
+                        },
+                        {
+                            "label": "Additional Remark",
+                            "name": "prd_additional_remark",
+                            "type": "label",
+                            "sortName": "prd_additional_remark",
+                            "fieldName": "prd_additional_remark",
+                            "placeholder": "Additional Remark"
+                        },
+                        {
+                            "width": 12,
+                            "label": "Insurance Details",
+                            "type": "label",
+                            "color": "$danger",
+                            "textDecoration": "none",
+                            "styleName": "section_heading",
+                            "fontSize": "16px",
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Electrical/Motor",
+                            "name": "prd_ins_electric_motor",
+                            "type": "text",
+                            "placeholder": "Electrical/Motor",
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Ins. Remark",
+                            "name": "prd_ins_remark",
+                            "type": "text",
+                            "placeholder": "Ins. Remark",
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Require / Not Required",
+                            "name": "prd_ins_req_not_req",
+                            "type": "radio",
+                            "placeholder": "Require / Not Required",
+                            "options": [
+                                {
+                                    "value": true,
+                                    "label": "Yes"
+                                },
+                                {
+                                    "value": false,
+                                    "label": "No"
+                                }
+                            ],
+                            "width": 6,
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Burglary",
+                            "name": "prd_ins_burglary",
+                            "type": "text",
+                            "placeholder": "Burglary",
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Fire",
+                            "name": "prd_ins_fire",
+                            "type": "text",
+                            "placeholder": "Fire",
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Gst @18",
+                            "name": "prd_gst_18",
+                            "type": "text",
+                            "placeholder": "Gst @18",
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Gst @28",
+                            "name": "prd_gst_28",
+                            "type": "text",
+                            "placeholder": "Gst @28",
+                            "isInsuranceField": true
+                        },
+                        {
+                            "label": "Recieved Qty",
+                            "name": "prd_recv_qty",
+                            "type": "text",
+                            "placeholder": "Recieved Qty",
+                            "isInsuranceField": true
+                        }
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Item Code",
+                                "name": "prd_item_code_text",
+                                "type": "label",
+                                "sortName": "prd_item_code_text",
+                                "fieldName": "prd_item_code_text",
+                                "required": true
+                            },
+                            {
+                                "label": "Descripton of Item",
+                                "name": "prd_item_description",
+                                "type": "label",
+                                "sortName": "prd_item_description",
+                                "fieldName": "prd_item_description"
+                            },
+                            {
+                                "label": "Specifications",
+                                "name": "prd_specification",
+                                "type": "label",
+                                "sortName": "prd_specification",
+                                "fieldName": "prd_specification",
+                                "placeholder": "Specifications"
+                            },
+                            {
+                                "label": "Qty",
+                                "name": "prd_quantity",
+                                "type": "label",
+                                "sortName": "prd_quantity",
+                                "fieldName": "prd_quantity"
+                            },
+                            {
+                                "label": "Unit",
+                                "name": "prd_uom",
+                                "type": "label",
+                                "sortName": "prd_uom",
+                                "fieldName": "prd_uom"
+                            },
+                            {
+                                "label": "Manufacturing Time",
+                                "name": "prd_manufacture_time",
+                                "type": "Time",
+                                "sortName": "prd_manufacture_time",
+                                "fieldName": "prd_manufacture_time"
+                            },
+                            {
+                                "label": "Unit Price",
+                                "name": "prd_unit_price",
+                                "type": "label",
+                                "sortName": "prd_unit_price",
+                                "fieldName": "prd_unit_price"
+                            },
+                            {
+                                "label": "Disc%",
+                                "name": "prd_discount",
+                                "type": "label",
+                                "sortName": "prd_discount",
+                                "fieldName": "prd_discount"
+                            },
+                            {
+                                "label": "Price",
+                                "name": "prd_price",
+                                "type": "label",
+                                "sortName": "prd_price",
+                                "fieldName": "prd_price"
+                            },
+                            {
+                                "label": "Total",
+                                "name": "prd_total",
+                                "type": "label",
+                                "sortName": "prd_total",
+                                "fieldName": "prd_total"
+                            },
+                            {
+                                "label": "Additional Remark",
+                                "name": "prd_additional_remark",
+                                "type": "label",
+                                "sortName": "prd_additional_remark",
+                                "fieldName": "prd_additional_remark",
+                                "placeholder": "Additional Remark"
+                            },
+                            {
+                                "width": 12,
+                                "label": "Insurance Details",
+                                "type": "label",
+                                "color": "$danger",
+                                "textDecoration": "none",
+                                "styleName": "section_heading",
+                                "fontSize": "16px",
+                                "isInsuranceField": true
+                            },
+                            {
+                                "label": "Electrical/Motor",
+                                "name": "prd_ins_electric_motor",
+                                "type": "text",
+                                "placeholder": "Electrical/Motor",
+                                "isInsuranceField": true
+                            },
+                            {
+                                "label": "Ins. Remark",
+                                "name": "prd_ins_remark",
+                                "type": "text",
+                                "placeholder": "Ins. Remark",
+                                "isInsuranceField": true
+                            },
+                            {
+                                "label": "Require / Not Required",
+                                "name": "prd_ins_req_not_req",
+                                "type": "radio",
+                                "placeholder": "Require / Not Required",
+                                "options": [
+                                    {
+                                        "value": true,
+                                        "label": "Yes"
+                                    },
+                                    {
+                                        "value": false,
+                                        "label": "No"
+                                    }
+                                ],
+                                "width": 6,
+                                "isInsuranceField": true
+                            },
+                            {
+                                "label": "Burglary",
+                                "name": "prd_ins_burglary",
+                                "type": "text",
+                                "placeholder": "Burglary",
+                                "isInsuranceField": true
+                            },
+                            {
+                                "label": "Fire",
+                                "name": "prd_ins_fire",
+                                "type": "text",
+                                "placeholder": "Fire",
+                                "isInsuranceField": true
+                            }
+                        ]
+                    ],
+                    "actions": [
+                        {
+                            "label": "bi bi-eye h6",
+                            "value": "View",
+                            "type": "icon",
+                            "status": "vesseListView"
+                        }
+                    ],
+                    "statusesWithIcon": [],
+                    "statusesWithColor": []
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Save",
+            "type": "icon",
+            "redirectUrl": "/operation/invoice-listing",
+            "permission": "save"
+        }
+    ],
+    "popupMessages": {
+        "donwload": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

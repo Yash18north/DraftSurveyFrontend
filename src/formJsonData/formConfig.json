@@ -1,0 +1,79 @@
+{
+    "sections": [
+      {
+        "id": 1,
+        "label": "Personal Information",
+        "rows": [
+          {
+            "id": 1,
+            "columns": [
+              {
+                "id": 1,
+                "fields": [
+                  { "id": "firstName", "label": "First Name", "type": "text" },
+                  { "id": "lastName", "label": "Last Name", "type": "text" }
+                ]
+              },
+              {
+                "id": 2,
+                "fields": [
+                  { "id": "email", "label": "Email", "type": "email" },
+                  { "id": "phone", "label": "Phone", "type": "tel" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "label": "Address Information",
+        "rows": [
+          {
+            "id": 1,
+            "columns": [
+              {
+                "id": 1,
+                "fields": [
+                  { "id": "street", "label": "Street", "type": "text" },
+                  { "id": "city", "label": "City", "type": "text" }
+                ]
+              },
+              {
+                "id": 2,
+                "fields": [
+                  { "id": "state", "label": "State", "type": "text" },
+                  { "id": "zip", "label": "ZIP Code", "type": "text" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "label": "Additional Information",
+        "table": {
+          "id": 1,
+          "header": [
+            { "id": "field1", "label": "Field 1", "type": "text" },
+            { "id": "field2", "label": "Field 2", "type": "text" },
+            { "id": "field3", "label": "Field 3", "type": "text" }
+          ],
+          "body": [
+            [
+              { "id": "field1", "type": "text" },
+              { "id": "field2", "type": "text" },
+              { "id": "field3", "type": "text" }
+            ],
+            [
+              { "id": "field1", "type": "text" },
+              { "id": "field2", "type": "text" },
+              { "id": "field3", "type": "text" }
+            ]
+          ]
+        }
+      }
+    ]
+  }
+  

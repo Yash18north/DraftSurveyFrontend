@@ -1,0 +1,114 @@
+{
+    "breadcom": [
+        {
+            "title": "Consortium List",
+            "redirect": "/operation/consortiums-list"
+        },
+        {
+            "title": "Consortium",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/consortium-order/create/",
+        "read": "/consortium-order/get/",
+        "update": "/consortium-order/update/",
+        "delete": "/consortium-order/delete"
+    },
+    "sections": [
+        {
+            "title": "Job Request Form",
+            "moduleType": "consortiumorder",
+            "subSections": [
+                {
+                    "Heading": "Consortium Info",
+                    "fields": [
+                        {
+                            "width": 12,
+                            "label": "Consortium Info",
+                            "styleName": "section_heading",
+                            "type": "label",
+                            "errorMsgs": {
+                                "required": "This field is required"
+                            }
+                        },
+                        {
+                            "width": 6,
+                            "name": "co_date",
+                            "label": "Date",
+                            "type": "date",
+                            "required": true,
+                            "placeholder": "Enter Date",
+                            "noRestrictionApply": true
+                        },
+                        {
+                            "width": 6,
+                            "name": "co_number",
+                            "label": "Consortium ID",
+                            "type": "label",
+                            "required": true,
+                            "value": "To be Generated"
+                        },
+                        {
+                            "width": 6,
+                            "name": "fk_commodity_id",
+                            "label": "Commodity",
+                            "required": true,
+                            "type": "DropDownWithLoadMore",
+                            "apiendpoint": "/masters/list",
+                            "model_name": "commodity",
+                            "apimethod": "POST",
+                            "isSearchable": true,
+                            "optionData": {
+                                "id": "cmd_id",
+                                "label": "cmd_name"
+                            }
+                        },
+                        {
+                            "width": 6,
+                            "name": "fk_sub_commodity_id",
+                            "label": "Sub Commodity",
+                            "type": "select",
+                            "required": true,
+                            "errorMsgs": {
+                                "required": "This field is required"
+                            },
+                            "value": "-"
+                        },
+                        {
+                            "width": 6,
+                            "name": "co_vessel_name",
+                            "label": "Vessel Name",
+                            "type": "text",
+                            "required": true,
+                            "placeholder": "Enter Vessel Name"
+                        }
+                    ]
+                }
+            ],
+            "fields": []
+        }
+    ],
+    "popupMessages": {
+        "donwload": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

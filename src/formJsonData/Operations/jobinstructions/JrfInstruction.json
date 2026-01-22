@@ -1,0 +1,1101 @@
+{
+  "breadcom": [
+    {
+      "title": "Job Instruction List",
+      "redirect": "/operation/jrfInstructionListing"
+    },
+    {
+      "title": "Job Instruction",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "isMainPage": true,
+      "subSections": [
+        {
+          "Heading": "Client & Company Details",
+          "fields": [
+            {
+              "width": 12,
+              "label": "Client & Company Details",
+              "styleName": "section_heading",
+              "type": "label",
+              "errorMsgs": {
+                "required": "This field is required"
+              }
+            },
+            {
+              "width": 6,
+              "name": "ji_reference_number",
+              "label": "Reference Number",
+              "type": "label",
+              "required": true,
+              "value": "To be Generated"
+            },
+            {
+              "width": 6,
+              "name": "ji_date",
+              "label": "Date",
+              "type": "date",
+              "required": true,
+              "placeholder": "Enter Date"
+            },
+            {
+              "width": 6,
+              "name": "fk_clientid",
+              "label": "Client Name",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/masters/customer/list/",
+              "model_name": "",
+              "apimethod": "GET",
+              "required": true,
+              "isSearchable": true,
+              "optionData": {
+                "id": "cust_id",
+                "label": "cust_name",
+                "label2": "cust_gstno"
+              }
+            },
+            {
+              "width": 6,
+              "name": "ji_client_address",
+              "label": "Client Address",
+              "type": "textArea",
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "ji_client_gst",
+              "label": "Client GST Number",
+              "type": "textArea",
+              "placeholder": "Enter Client GST Number",
+              "useForViewOnly": true
+            },
+            {
+              "width": 6,
+              "name": "ji_client_billing_address",
+              "label": "Billing Address",
+              "characterLimit": 400,
+              "type": "textArea",
+              "placeholder": "Enter Billing Address",
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "fk_companyid",
+              "label": "Appointed To",
+              "type": "select",
+              "placeholder": "Enter Appointed To",
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "fk_branchid",
+              "label": "Branch Name",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/company-branches/get/",
+              "apimethod": "POST",
+              "isSearchable": "true",
+              "optionData": {
+                "id": "branch_id",
+                "label": "branch_name",
+                "label2": "branch_code"
+              },
+              "customPayload": {
+                "name": "company_id",
+                "value": "fk_companyid"
+              },
+              "isCustomPayload": true,
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "ji_branch_state",
+              "label": "State",
+              "type": "text",
+              "readOnly": true
+            },
+            {
+              "width": 6,
+              "name": "ji_client_email",
+              "label": "Client Email",
+              "type": "text",
+              "placeholder": "Enter Client Email",
+              "required": true,
+              "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+            },
+            {
+              "width": 6,
+              "name": "ji_client_cc_emails",
+              "label": "CC Emails",
+              "type": "InputMultiEmail",
+              "characterLimit": 255,
+              "value": "",
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "ji_sent_through",
+              "label": "Nomination",
+              "type": "checkbox",
+              "placeholder": "Enter Sent By",
+              "options": [
+                "Mail Order",
+                "Work Order",
+                "Verbal Nomination"
+              ],
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "ji_reference",
+              "label": "Work Order & Dt.",
+              "placeholder": "Work Order",
+              "required": true,
+              "secondName": "ji_work_date",
+              "type": "doubleText",
+              "fieldWidth": 75,
+              "upperFieldWidth": "75",
+              "secondPlaceholder": "Work date",
+              "secondType": "date",
+              "firstType": "text",
+              "secondNoRestrictionApply": true
+            },
+            {
+              "width": 6,
+              "name": "ji_work_order_2",
+              "label": "Work Order & Dt. 2",
+              "placeholder": "Work Order",
+              "secondName": "ji_work_date_2",
+              "type": "doubleText",
+              "fieldWidth": 75,
+              "upperFieldWidth": "75",
+              "secondPlaceholder": "Work date",
+              "secondType": "date",
+              "firstType": "text",
+              "secondNoRestrictionApply": true,
+              "secondnoDefaultValue": true
+            }
+          ]
+        },
+        {
+          "Heading": "Operations Details",
+          "fields": [
+            {
+              "width": 12,
+              "label": "Operations Details",
+              "type": "label",
+              "color": "$danger",
+              "textDecoration": "none",
+              "styleName": "section_heading",
+              "fontSize": "16px"
+            },
+            {
+              "width": 6,
+              "name": "fk_operationtypetid",
+              "label": "Type Of Operation",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "masters/opmaster/list/",
+              "apimethod": "GET",
+              "isSearchable": "true",
+              "optionData": {
+                "id": "ops_id",
+                "label": "ops_name"
+              },
+              "options": [],
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "ji_is_consortium_order",
+              "label": "Is Consortium",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "defaultValue": "No"
+            },
+            {
+              "width": 6,
+              "name": "fk_consortium_order",
+              "label": "Consortium Number",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "consortium-order/list/",
+              "apimethod": "GET",
+              "isSearchable": "true",
+              "optionData": {
+                "id": "co_id",
+                "label": "co_number"
+              },
+              "options": [],
+              "required": true
+            },
+            {
+              "name": "ji_nameofoperationmode",
+              "type": "text",
+              "label": "Vessel Name",
+              "width": 6,
+              "required": true
+            },
+            {
+              "width": 6,
+              "name": "fk_commodityid",
+              "label": "Commodity",
+              "required": true,
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/masters/list",
+              "model_name": "commodity",
+              "apimethod": "POST",
+              "isSearchable": true,
+              "optionData": {
+                "id": "cmd_id",
+                "label": "cmd_name"
+              }
+            },
+            {
+              "width": 6,
+              "name": "fk_subcommodityid",
+              "label": "Sub Commodity",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/ji-commodity/get/",
+              "apimethod": "POST",
+              "isSearchable": "true",
+              "optionData": {
+                "id": "sub_cmd_id",
+                "label": "sub_cmd_name"
+              },
+              "customPayload": {
+                "name": "cmd_id",
+                "value": "fk_commodityid"
+              },
+              "isCustomPayload": true,
+              "required": true,
+              "errorMsgs": {
+                "required": "This field is required"
+              },
+              "value": "-"
+            },
+            {
+              "width": 6,
+              "name": "fk_placeworkid",
+              "label": "Place of Work",
+              "required": true,
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/masters/placeofwork/list/",
+              "model_name": "",
+              "apimethod": "GET",
+              "isSearchable": true,
+              "optionData": {
+                "id": "pow_id",
+                "label": "pow_name"
+              },
+              "customPayload": {
+                "name": "state_id",
+                "value": "ji_branch_state_id"
+              },
+              "isCustomPayload": true
+            },
+            {
+              "name": "ji_other_placework",
+              "type": "text",
+              "label": "Other Place of Work",
+              "width": 6,
+              "useForViewOnly": true
+            },
+            {
+              "width": 6,
+              "name": "ji_is_plot_no",
+              "label": "Is Show Plot No.",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "defaultValue": "No"
+            },
+            {
+              "name": "ji_plot_no",
+              "type": "text",
+              "label": "Plot No.",
+              "width": 6
+            },
+            {
+              "width": 6,
+              "name": "ji_eta",
+              "label": "ETA",
+              "type": "date",
+              "placeholder": "Enter Date",
+              "required": true,
+              "noDefaultValue": true
+            },
+            {
+              "width": 6,
+              "label": "Total quantity",
+              "name": "ji_totalqty",
+              "secondName": "ji_total_qty_unit",
+              "type": "doubleText",
+              "fieldWidth": 75,
+              "upperFieldWidth": "75",
+              "secondPlaceholder": "Unit",
+              "placeholder": "Quantity",
+              "secondType": "text",
+              "secondValue": "MT",
+              "required": true,
+              "isShowDefaultDash": true
+            },
+            {
+              "width": 6,
+              "label": "Appointed Quantity",
+              "name": "ji_appointed_totalqty",
+              "secondName": "ji_appointed_qty_unit",
+              "type": "doubleText",
+              "fieldWidth": 75,
+              "upperFieldWidth": "75",
+              "secondPlaceholder": "Unit",
+              "placeholder": "Quantity",
+              "secondType": "text",
+              "secondValue": "MT",
+              "required": true,
+              "isShowDefaultDash": true
+            },
+            {
+              "name": "ji_no_of_sample",
+              "type": "text",
+              "label": "No. of Sample",
+              "width": 6
+            },
+            {
+              "width": 6,
+              "name": "ji_is_supplier",
+              "label": "Supplier / Buyer",
+              "type": "radio",
+              "options": [
+                "Supplier",
+                "Buyer"
+              ],
+              "placeholder": "Supplier / Buyer",
+              "defaultValue": "Supplier",
+              "secondType": "text"
+            },
+            {
+              "width": 6,
+              "name": "fk_supplierid",
+              "label": "Supplier / Buyer",
+              "placeholder": "Enter  Supplier / Buyer",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/masters/supplier/list/",
+              "model_name": "",
+              "apimethod": "GET",
+              "isSearchable": true,
+              "optionData": {
+                "id": "supl_id",
+                "label": "supl_name"
+              }
+            },
+            {
+              "width": 6,
+              "name": "ji_is_loading",
+              "label": "Loading / Unloading",
+              "type": "radio",
+              "options": [
+                "Loading",
+                "Unloading"
+              ],
+              "defaultValue": "Loading"
+            },
+            {
+              "name": "ji_loading_destination",
+              "type": "text",
+              "label": "Destination",
+              "width": 6,
+              "useForViewOnly": true
+            },
+            {
+              "width": 4,
+              "labelWidth": "50%",
+              "name": "fk_loading_unloading_country",
+              "placeholder": "Select",
+              "label": "Loading Port and Country",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/masters/list",
+              "model_name": "country",
+              "apimethod": "POST",
+              "isSearchable": true,
+              "optionData": {
+                "id": "country_id",
+                "label": "country_name"
+              }
+            },
+            {
+              "width": 2,
+              "name": "fk_loading_unloading_port",
+              "label": "",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/countrywise-port/get/",
+              "apimethod": "POST",
+              "isSearchable": "true",
+              "optionData": {
+                "id": "port_id",
+                "label": "port_name"
+              },
+              "customPayload": {
+                "name": "country_id",
+                "value": "fk_loading_unloading_country"
+              },
+              "isCustomPayload": true,
+              "options": []
+            },
+            {
+              "width": 6,
+              "name": "ji_is_dual_port",
+              "label": "Dual Port",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "defaultValue": "No"
+            },
+            {
+              "width": 6,
+              "name": "ji_dual_port_seq",
+              "label": "Port",
+              "type": "radio",
+              "options": [
+                "First",
+                "Second"
+              ],
+              "defaultValue": "First"
+            },
+            {
+              "width": 6,
+              "name": "ji_first_ref_no",
+              "label": "Select Reference No",
+              "type": "select",
+              "options": []
+            },
+            {
+              "width": 6,
+              "name": "ji_payment_terms",
+              "label": "Payment Terms",
+              "type": "number",
+              "placeholder": "Enter Payment Terms",
+              "required": true,
+              "isSubTitle": "Days",
+              "fieldWidth": 25,
+              "defaultValue": 30
+            },
+            {
+              "width": 6,
+              "name": "ji_dispatch_address",
+              "label": "Enter Hard Copy Dispatch Address",
+              "type": "text",
+              "placeholder": "Enter Dispatch Address"
+            },
+            {
+              "width": 6,
+              "name": "ji_dos",
+              "label": "Date of Sampling",
+              "type": "date",
+              "placeholder": "Enter Date",
+              "pastDate": false,
+              "noDefaultValue": true
+            },
+            {
+              "width": 6,
+              "name": "ji_remark",
+              "label": "Rejected Reason",
+              "type": "label"
+            },
+            {
+              "width": 6,
+              "name": "ji_cancel_description",
+              "label": "Cancel Reason",
+              "type": "label"
+            },
+            {
+              "width": 6,
+              "name": "ji_is_monthly",
+              "label": "Is Monthly",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "defaultValue": "No"
+            },
+            {
+              "width": 6,
+              "name": "ji_month_name",
+              "label": "Month",
+              "type": "select"
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "width": 12,
+          "label": "Client & Company Details",
+          "styleName": "section_heading",
+          "type": "label",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "name": "ji_reference_number",
+          "label": "Reference Number",
+          "type": "label",
+          "required": true,
+          "value": "To be Generated"
+        },
+        {
+          "width": 6,
+          "name": "ji_date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "placeholder": "Enter Date",
+          "pastDate": true
+        },
+        {
+          "width": 6,
+          "name": "fk_clientid",
+          "label": "Client Name",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/customer/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "required": true,
+          "isSearchable": true,
+          "optionData": {
+            "id": "cust_id",
+            "label": "cust_name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "ji_client_address",
+          "label": "Client Address",
+          "type": "textArea",
+          "required": true,
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "ji_client_gst",
+          "label": "Client GST Number",
+          "type": "text",
+          "placeholder": "Enter Client GST Number",
+          "readOnly": true,
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "fk_companyid",
+          "label": "Appointed To",
+          "type": "select",
+          "placeholder": "Enter Appointed To",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "ji_client_billing_address",
+          "label": "Billing Address",
+          "type": "textArea",
+          "characterLimit": 400,
+          "placeholder": "Enter Billing Address",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "ji_branch_state",
+          "label": "State",
+          "type": "label",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "ji_sent_through",
+          "label": "Nomination",
+          "type": "select",
+          "placeholder": "Enter Sent By",
+          "options": [
+            "Mail Order",
+            "Work Order",
+            "Verbal Nomination"
+          ],
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "ji_reference",
+          "label": "Work Order & Dt.",
+          "placeholder": "Work Order",
+          "required": true,
+          "secondName": "ji_work_date",
+          "type": "doubleText",
+          "fieldWidth": 75,
+          "upperFieldWidth": "75",
+          "secondPlaceholder": "Work date",
+          "secondType": "date",
+          "firstType": "text",
+          "secondNoRestrictionApply": true
+        },
+        {
+          "width": 6,
+          "name": "ji_work_order_2",
+          "label": "Work Order & Dt. 2",
+          "placeholder": "Work Order",
+          "secondName": "ji_work_date_2",
+          "type": "doubleText",
+          "fieldWidth": 75,
+          "upperFieldWidth": "75",
+          "secondPlaceholder": "Work date",
+          "secondType": "date",
+          "firstType": "text",
+          "secondNoRestrictionApply": true,
+          "secondnoDefaultValue": true
+        },
+        {
+          "width": 12,
+          "label": "Commodity Details",
+          "type": "label",
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "fk_commodityid",
+          "label": "Commodity",
+          "required": true,
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/list",
+          "model_name": "commodity",
+          "apimethod": "POST",
+          "isSearchable": true,
+          "optionData": {
+            "id": "cmd_id",
+            "label": "cmd_name"
+          }
+        },
+        {
+          "width": 6,
+          "name": "fk_subcommodityid",
+          "label": "Sub Commodity",
+          "type": "select",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          },
+          "value": "-"
+        },
+        {
+          "width": 6,
+          "name": "fk_placeworkid",
+          "label": "Place of Work",
+          "required": true,
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/placeofwork/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "pow_id",
+            "label": "pow_name"
+          }
+        },
+        {
+          "name": "ji_other_placework",
+          "type": "text",
+          "label": "Other Place of Work",
+          "width": 6,
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "ji_is_plot_no",
+          "label": "Is Show Plot No.",
+          "type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "defaultValue": "No"
+        },
+        {
+          "name": "ji_plot_no",
+          "type": "text",
+          "label": "Plot No.",
+          "width": 6
+        },
+        {
+          "width": 6,
+          "name": "ji_eta",
+          "label": "ETA",
+          "type": "date",
+          "required": true,
+          "placeholder": "Enter Date",
+          "pastDate": false,
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "label": "Total quantity",
+          "name": "ji_totalqty",
+          "secondName": "ji_total_qty_unit",
+          "type": "doubleText",
+          "fieldWidth": 75,
+          "upperFieldWidth": "75",
+          "secondPlaceholder": "Unit",
+          "placeholder": "Quantity",
+          "required": true,
+          "secondValue": "MT",
+          "isShowDefaultDash": true
+        },
+        {
+          "width": 6,
+          "name": "ji_payment_terms",
+          "label": "Payment Terms in Days",
+          "secondName": "ji_payment_terms_days",
+          "secondValue": "Days",
+          "type": "doubleText",
+          "secondReadOnly": true,
+          "required": true,
+          "fieldWidth": 75,
+          "isSubTitle": "Days"
+        },
+        {
+          "width": 6,
+          "label": "Appointed Quantity",
+          "name": "ji_appointed_totalqty",
+          "secondName": "ji_appointed_qty_unit",
+          "type": "doubleText",
+          "fieldWidth": 75,
+          "upperFieldWidth": "75",
+          "secondPlaceholder": "Unit",
+          "placeholder": "Quantity",
+          "required": true,
+          "secondType": "text",
+          "secondValue": "MT",
+          "isShowDefaultDash": true
+        },
+        {
+          "name": "ji_no_of_sample",
+          "type": "text",
+          "label": "No. of Sample",
+          "width": 6
+        },
+        {
+          "width": 6,
+          "name": "ji_is_supplier",
+          "label": "Supplier / Buyer",
+          "type": "radio",
+          "options": [
+            "Supplier",
+            "Buyer"
+          ],
+          "placeholder": "Supplier / Buyer",
+          "required": true,
+          "defaultValue": "Supplier"
+        },
+        {
+          "width": 6,
+          "name": "fk_supplierid",
+          "label": "Supplier / Buyer",
+          "required": true,
+          "placeholder": "Enter  Supplier / Buyer",
+          "type": "DropDownWithLoadMore",
+          "apiendpoint": "/masters/supplier/list/",
+          "model_name": "",
+          "apimethod": "GET",
+          "isSearchable": true,
+          "optionData": {
+            "id": "supl_id",
+            "label": "supl_name"
+          }
+        },
+        {
+          "name": "fk_operationtypetid",
+          "type": "select",
+          "label": "Type Of Operation",
+          "width": 6,
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "ji_is_consortium_order",
+          "label": "Is Consortium",
+          "readOnly": true,
+          "type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "defaultValue": "No"
+        },
+        {
+          "width": 6,
+          "name": "fk_consortium_order",
+          "label": "Consortium Number",
+          "type": "select",
+          "options": []
+        },
+        {
+          "name": "ji_nameofoperationmode",
+          "type": "text",
+          "label": "Vessel Name",
+          "width": 6,
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "ji_is_loading",
+          "label": "Loading / Unloading",
+          "type": "radio",
+          "options": [
+            "Loading",
+            "Unloading"
+          ],
+          "defaultValue": "Loading"
+        },
+        {
+          "width": 6,
+          "name": "ji_loading_unloading_name",
+          "label": "Name of Loading",
+          "type": "text"
+        },
+        {
+          "width": 6,
+          "name": "ji_is_dual_port",
+          "label": "Dual Port",
+          "type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": true,
+          "defaultValue": "Yes"
+        },
+        {
+          "width": 6,
+          "name": "ji_dual_port_seq",
+          "label": "Port",
+          "type": "radio",
+          "options": [
+            "First",
+            "Second"
+          ],
+          "defaultValue": "First"
+        },
+        {
+          "width": 6,
+          "name": "ji_first_ref_no",
+          "label": "Select Reference No",
+          "type": "select",
+          "options": []
+        },
+        {
+          "width": 6,
+          "name": "ji_dispatch_address",
+          "label": "Enter Hard Copy Dispatch Address",
+          "type": "text",
+          "placeholder": "Enter Dispatch Address"
+        },
+        {
+          "width": 6,
+          "name": "ji_remark",
+          "label": "Rejected Reason",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "ji_cancel_description",
+          "label": "Cancel Reason",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "ji_is_monthly",
+          "label": "Is Monthly",
+          "type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "defaultValue": "No"
+        },
+        {
+          "width": 6,
+          "name": "ji_month_name",
+          "label": "Month",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Scope of work Information",
+          "type": "table",
+          "isMainPage": true,
+          "headers": [
+            {
+              "name": "fk_activitymasterid",
+              "type": "label",
+              "label": "Scope of Work",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "75",
+              "isActualFeldValue": true,
+              "subModuleData": "activity_master",
+              "subModulefield": "activity_name"
+            },
+            {
+              "name": "jis_rate",
+              "type": "label",
+              "label": "Rate",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "75"
+            },
+            {
+              "name": "jis_unit",
+              "type": "label",
+              "label": "Unit",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "75"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "fk_activitymasterid",
+                "type": "select",
+                "label": "Scope of Work",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "75",
+                "isActualFeldValue": true,
+                "subModuleData": "activity_master",
+                "subModulefield": "activity_name"
+              },
+              {
+                "name": "jis_rate",
+                "type": "number",
+                "placeholder": "Rate",
+                "label": "Rate",
+                "width": 6
+              },
+              {
+                "name": "jis_unit",
+                "type": "select",
+                "placeholder": "Unit",
+                "label": "Unit",
+                "width": 6,
+                "options": [
+                  "Day",
+                  "Lumpsum",
+                  "Sample",
+                  "MT",
+                  "Nos",
+                  "Hatch",
+                  "Certificate",
+                  "Vessel",
+                  "Size",
+                  "Person",
+                  "Night",
+                  "Shift",
+                  "Machine",
+                  "Location",
+                  "Stack",
+                  "Lot",
+                  "Consignment",
+                  "Truck",
+                  "Rake",
+                  "Barge",
+                  "Container",
+                  "Shipment",
+                  "Survey",
+                  "Seals",
+                  "Hold",
+                  "Bags",
+                  "Mines",
+                  "Month",
+                  "Visit",
+                  "Courier",
+                  "PCS",
+                  "Shifting",
+                  "TML",
+                  "Parameter",
+                  "Cubic Meter"
+                ]
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

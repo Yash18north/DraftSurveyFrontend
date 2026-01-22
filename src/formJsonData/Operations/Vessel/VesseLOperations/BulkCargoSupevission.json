@@ -1,0 +1,52 @@
+{
+    "title": "Tabs Section",
+    "type": "tabs",
+    "tabs": [
+      {
+        "label": "Bulk Cargo",
+        "type": "tabs",
+        "fields": [
+          {
+            "width": 6,
+            "name": "bulk_crg_dos",
+            "label": "DATE OF SAMPLING",
+            "type": "date",
+            "placeholder": "DATE OF SAMPLING",
+            "useForViewOnly":true
+          },
+          {
+            "width": 6,
+            "name": "bulk_crg_angle_of_purpose",
+            "label": "ANGLE OF REPOSE",
+            "type": "number",
+            "placeholder": "ANGLE OF REPOSE",
+            "useForViewOnly":true
+          },
+          {
+            "width": 6,
+            "name": "bulk_crg_stowage_factor",
+            "label": "STOWAGE FACTOR",
+            "type": "text",
+            "placeholder": "STOWAGE FACTOR",
+            "useForViewOnly":true
+          },
+          {
+            "width": 6,
+            "name": "bulk_crg_bulk_density",
+            "label": "BULK DENSITY",
+            "type": "text",
+            "placeholder": "BULK DENSITY",
+            "useForViewOnly":true
+          },
+          {
+            "width": 6,
+            "name": "bulk_crg_smpl",
+            "label": "BULK Sampling Description",
+            "type": "textArea",
+            "placeholder": "Enter BULK Sampling Description",
+            "useForViewOnly":true
+          }
+        ]
+      }
+    ]
+  }

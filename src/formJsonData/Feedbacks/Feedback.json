@@ -1,0 +1,148 @@
+{
+    "breadcom": [
+        {
+            "title": "Feedback",
+            "redirect": "#"
+        },
+        {
+            "title": "Feedback List",
+            "redirect": "/feedbackList"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/",
+        "read": "/feedback/list/",
+        "update": "/",
+        "delete": "/",
+        "statuCount": ""
+    },
+    "listView": {
+        "title": "Feedback List",
+        "isCustomTitle": true,
+        "moduleType": "feedback",
+        "headers": [
+            {
+                "label": "Date",
+                "name": "feedback_date",
+                "sortName": "feedback_date",
+                "type": "date",
+                "fieldName": "feedback_date"
+            },
+            {
+                "label": "Company Name",
+                "name": "feedback_company_name",
+                "sortName": "feedback_company_name",
+                "type": "text",
+                "fieldName": "feedback_company_name"
+            },
+            {
+                "label": "Email",
+                "name": "feedback_email",
+                "sortName": "feedback_email",
+                "type": "text",
+                "fieldName": "feedback_email"
+            },
+            {
+                "label": "Contact Person",
+                "name": "feedback_contact_person",
+                "sortName": "feedback_contact_person",
+                "type": "text",
+                "fieldName": "feedback_contact_person"
+            },
+            {
+                "label": "Phone",
+                "name": "feedback_phone",
+                "sortName": "feedback_phone",
+                "type": "number",
+                "fieldName": "feedback_phone"
+            },
+            {
+                "label": "Status",
+                "name": "feedback_status",
+                "sortName": "feedback_status",
+                "type": "text",
+                "fieldName": "feedback_status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "",
+                "permission": "View"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "",
+                "status": "saved"
+            }
+        ],
+        "statusesWithIcon": [
+           
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "posted_sym",
+                "name": "Submitted",
+                "status": "submitted"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

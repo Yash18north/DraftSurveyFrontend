@@ -1,0 +1,64 @@
+{
+  "breadcom": [
+    {
+      "title": "Purchase",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "",
+    "read": "",
+    "update": "",
+    "delete": ""
+  },
+  "sections": [
+    {
+      "title": "Purchase Order ",
+      "moduleType": "PoPreview",
+      "customField": {
+        "title": "Approval Details",
+        "buttons": {
+          "cancel": {
+            "title": "Cancel"
+          },
+          "confirm": {
+            "title": "Send"
+          }
+        },
+        "fields": [
+          {
+            "width": 12,
+            "name": "fk_approval_id",
+            "label": "Approval User",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/users/list/",
+            "apimethod": "GET",
+            "isSearchable": "true",
+            "optionData": {
+              "id": "usr_id",
+              "label": "first_name",
+              "label2": "usr_emp_id",
+              "label3": "last_name"
+            },
+            "customPayload": {
+              "name": "purchase_user",
+              "defaultValue": true
+            },
+            "isCustomPayload": true
+          }
+        ]
+      },
+      "fields": [
+        {
+          "label": "Purchase Order",
+          "name": "preview",
+          "type": "preview",
+          "sortName": "preview",
+          "isCustom": true,
+          "apiUrl": "/purchase/purchaseForm/:EditRecordId/purchaseOrderPreview",
+          "apiMethod": "POST"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5193 @@
+{
+  "JRFList": [
+    {
+      "name": "jrf_date",
+      "label": "JRF Date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "jrf_no",
+      "label": "JRF No.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "jrf_referenceno",
+      "label": "Reference no.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_commodity__cmd_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_company__cmp_name",
+      "label": "Company",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_contact_person",
+      "label": "Name of Contact Person",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_contact_person_number",
+      "label": "Phone No. of Contact Person",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_other_info",
+      "label": "Other Requirement",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_test_repo_req_on",
+      "label": "Test Report Required after (in days)",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater then or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less then or Equal to",
+          "value": "gte"
+        }
+      ]
+    },
+    {
+      "name": "jrf_status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "jrf_parameters_to_analyze",
+      "label": "Parameter to be analysed",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_lab__lab_name",
+      "label": "Lab Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_po_number",
+      "label": "Branch Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "jrf_finalize_timeframe",
+      "label": "Finalize Time frame",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater then or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less then or Equal to",
+          "value": "gte"
+        }
+      ]
+    }
+  ],
+  "sampleInwardList": [
+    {
+      "name": "smpl_inward_number",
+      "label": "Inward No.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_reference_number",
+      "label": "Reference Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_jrf_no",
+      "label": "JRF No.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_customer_id__cmp_name",
+      "label": "Organization Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_commodity_id__cmd_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_qty_of_test_smpl",
+      "label": "Quantity of Test Sample",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_desc_of_the_smpl",
+      "label": "Description of the sample",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_param_to_be_analyzed",
+      "label": "Parameter to be analysed",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_other_req",
+      "label": "Other Requirement",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "smpl_test_report_req_after_days",
+      "label": "Test Report Required after (in days)",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater then or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less then or Equal to",
+          "value": "gte"
+        }
+      ]
+    },
+    {
+      "name": "smpl_lab_id__lab_name",
+      "label": "Lab Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "sample_detail_data__smpl_detail_dos",
+      "label": "Date of Receipt",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sample_detail_data__smpl_detail_recpt_mode",
+      "label": "Receipt Mode",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "sample_detail_data__smpl_detail_seal_number",
+      "label": "Seal No.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "sample_detail_data__smpl_detail_sample_mark",
+      "label": "Mark Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "sample_detail_data__smpl_detail_smpl_qty",
+      "label": "Quantity of Received Sample",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "testMemoList": [
+    {
+      "name": "tm_number",
+      "label": "Test Memo Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_inward_id__smpl_inward_number",
+      "label": "Sample Inward Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_jrf_id__jrf_company__cmp_name",
+      "label": "Company Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_comm_id__cmd_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "tm_datecompletion",
+      "label": "Expected Date of Completion",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "tm_datestartinganalysis",
+      "label": "Actual Date of Completion",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "tm_updated_time",
+      "label": "Last update date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "tm_created_time",
+      "label": "Created date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "tm_created_by__first_name",
+      "label": "Created user",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "allotmentList": [
+    {
+      "name": "sa_allotment_no",
+      "label": "Allotment Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sa_actualdateofreporting",
+      "label": "Date of Allotment",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "tm_msfm_no",
+      "label": "SFM Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_testmemo_id__fk_jrf_id__jrf_company__cmp_name",
+      "label": "Company Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fkey_commodity__cmd_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sa_sampleallottedto__first_name",
+      "label": "Chemist",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sa_updated_time",
+      "label": "Last update date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sa_created_time",
+      "label": "Created date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sa_created_by__first_name",
+      "label": "Created user",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "verificationList": [
+    {
+      "name": "sv_verificationno",
+      "label": "Verification number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sv_dateofverification",
+      "label": "Date of Verification",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_commodity_id__cmd_name",
+      "label": "Company Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_allotmentid__fk_testmemo_id__fk_jrf_id__jrf_company__cmp_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sv_updated_time",
+      "label": "Last update date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sv_created_time",
+      "label": "Created date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "SFMList": [
+    {
+      "name": "sfm_msfm_no",
+      "label": "SFM Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sa_allotment_no",
+      "label": "Allotment Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_commodityid__cmd_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sfm_expecteddateanalysis",
+      "label": "Expected Date of Completion",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sfm_dateanalysiscompleted",
+      "label": "Actual Date of Completion",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "actualdate",
+      "label": "Actual Date of Completion",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nt_nq"
+        }
+      ]
+    },
+    {
+      "name": "sfm_status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sfm_updated_time",
+      "label": "Last update date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "sfm_created_time",
+      "label": "Created date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "testReportList": [
+    {
+      "name": "ic_ulrno",
+      "label": "ULR Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_refenence",
+      "label": "Reference Number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_discipline",
+      "label": "Discipline of Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_group",
+      "label": "Commodity Group",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_customername",
+      "label": "Customer Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_descofsmpl",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_smpldrawnbylab",
+      "label": "Sample drawn by Laboratory (yes/no)",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_dateofanalysis",
+      "label": "Date of Analysis",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_noofsmpls",
+      "label": "Number of Samples",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_updated_time",
+      "label": "Last update date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_created_time",
+      "label": "Created date time",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ic_created_by__first_name",
+      "label": "Created user",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "jobinstructionList": [
+    {
+      "name": "ji_date",
+      "label": "Date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ji_reference",
+      "label": "Credentials",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "ji_nameofoperationmode",
+      "label": "Vessel Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "fk_clientid__cust_name",
+      "label": "Customer Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "ji_eta",
+      "label": "ETA",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_commodityid__cmd_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "fk_operationtypetid__ops_name",
+      "label": "Type Of Operation",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "fk_companyid__cmp_name",
+      "label": "Company Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_branchid__br_name",
+      "label": "Branch",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "vesselList": [
+    {
+      "name": "ji_date",
+      "label": "Date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ji_reference_number",
+      "label": "Reference no.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ji_nameofoperationmode",
+      "label": "Name of Operation mode",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_clientid__cust_name",
+      "label": "Customer Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ji_eta",
+      "label": "ETA",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ji_eta_count",
+      "label": "Days To Go",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "truckList": [
+    {
+      "name": "ji_date",
+      "label": "Date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "ji_reference_number",
+      "label": "Reference no.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_commodityid__cmd_name",
+      "label": "Commodity",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_operationtypetid__ops_name",
+      "label": "Mode",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_clientid__cust_name",
+      "label": "Customer Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_jrf_id__jrf_company__cmp_name",
+      "label": "Appointed to",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "fk_branchid__br_name",
+      "label": "Branch",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "commercialCertificateList": [
+    {
+      "label": "Date",
+      "name": "cc_date",
+      "type": "date",
+      "sortName": "cc_date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Certificate No.",
+      "name": "cc_certificatenumber",
+      "type": "number",
+      "sortName": "cc_certificatenumber",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Reference No.",
+      "name": "cc_refencenumber",
+      "type": "number",
+      "sortName": "cc_refencenumber",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Activity",
+      "name": "fk_jisid__fk_activitymasterid__am_name",
+      "type": "text",
+      "sortName": "fk_jisid__fk_activitymasterid__am_name",
+      "fieldName": "activity",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Company Name",
+      "name": "fk_jiid__fk_companyid__cmp_name",
+      "type": "text",
+      "sortName": "fk_jiid__fk_companyid__cmp_name",
+      "fieldName": "cmp_code",
+      "fromType": "array",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Branch Name",
+      "name": "fk_jiid__fk_branchid__br_name",
+      "type": "text",
+      "sortName": "fk_jiid__fk_branchid__br_name",
+      "fieldName": "br_name",
+      "fieldName2": "br_code",
+      "fromType": "array",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Customer Name",
+      "name": "fk_jiid__fk_clientid__cust_name",
+      "type": "text",
+      "sortName": "fk_jiid__fk_clientid__cust_name",
+      "fieldName": "fk_jiid__fk_clientid__cust_name",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Commodity",
+      "name": "fk_jiid__fk_commodityid__cmd_name",
+      "type": "text",
+      "sortName": "fk_jiid__fk_commodityid__cmd_name",
+      "fieldName": "fk_jiid__fk_commodityid__cmd_name",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "mode of work",
+      "name": "fk_jiid__fk_operationtypetid__ops_name",
+      "type": "text",
+      "sortName": "fk_jiid__fk_operationtypetid__ops_name",
+      "fieldName": "fk_jiid__fk_operationtypetid__ops_name",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "cc_date_from",
+      "label": "Date From",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        }
+      ]
+    },
+    {
+      "name": "cc_date_to",
+      "label": "Date To",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "text",
+      "sortName": "status",
+      "fieldName": "status",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    }
+  ],
+  "OtherTPIList": [
+    {
+      "name": "fk_jiid__ji_reference_number",
+      "label": "Reference No.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "fk_activity_id__am_name",
+      "label": "Activity Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "ConsortiumList": [
+    {
+      "name": "co_number",
+      "label": "Consortium No.",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "co_name",
+      "label": "Consortium Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "fk_commodity_id__cmd_name",
+      "label": "Commodity Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "fk_sub_commodity_id__sub_cmd_name",
+      "label": "Sub Commodity Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "invoiceList": [
+    {
+      "label": "Invoice Number",
+      "name": "im_invoicenumber",
+      "type": "number",
+      "sortName": "im_invoicenumber",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Client Name",
+      "name": "fk_client__cust_name",
+      "type": "number",
+      "sortName": "fk_client",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "GSTIN (Client)",
+      "name": "im_gst_invoice_number",
+      "type": "text",
+      "sortName": "im_gst_invoice_number",
+      "fieldName": "im_gst_invoice_number",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Inv. Work Branch Code",
+      "name": "fk_invoice_branchid__br_code",
+      "type": "text",
+      "sortName": "fk_invoice_branchid__br_code",
+      "fieldName": "fk_invoice_branchid__br_code",
+      "fromType": "array",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Not Contains",
+          "value": "not_contains"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Reference No.",
+      "name": "invoice_details__ivd_ref_no",
+      "type": "text",
+      "sortName": "invoice_details__ivd_ref_no",
+      "fromType": "array",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "text",
+      "sortName": "im_status",
+      "fieldName": "im_status",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        }
+      ]
+    }
+  ],
+  "JobCosting": [
+    {
+      "label": "Invoice Date",
+      "name": "invoice_date",
+      "sortName": "invoice_date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        }
+      ]
+    },
+    {
+      "label": "Invoice Number (Voucher Number)",
+      "name": "invoice_number",
+      "sortName": "invoice_number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Client Name",
+      "name": "client__cust_name",
+      "sortName": "client__cust_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Commodity",
+      "name": "commodity_json",
+      "sortName": "commodity_json",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Place of Attendance",
+      "name": "place_of_attendance",
+      "sortName": "place_of_attendance",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Certificate No.",
+      "name": "certificate_data",
+      "sortName": "certificate_data",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Reference No.",
+      "name": "ref_no_data",
+      "sortName": "ref_no_data",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "jc_status",
+      "sortName": "jc_status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "BranchExpense": [
+    {
+      "label": "Date",
+      "name": "created_at",
+      "sortName": "created_at",
+      "type": "text",
+      "options": [
+        {
+          "label": "Year",
+          "value": "year"
+        },
+        {
+          "label": "Month",
+          "value": "month"
+        },
+        {
+          "label": "Day",
+          "value": "day"
+        }
+      ]
+    },
+    {
+      "label": "Company",
+      "name": "company__cmp_name",
+      "sortName": "company__cmp_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Branch Name",
+      "name": "branch__br_name",
+      "sortName": "branch",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Month",
+      "name": "month",
+      "sortName": "month",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Year",
+      "name": "year",
+      "sortName": "Year",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Month Total",
+      "name": "total",
+      "sortName": "total",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        }
+      ]
+    },
+    {
+      "label": "Year Total",
+      "name": "yearly_expense",
+      "sortName": "yearly_expense",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "text",
+      "sortName": "status",
+      "fieldName": "status",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "SalesRegister": [
+    {
+      "label": "Date",
+      "name": "created_at",
+      "sortName": "created_at",
+      "type": "text",
+      "options": [
+        {
+          "label": "Year",
+          "value": "year"
+        },
+        {
+          "label": "Month",
+          "value": "month"
+        },
+        {
+          "label": "Day",
+          "value": "day"
+        }
+      ]
+    },
+    {
+      "label": "Company",
+      "name": "company__cmp_name",
+      "sortName": "company__cmp_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Branch Name",
+      "name": "branch__br_name",
+      "sortName": "branch__br_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Month",
+      "name": "month",
+      "sortName": "month",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Year",
+      "name": "year",
+      "sortName": "year",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Monthly Sales",
+      "name": "final_sales",
+      "sortName": "final_sales",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        }
+      ]
+    },
+    {
+      "label": "Yearly Sales",
+      "name": "yearly_sales",
+      "sortName": "yearly_sales",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "text",
+      "sortName": "status",
+      "fieldName": "status",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "Outstanding": [
+    {
+      "label": "Date",
+      "name": "created_at",
+      "sortName": "created_at",
+      "type": "text",
+      "options": [
+        {
+          "label": "Year",
+          "value": "year"
+        },
+        {
+          "label": "Month",
+          "value": "month"
+        },
+        {
+          "label": "Day",
+          "value": "day"
+        }
+      ]
+    },
+    {
+      "label": "Company",
+      "name": "company__cmp_name",
+      "sortName": "company__cmp_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Branch Name",
+      "name": "branch__br_name",
+      "sortName": "branch",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Month",
+      "name": "month",
+      "sortName": "month",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Year",
+      "name": "year",
+      "sortName": "year",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "label": "Monthly Outstanding",
+      "name": "total_outstanding_amt",
+      "sortName": "total_outstanding_amt",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        }
+      ]
+    },
+    {
+      "label": "Yearly Outstanding",
+      "name": "yearly_outstanding",
+      "sortName": "yearly_outstanding",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "eq"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "text",
+      "sortName": "status",
+      "fieldName": "status",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "purchaseReq": [
+    {
+      "label": "Date",
+      "name": "req_date",
+      "sortName": "req_date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "ne"
+        }
+      ]
+    },
+    {
+      "label": "Request No",
+      "name": "req_no",
+      "sortName": "req_no",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Department",
+      "name": "department_name",
+      "sortName": "fk_departmentid",
+      "type": "select",
+      "ddOptions": [
+        {
+          "label": "Field Sampling"
+        },
+        {
+          "label": "Chemical Analysis"
+        },
+        {
+          "label": "Quality Assurance"
+        },
+        {
+          "label": "Instrumentation & Calibration"
+        },
+        {
+          "label": "Reporting"
+        },
+        {
+          "label": "Field Instrumentation & Survey"
+        }
+      ],
+      "options": [
+        {
+          "label": "Equal To",
+          "value": "exact"
+        }
+      ]
+    },
+    {
+      "label": "Type",
+      "name": "req_type",
+      "sortName": "req_type",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "req_status",
+      "sortName": "req_status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Branch",
+      "name": "branch_name",
+      "sortName": "branch_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Company",
+      "name": "company_name",
+      "sortName": "company_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Item RM Code",
+      "name": "item_rm_code",
+      "sortName": "item_rm_code",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Year",
+      "name": "req_year",
+      "sortName": "req_year",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        }
+      ]
+    }
+  ],
+  "purchase": [
+    {
+      "label": "PO Date",
+      "name": "po_requisition_date",
+      "sortName": "po_requisition_date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        }
+      ]
+    },
+    {
+      "label": "PO Number",
+      "name": "po_number",
+      "sortName": "po_number",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Name of Service Provider",
+      "name": "supplier_name",
+      "sortName": "fk_supplier_id__sup_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Billing To",
+      "name": "po_billing_address",
+      "sortName": "po_billing_address",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Requisition No",
+      "name": "po_requisition_no",
+      "sortName": "po_requisition_no",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Ship To",
+      "name": "po_ship_to__cmp_name",
+      "sortName": "po_ship_to__cmp_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "PO Status",
+      "name": "po_status",
+      "sortName": "po_status",
+      "type": "select",
+      "options": [
+        {
+          "label": "Equal To",
+          "value": "exact"
+        }
+      ],
+      "ddOptions": [
+        {
+          "label": "PR-Approved",
+          "value": "approved"
+        },
+        {
+          "label": "Saved",
+          "value": "saved"
+        },
+        {
+          "label": "Posted",
+          "value": "posted"
+        },
+        {
+          "label": "Pre Closed",
+          "value": "Pre-Close"
+        },
+        {
+          "label": "Rejected",
+          "value": "reject"
+        },
+        {
+          "label": "PO-Approved",
+          "value": "accept"
+        }
+      ]
+    },
+    {
+      "label": "PR Status",
+      "name": "fk_req_id__req_status",
+      "sortName": "fk_req_id__req_status",
+      "type": "select",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        }
+      ],
+      "ddOptions": [
+        {
+          "label": "Posted",
+          "value": "posted"
+        },
+        {
+          "label": "Saved",
+          "value": "saved"
+        },
+        {
+          "label": "Rejected",
+          "value": "reject"
+        },
+        {
+          "label": "Sent For Approval",
+          "value": "sent for approval"
+        },
+        {
+          "label": "Approved",
+          "value": "approved"
+        }
+      ]
+    },
+    {
+      "label": "Company Name",
+      "name": "fk_req_id__fk_pr_companyid__comp_name",
+      "sortName": "fk_req_id__fk_pr_companyid__comp_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Branch Name",
+      "name": "fk_req_id__fk_branchid__br_name",
+      "sortName": "fk_req_id__fk_branchid__br_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Item",
+      "name": "fk_req_id__purchaserequisitiondetails__fk_item_id__item_name",
+      "sortName": "fk_req_id__purchaserequisitiondetails__fk_item_id__item_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Year",
+      "name": "fk_req_id__req_date__year",
+      "sortName": "fk_req_id__req_date__year",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        }
+      ]
+    },
+    {
+      "label": "Month",
+      "name": "po_requisition_date_month",
+      "sortName": "po_requisition_date_month",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        }
+      ]
+    },
+    {
+      "label": "Ship Address",
+      "name": "po_ship_address_contains",
+      "sortName": "po_ship_address_contains",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Billing Address",
+      "name": "po_billing_address_contains",
+      "sortName": "po_billing_address_contains",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    }
+  ],
+  "calibration": [
+    {
+      "label": "Description",
+      "name": "calib_description",
+      "sortName": "calib_description",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Qty",
+      "name": "calib_qty",
+      "sortName": "calib_qty",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        }
+      ]
+    },
+    {
+      "label": "Unit",
+      "name": "calib_unit",
+      "sortName": "calib_unit",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Make/Range",
+      "name": "calib_make_range",
+      "sortName": "calib_make_range",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Model",
+      "name": "calib_model",
+      "sortName": "calib_model",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Calibration Frequency",
+      "name": "calib_frequency",
+      "sortName": "calib_frequency",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Date of Calibration",
+      "name": "calib_date",
+      "sortName": "calib_date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        }
+      ]
+    },
+    {
+      "label": "Next Calibration Due On",
+      "name": "calib_next_due_date",
+      "sortName": "calib_next_due_date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        }
+      ]
+    },
+    {
+      "label": "Calibration Agency",
+      "name": "calib_agency",
+      "sortName": "calib_agency",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Remark",
+      "name": "calib_remark",
+      "sortName": "calib_remark",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "calib_status",
+      "sortName": "calib_status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Analysis Charges",
+      "name": "analysis_charges",
+      "sortName": "analysis_charges",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        }
+      ]
+    },
+    {
+      "label": "Company Name",
+      "name": "company_name",
+      "sortName": "company_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Branch Name",
+      "name": "branch_name",
+      "sortName": "branch_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Year",
+      "name": "calib_year",
+      "sortName": "calib_year",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        }
+      ]
+    }
+  ],
+  "supplier": [
+    {
+      "label": "Date Added",
+      "name": "created_at",
+      "sortName": "created_at",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "ne"
+        }
+      ]
+    },
+    {
+      "label": "Name of Supplier",
+      "name": "sup_name",
+      "sortName": "sup_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Services Used",
+      "name": "sup_services_used",
+      "sortName": "sup_services_used",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Performance",
+      "name": "sup_performance",
+      "sortName": "sup_performance",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Remark",
+      "name": "sup_remark",
+      "sortName": "sup_remark",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "sup_status",
+      "sortName": "sup_status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    }
+  ],
+  "tender": [
+    {
+      "label": "Issue Date",
+      "name": "tender_issue_date",
+      "sortName": "tender_issue_date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Client Name",
+      "name": "tender_client_name",
+      "sortName": "tender_client_name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Submission Date",
+      "name": "tender_submission_date",
+      "sortName": "tender_submission_date",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "EMD Amount",
+      "name": "tender_emd_amount",
+      "sortName": "tender_emd_amount",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "TCRC BID Amount",
+      "name": "tender_bid_amount",
+      "sortName": "tender_bid_amount",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Tender Winner",
+      "name": "tender_winner",
+      "sortName": "tender_winner",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Tender Contract Tenure ",
+      "name": "tender_tenure",
+      "sortName": "tender_tenure",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Tender Renewal Due On",
+      "name": "tender_contract_period_to",
+      "sortName": "tender_contract_period_to",
+      "type": "date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Tender Final Status",
+      "name": "tender_final_status",
+      "sortName": "tender_final_status",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Startswith",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Scope of Work",
+      "name": "tender_scope_of_work",
+      "sortName": "tender_scope_of_work",
+      "type": "text",
+      "fieldName": "tender_scope_of_work",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Opening Date",
+      "name": "tender_tender_opening_datetime",
+      "sortName": "tender_tender_opening_datetime",
+      "type": "date",
+      "fieldName": "tender_tender_opening_datetime",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Auction Date",
+      "name": "tender_auction_date",
+      "sortName": "tender_auction_date",
+      "type": "date",
+      "fieldName": "tender_auction_date",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    }
+  ],
+  "checmicalStocks": [
+    {
+      "label": "Date",
+      "name": "stock_created_at",
+      "sortName": "stock_created_at",
+      "type": "date",
+      "fieldName": "stock_created_at",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Item Code",
+      "name": "fk_item_id__item_rm_code",
+      "sortName": "fk_item_id",
+      "type": "text",
+      "fieldName": "fk_item_id",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Name of Chemicals",
+      "name": "stock_name_of_chemical",
+      "sortName": "stock_name_of_chemical",
+      "type": "text",
+      "fieldName": "stock_name_of_chemical",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Opening Stocks",
+      "name": "stock_opening_qty",
+      "sortName": "stock_opening_qty",
+      "type": "number",
+      "fieldName": "stock_purchase_qty",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Purchase Qty",
+      "name": "stock_purchase_qty",
+      "sortName": "stock_purchase_qty",
+      "type": "number",
+      "fieldName": "stock_purchase_qty",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Qty. Consumed",
+      "name": "stock_consumed_qty",
+      "sortName": "stock_consumed_qty",
+      "type": "number",
+      "fieldName": "stock_consumed_qty",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Closing Stocks",
+      "name": "stock_closing_qty",
+      "sortName": "stock_closing_qty",
+      "type": "number",
+      "fieldName": "stock_closing_qty",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Remarks",
+      "name": "stock_remark",
+      "type": "text",
+      "sortName": "stock_remark",
+      "fieldName": "stock_remark",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "stock_status",
+      "type": "text",
+      "sortName": "stock_status",
+      "fieldName": "stock_status",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    }
+  ],
+  "incentives": [
+    {
+      "label": "Client",
+      "name": "client_name",
+      "sortName": "client",
+      "type": "text",
+      "fieldName": "client",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Invoice No.",
+      "name": "incentive_invoice_id",
+      "sortName": "incentive_invoice_id",
+      "type": "text",
+      "fieldName": "incentive_invoice_id",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Mode",
+      "name": "incentive_mode",
+      "sortName": "incentive_mode",
+      "type": "text",
+      "fieldName": "incentive_mode",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    },
+    {
+      "label": "Price",
+      "name": "incentive_price",
+      "sortName": "incentive_price",
+      "type": "number",
+      "fieldName": "incentive_price",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Not Equal to",
+          "value": "nq"
+        }
+      ]
+    },
+    {
+      "label": "Place of Work",
+      "name": "incentive_place_of_work__pow_name",
+      "sortName": "incentive_place_of_work__pow_name",
+      "type": "text",
+      "fieldName": "incentive_place_of_work__pow_name",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startsWith"
+        }
+      ]
+    },
+    {
+      "label": "Status",
+      "name": "incentive_status",
+      "sortName": "incentive_status",
+      "type": "text",
+      "fieldName": "incentive_status",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "exact"
+        },
+        {
+          "label": "Contains",
+          "value": "contains"
+        },
+        {
+          "label": "Starts With",
+          "value": "startswith"
+        }
+      ]
+    }
+  ],
+  "purchaseItems": [
+    {
+      "name": "item_rm_code",
+      "label": "Item Code",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "item_description",
+      "label": "Description",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "item_rate",
+      "label": "Rate",
+      "type": "number",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Greater than",
+          "value": "gt"
+        },
+        {
+          "label": "Less than",
+          "value": "lt"
+        },
+        {
+          "label": "Greater than or Equal to",
+          "value": "gte"
+        },
+        {
+          "label": "Less than  or Equal to",
+          "value": "lte"
+        }
+      ]
+    },
+    {
+      "name": "item_uom",
+      "label": "Unit",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "item_make",
+      "label": "Make",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "item_model",
+      "label": "Model",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ],
+  "category": [
+    {
+      "name": "category_name",
+      "label": "Category Name",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    },
+    {
+      "name": "category_description",
+      "label": "Category Description",
+      "type": "text",
+      "options": [
+        {
+          "label": "Equal to",
+          "value": "iexact"
+        },
+        {
+          "label": "Contains",
+          "value": "icontains"
+        },
+        {
+          "label": "Starts With",
+          "value": "istartswith"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "apiEndpoints": {
+    "create": "",
+    "read": "",
+    "update": "",
+    "delete": ""
+  },
+  "breadcom": [
+    {
+      "title": "Calibration",
+      "redirect": ""
+    },
+    {
+      "title": "Calibration List",
+      "redirect": "/calibrationList"
+    },
+    {
+      "title": "Calibration",
+      "redirect": "#"
+    }
+  ],
+  "moduleName": "calibration",
+  "sections": [
+    {
+      "title": "Add Calibration",
+      "moduleType": "calibration",
+      "fields": [
+        {
+          "width": 25,
+          "label": "Add Calibration",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "calib_no",
+          "label": "Callibration No",
+          "type": "text",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "calib_description",
+          "label": "Description",
+          "type": "text",
+          "required": true,
+          "tooltip": "Provide a brief description of the calibration item"
+        },
+        {
+          "width": 6,
+          "name": "calib_qty",
+          "label": "Quantity",
+          "type": "number",
+          "placeholder": "Quantity",
+          "required": true,
+          "tooltip": "Enter the number of items to calibrate"
+        },
+        {
+          "width": 6,
+          "name": "calib_unit",
+          "label": "Unit",
+          "type": "text",
+          "placeholder": "Enter Unit",
+          "required": true,
+          "tooltip": "Specify the unit of measurement"
+        },
+        {
+          "width": 6,
+          "name": "calib_make_range",
+          "label": "Make/Range",
+          "type": "text",
+          "placeholder": "Make/Range",
+          "required": true,
+          "tooltip": "Mention the make and measuring range (Can include number and characters)"
+        },
+        {
+          "width": 6,
+          "name": "calib_model",
+          "label": "Model",
+          "type": "text",
+          "placeholder": "Model",
+          "required": true,
+          "tooltip": "Enter the model number or name"
+        },
+        {
+          "width": 6,
+          "name": "calib_frequency",
+          "label": "Calibration Frequency",
+          "type": "select",
+          "placeholder": "Calibration Frequency",
+          "required": true,
+          "tooltip": "Enter the Frequency in characters",
+          "options": [
+            "Daily",
+            "Weekly",
+            "Biweekly",
+            "Monthly",
+            "Quarterly",
+            "Half-Yearly",
+            "Annually",
+            "Biennially",
+            "As Required / Ad Hoc"
+          ]
+        },
+        {
+          "width": 6,
+          "name": "analysis_charges",
+          "label": "Analysis Charges",
+          "type": "number",
+          "placeholder": "Analysis Charges",
+          "required": true,
+          "tooltip": "Enter the analysis charges"
+        },
+        {
+          "width": 6,
+          "name": "calib_date",
+          "label": "Date of Calibration",
+          "type": "date",
+          "noRestrictionApply":true,
+          "placeholder": "Date of Calibration",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "calib_next_due_date",
+          "label": "Next Due Date of Callibration",
+          "type": "date",
+          "placeholder": "Next Due Date of Callibration",
+          "required": true
+        },
+        {
+          "width": 6,
+          "name": "calib_agency",
+          "label": "Calibration Agency",
+          "type": "text",
+          "placeholder": "Calibration Agency",
+          "required": true,
+          "tooltip": "Name of the agency performing the calibration"
+        },
+        {
+          "width": 6,
+          "name": "calib_remark",
+          "label": "Remark",
+          "type": "text",
+          "placeholder": "Remark",
+          "required": true,
+          "tooltip": "Any additional notes or remarks"
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

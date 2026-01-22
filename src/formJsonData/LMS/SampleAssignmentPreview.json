@@ -1,0 +1,220 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jrf/get",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Sample Inward List",
+      "redirect": "/inwardList"
+    },
+    {
+      "title": "Sample Assignment",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Sample Assignment",
+      "moduleType": "GroupAssignment",
+
+      "fields": [
+        {
+          "width": 6,
+          "name": "jrf_no",
+          "label": "JRF No.",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "1122324455679"
+        },
+        {
+          "width": 6,
+          "name": "jrf_referenceno",
+          "label": "Reference Number",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "27C2324J01VL7071"
+        },
+
+        {
+          "width": 6,
+          "name": "jrf_company_name",
+          "label": "Customer Name",
+          "type": "label",
+          "required": true,
+          "value": "TCRC Quality Controls LLP",
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "cmp_address",
+          "label": "Customer Address",
+
+          "type": "label",
+          "required": true,
+          "value": "-",
+          "readOnly": true
+        },
+
+        {
+          "width": 6,
+          "name": "jrf_commodity",
+          "label": "Commodity",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "Coal"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "name": "noOfSamples",
+          "label": "Number of Samples",
+          "type": "label",
+          "required": true,
+          "readOnly": true
+        }
+      ]
+    },
+    {
+      "label": "Sample Assigment",
+      "type": "groupAssignmentPreview",
+      "tabs": [
+        {
+          "label": "Sample Assignment Set List",
+
+          "type": "table",
+          "SampleAssignment": true,
+          "headers": [
+            {
+              "label": "Is Groups or Parameter",
+              "name": "is_group_param",
+              "type": "select",
+              "required": true,
+              "options": [],
+              "placeholder": "Select Group and Parameter"
+            },
+            {
+              "label": "Groups of Parameter",
+              "name": "Groups",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "basis",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "width": 8,
+                "name": "is_group_param",
+                "subname": "isGroup",
+                "type": "radio",
+                "options": ["Group", "Parameter"],
+
+                "required": true,
+                "readOnly": true,
+                "fieldWidth":"100",
+                "placeholder": "1633",
+         
+
+                "multiple": true
+              },
+
+              {
+                "width": 8,
+
+                "name": "smpl_set_paramjson",
+                "subname": "param_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },
+              {
+                "width": 8,
+
+                "name": "smpl_set_groupjson",
+                "subname": "group_id",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100
+              },              {
+                "width": 8,
+                "name": "smpl_set_testmethodjson",
+                "subname": "std_name",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "errorlabel":"Test Method"
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_basisjson",
+                "subname": "basis",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+                "multiple": true,
+                "errorlabel":"Basis"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "assign": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to assign?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    }
+  }
+}

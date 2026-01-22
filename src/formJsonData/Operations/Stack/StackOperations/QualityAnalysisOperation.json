@@ -1,0 +1,123 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Quantity Assessment",
+      "type": "manualTable",
+      "isUseForVessel": true,
+      "headers": [
+        {
+          "name": "wagon_no",
+          "type": "label",
+          "label": "Wagon No.",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "cc_in_mt",
+          "type": "label",
+          "label": "CC In MT",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "area_in_sq_mtr",
+          "type": "label",
+          "label": "Area in Sq.Mtr",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "loaded_height_in_mtr",
+          "type": "label",
+          "label": "Loaded Height In Mtr.",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "valume_in_cubic_mtr",
+          "type": "label",
+          "label": "Volumne In Cubic Mtr.",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "measurement_qty_in_mt",
+          "type": "label",
+          "label": "Measurement Qty. In Mt.",
+          "width": 6,
+          "fieldWidth": "100"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "wagon_no",
+            "type": "text",
+            "label": "Wagon No.",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "cc_in_mt",
+            "type": "number",
+            "label": "CC In MT",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "area_in_sq_mtr",
+            "type": "number",
+            "label": "Area in Sq.Mtr",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "loaded_height_in_mtr",
+            "type": "number",
+            "label": "Loaded Height In Mtr.",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "valume_in_cubic_mtr",
+            "type": "number",
+            "label": "Volumne In Cubic Mtr.",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "measurement_qty_in_mt",
+            "type": "number",
+            "label": "Measurement Qty. In Mt.",
+            "width": 6,
+            "fieldWidth": "100"
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

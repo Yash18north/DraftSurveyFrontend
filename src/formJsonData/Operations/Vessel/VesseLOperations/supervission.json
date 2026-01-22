@@ -1,0 +1,1074 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Stowage Plan",
+      "type": "manualEntryTable",
+      "multipleTableExists": true,
+      "tableNumber": 0,
+      "isUseForVessel": true,
+      "isNoIndexNo": true,
+      "rowsCount": 12,
+      "headers": [
+        {
+          "name": "hatch",
+          "type": "label",
+          "label": "Hatch",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "weight",
+          "type": "label",
+          "label": "Weight",
+          "width": 6,
+          "fieldWidth": "100",
+          "useForViewOnly": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "hatch",
+            "type": "label",
+            "label": "Hatch",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "weight",
+            "type": "number",
+            "label": "Weight",
+            "width": 6,
+            "fieldWidth": "100",
+            "useForViewOnly": true
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    },
+    {
+      "label": "Vessel Information",
+      "type": "tabs",
+      "tabType": "vessel_Info",
+      "fields": [
+        {
+          "width": 6,
+          "label": "",
+          "name": "vessel_berth_type",
+          "fieldWidth": 100,
+          "type": "radio",
+          "options": [
+            "At anchorage",
+            "At berth"
+          ],
+          "defaultValue": "At anchorage",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "label": "Berth Name/No.",
+          "name": "vessel_berth_name",
+          "type": "text",
+          "fieldWidth": 100,
+          "placeholder": "Berth Name/No.",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "label": "Vessel Arrived / EOSP",
+          "name": "vessel_arrived",
+          "secondName": "vessel_arrived_remark",
+          "type": "doubleText",
+          "firstType": "date",
+          "secondType": "text",
+          "showTimeSelect": true,
+          "fieldWidth": 100,
+          "secondPlaceholder": "Remark",
+          "placeholder": "Vessel Arrived / EOSP",
+          "pastdays": 3,
+          "pastDate": true,
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "vessel_birthed",
+          "label": "Vessel Berthed",
+          "showTimeSelect": true,
+          "placeholder": "Vessel Berthed",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "vessel_birthed_remark",
+          "fieldWidth": 100,
+          "secondPlaceholder": "Remark",
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "initial_draught_survey",
+          "label": "Start Initial Draught Survey",
+          "showTimeSelect": true,
+          "placeholder": "Start Initial Draught Survey",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "initial_draught_survey_remark",
+          "fieldWidth": 100,
+          "secondPlaceholder": "Remark",
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "end_initial_draught_survey",
+          "label": "End Initial Draught Survey",
+          "showTimeSelect": true,
+          "placeholder": "End Initial Draught Survey",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "end_initial_draught_survey_remark",
+          "fieldWidth": 100,
+          "secondPlaceholder": "Remark",
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "discharge_commenced",
+          "label": "Discharge Commenced",
+          "showTimeSelect": true,
+          "placeholder": "Discharge Commenced",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "discharge_commenced_remark",
+          "fieldWidth": 100,
+          "secondPlaceholder": "Remark",
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "discharge_completed",
+          "label": "Discharge Completed",
+          "showTimeSelect": true,
+          "placeholder": "Discharge Completed",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "discharge_completed_remark",
+          "fieldWidth": 100,
+          "noDefaultValue": true,
+          "secondPlaceholder": "Remark"
+        },
+        {
+          "width": 6,
+          "name": "intrim_draught_survey",
+          "label": "Start Intrim Draught Survey",
+          "showTimeSelect": true,
+          "placeholder": "Start Intrim Draught Survey",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "intrim_draught_survey_remark",
+          "noDefaultValue": true,
+          "fieldWidth": 100,
+          "secondPlaceholder": "Remark"
+        },
+        {
+          "width": 6,
+          "name": "end_intrim_draught_survey",
+          "label": "End Intrim Draught Survey",
+          "showTimeSelect": true,
+          "placeholder": "End Intrim Draught Survey",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "end_intrim_draught_survey_remark",
+          "fieldWidth": 100,
+          "noDefaultValue": true,
+          "secondPlaceholder": "Remark"
+        },
+        {
+          "width": 6,
+          "name": "final_draught_survey",
+          "label": "Start Final Draught Survey",
+          "showTimeSelect": true,
+          "placeholder": "Start Final Draught Survey",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "final_draught_survey_remark",
+          "noDefaultValue": true,
+          "fieldWidth": 100,
+          "secondPlaceholder": "Remark"
+        },
+        {
+          "width": 6,
+          "name": "end_final_draught_survey",
+          "label": "End Final Draught Survey",
+          "showTimeSelect": true,
+          "placeholder": "End Final Draught Survey",
+          "firstType": "date",
+          "secondType": "text",
+          "type": "doubleText",
+          "secondName": "end_final_draught_survey_remark",
+          "fieldWidth": 100,
+          "noDefaultValue": true,
+          "secondPlaceholder": "Remark"
+        },
+        {
+          "width": 6,
+          "label": "Remarks",
+          "name": "vl_info_remark",
+          "type": "text",
+          "fieldWidth": 100,
+          "placeholder": "Remarks",
+          "useForViewOnly": true
+        },
+        {
+          "width": 12,
+          "label": "Barge Survey",
+          "styleName": "section_heading",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "date_of_eosp",
+          "label": "EOSP",
+          "showTimeSelect": true,
+          "placeholder": "EOSP",
+          "type": "date",
+          "fieldWidth": 100,
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "date_of_nor_tendered",
+          "label": "NOR TENDERED",
+          "showTimeSelect": true,
+          "placeholder": "NOR TENDERED",
+          "type": "date",
+          "fieldWidth": 100,
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "date_of_vessel_anxhchor_aweigh",
+          "label": "VESSEL ANXHCHOR AWEIGH",
+          "showTimeSelect": true,
+          "placeholder": "VESSEL ANXHCHOR AWEIGH",
+          "type": "date",
+          "fieldWidth": 100,
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "date_of_drop_anchor",
+          "label": "DROPPED ANCHOR",
+          "showTimeSelect": true,
+          "placeholder": "DROPPED ANCHOR",
+          "type": "date",
+          "fieldWidth": 100,
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "date_of_custom_board",
+          "label": "CUSTOM AT BOARD",
+          "showTimeSelect": true,
+          "placeholder": "CUSTOM AT BOARD",
+          "type": "date",
+          "fieldWidth": 100,
+          "noDefaultValue": true
+        },
+        {
+          "width": 6,
+          "name": "date_of_custom_cleared",
+          "label": "CUSTOM CLEARED",
+          "showTimeSelect": true,
+          "placeholder": "CUSTOM CLEARED",
+          "type": "date",
+          "fieldWidth": 100,
+          "noDefaultValue": true
+        }
+      ]
+    },
+    {
+      "label": "Other Details",
+      "type": "tabs",
+      "fields": [
+        {
+          "width": 6,
+          "name": "colour",
+          "label": "Colour",
+          "type": "text",
+          "placeholder": "Colour",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "weather",
+          "label": "Weather",
+          "type": "text",
+          "placeholder": "Weather",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "reciever_surveyor",
+          "label": "Reciever Surveyor",
+          "type": "text",
+          "placeholder": "Reciever Surveyor",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "port_surveyor",
+          "label": "Port Surveyor",
+          "type": "text",
+          "placeholder": "Port Surveyor",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "agent",
+          "label": "Agent",
+          "type": "text",
+          "placeholder": "Agent",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "stevedores",
+          "label": "Stevedores",
+          "type": "text",
+          "placeholder": "Stevedores",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "cargo_being_discharged_by",
+          "label": "Cargo Being Discharged By",
+          "type": "text",
+          "placeholder": "Cargo Being Discharged By",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "no_of_cranes_being_used",
+          "label": "Number of Cranes being used",
+          "type": "text",
+          "placeholder": "Number of Cranes being used",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "sampling_done_at",
+          "label": "Sampling Done At",
+          "type": "text",
+          "placeholder": "Sampling Done At",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "condition_cargo",
+          "label": "Condition of Cargo",
+          "type": "text",
+          "placeholder": "Condition of Cargo",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "direct_sale_or_stock_sale",
+          "label": "Cargo Sale / Stock and Sale",
+          "type": "text",
+          "placeholder": "Cargo Sale / Stock and Sale",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "last_cargo",
+          "label": "Last voyage cargo",
+          "type": "text",
+          "placeholder": "Last voyage cargo",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "kind_attand",
+          "label": "kind Attn.",
+          "type": "text",
+          "placeholder": "kind Attn.",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "remarks",
+          "label": "Remark",
+          "type": "text",
+          "placeholder": "Remark",
+          "useForViewOnly": true
+        }
+      ]
+    },
+    {
+      "label": "Storage Details",
+      "type": "tabs",
+      "fields": [
+        {
+          "width": 6,
+          "name": "trans_by",
+          "label": "Transportation By",
+          "type": "text",
+          "placeholder": "Transportation By",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "number",
+          "label": "Distance from port to stack yard",
+          "type": "text",
+          "placeholder": "Distance from port to stack yard",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "stock_yard",
+          "label": "Stock Yard (Inside port/Out side the port)",
+          "type": "text",
+          "placeholder": "Stock Yard (Inside port/Out side the port)",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "contamination_if_any",
+          "label": "Contamination if any",
+          "type": "text",
+          "placeholder": "Contamination",
+          "useForViewOnly": true
+        },
+        {
+          "width": 6,
+          "name": "adj_cargo_at_stock_yard",
+          "label": "Adjacent Cargo At Stock Yard",
+          "type": "text",
+          "placeholder": "Contamination",
+          "useForViewOnly": true
+        },
+        {
+          "name": "",
+          "type": "label",
+          "label": "This Report is issued without prejudice. Our liability is to the exercise of due care and diligence.This report is not intended to relieve the buyers and sellers from their contractual obligation and only reflects our findings at the time,place.",
+          "width": 12,
+          "fieldWidth": "100",
+          "headerLength": "100%",
+          "isForOnlyLabel": true,
+          "useForViewOnly": true
+        }
+      ]
+    },
+    {
+      "label": "Daily Moisture & Size",
+      "type": "manualTable",
+      "multipleTableExists": true,
+      "tableNumber": 1,
+      "isUseForVessel": true,
+      "isSeperatePopupOpen": true,
+      "headers": [
+        {
+          "name": "dms_date_of_sampling",
+          "type": "label",
+          "label": "Date Of Sampling",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "dms_qty",
+          "type": "label",
+          "label": "Quantity",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "dms_moisture",
+          "type": "label",
+          "label": "Moisture",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "dms_0_50_size",
+          "type": "label",
+          "label": "Size (0-50 MM)",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "dms_50_100_size",
+          "type": "label",
+          "label": "Size (50-100 MM)",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "dms_barge_name",
+          "type": "text",
+          "label": "Barge Name",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "dms_loading_commence",
+          "type": "number",
+          "label": "LOADING COMMENCED  (HRS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true,
+          "showTimeSelect": true
+        },
+        {
+          "name": "dms_loading_completed",
+          "type": "number",
+          "label": "LOADING COMPLETED  (HRS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true,
+          "showTimeSelect": true
+        },
+        {
+          "name": "dms_tonnage",
+          "type": "number",
+          "label": "TONNAGE (MTS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "dms_total_tonnage",
+          "type": "number",
+          "label": "TOTAL TONNAGE (MTS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "dms_above_10_mesh",
+          "type": "number",
+          "label": "ABOVE 10MM",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "dms_100_mesh",
+          "type": "number",
+          "label": "100 MESH",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "dms_date_of_sampling",
+            "type": "date",
+            "label": "Date Of Sampling",
+            "width": 6,
+            "fieldWidth": "100",
+            "showTimeSelect": true
+          },
+          {
+            "name": "dms_qty",
+            "type": "number",
+            "label": "Quantity",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "dms_moisture",
+            "type": "number",
+            "label": "Moisture",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "dms_0_50_size",
+            "type": "number",
+            "label": "Size (0-50)",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "dms_50_100_size",
+            "type": "number",
+            "label": "Size (50-100)",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "dms_barge_name",
+            "type": "text",
+            "label": "Barge Name",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "dms_loading_commence",
+            "type": "number",
+            "label": "LOADING COMMENCED  (HRS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true,
+            "showTimeSelect": true
+          },
+          {
+            "name": "dms_loading_completed",
+            "type": "number",
+            "label": "LOADING COMPLETED  (HRS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true,
+            "showTimeSelect": true
+          },
+          {
+            "name": "dms_tonnage",
+            "type": "number",
+            "label": "TONNAGE (MTS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "dms_total_tonnage",
+            "type": "number",
+            "label": "TOTAL TONNAGE (MTS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "dms_above_10_mesh",
+            "type": "number",
+            "label": "ABOVE 10MM",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "dms_100_mesh",
+            "type": "number",
+            "label": "100 MESH",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    },
+    {
+      "label": "Barge Loading Details",
+      "type": "manualTable",
+      "multipleTableExists": true,
+      "tableNumber": 3,
+      "isUseForVessel": true,
+      "isSeperatePopupOpen": true,
+      "headers": [
+        {
+          "name": "barge_detail_loading_name",
+          "type": "text",
+          "label": "Barge Name",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "barge_detail_loading_date",
+          "type": "date",
+          "label": "Date",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "barge_detail_loading_dispatch_time",
+          "type": "date",
+          "label": "DISPATCH TIME",
+          "width": 6,
+          "fieldWidth": "100",
+          "showTimeSelect": true,
+          "isHideTable": true
+        },
+        {
+          "name": "barge_detail_loading_qty",
+          "type": "text",
+          "label": "QUANTITY",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "barge_detail_loading_remark",
+          "type": "text",
+          "label": "Remark",
+          "width": 6,
+          "fieldWidth": "100",
+          "showTimeSelect": true,
+          "isHideTable": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "barge_detail_loading_name",
+            "type": "text",
+            "label": "Barge Name",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "barge_detail_loading_date",
+            "type": "date",
+            "label": "Date",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "barge_detail_loading_dispatch_time",
+            "type": "date",
+            "label": "DISPATCH TIME",
+            "width": 6,
+            "fieldWidth": "100",
+            "showTimeSelect": true,
+            "isHideTable": true
+          },
+          {
+            "name": "barge_detail_loading_qty",
+            "type": "text",
+            "label": "QUANTITY",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "barge_detail_loading_remark",
+            "type": "text",
+            "label": "Remark",
+            "width": 6,
+            "fieldWidth": "100",
+            "showTimeSelect": true,
+            "isHideTable": true
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    },
+    {
+      "label": "Barge UnLoading Details",
+      "type": "manualTable",
+      "multipleTableExists": true,
+      "tableNumber": 4,
+      "isUseForVessel": true,
+      "isSeperatePopupOpen": true,
+      "headers": [
+        {
+          "name": "barge_detail_unloading_name",
+          "type": "text",
+          "label": "Barge Name",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "barge_detail_unloading_date",
+          "type": "date",
+          "label": "Date",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "barge_detail_unloading_jetty_along_side",
+          "type": "text",
+          "label": "JETTY ALONG SIDE (HRS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "barge_detail_unloading_commence_discharge",
+          "type": "text",
+          "label": "COMMENCED DISCHARGE (HRS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "barge_detail_unloading_completed_discharge",
+          "type": "text",
+          "label": "COMPLETED DISCHARGE (HRS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "barge_detail_unloading_barge_cast_of",
+          "type": "text",
+          "label": "BARGE CAST OFF (HRS)",
+          "width": 6,
+          "fieldWidth": "100",
+          "isHideTable": true
+        },
+        {
+          "name": "barge_detail_unloading_remark",
+          "type": "text",
+          "label": "Remark",
+          "width": 6,
+          "fieldWidth": "100",
+          "showTimeSelect": true,
+          "isHideTable": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "barge_detail_unloading_name",
+            "type": "text",
+            "label": "Barge Name",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "barge_detail_unloading_date",
+            "type": "date",
+            "label": "Date",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "barge_detail_unloading_jetty_along_side",
+            "type": "text",
+            "label": "JETTY ALONG SIDE (HRS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "barge_detail_unloading_commence_discharge",
+            "type": "text",
+            "label": "COMMENCED DISCHARGE (HRS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "barge_detail_unloading_completed_discharge",
+            "type": "text",
+            "label": "COMPLETED DISCHARGE (HRS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "barge_detail_unloading_barge_cast_of",
+            "type": "text",
+            "label": "BARGE CAST OFF (HRS)",
+            "width": 6,
+            "fieldWidth": "100",
+            "isHideTable": true
+          },
+          {
+            "name": "barge_detail_unloading_remark",
+            "type": "text",
+            "label": "Remark",
+            "width": 6,
+            "fieldWidth": "100",
+            "showTimeSelect": true,
+            "isHideTable": true
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    },
+    {
+      "label": "Discharge Details",
+      "type": "manualTable",
+      "multipleTableExists": true,
+      "tableNumber": 2,
+      "isUseForVessel": true,
+      "headers": [
+        {
+          "name": "total_tonnage",
+          "type": "label",
+          "label": "Total Tonnage",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "unit",
+          "type": "label",
+          "label": "Unit",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "date",
+          "type": "label",
+          "label": "Date & Time",
+          "width": 6,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "remarks",
+          "type": "label",
+          "label": "Remarks",
+          "width": 6,
+          "fieldWidth": "100"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "total_tonnage",
+            "type": "number",
+            "label": "Total Tonnage",
+            "width": 6,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "unit",
+            "type": "select",
+            "label": "Unit",
+            "width": 6,
+            "fieldWidth": "100",
+            "options": [
+              "MT"
+            ],
+            "defaultValue": "MT"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "label": "Date & Time",
+            "width": 6,
+            "fieldWidth": "100",
+            "showTimeSelect": true
+          },
+          {
+            "name": "remarks",
+            "type": "text",
+            "label": "Remarks",
+            "width": 6,
+            "fieldWidth": "100"
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

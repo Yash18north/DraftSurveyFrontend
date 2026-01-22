@@ -1,0 +1,121 @@
+{
+  "title": "Tabs Section",
+  "type": "tabs",
+  "tabs": [
+    {
+      "label": "Quality Analysis",
+      "type": "manualTable",
+      "isUseForVessel": true,
+      "headers": [
+        {
+          "name": "hatch_number",
+          "type": "label",
+          "label": "Hatch / hold No.",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "date_of_inspection",
+          "type": "label",
+          "label": "Date of inspection",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "inspection_commenced",
+          "type": "label",
+          "label": "Inspection Commenced",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "inspection_completed",
+          "type": "label",
+          "label": "Inspection Completed",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        },
+        {
+          "name": "remarks",
+          "type": "label",
+          "label": "Remarks",
+          "width": 6,
+          
+          "fieldWidth": "100"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "name": "hatch_number",
+            "type": "text",
+            "label": "Hatch / hold No.",
+            "width": 6,
+            
+            "fieldWidth": "100"
+          },
+          {
+            "name": "date_of_inspection",
+            "type": "date",
+            "label": "Date of inspection",
+            "width": 6,
+            
+            "fieldWidth": "100"
+          },
+          {
+            "name": "inspection_commenced",
+            "type": "date",
+            "label": "Inspection Commenced",
+            "width": 6,
+            "showTimeSelect":true,
+            "fieldWidth": "100",
+            "noLimitation":true
+          },
+          {
+            "name": "inspection_completed",
+            "type": "date",
+            "label": "Inspection Completed",
+            "width": 6,
+            "showTimeSelect":true,
+            "fieldWidth": "100",
+            "noLimitation":true
+          },
+          {
+            "name": "remarks",
+            "type": "text",
+            "label": "Remarks",
+            "width": 6,
+            
+            "fieldWidth": "100"
+          }
+        ]
+      ],
+      "actions": [
+        {
+          "label": "bi bi-pencil h6",
+          "value": "Edit",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "update"
+        },
+        {
+          "label": "bi bi-trash h6",
+          "value": "Delete",
+          "type": "icon",
+          "redirectUrl": "/inwardList/inwardForm",
+          "permission": "delete"
+        },
+        {
+          "label": "bi bi-clock-history h6",
+          "value": "History",
+          "type": "icon",
+          "permission": "history"
+        }
+      ]
+    }
+  ]
+}

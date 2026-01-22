@@ -1,0 +1,387 @@
+{
+  "breadcom": [
+    {
+      "title": "VesselOperation",
+      "redirect": "/operation/jrfInstructionListing"
+    },
+    {
+      "title": "Vessel List",
+      "redirect": "/operation/jrfInstructionListing"
+    },
+    {
+      "title": "Vessel Confirugations",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "vesselJICertificate",
+      "moduleSubType": "ConfigurationCertificate",
+      "fields": []
+    },
+    {
+      "title": "Certificate Overall Configuration",
+      "type": "configureTable",
+      "header": [
+        {
+          "name": "rpc_is_wght_avg",
+          "type": "checkbox",
+          "options": [
+            "Weighted Avg."
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "rpc_is_lot_no",
+          "type": "checkbox",
+          "options": [
+            "Lot Wise"
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "rpc_is_sample_specs",
+          "type": "checkbox",
+          "options": [
+            "Sample Specification"
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "rpc_is_other_config",
+          "type": "checkbox",
+          "options": [
+            "Others"
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "rpc_is_sequence",
+          "type": "checkbox",
+          "options": [
+            "Sequence"
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        }
+      ],
+      "body": [
+        [
+          {
+            "name": "rpc_is_appendix",
+            "type": "checkbox",
+            "options": [
+              "Appendix"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_lotwise_wght_avg",
+            "type": "checkbox",
+            "options": [
+              "Weighted Avg."
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_smpl_spec_lotno",
+            "type": "checkbox",
+            "options": [
+              "Lot No"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_size_analysis",
+            "type": "checkbox",
+            "options": [
+              "Size Analysis"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_weight_avg_seq",
+            "type": "checkbox",
+            "options": [
+              "Sequence of the sections- Weighted Average"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ],
+        [
+          {},
+          {
+            "name": "rpc_is_lotwise_qty",
+            "type": "checkbox",
+            "options": [
+              "Lot Quantity"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_qty",
+            "type": "checkbox",
+            "options": [
+              "Quantity"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_eis_format",
+            "type": "checkbox",
+            "options": [
+              "EIC Format"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_lotwise_seq",
+            "type": "checkbox",
+            "options": [
+              "Sequence of the sections- Lot wise"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ],
+        [
+          {},
+          {
+            "name": "rpc_is_lotwise_sample_qty",
+            "type": "checkbox",
+            "options": [
+              "Sample Quantity"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_smpl_mark",
+            "type": "checkbox",
+            "options": [
+              "Sample Mark"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_weighted_certno",
+            "type": "checkbox",
+            "options": [
+              "Weighted Certificate"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          
+          {
+            "name": "rpc_sample_spec_seq",
+            "type": "checkbox",
+            "options": [
+              "Sequence of the sections- Sample Specifications"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ],
+        [
+          {},
+          {
+            "name": "rpc_is_lotwise_smpl_mark",
+            "type": "checkbox",
+            "options": [
+              "Sample Mark"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_dos",
+            "type": "checkbox",
+            "options": [
+              "Date of Sampling"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          },
+          {
+            "name": "rpc_is_dual_port_combined",
+            "type": "checkbox",
+            "options": [
+              "Dual Port Combined"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ],
+        [
+          {},
+          {},
+          {
+            "name": "rpc_is_smpl_qty",
+            "type": "checkbox",
+            "options": [
+              "Sample Quantity"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ],
+        [
+          {},
+          {},
+          {
+            "name": "rpc_is_smpl_wghtorunit",
+            "type": "checkbox",
+            "options": [
+              "Sample Weight / Unit"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ],
+        [
+          {},
+          {},
+          {
+            "name": "rpc_is_smpl_type",
+            "type": "checkbox",
+            "options": [
+              "Sample Type"
+            ],
+            "width": 4,
+            "required": true,
+            "fieldWidth": "100"
+          }
+        ]
+      ],
+      "fields": [
+        {
+          "name": "rpc_is_total_no",
+          "type": "checkbox",
+          "options": [
+            "Total Number"
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "rpc_is_total_qty",
+          "type": "checkbox",
+          "options": [
+            "Quantity Total"
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        },
+        {
+          "name": "rpc_is_smpl_total",
+          "type": "checkbox",
+          "options": [
+            "Sample Total"
+          ],
+          "width": 4,
+          "required": true,
+          "fieldWidth": "100"
+        }
+      ]
+    },
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "type": "JIcertificate",
+      "tabs": [
+        {
+          "headers": [
+            {
+              "name": "fk_activitymasterid",
+              "type": "label",
+              "label": "Scope of Work",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "fk_activitymasterid",
+                "type": "select",
+                "label": "Scope of Work",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

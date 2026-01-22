@@ -1,0 +1,218 @@
+{
+    "breadcom": [
+        {
+            "title": "Calibration",
+            "redirect": "#"
+        },
+        {
+            "title": "Calibration List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "/calibration/list/",
+        "update": "",
+        "delete": "",
+        "statuCount": "/calibration/status/",
+        "exportExcel": "/calibration_excel/create/",
+        "exportMethod":"GET"
+    },
+    "listView": {
+        "title": "Calibration List",
+        "isCustomTitle": true,
+        "moduleType": "calibration",
+        "headers": [
+             {
+                "label": "Calibration No",
+                "name": "calib_no",
+                "sortName": "calib_no",
+                "type": "text"
+            },
+            {
+                "label": "Description",
+                "name": "calib_description",
+                "sortName": "calib_description",
+                "type": "text"
+            },
+            {
+                "label": "Qty",
+                "name": "calib_qty",
+                "sortName": "calib_qty",
+                "type": "text",
+                "fieldName": "calib_qty"
+            },
+            {
+                "label": "Unit",
+                "name": "calib_unit",
+                "sortName": "calib_unit",
+                "type": "text",
+                "fieldName": "calib_unit"
+            },
+            {
+                "label": "Make/Range",
+                "name": "calib_make_range",
+                "sortName": "calib_make_range",
+                "type": "text"
+            },
+            {
+                "label": "Model",
+                "name": "calib_model",
+                "sortName": "calib_model",
+                "type": "text"
+            },
+            {
+                "label": "Calibration Frequency",
+                "name": "calib_frequency",
+                "sortName": "calib_frequency",
+                "type": "text"
+            },
+            {
+                "label": "Date of Calibration",
+                "name": "calib_date",
+                "sortName": "calib_date",
+                "type": "date"
+            },
+            {
+                "label": "Next_Calibration Due On",
+                "name": "calib_next_due_date",
+                "sortName": "calib_next_due_date",
+                "type": "date"
+            },
+            {
+                "label": "Calibration Agency",
+                "name": "calibration_agency",
+                "sortName": "calibration_agency",
+                "type": "text"
+            },
+            {
+                "label": "Remarks",
+                "name": "calib_remark",
+                "sortName": "calib_remark",
+                "type": "text"
+            },
+            {
+                "label": "Status",
+                "name": "calib_status",
+                "type": "text",
+                "sortName": "calib_status",
+                "fieldName": "calib_status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [
+       
+        ],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "History",
+                "type": "icon"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Edit",
+                "type": "icon"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
+                "status": "saved"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "0",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "PostedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

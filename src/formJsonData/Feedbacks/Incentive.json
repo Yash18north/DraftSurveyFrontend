@@ -1,0 +1,173 @@
+{
+    "breadcom": [
+        {
+            "title": "Insights",
+            "redirect": "#"
+        },
+        {
+            "title": "Incentives List",
+            "redirect": "/incentivesList"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/",
+        "read": "/incentive/list/",
+        "update": "/",
+        "delete": "/",
+        "statuCount": "/incentive/status-count/",
+        "exportExcel":"/incentive_excel/create/"
+    },
+    "listView": {
+        "title": "Incentives List",
+        "isCustomTitle": true,
+        "moduleType": "incentives",
+        "headers": [
+            {
+                "label": "Client",
+                "name": "incentive_client_id",
+                "sortName": "incentive_client_id__cust_name",
+                "type": "text",
+                "fieldName": "client"
+            },
+            {
+                "label": "Invoice No.",
+                "name": "incentive_invoice_id",
+                "sortName": "incentive_invoice_id",
+                "type": "text",
+                "fieldName": "incentive_invoice_id"
+            },
+            {
+                "label": "Mode",
+                "name": "incentive_mode",
+                "sortName": "incentive_mode",
+                "type": "text",
+                "fieldName": "incentive_mode"
+            },
+            {
+                "label": "Price",
+                "name": "incentive_price",
+                "sortName": "incentive_price",
+                "type": "number",
+                "fieldName": "incentive_price"
+            },
+            {
+                "label": "Place of Work",
+                "name": "incentive_place_of_work",
+                "sortName": "incentive_place_of_work__pow_name",
+                "type": "number",
+                "fieldName": "incentive_place_of_work"
+            },
+            {
+                "label": "Status",
+                "name": "incentive_status",
+                "sortName": "incentive_status",
+                "type": "text",
+                "fieldName": "incentive_status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/incentivesList/incentivesForm/:EditRecordId",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "permission": "delete"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/incentivesList/incentivesForm/:EditRecordId",
+                "status": "saved"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "saved",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "CompletedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

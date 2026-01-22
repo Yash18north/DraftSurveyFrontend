@@ -1,0 +1,248 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jrf/get",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Sample Inward List",
+      "redirect": "/inwardList"
+    },
+    {
+      "title": "Group Assignment",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Group Assignment",
+      "moduleType": "GroupAssignment",
+      "fields": [
+        {
+          "width": 6,
+          "name": "jrf_no",
+          "label": "JRF No.",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "1122324455679"
+        },
+        {
+          "width": 6,
+          "name": "jrf_referenceno",
+          "label": "Reference Number",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "27C2324J01VL7071"
+        },
+
+        {
+          "width": 6,
+          "name": "jrf_company_name",
+          "label": "Customer Name",
+          "type": "label",
+          "required": true,
+          "value": "TCRC Quality Controls LLP",
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "cmp_address",
+          "label": "Customer Address",
+
+          "type": "label",
+          "required": true,
+          "value": "-",
+          "readOnly": true
+        },
+
+        {
+          "width": 6,
+          "name": "jrf_commodity",
+          "label": "Commodity",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "Coal"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "name": "noOfSamples",
+          "label": "Number of Samples",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "8"
+        }
+      ]
+    },
+
+    {
+      "label": "Group Assigment",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Sample Assignment Set List",
+
+          "type": "table",
+          "groupAssignment": true,
+          "headers": [
+            {
+              "label": "Samples",
+              "name": "samples",
+              "type": "label",
+              "required": true
+            },
+            {
+              "label": "Groups",
+              "name": "groups",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Parameters",
+              "name": "parameters",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Test Method",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            },
+            {
+              "label": "Basis",
+              "name": "test_method",
+              "type": "select",
+              "required": true,
+              "options": ["ASTM", "IS", "ISO"],
+              "placeholder": "Enter Parameter"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "width": 8,
+                "name": "smpl_set_smpljson",
+                "options": [],
+                "type": "select",
+                "required": true,
+                "fieldWidth": 100,
+                "multiple": 1
+              },
+              {
+                "width": 8,
+
+                "name": "smpl_set_groupjson",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "readOnly": true,
+                "placeholder": "1633",
+                "fieldWidth": 100,
+                "multiple": true
+              },
+              {
+                "width": 8,
+
+                "name": "smpl_set_paramjson",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+
+                "multiple": true,
+                "multiple": 1
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_testmethodjson",
+                "type": "select",
+                "options": [],
+                "required": true,
+                "fieldWidth": 100,
+
+                "multiple": true,
+                "multiple": 1
+              },
+              {
+                "width": 8,
+                "name": "smpl_set_basisjson",
+                "type": "select",
+                "options": [
+                ],
+                "required": true,
+                "fieldWidth": 100,
+                "label":"Basis",
+                "multiple": true
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "assign": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to assign?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+    "breadcom": [
+        {
+            "title": "Operation",
+            "redirect": "#"
+        },
+        {
+            "title": "Invoice",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/invoices/create/",
+        "read": "",
+        "update": "/invoices/update/",
+        "delete": ""
+    },
+    "sections": [
+        {
+            "title": "Invoice",
+            "moduleType": "tally",
+            "Heading": "Invoice Details",
+            "fields": [
+                {
+                    "name": "im_invoicenumber",
+                    "type": "text",
+                    "label": "Invoice Number",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_invoice_date",
+                    "type": "date",
+                    "label": "Invoice Date",
+                    "width": 6,
+					"pastdays": 5,
+					"pastDate": true,
+                    "required": true
+                },
+                {
+                    "name": "im_status",
+                    "type": "text",
+                    "label": "Status",
+                    "readOnly": true,
+                    "width": 6
+                },
+                {
+                    "name": "im_paymentmode",
+                    "type": "select",
+                    "options": [
+                        "Cheque",
+                        "NEFT / RTGS"
+                    ],
+                    "label": "Mode of Payment.",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_tax_type",
+                    "type": "select",
+                    "label": "Tax Type",
+                    "options": [
+                        "Direct Tax",
+                        "Indirect Tax"
+                    ],
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_tax_classification",
+                    "type": "select",
+                    "label": "Tax Classification",
+                    "width": 6,
+                    "options": [
+                        "CGST",
+                        "SGST",
+                        "IGST"
+                    ],
+                    "styleName": "selectCompWidth",
+                    "multiple": true,
+                    "required": true
+                },
+                {
+                    "name": "im_billtoplace",
+                    "type": "text",
+                    "label": "Bill to Place",
+                    "placeholder": "Enter Bill to Place",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_shiptoplace",
+                    "type": "text",
+                    "label": "Ship to Place",
+                    "placeholder": "Enter Ship to Place",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_naration_no",
+                    "type": "textArea",
+                    "label": "Narration (Certificate No.)",
+                    "placeholder": "Enter Narration (Certificate No.)",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_creditnote",
+                    "type": "text",
+                    "label": "Credit Note (if any)",
+                    "placeholder": "Auto Update Credit Note",
+                    "width": 6
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Save",
+            "type": "icon",
+            "redirectUrl": "/operation/invoice-listing",
+            "permission": "save"
+        }
+    ],
+    "popupMessages": {
+        "donwload": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}

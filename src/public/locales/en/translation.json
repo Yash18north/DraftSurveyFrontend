@@ -1,0 +1,94 @@
+{
+  "common": {
+    "cancelBtn": "Cancel",
+    "createBtn": "Create",
+    "searchReportBtn": "Advanced Search",
+    "acceptBtn": "Accept",
+    "rejectBtn": "Reject",
+    "saveBtn": "Save",
+    "backBtn": "Back",
+    "assignmentBtn": "Assignment",
+    "postBtn": "Post",
+    "fillAnalysisBtn": "Fill Analysis",
+    "previewCertificateBtn": "Preview Certificate",
+    "generateCertificateBtn": "Generate Certificate ",
+    "updateBtn": "Update",
+    "sendLabBtn": "Send to Lab",
+    "assignBtn": "Assign",
+    "previewBtn": "Preview",
+    "allotBtn": "Allot",
+    "verifyBtn": "Verify",
+    "publishBtn": "Publish",
+    "passwordTooltip": "Your password must be between 8 and 15 characters long, containing at least one uppercase letter, one number, and one special character."
+  },
+  "loginPage": {
+    "loginBtn": "Login",
+    "loginTitle": "Log In",
+    "employeeId": "Employee ID",
+    "employeeIdPlaceHolder": "Enter Employee ID",
+    "password": "Password",
+    "passwordPlaceHolder": "Enter Password",
+    "forgetPasswordLink": "Forgot Password ?",
+    "errorMessages": {
+      "employeeIdRequired": "Please enter a username",
+      "passwordRequired": "Please enter password",
+      "inValidePassword": "Please enter a valid password"
+    },
+    "nonAdminLogin": "You are accessing the system with an admin user. Please use a non-admin user.",
+    "unExpectedError": "An unexpected error has occurred."
+  },
+  "forgotPasswordPage": {
+    "forgotPasswordTitle": "Forgot Password ?",
+    "employeeIdOremail": "Employee ID / Email ID",
+    "employeeIdOremailPlaceHolder": "Please enter your Employee ID / Email ID",
+    "loginBack": "Back to Login",
+    "nextBtn": "Next",
+    "otpSuggestionText": "Enter your 6 digits code that you received on your email.",
+    "resendSuggestionText": "If you didn't receive a code!",
+    "resendBtn": "Resend",
+    "newPasswordSuggetion": "Set the new password for your account so you can login and access all features.",
+    "newPasswordText": "New Password",
+    "newPasswordTextPlaceHolder": "Enter New Password",
+    "confirmPasswordText": "Confirm Password",
+    "confirmPasswordTextPlaceHolder": "Enter Confirm Password",
+    "continueBtn": "Continue",
+    "errorMessages": {
+      "employeeIdRequired": "Please enter your Employee ID / Email ID",
+      "OtpRequired": "Please enter OTP",
+      "valideOtp": "Please enter valide otp",
+      "newpasswordRequired": "Please enter new password",
+      "inValideNewPassword": "Please enter valid new password",
+      "confirmpasswordRequired": "Please enter confirm password",
+      "inValideconfirmPassword": "Please enter valid confirm password",
+      "notMatchconfirmPassword": "Please enter valid confirm password"
+    }
+  },
+  "changePasswordPage": {
+    "changePasswordTitle": "Change Password",
+    "currentPasswordText": "Current Password",
+    "currentPasswordTextPlaceHolder": "Enter your Current password",
+    "newPasswordText": "New Password",
+    "newPasswordTextPlaceHolder": "Enter your new password",
+    "confirmPasswordText": "Confirm Password",
+    "confirmPasswordTextPlaceHolder": "Enter your confirm password",
+    "changeBtn": "Change",
+    "saveChangeBtn": "Save Changes",
+    "errorMessages": {
+      "currenPasswordRequired": "Please enter your current password.",
+      "inValidecurrenPassword": "Please confirm your password.",
+      "inValidenewPassword": "Please enter valid New password",
+      "newPasswordRequired": "Please enter a new password.",
+      "inValideConfirmPassword": "Please enter valid Confirm password",
+      "ConfirmPasswordRequired": "Please enter Confirm password",
+      "notMatchconfirmPassword": "Please enter valid confirm password"
+    }
+  },
+  "custom": {
+    "AtleastOneConfig": "Please select at least one configuration to proceed.",
+    "EitherWghtorAvg": "Please select one option: either Weighted Average or Lot-wise.",
+    "laterDate": "Please select a date that is later than the date in the previous field.",
+    "atleastOneEmail": "Please select at least one email.",
+    "sharingEmail": "Sharing Email, Please Wait...",
+    "IGSTOnly":""
+  }
+}

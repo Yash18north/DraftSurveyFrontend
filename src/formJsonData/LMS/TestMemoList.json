@@ -1,0 +1,655 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/list/",
+    "read": "/testmemo/list",
+    "update": "/api/orders/update",
+    "delete": "/api/orders/delete",
+    "statuCount": "/testmemostatuscount/get"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Test Memo List",
+      "redirect": "/allotmentList"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Test Memo List",
+      "type": "list",
+      "headers": [
+        {
+          "label": "TM ID",
+          "name": "test_memo_ID",
+          "type": "text"
+        },
+        {
+          "label": "Inward Number",
+          "name": "inward_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "text"
+        },
+        {
+          "label": "Date of Receipt Sample",
+          "name": "date_receipt_sample",
+          "type": "date"
+        },
+        {
+          "label": "Completion Date",
+          "name": "completion_date",
+          "type": "date"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Action",
+          "name": "action",
+          "type": "text",
+          "colSpan": "9"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "label": "2311",
+            "name": "test_memo_id",
+            "type": "label"
+          },
+          {
+            "label": "5472324455678",
+            "name": "inward_id",
+            "type": "label"
+          },
+          {
+            "label": "Coal",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "2023-12-04",
+            "name": "client_name",
+            "type": "label",
+            "defaultValue": "2023-12-04"
+          },
+          {
+            "label": "2023-12-10",
+            "name": "client_name",
+            "type": "label"
+          },
+          {
+            "label": "In Progress",
+            "name": "status",
+            "type": "label"
+          },
+          {
+            "label": "Edit",
+            "name": "test_memo_edit",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=edit",
+            "icon": "bi bi-pen  h6 "
+          },
+          {
+            "label": "bi bi-filetype-csv h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as CSV"
+          },
+          {
+            "label": "bi bi-file-earmark-pdf-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as PDF"
+          },
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          },
+          {
+            "label": "bi bi-x-circle-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Cancel"
+          }
+        ],
+        [
+          {
+            "label": "2312",
+            "name": "test_memo_id",
+            "type": "label"
+          },
+          {
+            "label": "1312",
+            "name": "inward_id",
+            "type": "label"
+          },
+          {
+            "label": "Limestone",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "2023-12-12",
+            "name": "client_name",
+            "type": "label",
+            "defaultValue": "2023-12-12"
+          },
+          {
+            "label": "2023-12-14",
+            "name": "client_name",
+            "type": "label"
+          },
+          {
+            "label": "Alloted",
+            "name": "status",
+            "type": "label"
+          },
+          {
+            "label": "Edit",
+            "name": "test_memo_edit",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=edit",
+            "icon": "bi bi-pen  h6 "
+          },
+          {
+            "label": "bi bi-filetype-csv h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as CSV"
+          },
+          {
+            "label": "bi bi-file-earmark-pdf-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as PDF"
+          },
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          },
+          {
+            "label": "bi bi-x-circle-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Cancel"
+          }
+        ],
+        [
+          {
+            "label": "2313",
+            "name": "test_memo_id",
+            "type": "label"
+          },
+          {
+            "label": "1313",
+            "name": "inward_id",
+            "type": "label"
+          },
+          {
+            "label": "Gypsum",
+            "name": "commodity",
+            "type": "label"
+          },
+          {
+            "label": "2023-12-21",
+            "name": "client_name",
+            "type": "label",
+            "defaultValue": "2023-12-04"
+          },
+          {
+            "label": "2023-12-25",
+            "name": "client_name",
+            "type": "label"
+          },
+          {
+            "label": "In Progress",
+            "name": "status",
+            "type": "label"
+          },
+          {
+            "label": "Edit",
+            "name": "test_memo_edit",
+            "type": "button",
+            "tooltip": "Open Sample Group Assignment form",
+            "redirectLink": "/testmemo?view=edit",
+            "icon": "bi bi-pen  h6 "
+          },
+          {
+            "label": "bi bi-filetype-csv h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as CSV"
+          },
+          {
+            "label": "bi bi-file-earmark-pdf-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Download as PDF"
+          },
+          {
+            "label": "bi bi-eye h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "View JRF"
+          },
+          {
+            "label": "bi bi-trash h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Delete Row"
+          },
+          {
+            "label": "bi bi-x-circle-fill h6 ",
+            "name": "status",
+            "type": "icon",
+            "tooltip": "Cancel"
+          }
+        ]
+      ]
+    }
+  ],
+  "listView": {
+    "title": "Test Memo List",
+    "type": "list",
+    "moduleType": "testmemomain",
+    "headers": [
+      {
+        "label": "JRF Cr.Date",
+        "name": "jrf_detail",
+        "type": "date",
+        "sortName": "fk_jrf_id__jrf_date",
+        "fieldName": "jrf_date"
+      }, 
+      {
+        "label": "Test Memo No",
+        "name": "tm_number",
+        "type": "text",
+        "sortName": "tm_number"
+      },
+      {
+        "label": "Inward Number",
+        "name": "inward_detail",
+        "type": "text",
+        "sortName": "fk_inward_id__smpl_inward_number"
+      },
+      {
+        "label": "Sample ID(From - To)",
+        "name": "inward_detail",
+        "type": "text",
+        "sortName": "sample_ids_from_to",
+        "fieldName": "sample_ids_from_to",
+        "isNoSort":true
+      },
+      {
+        "label": "Commodity",
+        "name": "commodity",
+        "type": "text",
+        "sortName": "fk_comm_id__cmd_name"
+      },
+      {
+        "label": "Date of Sample Recieve",
+        "name": "inward_detail",
+        "type": "date",
+        "sortName": "tm_datestartinganalysis",
+        "fieldName": "smpl_dos"
+      },
+      {
+        "label": "Date of Allotment",
+        "name": "date_of_allotment",
+        "type": "date",
+        "sortName": "date_of_allotment"
+      },
+      {
+        "label": "Expected Completion Date",
+        "name": "tm_datecompletion",
+        "type": "date",
+        "sortName": "tm_datecompletion",
+        "isShowColorifPassed": true
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "2311",
+          "name": "test_memo_id",
+          "type": "label"
+        },
+        {
+          "label": "5472324455678",
+          "name": "inward_id",
+          "type": "label"
+        },
+        {
+          "label": "Coal",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "2023-12-04",
+          "name": "client_name",
+          "type": "label",
+          "defaultValue": "2023-12-04"
+        },
+        {
+          "label": "2023-12-10",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Created",
+          "name": "testmemo_status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "2312",
+          "name": "test_memo_id",
+          "type": "label"
+        },
+        {
+          "label": "5472324455679",
+          "name": "inward_id",
+          "type": "label"
+        },
+        {
+          "label": "Limestone",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "2023-12-12",
+          "name": "client_name",
+          "type": "label",
+          "defaultValue": "2023-12-12"
+        },
+        {
+          "label": "2023-12-14",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Alloted",
+          "name": "status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "2313",
+          "name": "test_memo_id",
+          "type": "label"
+        },
+        {
+          "label": "5472324455680",
+          "name": "inward_id",
+          "type": "label"
+        },
+        {
+          "label": "Gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "2023-12-21",
+          "name": "client_name",
+          "type": "label",
+          "defaultValue": "2023-12-04"
+        },
+        {
+          "label": "2023-12-25",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Results",
+          "name": "status",
+          "type": "label"
+        }
+      ],
+      [
+        {
+          "label": "2314",
+          "name": "test_memo_id",
+          "type": "label"
+        },
+        {
+          "label": "5472324455681",
+          "name": "inward_id",
+          "type": "label"
+        },
+        {
+          "label": "Gypsum",
+          "name": "commodity",
+          "type": "label"
+        },
+        {
+          "label": "2023-12-21",
+          "name": "client_name",
+          "type": "label",
+          "defaultValue": "2023-12-04"
+        },
+        {
+          "label": "2023-12-25",
+          "name": "client_name",
+          "type": "label"
+        },
+        {
+          "label": "Completed",
+          "name": "status",
+          "type": "label"
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "type": "icon",
+        "redirectUrl": "#",
+        "value": "View",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-file-earmark-pdf h6",
+        "value": "PDF",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "bi bi-x-circle-fill h6 ",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm"
+      },
+      {
+        "label": "Allot",
+        "redirectUrl": "/allotmentList/allotment",
+        "status": "create-allot"
+      },
+      {
+        "label": "Send to Lab",
+        "redirectUrl": "/testmemoList/testmemo",
+        "status": "sendToLab"
+      },
+      {
+        "label": "Verify Test Memo",
+        "redirectUrl": "/testmemoList/testmemo",
+        "status": "verifytestmemo"
+      },
+      {
+        "label": "Verify Test Result",
+        "redirectUrl": "/testmemoList/testmemo",
+        "status": "verifytestresult"
+      },
+      {
+        "label": "Test Report",
+        "redirectUrl": "/testmemoList/test-results",
+        "status": "testmemoresult"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/testmemoList/testmemo",
+        "status": "Edit"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Created",
+        "name": "created",
+        "status": "created",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Posted",
+        "name": "posted",
+        "status": "posted",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-check-lg",
+        "label": "Results",
+        "name": "results",
+        "status": "results",
+        "image": "AcceptedIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Rejected",
+        "name": "rejected",
+        "status": "rejected",
+        "image": "RejectedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "In Progress",
+        "name": "inprogress",
+        "status": "inprogress",
+        "image": "InprocessIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Pending",
+        "name": "pending",
+        "status": "pending",
+        "image": "InprocessIcon"
+      },
+      {
+        "icon": "bi bi-shield-check",
+        "label": "Verified",
+        "name": "verified",
+        "status": "verified",
+        "image": "CompletedIcon"
+      },
+      {
+        "icon": "bi bi-shield-check",
+        "label": "Certified",
+        "name": "certified",
+        "status": "certified",
+        "image": "CompletedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "saved_sym",
+        "name": "Created",
+        "status": "created"
+      },
+      {
+        "icon": "posted_sym",
+        "name": "Posted",
+        "status": "posted"
+      },
+      {
+        "icon": "rejected_sym",
+        "name": "Rejected",
+        "status": "rejected"
+      },
+      {
+        "icon": "overdue_sym",
+        "name": "In Progress",
+        "status": "inprogress"
+      },
+      {
+        "icon": "inprocess_sym",
+        "name": "Pending",
+        "status": "pending"
+      },
+      {
+        "icon": "accepted_sym",
+        "name": "Results",
+        "status": "results"
+      },
+      {
+        "icon": "tmCreated_sym",
+        "name": "Verified",
+        "status": "verified"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Certified",
+        "status": "certified"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

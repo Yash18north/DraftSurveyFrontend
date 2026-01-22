@@ -1,0 +1,201 @@
+{
+    "breadcom": [
+        {
+            "title": "Stocks",
+            "redirect": "#"
+        },
+        {
+            "title": "Chemical Stocks List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/",
+        "read": "/chemist-stock/list/",
+        "update": "/",
+        "delete": "/",
+        "statuCount": "/chemist-stock/status/",
+        "exportExcel": "/stock_master_excel/create/",
+        "exportMethod":"GET"
+    },
+    "listView": {
+        "title": "Chemical Stocks List",
+        "isCustomTitle": true,
+        "moduleType": "stocks",
+        "headers": [
+            {
+                "label": "Date",
+                "name": "stock_created_at",
+                "sortName": "stock_created_at",
+                "type": "text",
+                "fieldName": "stock_created_at"
+            },
+            {
+                "label": "Item Code",
+                "name": "stock_item_code",
+                "sortName": "fk_item_id__item_rm_code",
+                "type": "text",
+                "fieldName": "stock_item_code"
+            },
+            {
+                "label": "Name of Chemicals",
+                "name": "stock_name_of_chemical",
+                "sortName": "stock_name_of_chemical",
+                "type": "text",
+                "fieldName": "stock_name_of_chemical"
+            },
+            {
+                "label": "Opening Stocks",
+                "name": "stock_opening_qty",
+                "sortName": "stock_opening_qty",
+                "type": "number",
+                "fieldName": "stock_purchase_qty"
+            },
+            {
+                "label": "Purchase Qty",
+                "name": "stock_purchase_qty",
+                "sortName": "stock_purchase_qty",
+                "type": "number",
+                "fieldName": "stock_purchase_qty"
+            },
+            {
+                "label": "Qty. Consumed",
+                "name": "stock_consumed_qty",
+                "sortName": "stock_consumed_qty",
+                "type": "number",
+                "fieldName": "stock_consumed_qty"
+            },
+            {
+                "label": "Closing Stocks",
+                "name": "stock_closing_qty",
+                "sortName": "stock_closing_qty",
+                "type": "number",
+                "fieldName": "stock_closing_qty"
+            },
+            {
+                "label": "Remarks",
+                "name": "stock_remark",
+                "type": "text",
+                "sortName": "stock_remark",
+                "fieldName": "stock_remark"
+            },
+            {
+                "label": "Status",
+                "name": "stock_status",
+                "type": "text",
+                "sortName": "stock_status",
+                "fieldName": "stock_status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/chemicalStocks/chemicalStocksForm/:EditorRecordId",
+                "permission": "View"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/chemicalStocks/chemicalStocksForm/:EditorRecordId",
+                "status": "saved",
+                "isDupplicate":true
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/chemicalStocks/chemicalStocksForm/:EditorRecordId",
+                "status": "posted",
+                "isDupplicate":true
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "saved",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "CompletedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

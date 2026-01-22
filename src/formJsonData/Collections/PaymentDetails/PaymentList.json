@@ -1,0 +1,213 @@
+{
+    "breadcom": [
+        {
+            "title": "Operation",
+            "redirect": "#"
+        },
+        {
+            "title": "Payment Details",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/invoices/create/",
+        "read": "/invoices/list/",
+        "update": "/invoices/update/",
+        "delete": "/invoices/delete/",
+        "statuCount": "/invoice/status-count/"
+    },
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text",
+                    "colSpan": "8"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text",
+                    "colSpan": "8"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "listView": {
+        "title": "Payment Details",
+        "isCustomTitle": true,
+        "moduleType": "invoice",
+        "subModuleType": "PaymentDetails",
+        "headers": [
+            {
+                "label": "Company Name",
+                "name": "company_details",
+                "sortName": "company_name",
+                "fieldName": "company_name",
+                "type": "text"
+            },
+            {
+                "label": "Invoice Date",
+                "name": "im_invoice_date",
+                "sortName": "im_invoice_date",
+                "type": "date"
+            },
+            {
+                "label": "Client Name",
+                "name": "cust_name",
+                "sortName": "fk_client",
+                "fieldName": "cust_name",
+                "type": "text"
+            },
+            {
+                "label": "Invoice Number \n (Voucher Number)",
+                "name": "im_invoicenumber",
+                "sortName": "im_invoicenumber",
+                "fieldName": "im_invoicenumber",
+                "type": "text"
+            },
+            {
+                "label": "Commodity",
+                "name": "company_details",
+                "sortName": "company_name",
+                "fieldName": "company_name",
+                "type": "text"
+            },
+            {
+                "label": "Sales Person Name",
+                "name": "sales_person",
+                "sortName": "im_balance",
+                "fieldName": "full_name",
+                "type": "text"
+            },
+            {
+                "label": "Without GST amount",
+                "name": "im_total_gst",
+                "sortName": "im_total_gst",
+                "type": "text"
+            },
+            {
+                "label": "Invoice Amount",
+                "name": "im_total",
+                "sortName": "im_total",
+                "type": "text"
+            },
+            {
+                "label": "TDS",
+                "name": "im_tds",
+                "sortName": "im_tds",
+                "type": "text"
+            },
+            {
+                "label": "Net Amount",
+                "name": "im_net_amount",
+                "sortName": "im_net_amount"
+            },
+            {
+                "label": "Payment Received",
+                "name": "im_paid",
+                "sortName": "im_paid",
+                "type": "text"
+            },
+            {
+                "label": "Payment Received Date",
+                "name": "im_paid_date",
+                "sortName": "im_paid_date",
+                "type": "date"
+            }
+        ],
+        "rows": [],
+        "actions": [
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "saved_sym",
+                "name": "Debit Saved",
+                "status": "debit_save"
+            },
+            {
+                "icon": "inprocess_sym",
+                "name": "Generated",
+                "status": "Generated"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Debit Posted",
+                "status": "debit_post"
+            },
+            {
+                "icon": "accepted_sym",
+                "name": "Collected By Tally",
+                "status": "Collected By Tally",
+                "color": ""
+            },
+            {
+                "icon": "generated_sym",
+                "name": "Generated Invoice",
+                "status": "generated invoice",
+                "color": ""
+            },
+            {
+                "icon": "accepted_sym",
+                "name": "Debitted",
+                "status": "debitted",
+                "color": ""
+            },
+            {
+                "icon": "completed_sym",
+                "name": "Invoice Generated",
+                "status": "invoice_generated",
+                "color": ""
+            },
+            {
+                "icon": "rejected_sym",
+                "name": "Cancelled",
+                "status": "cancelled"
+            }
+        ],
+        "statusesWithIcon": [
+            
+        ],
+        "popupMessages": []
+    }
+}

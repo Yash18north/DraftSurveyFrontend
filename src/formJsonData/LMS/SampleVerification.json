@@ -1,0 +1,284 @@
+{
+  "apiEndpoints": {
+    "create": "/sampleverification/list/",
+    "read": "/sampleverification/list/",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Sample Verification",
+      "redirect": "/verificationList"
+    },
+    {
+      "title": "Sample Verification Form",
+      "redirect": "#"
+    }
+  ],
+  "moduleName": "sammple-inward",
+  "sections": [
+    {
+      "title": "Sample Inward Form",
+      "moduleType": "sampleverification",
+      "fields": [
+        {
+          "width": 12,
+          "label": "Sample Verification Details",
+          "type": "label",
+          "styleName": "section_heading"
+        },
+        {
+          "width": 6,
+          "name": "sv_dateofverification",
+          "label": "Date of Verification",
+          "required": true,
+          "type": "date",
+          "readOnly": true
+        },
+        {
+          "width": 6,
+          "name": "jrf_commodity",
+          "label": "Commodity",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "label": "Verified By",
+          "name": "sv_verifiedName",
+          "type": "label",
+          "options": [],
+          "placeholder": "",
+          "required": 1
+        },
+        {
+          "width": 6,
+          "label": "Remark of Techinal Manager",
+          "name": "sa_remarks",
+          "type": "label",
+          "placeholder": "",
+          "required": 1
+        }
+      ]
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Verification of Received Test Sample ",
+          "type": "table",
+          "headers": [
+            {
+              "width": 12,
+              "label": "Lab Code",
+              "name": "sp_lab_smplcode",
+              "type": "label",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample ID",
+              "readOnly": true,
+              "value": "To be generated"
+            },
+            {
+              "width": 12,
+              "label": "Sample Weight",
+              "name": "sample_quantity",
+              "type": "label",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample ID",
+              "readOnly": true,
+              "value": "To be generated"
+            },
+            {
+              "width": 12,
+              "label": "Sample Condition",
+              "name": "sv_smpl_detail_smpl_condtion",
+              "type": "label",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample Condition",
+              "readOnly": true
+            },
+            {
+              "width": 12,
+              "label": "Std. Size of Sample",
+              "name": "sample_id",
+              "type": "label",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample ID",
+              "readOnly": true,
+              "value": "To be generated"
+            },
+            {
+              "width": 12,
+              "label": "Above Size",
+              "name": "sample_id",
+              "type": "label",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample ID",
+              "readOnly": true,
+              "value": "To be generated"
+            },
+            {
+              "width": 12,
+              "label": "Below Size",
+              "name": "sample_id",
+              "type": "label",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample ID",
+              "readOnly": true,
+              "value": "To be generated"
+            },
+            {
+              "width": 12,
+              "label": "Remark",
+              "name": "sample_id",
+              "type": "label",
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Enter Sample ID",
+              "readOnly": true,
+              "value": "To be generated"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "sp_lab_smplcode",
+                "type": "label",
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "sample_quantity",
+                "type": "label",
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "sv_smpl_detail_smpl_condtion",
+                "type": "label",
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "svd_stdsizeofsmpl",
+                "secondName": "svd_stdsizeofsmpl_unit",
+                "type": "doubleText",
+                "secondType": "select",
+                "secondoptions": [
+                  "μm",
+                  "mm"
+                ],
+                "required": true,
+                "fieldWidth": "75",
+                "dropdownWidth": "75",
+                "upperFieldWidth": "100"
+              },
+              {
+                "name": "svd_abovesize",
+                "secondName": "svd_abovesize_unit",
+                "type": "doubleText",
+                "secondoptions": [
+                  "nill",
+                  "%"
+                ],
+                "secondType": "select",
+                "required": true,
+                "fieldWidth": "75",
+                "upperFieldWidth": "100",
+                "dropdownWidth": "75"
+              },
+              {
+                "name": "svd_belowsize",
+                "secondName": "svd_belowsize_unit",
+                "secondType": "select",
+                "secondoptions": [
+                  "%"
+                ],
+                "type": "doubleText",
+                "required": true,
+                "fieldWidth": "75",
+                "upperFieldWidth": "100",
+                "dropdownWidth": "75"
+              },
+              {
+                "name": "svd_remark",
+                "type": "select",
+                "required": true,
+                "fieldWidth": "75",
+                "dropdownWidth": "75",
+                "upperFieldWidth": "100",
+                "options": [
+                  "Accept",
+                  "Reject"
+                ]
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "assignment": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    }
+  }
+}

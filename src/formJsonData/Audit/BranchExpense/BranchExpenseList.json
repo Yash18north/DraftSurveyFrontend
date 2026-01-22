@@ -1,0 +1,250 @@
+{
+  "breadcom": [
+    {
+      "title": "Audit",
+      "redirect": "#"
+    },
+    {
+      "title": "Expenses",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "",
+    "read": "/expense/list/",
+    "update": "",
+    "delete": "",
+    "statuCount": "/expense/status-count/"
+  },
+  "listView": {
+    "title": "Expenses List",
+    "isCustomTitle": true,
+    "moduleType": "auditBranchExpenses",
+    "headers": [
+      {
+        "label": "Date",
+        "name": "date",
+        "sortName": "date",
+        "type": "date"
+      },
+      {
+        "label": "Company",
+        "name": "company",
+        "sortName": "company__cmp_name",
+        "type": "text",
+        "fieldName": "cmp_code"
+      },
+      {
+        "label": "Branch",
+        "name": "branch",
+        "sortName": "branch__br_name",
+        "type": "text",
+        "fieldName": "br_name"
+      },
+      {
+        "label": "Month",
+        "name": "month",
+        "sortName": "month",
+        "type": "text"
+      },
+      {
+        "label": "Year",
+        "name": "year",
+        "sortName": "year",
+        "type": "text"
+      },
+      {
+        "label": "Monthly Total",
+        "name": "monthly_total",
+        "sortName": "total",
+        "type": "text"
+      },
+      {
+        "label": "Yearly Total",
+        "name": "yearly_total",
+        "sortName": "yearly_total",
+        "type": "text"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      [
+        {
+          "label": "Date",
+          "name": "date",
+          "sortName": "date",
+          "type": "date"
+        },
+        {
+          "label": "Company",
+          "name": "company",
+          "sortName": "company",
+          "type": "text"
+        },
+        {
+          "label": "Branch",
+          "name": "branch",
+          "sortName": "branch",
+          "type": "text"
+        },
+        {
+          "label": "Month",
+          "name": "month",
+          "sortName": "month",
+          "type": "text"
+        },
+        {
+          "label": "Year",
+          "name": "year",
+          "sortName": "year",
+          "type": "text"
+        },
+        {
+          "label": "Monthly Total",
+          "name": "monthly_total",
+          "sortName": "monthly_total",
+          "type": "text"
+        },
+        {
+          "label": "Yearly Total",
+          "name": "yearly_total",
+          "sortName": "yearly_total",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text",
+          "sortName": "status",
+          "fieldName": "status"
+        }
+      ]
+    ],
+    "isCustomFilter": true,
+    "filterListing": [
+      {
+        "width": 2,
+        "label": "Select Branch",
+        "name": "branchid",
+        "placeholder": "Select Branch",
+        "upperClass": "groupforlabelleddropdown",
+        "type": "DropDownWithLoadMore",
+        "apiendpoint": "/masters/list",
+        "model_name": "branch",
+        "apimethod": "POST",
+        "isSearchable": true,
+        "filterType": "branch__br_id",
+        "optionData": {
+          "id": "br_id",
+          "label": "br_name",
+          "label2": "br_code"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "redirectUrl": "/audit/auditBranchExpenseForm/:EditRecordId",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "Edit",
+        "redirectUrl": "/audit/auditBranchExpenseForm/:EditRecordId",
+        "status": "saved"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-currency-rupee",
+        "label": "Total Monthly Expenses",
+        "name": "total_monthly_expense",
+        "status": "total_monthly_expense",
+        "image": "RupeeIcon"
+      },
+      {
+        "icon": "bi bi-currency-rupee",
+        "label": "TCRC Yearly Expenses",
+        "name": "tcrc_yearly_expenses",
+        "status": "tcrc_yearly_expenses",
+        "image": "RupeeIcon"
+      },
+      {
+        "icon": "bi bi-currency-rupee",
+        "label": "TIPL Yearly Expenses",
+        "name": "tipl_yearly_expenses",
+        "status": "tipl_yearly_expenses",
+        "image": "RupeeIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "posted_sym",
+        "name": "Posted",
+        "status": "posted"
+      },
+      {
+        "icon": "saved_sym",
+        "name": "Saved",
+        "status": "saved"
+      }
+    ]
+  }
+}

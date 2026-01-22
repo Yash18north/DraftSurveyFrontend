@@ -1,0 +1,417 @@
+{
+    "breadcom": [
+        {
+            "title": "Operation",
+            "redirect": "#"
+        },
+        {
+            "title": "Invoice",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/invoices/list/",
+        "read": "/invoices/list/",
+        "update": "",
+        "delete": ""
+    },
+    "sections": [
+        {
+            "title": "Invoice",
+            "moduleType": "invoice",
+            "type": "list",
+            "listView": true,
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Invoice Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "reference_number",
+                    "type": "label",
+                    "label": "Ref. Number",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "invoice_number",
+                    "type": "label",
+                    "label": "Invoice Number",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "im_invoice_date",
+                    "type": "date",
+                    "label": "Invoice Date",
+                    "width": 6,
+					"pastdays": 5,
+					"pastDate": true,
+                    "required": true
+                },
+                {
+                    "width": 12,
+                    "label": "Client & Company Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "client_name",
+                    "type": "label",
+                    "label": "Client Name",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "new_client_address",
+                    "type": "textArea",
+                    "label": "New Client Address",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "new_client_address",
+                    "type": "label",
+                    "label": "Client GST Address",
+                    "width": 6,
+                    "required": true
+                },
+                {},
+                {
+                    "name": "inv_work",
+                    "type": "label",
+                    "label": "Inv.Work Branch Code",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "actual_work_branch",
+                    "type": "label",
+                    "label": "Actual Work Branch Code",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "work_order_date",
+                    "type": "label",
+                    "label": "Work Order Date",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "work_order_number",
+                    "type": "label",
+                    "label": "Work Order No.",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "width": 5,
+                    "label": "Actual Client & Company Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading actual_client_and_company_details",
+                    "fontSize": "16px"
+                },
+                {
+                    "width": 4,
+                    "name": "Same as Above",
+                    "type": "checkbox",
+                    "styleName": "sameAsAbove",
+                    "required": true,
+                    "fieldWidth": "50%",
+                    "options": [
+                        "Same as Above"
+                    ]
+                },
+                {
+                    "name": "client_name",
+                    "type": "label",
+                    "label": "Client Name",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "new_client_address",
+                    "type": "textArea",
+                    "label": "New Client Address",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "new_client_address",
+                    "type": "label",
+                    "label": "Client GST Address",
+                    "width": 6,
+                    "required": true
+                },
+                {},
+                {
+                    "name": "inv_work",
+                    "type": "label",
+                    "label": "Inv.Work Branch Code",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "actual_work_branch",
+                    "type": "label",
+                    "label": "Actual Work Branch Code",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "work_order_date",
+                    "type": "label",
+                    "label": "Work Order Date",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "work_order_number",
+                    "type": "label",
+                    "label": "Work Order No.",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "width": 12,
+                    "label": "Payment Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "mode_of_payment",
+                    "type": "select",
+                    "label": "Mode of Payment.",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "gstin",
+                    "type": "label",
+                    "label": "GSTIN (Client)",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "state_of_client",
+                    "type": "label",
+                    "label": "State of Client",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "invoice_state",
+                    "type": "select",
+                    "label": "Invoice State",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "width": 12,
+                    "label": "Tax Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "tax_type",
+                    "type": "select",
+                    "label": "Tax Type",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "bill_to_place",
+                    "type": "label",
+                    "label": "Bill to Place",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "ship_to_place",
+                    "type": "label",
+                    "label": "Ship to Place",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "narration",
+                    "type": "label",
+                    "label": "Narration (Certificate No.)",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "credit_note",
+                    "type": "label",
+                    "label": "Credit Note if any",
+                    "width": 6,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "title": "Invoice Details",
+            "type": "tabs",
+            "tabs": [
+                {
+                    "label": "Scope of work ",
+                    "type": "table",
+                    "listView": {
+                        "title": "Scope of Work",
+                        "moduleType": "invoice",
+                        "headers": [
+                            {
+                                "label": "Ref Number",
+                                "name": "ref_number",
+                                "type": "label",
+                                "sortName": "ref_number"
+                            },
+                            {
+                                "label": "Activity",
+                                "name": "activity",
+                                "type": "text",
+                                "sortName": "fk_operationtypetid",
+                                "fieldName": "activity"
+                            },
+                            {
+                                "label": "Stock Item",
+                                "name": "stock items",
+                                "type": "text",
+                                "sortName": "stock items",
+                                "fieldName": "stock items"
+                            },
+                            {
+                                "label": "Qty",
+                                "name": "qty",
+                                "type": "text",
+                                "sortName": "qty",
+                                "fieldName": "qty"
+                            },
+                            {
+                                "label": "Unit",
+                                "name": "unit",
+                                "type": "text",
+                                "sortName": "unit",
+                                "fieldName": "unit"
+                            },
+                            {
+                                "label": "Rate",
+                                "name": "rate",
+                                "type": "text",
+                                "sortName": "rate",
+                                "fieldName": "rate"
+                            },
+                            {
+                                "label": "Unit",
+                                "name": "rate unit",
+                                "type": "text",
+                                "sortName": "rate unit",
+                                "fieldName": "rate unit"
+                            },
+                            {
+                                "label": "Total",
+                                "name": "total",
+                                "type": "text",
+                                "sortName": "total",
+                                "fieldName": "total"
+                            }
+                        ],
+                        "rows": [
+                            [
+                                {
+                                    "label": "23-12-2022",
+                                    "name": "created_date",
+                                    "type": "label"
+                                },
+                                {
+                                    "label": "1122324455678",
+                                    "name": "cc_certificatenumber",
+                                    "type": "label"
+                                },
+                                {
+                                    "label": "27C2324J01VL7071",
+                                    "name": "rpc_is_smpl_wghtorunit",
+                                    "type": "label"
+                                },
+                                {
+                                    "label": "TCRC Quality Controls LLP",
+                                    "name": "rpc_is_smpl_type",
+                                    "type": "label"
+                                },
+                                {
+                                    "label": "In Progress",
+                                    "name": "status",
+                                    "type": "label"
+                                }
+                            ]
+                        ],
+                        "actions": [
+                            {
+                                "label": "bi bi-eye h6",
+                                "value": "View",
+                                "type": "icon",
+                                "status": "vesseListView"
+                            }
+                        ],
+                        "statusesWithIcon": [],
+                        "statusesWithColor": []
+                    },
+                    "actions": [
+                        {
+                            "label": "bi bi-pencil h6",
+                            "value": "Edit",
+                            "type": "icon",
+                            "redirectUrl": "/inwardList/inwardForm",
+                            "permission": "update"
+                        },
+                        {
+                            "label": "bi bi-trash h6",
+                            "value": "Delete",
+                            "type": "icon",
+                            "redirectUrl": "/inwardList/inwardForm",
+                            "permission": "delete"
+                        },
+                        {
+                            "label": "bi bi-clock-history h6",
+                            "value": "History",
+                            "type": "icon",
+                            "permission": "history"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Save",
+            "type": "icon",
+            "redirectUrl": "/operation/invoice-listing",
+            "permission": "save"
+        }
+    ],
+    "popupMessages": {
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        }
+    }
+}

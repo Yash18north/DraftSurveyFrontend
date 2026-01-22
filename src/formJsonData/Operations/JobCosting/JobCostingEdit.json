@@ -1,0 +1,204 @@
+{
+    "breadcom": [
+        {
+            "title": "Operation",
+            "redirect": "#"
+        },
+        {
+            "title": "Job Costing",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "",
+        "update": "",
+        "delete": ""
+    },
+    "sections": [
+        {
+            "title": "Job Costing",
+            "moduleType": "jobCosting",
+            "Heading": "Job Costing",
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Invoice Details",
+                    "type": "label",
+                    "color": "$danger",
+                    "textDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "invoice_number",
+                    "type": "text",
+                    "label": "Invoice Number",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "invoice_date",
+                    "type": "text",
+                    "label": "Invoice Date",
+                    "width": 6,
+                    "required": true
+                },
+                {
+                    "name": "client_name",
+                    "type": "text",
+                    "label": "Client Name",
+                    "width": 6
+                },
+                {
+                    "name": "vessel_name",
+                    "type": "textArea",
+                    "label": "Vessel/Truck/ Rake Name",
+                    "width": 6
+                },
+                {
+                    "name": "commodity",
+                    "type": "text",
+                    "label": "Commodity",
+                    "width": 6
+                },
+                {},
+                {
+                    "name": "place_of_attendance",
+                    "type": "text",
+                    "label": "Place of attendance",
+                    "width": 6
+                },
+                {
+                    "width": 12,
+                    "label": "Expensing",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "certificate_no_date",
+                    "type": "textArea",
+                    "label": "Certificate No & Certificate Date",
+                    "width": 6
+                },
+                {
+                    "name": "date_of_expense",
+                    "firstName": "date_of_expense_from",
+                    "firstType": "date",
+                    "label": "Date of Expenses",
+                    "width": 6,
+                    "fieldWidth": 100,
+                    "secondName": "date_of_expense_to",
+                    "type": "doubleText",
+                    "secondType": "date",
+                    "firstNoRestrictionApply": true,
+                    "secondNoRestrictionApply": true
+                },
+                {
+                    "name": "work_days",
+                    "type": "text",
+                    "label": "No of Work Days",
+                    "width": 6
+                },
+                {
+                    "name": "manpower",
+                    "type": "text",
+                    "label": "Manpowers",
+                    "width": 6,
+                    "informationIcon": true,
+                    "informationIconTooltip": "ManPower"
+                },
+                {
+                    "name": "travelling_expense",
+                    "type": "text",
+                    "label": "Travelling Expense",
+                    "width": 6,
+                    "informationIcon": true
+                },
+                {
+                    "name": "charges",
+                    "type": "text",
+                    "label": "Charges",
+                    "width": 6,
+                    "informationIcon": true,
+                    "informationIconTooltip": "ManPower"
+                },
+                {
+                    "name": "draft_survey",
+                    "type": "text",
+                    "label": "Draft Survey",
+                    "width": 6
+                },
+                {
+                    "name": "courier_charges",
+                    "type": "text",
+                    "label": "Courier Charges",
+                    "width": 6
+                },
+                {
+                    "name": "misc_on_sales",
+                    "type": "text",
+                    "label": "Misc 3% on Sales",
+                    "width": 6
+                },
+                {
+                    "name": "head_ofice",
+                    "type": "text",
+                    "label": "Head Off Overhead Exp 10% on Sales",
+                    "width": 6
+                },
+                {
+                    "width": 12,
+                    "label": "Total",
+                    "type": "label",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "name": "total_expense",
+                    "type": "select",
+                    "label": "Total Expense",
+                    "width": 6
+                },
+                {
+                    "name": "invoice_amount",
+                    "type": "select",
+                    "label": "Invoice Amount",
+                    "width": 6
+                },
+                {
+                    "name": "profit_loss_sales_total_expense",
+                    "type": "select",
+                    "label": "Profit/Lossse Total Expense",
+                    "width": 6
+                },
+                {
+                    "name": "profit_on_sales",
+                    "type": "select",
+                    "label": "Profit on Sales",
+                    "width": 6
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Save",
+            "type": "icon",
+            "redirectUrl": "/operation/invoice-listing",
+            "permission": "save"
+        }
+    ],
+    "popupMessages": {
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        }
+    }
+}

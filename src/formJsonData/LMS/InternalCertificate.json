@@ -1,0 +1,500 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jrf/get",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "Test Report",
+      "redirect": "#"
+    }
+  ],
+  "moduleName": "internalcertificate",
+  "sections": [
+    {
+      "title": "Sample Inward Form",
+      "moduleType": "internalcertificate",
+      "fields": [
+        {
+          "width": 25,
+          "label": "Test Report Details",
+          "name": "section_heading",
+          "type": "label",
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "ic_ulrno",
+          "label": "ULR Number",
+          "type": "text",
+          "placeholder": "Enter ULR Number",
+          "pattern": "^[A-Z]{2}\\d{4,5}\\d{2}\\d{9}$",
+          "tooltip": "Before inputting the ULR Number, note its format:TC6456-Lab Complience Code, 24 - Current year,  00000000000- Sequene number(9 digit). Ensure accuracy for precision.",
+          "isPatternMessage": true
+        },
+        {
+          "width": 6,
+          "label": "Reference Number",
+          "name": "ic_refenence",
+          "type": "text",
+          "placeholder": "Enter Reference Number"
+        },
+        {
+          "width": 6,
+          "name": "ic_discipline",
+          "label": "Descipline",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter Descipline"
+        },
+        {
+          "width": 6,
+          "label": "Group",
+          "name": "ic_group",
+          "type": "text",
+          "placeholder": "Enter Group",
+          "required": true
+        },
+         {
+          "width": 6,
+          "name": "ic_is_account_of",
+          "label": "Is Account Of",
+          "type": "radio",
+          "required": true,
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "width": 6,
+          "name": "ic_customername",
+          "label": "Customer Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter Customer Name"
+        },
+        {
+          "width": 6,
+          "label": "Customer Address",
+          "name": "ic_customeraddress",
+          "type": "textArea",
+          "placeholder": "Enter Customer Address",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Reference No. & Date",
+          "name": "ic_reference_date",
+          "type": "text",
+          "placeholder": "Reference No. & Date",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Test Report performed At",
+          "name": "ic_test_performed_at",
+          "type": "textArea",
+          "placeholder": "Enter Customer Address"
+        },
+        {
+          "width": 6,
+          "label": "Lab Address",
+          "name": "ic_lab_address",
+          "type": "textArea",
+          "placeholder": "Enter Lab Address",
+          "readOnly":true
+        },
+        {
+          "width": 25,
+          "label": "Sample Details",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 12,
+          "name": "ic_smpldrawnbylab",
+          "label": "Sample Activity",
+          "type": "radio",
+          "required": true,
+          "options": [
+            "Sample Drawn By Laboratory",
+            "Sample Not Drawn By Laboratory"
+          ]
+        },
+        {
+          "width": 6,
+          "label": "Description of Sample",
+          "name": "ic_descofsmpl",
+          "type": "text",
+          "upperClass": "double_text_adj",
+          "placeholder": "Enter Sample Description"
+        },
+        {
+          "width": 6,
+          "name": "ic_locationofsmpl",
+          "label": "Location of Sample",
+          "type": "text",
+          "required": true,
+          "restrictByCheckbox": true,
+          "upperClass": "double_text_adj",
+          "placeholder": "Enter Location of Sample"
+        },
+        {
+          "width": 6,
+          "label": "Date of Sampling",
+          "name": "ic_dos",
+          "required": true,
+          "type": "date",
+          "upperClass": "double_text_adj",
+          "restrictByCheckbox": true,
+          "pastDate": true
+        },
+        {
+          "width": 6,
+          "name": "ic_samplingmethods",
+          "label": "Sampling Method / Plan",
+          "styleName":"selectCompWidth",
+          "type": "select",
+          "required": true,
+          "restrictByCheckbox": true,
+          "upperClass": "double_text_adj",
+          "placeholder": "Enter Sampling Methodh / Plan",
+          "multiple":true
+        },
+        {
+          "width": 6,
+          "label": "Environment Conditions During Sampling",
+          "name": "ic_envcondition",
+          "type": "select",
+          "options": [
+            "Sunny",
+            "Cloudy",
+            "Rainy",
+            "Drizzle",
+            "N/A"
+          ],
+          "restrictByCheckbox": true,
+          "upperClass": "double_text_adj",
+          "placeholder": "Environment Conditions During Sampling"
+        },
+        {
+          "width": 6,
+          "label": "Marks",
+          "name": "ic_mark_from",
+          "thirdName": "ic_is_mark",
+          "secondName": "ic_mark_to",
+          "firstType": "text",
+          "secondType": "text",
+          "thirdType": "checkbox",
+          "type": "doubleText",
+          "fieldWidth": "75",
+          "upperClass": "double_text_adj",
+          "readOnly": true,
+          "restrictByCheckbox": true,
+          "isShowRadioBefore": true,
+          "naValuenotNeeded":true
+        },
+        {
+          "width": 6,
+          "label": "Condition of Sample",
+          "name": "ic_conditionofsmpl",
+          "type": "text",
+          "upperClass": "double_text_adj",
+          "restrictByCheckbox": true,
+          "placeholder": "Enter Conditions During Sampling"
+        },
+        {
+          "width": 6,
+          "label": "Seal",
+          "name": "ic_seal_from",
+          "secondName": "ic_seal_to",
+          "thirdName": "ic_is_seal",
+          "type": "doubleText",
+          "firstType": "text",
+          "secondType": "text",
+          "thirdType": "checkbox",
+          "fieldWidth": "75",
+          "restrictByCheckbox": true,
+          "upperClass": "double_text_adj",
+          "isShowRadioBefore": true,
+          "naValuenotNeeded":true
+        },
+        {
+          "width": 6,
+          "label": "Sample Code From-To",
+          "name": "ic_test_report_no",
+          "type": "label",
+          "upperClass": "double_text_adj",
+          "readOnly":true,
+          "useForViewOnly":true
+        },
+        {
+          "width": 6,
+          "label": "Date of Receipt Sample",
+          "name": "ic_dateofrecsmpl",
+          "type": "date",
+          "required": true,
+          "pastDate": true,
+          "upperClass": "double_text_adj",
+          "pastdays": 7
+        },
+        
+        {
+          "width": 6,
+          "label": "Date of Analysis",
+          "name": "ic_dateofanalysis",
+          "type": "date",
+          "upperClass": "double_text_adj",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Date of Analysis Completed",
+          "name": "ic_dateanalysiscompleted",
+          "type": "date",
+          "upperClass": "double_text_adj",
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "No. of Samples",
+          "name": "ic_noofsmpls",
+          "type": "text",
+          "upperClass": "double_text_adj",
+          "required": true
+        },
+        {
+          "width": 12,
+          "label": "Environmental Conditions During Analysis",
+          "name": "section_sub_heading_for_environmental",
+          "styleName": "section_heading2",
+          "headerLength": "100%",
+          "type": "label"
+        },
+        {
+          "width": 6,
+          "label": "Ambient Temperature ",
+          "name": "ic_ambienttemp",
+          "secondName": "ic_ambienttemp_second",
+          "secondValue": "°C",
+          "type": "doubleText",
+          "secondReadOnly": true,
+          "secondType": "label"
+        },
+        {
+          "width": 6,
+          "label": "Barometric Pressure",
+          "name": "ic_borometric_pressure",
+          "secondName": "ic_borometric_pressure_unit",
+          "secondValue": "hPa",
+          "type": "doubleText",
+          "secondReadOnly": true,
+          "secondType": "label"
+        },
+        {
+          "width": 6,
+          "label": "Relative Humidity",
+          "name": "ic_humidity",
+          "secondName": "ic_humidity_unit",
+          "secondValue": "%",
+          "type": "doubleText",
+          "secondType": "label",
+          "secondReadOnly": true
+        },
+        {
+          "width": 6,
+          "label": "Remarks",
+          "name": "ic_remarks",
+          "type": "text",
+          "placeholder": "Enter Remarks"
+        },
+        {
+          "width": 6,
+          "label": "Reject Remarks",
+          "name": "ic_rejection_remark",
+          "type": "text",
+          "placeholder": "Enter Remarks"
+        },
+        {
+          "width": 6,
+          "label": "Analysis Data",
+          "name": "ic_is_size_analysis",
+          "type": "checkbox",
+          "fieldWidth": "75",
+          "options": [
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Size Analysis Details",
+          "type": "manualTable",
+          "headers": [
+            {
+              "name": "sa_sample_id",
+              "type": "select",
+              "label": "Sample ID",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Sample ID"
+            },
+            {
+              "name": "param_name",
+              "type": "text",
+              "label": "Parameter Name",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Parameter Name"
+            },
+            {
+              "name": "param_value",
+              "type": "text",
+              "label": "Parameter Value",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100",
+              "placeholder": "Parameter Value"
+            },
+            {
+              "fieldWidth": "100",
+              "width": 6,
+              "name": "param_unit",
+              "label": "Parameter Unit",
+              "type": "text",
+              "required": true,
+              "placeholder": "Parameter Unit"
+            },
+            {
+              "fieldWidth": "100",
+              "width": 6,
+              "name": "param_method",
+              "label": "Parameter Method",
+              "type": "text",
+              "required": true,
+              "placeholder": "Parameter Method"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "sa_sample_id",
+                "type": "select",
+                "label": "Sample ID",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Sample ID"
+              },
+              {
+                "name": "param_name",
+                "type": "text",
+                "label": "Parameter Name",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Parameter Name"
+              },
+              {
+                "name": "param_value",
+                "type": "text",
+                "label": "Parameter Value",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Parameter Value"
+              },
+              {
+                "name": "param_unit",
+                "type": "text",
+                "label": "Parameter Unit",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Parameter Unit"
+              },
+              {
+                "name": "param_method",
+                "type": "text",
+                "label": "Parameter Method",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "placeholder": "Parameter Method"
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post without ULR no.?"
+    },
+    "publish": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to publish?"
+    },
+    "assignment": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes without ULR no.?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    }
+  }
+}

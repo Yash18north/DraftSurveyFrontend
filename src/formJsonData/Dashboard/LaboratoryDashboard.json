@@ -1,0 +1,135 @@
+{
+    "title": "Laboratory Analytics Dashboard",
+    "summary": [
+        {
+            "label": "SS by External Clients (Month/Year)",
+            "value": "0 / 0"
+        },
+        {
+            "label": "Revenue & Payments Collected",
+            "value": 0
+        },
+        {
+            "label": "Average Analysis",
+            "value": 0
+        }
+    ],
+    "isFilter": true,
+    "filterListing": [
+        {
+            "width": 12,
+            "label": "Filters",
+            "styleName": "section_heading",
+            "type": "label",
+            "errorMsgs": {
+                "required": "This field is required"
+            }
+        },
+        {
+            "width": 3,
+            "name": "start_date",
+            "placeholder": "Start date",
+            "type": "date",
+            "filterType": "Date",
+            "upperClass": "popupUpperClass",
+            "label": "Start Date",
+            "noDefaultValue": true
+        },
+        {
+            "width": 3,
+            "name": "end_date",
+            "placeholder": "End date",
+            "type": "date",
+            "filterType": "Date",
+            "upperClass": "popupUpperClass",
+            "label": "End Date",
+            "noDefaultValue": true
+        },
+        {
+            "width": 3,
+            "name": "commodity_id",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/masters/list",
+            "model_name": "commodity",
+            "apimethod": "POST",
+            "isSearchable": true,
+            "optionData": {
+                "id": "cmd_id",
+                "label": "cmd_name"
+            },
+            "upperClass": "popupUpperClass",
+            "label": "Commodity"
+        },
+        {
+            "width": 3,
+            "name": "client_id",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/masters/customer/list/",
+            "model_name": "",
+            "apimethod": "GET",
+            "isSearchable": true,
+            "optionData": {
+                "id": "cust_id",
+                "label": "cust_name",
+                "label2": "cust_gstno"
+            },
+            "upperClass": "popupUpperClass",
+            "label": "Client"
+        },
+        {
+            "width": 3,
+            "name": "lab_id",
+            "type": "DropDownWithLoadMore",
+            "apiendpoint": "/masters/list",
+            "model_name": "lab",
+            "apimethod": "POST",
+            "isSearchable": true,
+            "optionData": {
+                "id": "lab_id",
+                "label": "lab_name",
+                "label2": "lab_code"
+            },
+            "upperClass": "popupUpperClass",
+            "label": "Lab"
+        }
+    ],
+    "BarChartsData": [
+        {
+            "title": "Samples analyzed per commodity",
+            "chartType": "bar",
+            "isFilter": true,
+            "data": [],
+            "labels": {},
+            "isExport": 1,
+            "apiEndPoint": "/samples-analysis-per-client-commodity/"
+        },
+        {
+            "title": "Samples Analyzed Per Day",
+            "chartType": "heatmap",
+            "data": [],
+            "xLabels": [],
+            "yLabels": [],
+            "isExport": 1,
+            "apiEndPoint": "/user-samples-heatmap/"
+        },
+        {
+            "title": "Sample analysis per month",
+            "chartType": "line",
+            "data": [],
+            "labels": {},
+            "filterType": "monthly",
+            "isExport": 1,
+            "apiEndPoint": "/analytics/samples-analyzed/"
+        },
+        {
+            "title": "Revenue breakdown by client",
+            "chartType": "stackedBar",
+            "data": [],
+            "labels": {},
+            "colors": {},
+            "filterType": "yearly",
+            "isExport": 1,
+            "apiEndPoint": "/client-revenue-chart/"
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+{
+  "breadcom": [
+    {
+      "title": "External Results Data",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/list/",
+    "read": "/tpi-main/list/",
+    "update": "/tpi-main/update",
+    "delete": "/tpi-main/delete",
+    "statuCount": "/tpi-status/get/",
+    "exportExcel": "/tpi-main/get"
+  },
+  "listView": {
+    "title": "JRF List",
+    "moduleType": "TPIMain",
+    "headers": [
+      {
+        "label": "Reference No.",
+        "name": "job_reference_no",
+        "type": "text",
+        "sortName": "fk_jiid__ji_reference_number"
+      },
+      {
+        "label": "Activity Name",
+        "name": "activity_name",
+        "type": "text",
+        "sortName": "fk_activity_id__am_name",
+        "fieldName": "activity_name"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [[]],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon"
+      },
+      {
+        "label": "Update",
+        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
+        "status": "created"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Created",
+        "name": "created",
+        "status": "created",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Posted",
+        "name": "posted",
+        "status": "posted",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Completed",
+        "name": "completed",
+        "status": "completed",
+        "image": "CompletedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "saved_sym",
+        "name": "Created",
+        "status": "created"
+      },
+      {
+        "icon": "posted_sym",
+        "name": "Posted",
+        "status": "posted"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Completed",
+        "status": "completed"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

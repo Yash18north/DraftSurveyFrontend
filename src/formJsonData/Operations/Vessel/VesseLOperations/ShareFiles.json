@@ -1,0 +1,89 @@
+{
+  "breadcom": [
+    {
+      "title": "Document List",
+      "redirect": "#"
+    },
+    {
+      "title": "Share Files",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jobinstruction/get/",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "operationCertificate",
+      "moduleSubType": "ShareFiles",
+      "isExternal": true,
+      "fields": [
+        {
+          "width": 12,
+          "label": "Share Files",
+          "styleName": "section_heading",
+          "type": "label",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 12,
+          "name": "email_multiple_input",
+          "label": "Enter email address and press enter to select email",
+          "type": "InputMultiEmail",
+          "required": true,
+          "placeholder": "Enter Emails "
+        },
+        {
+          "width": 12,
+          "name": "ds_cc_email",
+          "label": "Emails in CC",
+          "type": "InputMultiEmail",
+          "placeholder": "Enter Emails "
+        },
+        {
+          "width": 12,
+          "name": "email_subject",
+          "label": "Email Subject (Optional)",
+          "type": "text",
+          "placeholder": "Enter Email Subject (Optional)"
+        },
+        {
+          "width": 12,
+          "name": "email_message",
+          "label": "Message For Recipient (Optional)",
+          "type": "textArea",
+          "characterLimit": 2000,
+          "placeholder": "Enter Message For Recipient (Optional)"
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

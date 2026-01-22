@@ -1,0 +1,243 @@
+{
+  "breadcom": [
+    {
+      "title": "Operation",
+      "redirect": "#"
+    },
+    {
+      "title": "Truck",
+      "redirect": "#"
+    },
+    {
+      "title": "Job List",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "JRF List",
+      "type": "list",
+      "listView": true,
+      "headers": [
+        {
+          "label": "JRF No.",
+          "name": "jrf_number",
+          "type": "text"
+        },
+        {
+          "label": "Reference Number",
+          "name": "reference_number",
+          "type": "text"
+        },
+        {
+          "label": "Commodity",
+          "name": "commodity",
+          "type": "number"
+        },
+        {
+          "label": "Customer Name",
+          "name": "jrf_client_name",
+          "type": "text"
+        },
+        {
+          "label": "Contact Person",
+          "name": "contact_person",
+          "type": "text"
+        },
+        {
+          "label": "Status",
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "label": "Actions",
+          "name": "action",
+          "type": "text",
+          "colSpan": "8"
+        }
+      ]
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/list/",
+    "read": "/jobinstruction/list/?ops_code=TR",
+    "update": "/orders/update",
+    "delete": "/orders/delete",
+    "statuCount": "/jobinstructionstatuscount/get/?ops_code=TR",
+    "exportExcel": "/jrf_excel/get"
+  },
+  "listView": {
+    "title": "Job Details",
+    "moduleType": "jioperationjsonb",
+
+    "headers": [
+      {
+        "label": "Date",
+        "name": "ji_date",
+        "sortName": "ji_date",
+        "type": "date"
+      },
+      {
+        "label": "Reference No.",
+        "name": "ji_reference_number",
+        "type": "text",
+        "sortName": "ji_reference_number"
+      },
+      {
+        "label": "Commodity",
+        "name": "commodity_details",
+        "type": "text",
+        "fieldName": "cmd_name",
+        "sortName": "ji_reference_number"
+      },
+      {
+        "label": "Customer Name",
+        "name": "client_details",
+        "type": "text",
+        "sortName": "fk_clientid"
+      },
+      {
+        "label": "Appointed to",
+        "name": "company",
+        "sortName": "ji_eta",
+        "fieldName": "company_code"
+      },
+      {
+        "label": "Branch",
+        "name": "branch",
+        "fieldName": "branch_code",
+        "sortName": "branch_name"
+      },
+      {
+        "label": "Status",
+        "name": "status",
+        "type": "text",
+        "sortName": "status",
+        "fieldName": "status"
+      }
+    ],
+    "rows": [
+      []
+    ],
+    "isCustomFilter": true,
+    "filterListing": [
+      {
+        "width": 2,
+        "name": "fk_commodityid",
+        "placeholder": "Commodity",
+        "type": "select",
+        "filterType": "commodity"
+      },
+      {
+        "width": 2,
+        "name": "fk_companyid",
+        "placeholder": "Appointed To",
+        "type": "select",
+        "filterType": "company"
+      }
+    ],
+    "actions": [
+      {
+        "label": "bi bi-eye h6",
+        "value": "View",
+        "type": "icon",
+        "redirectUrl": "/inwardList/inwardForm",
+        "permission": "view"
+      },
+      {
+        "label": "bi bi-clock-history h6",
+        "value": "History",
+        "type": "icon"
+      },
+      {
+        "label": "Verify",
+        "redirectUrl": "/operation/truck-list",
+        "status": "posted"
+      },
+      {
+        "label": "Process",
+        "redirectUrl": "/operation/truck-list/truck-details-list",
+        "status": "accepted"
+      }
+    ],
+    "statusesWithIcon": [
+      {
+        "icon": "bi bi-arrow-up-circle-fill",
+        "label": "Created",
+        "name": "created",
+        "status": "created",
+        "image": "PartialIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Posted",
+        "name": "posted",
+        "status": "posted",
+        "image": "PostedIcon"
+      },
+      {
+        "icon": "bi bi-x-circle-fill",
+        "label": "Rejected",
+        "name": "rejected",
+        "status": "rejected",
+        "image": "RejectedIcon"
+      },
+      {
+        "icon": "bi bi-cloud-check-fill",
+        "label": "Completed",
+        "name": "Completed",
+        "status": "completed",
+        "image": "CompletedIcon"
+      }
+    ],
+    "statusesWithColor": [
+      {
+        "icon": "saved_sym",
+        "name": "Created",
+        "status": "created"
+      },
+      {
+        "icon": "posted_sym",
+        "name": "Posted",
+        "status": "posted"
+      },
+      {
+        "icon": "accepted_sym",
+        "name": "Accepted",
+        "status": "accepted"
+      },
+      {
+        "icon": "rejected_sym",
+        "name": "Rejected",
+        "status": "rejected"
+      },
+      {
+        "icon": "completed_sym",
+        "name": "Completed",
+        "status": "completed"
+      }
+    ]
+  },
+  "popupMessages": {
+    "download": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

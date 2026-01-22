@@ -1,0 +1,215 @@
+{
+    "breadcom": [
+        {
+            "title": "Operation",
+            "redirect": "#"
+        },
+        {
+            "title": "Tally List",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/invoices/list/",
+        "read": "/invoices/list/",
+        "update": "/invoices/list/",
+        "delete": "/invoices/list/",
+        "statuCount": "/invoice/status-count/"
+    },
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            
+            "headers": [
+                {
+                    "label": "Invoice Number",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Tax Classification",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Tax Type",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Narration Number",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Bill to Place",
+                    "name": "contact_person",
+                    "type": "text",
+                    "colSpan": "8"
+                },
+                
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "listView": {
+        "title": "Invoice Details",
+        "isCustomTitle": true,
+        "moduleType": "jioperationjsonb",
+        "subModuleType": "tally",
+       
+
+        "headers": [
+            {
+                "label": "Invoice Number",
+                "name": "im_invoicenumber",
+                "sortName": "im_invoicenumber",
+                "fieldName": "im_invoicenumber",
+                "type": "text"
+            },
+            {
+                "label": "Tax Classification",
+                "name": "cust_name",
+                "sortName": "cust_name",
+                "fieldName": "cust_name",
+                "type": "text"
+            },
+            {
+                "label": "Tax Type",
+                "name": "cust_gstno",
+                "sortName": "cust_gstno",
+                "fieldName": "cust_gstno",
+                "type": "text"
+            },
+            {
+                "label": "Narration Number",
+                "name": "br_code",
+                "sortName": "br_code",
+                "fieldName": "br_code",
+                "type": "text"
+            },
+            {
+                "label": "Bill to Place",
+                "name": "br_code",
+                "sortName": "br_code",
+                "fieldName": "br_code",
+                "type": "text"
+            }
+        ],
+        "rows": [
+            {
+                "label": "C HLB2324M00989",
+                "name": "invoice_number",
+                " type": "label"
+            },
+            {
+                " label": "29AAKCA9053A1ZP",
+                "name": "gstin",
+                "type": "label"
+            },
+            {
+                " label": "In-progress",
+                "name": "status",
+                "type": "label"
+            },
+            {
+                " label": "Actions",
+                " name": "actions",
+                "type": "label"
+            }
+        ],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/operation/invoice-listing/create-invoice",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/inwardList/inwardForm",
+                "permission": "delete"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/operation/vessel-ji-list-view",
+                "status": "saved"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "created_sym",
+                "name": "Created",
+                "status": "created"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            },
+            {
+                "icon": "collected_sym",
+                "name": "Collected By Tally",
+                "status": "collected by tally",
+                "color": ""
+            },
+            {
+                "icon": "generated_sym",
+                "name": "Generated Invoice",
+                "status": "generated invoice",
+                "color": ""
+            },
+            {
+                "icon": "published_sym",
+                "name": "Published",
+                "status": "published",
+                "color": ""
+            },
+            {
+                "icon": "sentforapproval_sym",
+                "name": "Sent for Approval",
+                "status": "sent for approval",
+                "color": ""
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "Saved",
+                "status": "Saved",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "Posted",
+                "status": "Posted",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Generated",
+                "name": "Generated",
+                "status": "Generated",
+                "image": "CompletedIcon"
+            }
+        ],
+        "popupMessages": []
+    }
+}

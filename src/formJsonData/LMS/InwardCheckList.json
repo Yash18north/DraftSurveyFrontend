@@ -1,0 +1,349 @@
+{
+  "apiEndpoints": {
+    "create": "/jrf/create",
+    "read": "/jrf/get",
+    "update": "/jrf/update",
+    "delete": "/api/orders/delete"
+  },
+  "breadcom": [
+    {
+      "title": "LMS",
+      "redirect": "#"
+    },
+    {
+      "title": "JRF List",
+      "redirect": "/jrfListing"
+    },
+    {
+      "title": "Checklist",
+      "redirect": "#"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Sample Inward Form",
+      "moduleType": "inwardChecklist",
+      "fields": [
+        {
+          "width": 25,
+          "label": "JRF Details",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "jrf_referenceno",
+          "label": "Reference Number",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "27C2324J01VL7071"
+        },
+        {
+          "width": 6,
+          "name": "jrf_no",
+          "label": "JRF No.",
+          "type": "label",
+          "required": true,
+          "readOnly": true,
+          "value": "1633"
+        },
+        {
+          "width": 6,
+          "name": "jrf_company_name",
+          "label": "Customer Name",
+          "type": "label",
+          "required": true,
+          "value": "--",
+          "readOnly": true
+        },
+        {
+          "type": "hr"
+        },
+        {
+          "width": 25,
+          "label": "Sample Specifications",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px"
+        },
+        {
+          "width": 6,
+          "name": "jrf_commodity",
+          "label": "Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "name": "jrf_sub_commodity_name",
+          "label": "Sub Commodity",
+          "type": "label",
+          "value": "--",
+          "required": true,
+          "placeholder": "Enter Name of Commodity"
+        },
+        {
+          "width": 6,
+          "label": "Quantity of Test Sample",
+          "name": "jrf_quanity_sample",
+          "type": "textArea",
+          "placeholder": "Enter quantity of test samples details",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "No. of Packets",
+          "name": "jrf_no_of_packets",
+          "type": "text",
+          "placeholder": "Enter No. of Packets",
+          "useForViewOnly":true
+        },
+        {
+          "type": "hr"
+        },
+        {
+          "width": 25,
+          "label": "Job Description",
+          "name": "section_heading",
+          "type": "label",
+          "required": true,
+          "color": "$danger",
+          "textDecoration": "none",
+          "styleName": "section_heading",
+          "fontSize": "16px",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Description of the sample",
+          "name": "jrf_desc_of_sample",
+          "type": "textArea",
+          "placeholder": "Description of the sample",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Parameter to be analysed",
+          "name": "jrf_parameters_to_analyze",
+          "type": "textArea",
+          "placeholder": "Parameter to be analysed",
+          "required": true,
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Other Requirement",
+          "name": "jrf_other_info",
+          "type": "textArea",
+          "placeholder": "Add Additional Info (If any)",
+          "errorMsgs": {
+            "required": "This field is required"
+          }
+        },
+        {
+          "width": 6,
+          "label": "Test Report Required after (in days)",
+          "name": "jrf_test_repo_req_on",
+          "type": "numberPlusMinus",
+          "placeholder": "Enter Job Quantity"
+        },
+        {
+          "width": 6,
+          "label": "Test Method",
+          "name": "jrf_test_method",
+          "type": "select",
+          "styleName":"selectCompWidth",
+          "multiple": true,
+          "options": [
+            "IS",
+            "ISO",
+            "ASTM"
+          ],
+          "required": true
+        },
+        {
+          "width": 6,
+          "label": "Branch Name",
+          "name": "jrf_branch_name",
+          "type": "select",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Sample Inward Checklist",
+          "type": "tabs",
+          "fields": [
+            {
+              "width": 12,
+              "label": "Sample Condition",
+              "name": "jrf_sample_condition",
+              "type": "select",
+              "multiple": true,
+              "options": [
+                "Dry",
+                "Wet",
+                "Raw Sample",
+                "Powdered Sample",
+                "Intact",
+                "Other"
+              ],
+              "required": true,
+              "fieldWidth": "50",
+              "specialClass": "maximumWidth",
+              "placeholder": "Sample Condition"
+            },
+            {
+              "width": 12,
+              "label": "Packaging Condition",
+              "name": "jrf_pkging_condition",
+              "type": "select",
+              "multiple": true,
+              "options": [
+                "Sealed",
+                "Unsealed",
+                "Contamination",
+                "Signs of damage(i.e. Tear,Punctures, Leaks)",
+                "Intact"
+              ],
+              "required": true,
+              "fieldWidth": "50",
+              "specialClass": "maximumWidth",
+              "placeholder": "Packaging Condition"
+            },
+            {
+              "width": 12,
+              "label": "Container Description",
+              "name": "quantity_received_sample_desc",
+              "type": "customInput2",
+              "required": true,
+              "fieldWidth": "75",
+              "placeholder": "Container Description"
+            },
+            {
+              "width": 12,
+              "label": "Approximate Quantity of Received Sample",
+              "name": "quantity_received_sample",
+              "type": "customInput",
+              "required": true,
+              "fieldWidth": "75",
+              "placeholder": "Approximate Quantity of Received Sample"
+            },
+            {
+              "width": 12,
+              "label": "Appropriate test method confirmed through",
+              "name": "jrf_test_method_conf_through",
+              "type": "radio",
+              "options": [
+                "JRF",
+                "Email",
+                "Verbally or Over Phone"
+              ],
+              "required": true,
+              "fieldWidth": "75"
+            },
+            {
+              "width": 12,
+              "label": "Checklist",
+              "name": "jrf_checklist",
+              "type": "checkbox",
+              "options": [
+                "Customer Name",
+                "Sample Source",
+                "Seal Number",
+                "Commodity",
+                "Test Method"
+              ],
+              "required": true,
+              "fieldWidth": "50"
+            },
+            {
+              "width": 12,
+              "label": "Agreed with time frame req. by client",
+              "name": "jrf_agrees_with_time",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "required": true
+            },
+            {
+              "width": 12,
+              "label": "Lab is capable to perform the test",
+              "name": "jrf_is_lab_capable",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "required": true
+            },
+            {
+              "width": 12,
+              "name": "jrf_finalize_timeframe",
+              "label": "Finalize time Frame",
+              "type": "number",
+              "required": true,
+              "fieldWidth": "0"
+            },
+            {
+              "label": "",
+              "name": "jrf_vc_term_condition",
+              "type": "checkbox",
+              "options": [
+                "Note: ♦ All information are mutually confidential between TCRC Petro labs & Customer and any intention of placing the same in the public domain has to be mutually agreed upon in print. ♦ All proprietary information of the TCRC Petro labs and their customers are mutually agreed as confidential. ♦ Tick ☑ Whichever applicable."
+              ],
+              "placeholder": "Enter Job Quantity",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    },
+    "reject": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Do you really want to reject this?"
+    }
+  }
+}

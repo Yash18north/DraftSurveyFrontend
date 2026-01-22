@@ -1,0 +1,152 @@
+{
+    "title": "Tabs Section",
+    "type": "tabs",
+    "tabs": [
+        {
+            "label": "Rake Details",
+            "type": "tabs",
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Rake Details",
+                    "styleName": "section_heading",
+                    "type": "label",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "wagon",
+                    "label": "Wagon",
+                    "type": "radio",
+                    "options": [
+                        "Loading",
+                        "Unloading"
+                    ]
+                },
+                {
+                    "width": 6
+                },
+                {
+                    "width": 6,
+                    "name": "no_of_wagons",
+                    "label": "No. of Wagons",
+                    "type": "text",
+                    "placeholder": "No. of Wagons"
+                },
+                {
+                    "width": 6,
+                    "name": "indent_no",
+                    "label": "Indent No. ",
+                    "type": "text",
+                    "placeholder": "Enter Indent No."
+                },
+                {
+                    "width": 6,
+                    "name": "indent_datetime",
+                    "label": "Indent Date / Time",
+                    "type": "date",
+                    "placeholder": "YYYY-MM-DD /  HH : MM",
+                    "fieldWidth": "75",
+                    "showTimeSelect": true
+                },
+                {
+                    "width": 6,
+                    "name": "placement_datetime",
+                    "label": "Placement Date/Time",
+                    "type": "date",
+                    "showTimeSelect": true,
+                    "fieldWidth": "75",
+                    "placeholder": "YYYY-MM-DD /  HH : MM"
+                },
+                {
+                    "width": 6,
+                    "name": "commenced_datetime",
+                    "label": "Commenced Date / Time",
+                    "type": "date",
+                    "fieldWidth": "75",
+                    "placeholder": "YYYY-MM-DD /  HH : MM",
+                    "showTimeSelect": true
+                },
+                {
+                    "width": 6,
+                    "name": "completed_datetime",
+                    "label": "Completed Date/Time",
+                    "type": "date",
+                    "showTimeSelect": true,
+                    "fieldWidth": "75",
+                    "placeholder": "YYYY-MM-DD /  HH : MM"
+                },
+                {
+                    "width": 6,
+                    "name": "r_r_number",
+                    "label": "R.R Number",
+                    "type": "text",
+                    "placeholder": "Enter R.R Number",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "r_r_datetime",
+                    "label": "R.R Date",
+                    "type": "date",
+                    "fieldWidth": "75",
+                    "placeholder": "YYYY-MM-DD",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    },
+                    "noDefaultValue": true
+                },
+                {
+                    "width": 6,
+                    "label": "R.R Qty.",
+                    "name": "r_r_qty",
+                    "secondName": "r_r_qty_unit",
+                    "type": "doubleText",
+                    "firstType": "text",
+                    "secondType": "text",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75",
+                    "secondValue": "MT"
+                },
+                {
+                    "width": 6,
+                    "label": "Assessment Qty.",
+                    "name": "assessment_qty",
+                    "secondName": "assessment_qty_unit",
+                    "type": "doubleText",
+                    "firstType": "text",
+                    "secondType": "text",
+                    "upperFieldWidth": "75",
+                    "fieldWidth": 75,
+                    "secondValue": "MT"
+                },
+                {
+                    "width": 6,
+                    "name": "rot_number",
+                    "label": "ROT Number",
+                    "type": "text",
+                    "placeholder": "Enter ROT Number",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    },
+                    "value": "-"
+                },
+                {
+                    "width": 6,
+                    "name": "density",
+                    "label": "Density",
+                    "type": "text",
+                    "placeholder": "Enter Density",
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    },
+                    "value": "-"
+                }
+            ]
+        }
+    ]
+}

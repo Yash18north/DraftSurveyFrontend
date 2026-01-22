@@ -1,0 +1,224 @@
+{
+  "breadcom": [
+    {
+      "title": "Job Instruction List",
+      "redirect": "/operation/jrfInstructionListing"
+    },
+    {
+      "title": "Man Power",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "/jobinstruction/create/",
+    "read": "/jobinstruction/get/",
+    "update": "/jobinstruction/update/",
+    "delete": "/jobinstruction/delete"
+  },
+  "sections": [
+    {
+      "title": "Job Request Form",
+      "moduleType": "jobinstruction",
+      "isUseForManPower": true,
+      "fields": []
+    },
+    {
+      "title": "Tabs Section",
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Man Power",
+          "type": "table",
+          "isUseForManPower": true,
+          "isUseForVessel": true,
+          "headers": [
+            {
+              "name": "vessel_mp_date",
+              "type": "label",
+              "label": "Date",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "vessel_mp_shift",
+              "type": "label",
+              "label": "Shift",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "vessel_mp_emp_name",
+              "type": "label",
+              "label": "Employee Name",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "vessel_mp_designation",
+              "type": "label",
+              "label": "Designation",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "fk_activity_id",
+              "type": "label",
+              "label": "Activity Name",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "vessel_mp_duty_in",
+              "type": "label",
+              "label": "Duty IN",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "vessel_mp_duty_out",
+              "type": "label",
+              "label": "Duty Out",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100"
+            },
+            {
+              "name": "vessel_mp_total_duty_hours",
+              "type": "label",
+              "label": "Total Hours",
+              "width": 6,
+              "required": true,
+              "fieldWidth": "100",
+              "readOnly":true
+            }
+          ],
+          "rows": [
+            [
+              {
+                "name": "vessel_mp_date",
+                "type": "date",
+                "label": "Date",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "vessel_mp_shift",
+                "type": "select",
+                "label": "Shift",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "options": [
+                  "Shift 1",
+                  "Shift 2",
+                  "Shift 3"
+                ]
+              },
+              {
+                "name": "vessel_mp_emp_name",
+                "type": "text",
+                "label": "Employee Name",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "vessel_mp_designation",
+                "type": "select",
+                "label": "Designation",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "options":["Sampler","SuperVisor"]
+              },
+              {
+                "name": "fk_activity_id",
+                "type": "label",
+                "label": "Activity Name",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "vessel_mp_duty_in",
+                "type": "Time",
+                "label": "Duty IN",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "vessel_mp_duty_out",
+                "type": "Time",
+                "label": "Duty Out",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100"
+              },
+              {
+                "name": "vessel_mp_total_duty_hours",
+                "type": "Time",
+                "label": "Total Hours",
+                "width": 6,
+                "required": true,
+                "fieldWidth": "100",
+                "readOnly":true
+              }
+            ]
+          ],
+          "actions": [
+            {
+              "label": "bi bi-pencil h6",
+              "value": "Edit",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "update"
+            },
+            {
+              "label": "bi bi-trash h6",
+              "value": "Delete",
+              "type": "icon",
+              "redirectUrl": "/inwardList/inwardForm",
+              "permission": "delete"
+            },
+            {
+              "label": "bi bi-clock-history h6",
+              "value": "History",
+              "type": "icon",
+              "permission": "history"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "popupMessages": {
+    "donwload": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to download?"
+    },
+    "delete": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to delete?"
+    },
+    "post": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to post?"
+    },
+    "save": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to save changes?"
+    },
+    "cancel": {
+      "headerMsg": "Confirmation!",
+      "titleMsg": "Are you sure you want to cancel?"
+    }
+  }
+}

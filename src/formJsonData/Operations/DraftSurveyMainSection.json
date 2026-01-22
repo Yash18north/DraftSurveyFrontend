@@ -1,0 +1,48 @@
+[
+    {
+        "width": 12,
+        "label": "Scope of Work Considering",
+        "styleName": "section_heading",
+        "type": "label",
+        "errorMsgs": {
+            "required": "This field is required"
+        }
+    },
+    {
+        "width": 6,
+        "name": "opsvd_survey_at",
+        "label": "Survey At",
+        "type": "select",
+        "options": [
+            "survey at Port"
+        ],
+        "useForViewOnly": true
+    },
+    {
+        "width": 6,
+        "name": "opsvd_survey_at_sow",
+        "label": "Type",
+        "type": "radio",
+        "options": [
+            "Initial and Final draft survey at Port"
+        ],
+        "useForViewOnly": true
+    },
+    {
+        "width": 6,
+        "name": "opsvd_survey_keel_correction",
+        "label": "Keel Operation",
+        "type": "radio",
+        "options": [
+            {
+                "value": true,
+                "label": "Yes"
+            },
+            {
+                "value": false,
+                "label": "No"
+            }
+        ],
+        "useForViewOnly": true
+    }
+]

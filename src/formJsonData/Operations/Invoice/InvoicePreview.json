@@ -1,0 +1,37 @@
+{
+  "breadcom": [
+    {
+      "title": "Operation",
+      "redirect": "/operation/invoice-listing"
+    },
+    {
+      "title": "Invoice List",
+      "redirect": "/operation/invoice-listing"
+    },
+    {
+      "title": "Invoice",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "",
+    "read": "",
+    "update": "",
+    "delete": ""
+  },
+  "sections": [
+    {
+      "title": "Invoice",
+      "moduleType": "invoicePreview",
+      "moduleSubType": "vesselList",
+      "fields": [
+        {
+          "label": "Invoice",
+          "name": "preview",
+          "type": "preview",
+          "sortName": "preview"
+        }
+      ]
+    }
+  ]
+}

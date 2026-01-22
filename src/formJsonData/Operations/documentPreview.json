@@ -1,0 +1,33 @@
+{
+  "breadcom": [
+    {
+      "title": "Document List",
+      "redirect": "#"
+    },
+    {
+      "title": "Preview",
+      "redirect": "#"
+    }
+  ],
+  "apiEndpoints": {
+    "create": "",
+    "read": "",
+    "update": "",
+    "delete": ""
+  },
+  "sections": [
+    {
+      "title": "Document Preview",
+      "moduleType": "documentPreview",
+      "moduleSubType": "vesselList",
+      "fields": [
+        {
+          "label": "Preview",
+          "name": "preview",
+          "type": "preview",
+          "sortName": "preview"
+        }
+      ]
+    }
+  ]
+}

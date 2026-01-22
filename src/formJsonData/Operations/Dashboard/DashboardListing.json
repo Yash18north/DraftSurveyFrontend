@@ -1,0 +1,367 @@
+{
+    "breadcom": [
+        {
+            "title": "Dashboard",
+            "redirect": "#"
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/new-dashboard/list/",
+        "read": "/new-dashboard/list/",
+        "update": "/new-dashboard/list/",
+        "delete": "/new-dashboard/list/",
+        "statuCount": "/ji-dashoard-status-count/get/",
+        "exportExcel": "/job_inst_excel/create/"
+    },
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text",
+                    "colSpan": "8"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "listView": {
+        "title": "Dashboard Details",
+        "isCustomTitle": true,
+        "moduleType": "dashboard",
+        "isStatusBGTr": true,
+        "bgColors": {
+            "Latest Jobs": {
+                "class": "latest_sym_tr_bg",
+                "title": "Latest JI",
+                "description": "latest records created in last 48 hrs",
+                "icon": "bi bi-file-earmark-plus-fill"
+            },
+            "JI Not Accepted": {
+                "class": "ji_not_accepted_sym_tr_bg",
+                "title": "JI Not Accepted",
+                "description": "Job Instruction not yet accepted.",
+                "icon": "bi bi-x-octagon-fill"
+            },
+            "Pending Jobs": {
+                "class": "pending_sym_tr_bg",
+                "title": "Long Pending",
+                "description": "Job is pending for an unusually long time.",
+                "icon": "bi bi-hourglass-split"
+            },
+            "Jobs In Progress": {
+                "class": "inprocess_sym_tr_bg",
+                "title": "In Progress",
+                "description": "Job is currently underway.",
+                "icon": "bi bi-arrow-repeat"
+            },
+            "No Invoice": {
+                "class": "no_invoice_sym_tr_bg",
+                "title": "No Invoice",
+                "description": "Work done but invoice not generated.",
+                "icon": "bi bi-file-earmark-text-fill"
+            },
+            "Unpaid": {
+                "class": "unpaid_sym_tr_bg",
+                "title": "Unpaid",
+                "description": "Invoice raised but payment not received.",
+                "icon": "bi bi-exclamation-triangle-fill"
+            },
+            "Partial Paid": {
+                "class": "partial_paid_sym_tr_bg",
+                "title": "Partial Paid",
+                "description": "Payment received partially, not fully settled.",
+                "icon": "bi bi-cash-stack"
+            },
+            "InvoiceDone CertificateNotDone": {
+                "class": "InvoiceDone__CertificateNotDone_sym_tr_bg",
+                "title": "Invoice Done but Certificate not generate",
+                "description": "Invoice Done but Certificate not generate.",
+                "icon": "bi bi-journal-bookmark-fill"
+            },
+            "Completed Jobs": {
+                "class": "completed_sym_tr_bg",
+                "title": "Done",
+                "description": "All tasks completed.",
+                "icon": "bi bi-check-circle-fill"
+            },
+            "Cancelled Jobs": {
+                "class": "cancelled_sym_tr_bg",
+                "title": "Done",
+                "description": "Cancelled Jobs",
+                "icon": "bi bi-x-circle-fill"
+            }
+        },
+        "bgFieldName": "job_status",
+        "headers": [
+            {
+                "label": "Sr. No.",
+                "name": "ji_id",
+                "type": "text",
+                "sortName": "ji_id",
+                "textAlign": "center"
+            },
+            {
+                "label": "Creation Date",
+                "name": "ji_created_time",
+                "sortName": "ji_created_time",
+                "type": "date"
+            },
+            {
+                "label": "JI Date",
+                "name": "ji_date",
+                "sortName": "ji_date",
+                "type": "date"
+            },
+            {
+                "label": "Mode",
+                "name": "operation_type",
+                "type": "text",
+                "sortName": "fk_operationtypetid__ops_name",
+                "fieldName": "operation_type_name",
+                "textAlign": "left",
+                "isCustomWrap": true,
+                "wrapType": "space",
+                "spaceNo": 1
+            },
+            {
+                "label": "Vessel",
+                "name": "ji_nameofoperationmode",
+                "type": "text",
+                "sortName": "ji_nameofoperationmode",
+                "fieldName": "ji_nameofoperationmode",
+                "textAlign": "left"
+            },
+            {
+                "label": "Client",
+                "name": "client_details",
+                "type": "text",
+                "sortName": "fk_clientid__cust_name",
+                "fieldName": "client_name",
+                "textAlign": "left"
+            },
+            {
+                "label": "Place",
+                "name": "place_of_work",
+                "sortName": "fk_placeworkid__pow_name",
+                "fieldName": "pow_combined_name",
+                "type": "text"
+            },
+            {
+                "label": "Qty.",
+                "name": "ji_totalqty",
+                "sortName": "ji_totalqty",
+                "fieldName": "ji_totalqty",
+                "type": "text"
+            },
+            {
+                "label": "Commodity",
+                "name": "commodity_details",
+                "sortName": "fk_commodityid__cmd_name",
+                "fieldName": "cmd_name",
+                "type": "text"
+            },
+            {
+                "label": "Sales Per.",
+                "name": "sales_person",
+                "sortName": "fk_usersalespersonid__first_name",
+                "fieldName": "sales_person_name",
+                "type": "text"
+            },
+            {
+                "label": "Ageing",
+                "name": "dashboard_ageing",
+                "type": "statusAgeing",
+                "todate": "im_invoice_date",
+                "isNoSort": true
+            },
+            {
+                "label": "Cert.",
+                "name": "certificate_status",
+                "sortName": "certificate_status",
+                "fieldName": "certificate_status",
+                "type": "text",
+                "isCustomLink": 1,
+                "redirectLink": "/operation/commercial-certificate-list",
+                "customLabel": "bi bi-eye h6",
+                "isNoSort": true,
+                "textAlign": "center"
+            },
+            {
+                "label": "Inv.",
+                "name": "invoice_status",
+                "sortName": "invoice_status",
+                "fieldName": "invoice_status",
+                "type": "text",
+                "isCustomLink": 1,
+                "redirectLink": "/operation/invoice-listing",
+                "customLabel": "bi bi-eye h6",
+                "isNoSort": true,
+                "textAlign": "center"
+            }
+        ],
+        "rows": [],
+        "popupMessages": [],
+        "customColors": [
+            {
+                "icon": "completed_sym",
+                "name": "Completed",
+                "status": "completed"
+            },
+            {
+                "icon": "inprocess_sym",
+                "name": "Tasked",
+                "status": "tasked"
+            },
+            {
+                "icon": "rejected_sym",
+                "name": "Rejected",
+                "status": "pending"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Total Jobs",
+                "description": "Total Jobs",
+                "name": "Total Jobs",
+                "status": "saved",
+                "objectName": "job_status",
+                "image": "CompletedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Completed Jobs",
+                "description": "Completed Jobs",
+                "name": "Completed Jobs",
+                "objectName": "job_status",
+                "status": "posted",
+                "image": "AcceptedIcon"
+            },
+            {
+                "icon": "bi bi-shield-check",
+                "label": "Ongoing Jobs",
+                "description": "Ongoing Jobs",
+                "name": "Jobs In Progress",
+                "objectName": "job_status",
+                "status": "completed",
+                "image": "InprocessIcon"
+            },
+            {
+                "icon": "bi bi-check-lg",
+                "label": "Delayed Jobs",
+                "description": "Delayed Jobs",
+                "name": "Delayed Jobs",
+                "objectName": "job_status",
+                "status": "accepted",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-x-circle-fill",
+                "label": "Certs Published",
+                "description": "Certs Published",
+                "name": "Published",
+                "objectName": "certificate_status",
+                "status": "rejected",
+                "image": "CertificatePublished"
+            },
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Certs Unpublished",
+                "name": "Not Published",
+                "objectName": "certificate_status",
+                "description": "Certs Unpublished",
+                "status": "awaited",
+                "image": "NotInvoiced"
+            },
+            {
+                "icon": "bi bi-x-circle-fill",
+                "label": "Invoice Generated",
+                "description": "Invoice Generated",
+                "name": "Invoiced",
+                "objectName": "invoice_status",
+                "status": "rejected",
+                "image": "InvoicedSVG"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Partially Invd",
+                "description": "Partially Invd",
+                "name": "Partially Invoiced",
+                "objectName": "invoice_status",
+                "status": "tasked",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Not Invoiced",
+                "name": "Not Invoiced",
+                "objectName": "invoice_status",
+                "description": "Not Invoiced",
+                "status": "awaited",
+                "image": "RejectedIcon"
+            },
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Outstanding Amount",
+                "name": "total_invoice_balance",
+                "description": "Outstanding Amount",
+                "status": "awaited",
+                "image": "RupeeIcon",
+                "isSmallValue":true
+            }
+        ],
+        "isCustomFilter": true,
+        "filterListing": [
+            {
+                "width": 2,
+                "name": "fk_commodityid",
+                "placeholder": "Commodity",
+                "type": "DropDownWithLoadMore",
+                "apiendpoint": "/masters/list",
+                "model_name": "commodity",
+                "apimethod": "POST",
+                "isSearchable": true,
+                "optionData": {
+                    "id": "cmd_id",
+                    "label": "cmd_name"
+                },
+                "filterType": "commodity",
+                "fieldWidth": "100"
+            },
+            {
+                "width": 2,
+                "name": "fk_operationtypetid",
+                "placeholder": "Mode",
+                "type": "DropDownWithLoadMore",
+                "apiendpoint": "masters/opmaster/list/",
+                "apimethod": "GET",
+                "isSearchable": "true",
+                "optionData": {
+                    "id": "ops_id",
+                    "label": "ops_name"
+                },
+                "options": [],
+                "filterType": "mode",
+                "fieldWidth": "100"
+            },
+            {
+                "width": 2,
+                "name": "fk_companyid",
+                "placeholder": "Appointed To",
+                "type": "select",
+                "fieldWidth": "100",
+                "filterType": "company"
+            }
+        ]
+    }
+}

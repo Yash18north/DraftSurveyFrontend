@@ -1,0 +1,106 @@
+{
+  "textInput": [
+    {
+      "label": "Contains",
+      "value": "icontains"
+    },
+    {
+      "label": "Equal to",
+      "value": "exact"
+    },
+    {
+      "label": "Not equal to",
+      "value": "!="
+    }
+  ],
+  "numericInput": [
+    {
+      "label": "Greater than",
+      "value": ">"
+    },
+    {
+      "label": "Less than",
+      "value": "<"
+    },
+    {
+      "label": "Greater than or Equal to",
+      "value": ">="
+    },
+    {
+      "label": "Less than or Equal to",
+      "value": "<="
+    },
+    {
+      "label": "Equal to",
+      "value": "exact"
+    },
+    {
+      "label": "Not equal to",
+      "value": "!="
+    }
+  ],
+  "booleanInput": [
+    {
+      "label": "Equal to",
+      "value": "exact"
+    },
+    {
+      "label": "Not equal to",
+      "value": "!="
+    }
+  ],
+  "dateInput": [
+    {
+      "label": "After",
+      "value": ">"
+    },
+    {
+      "label": "Before",
+      "value": "<"
+    },
+    {
+      "label": "After or Equal to",
+      "value": ">="
+    },
+    {
+      "label": "Before or Equal to",
+      "value": "<="
+    },
+    {
+      "label": "Equal to",
+      "value": "exact"
+    },
+    {
+      "label": "Not equal to",
+      "value": "!="
+    }
+  ],
+  "listInput": [
+    {
+      "label": "In list",
+      "value": "IN"
+    },
+    {
+      "label": "Not in list",
+      "value": "NOT IN"
+    },
+    {
+      "label": "Equal to",
+      "value": "exact"
+    },
+    {
+      "label": "Not equal to",
+      "value": "!="
+    }
+  ],
+  "nullInput": [
+    {
+      "label": "Is null",
+      "value": "NULL"
+    },
+    {
+      "label": "Is not null",
+      "value": "Not NULL"
+    }
+  ]
+}

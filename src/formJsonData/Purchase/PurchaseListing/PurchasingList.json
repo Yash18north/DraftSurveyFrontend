@@ -1,0 +1,284 @@
+{
+    "breadcom": [
+        {
+            "title": "Purchase",
+            "redirect": "#"
+        },
+        {
+            "title": "Purchase Order List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "/",
+        "read": "/purchase-order/list/",
+        "update": "/",
+        "delete": "/",
+        "statuCount": "/purchase-order/status/",
+        "exportExcel": "/purchase_order_excel/create/",
+        "exportMethod": "GET"
+    },
+    "listView": {
+        "title": "Purchase Order List",
+        "isCustomTitle": true,
+        "moduleType": "purchase",
+        "customField": {
+            "title": "Export Data",
+            "buttons": {
+                "cancel": {
+                    "title": "Cancel"
+                },
+                "confirm": {
+                    "title": "Export"
+                }
+            },
+            "fields": [
+                {
+                    "width": 6,
+                    "name": "fk_companyid",
+                    "label": "Company",
+                    "type": "select"
+                }
+            ]
+        },
+        "headers": [
+            {
+                "label": "PO. Date",
+                "name": "po_date",
+                "sortName": "po_date",
+                "type": "date"
+            },
+            {
+                "label": "PO Number",
+                "name": "po_number",
+                "sortName": "po_number",
+                "type": "text",
+                "fieldName": "po_number"
+            },
+            {
+                "label": "Name of Service Provider",
+                "name": "po_to",
+                "sortName": "fk_supplier_id__sup_name",
+                "type": "text"
+            },
+            {
+                "label": "Billing To",
+                "name": "po_billing_address",
+                "sortName": "po_billing_address",
+                "type": "text"
+            },
+            {
+                "label": "Req No.",
+                "name": "po_requisition_no",
+                "sortName": "po_requisition_no",
+                "type": "text"
+            },
+            {
+                "label": "Status",
+                "name": "po_status",
+                "type": "text",
+                "sortName": "po_status",
+                "fieldName": "po_status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "type": "icon",
+                "redirectUrl": "/purchase/purchaseForm/:EditRecordId",
+                "value": "View",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "History",
+                "type": "icon"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "Delete",
+                "type": "icon",
+                "permission": "view"
+            },
+            {
+                "label": "Create P.O",
+                "redirectUrl": "/purchase/purchaseForm/:EditRecordId",
+                "status": "approved"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/purchase/purchaseForm/:EditRecordId",
+                "status": "saved"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Insurance Details",
+                "type": "icon",
+                "redirectUrl": "/operation/invoice-listing/create-invoice"
+            },
+            {
+                "label": "bi bi-download h6",
+                "value": "Download",
+                "type": "icon"
+            },
+            {
+                "label": "Approve",
+                "redirectUrl": "",
+                "status": "posted",
+                "isDupplicate":true
+            },
+            {
+                "label": "Approve",
+                "redirectUrl": "",
+                "status": "Pre-Close",
+                "isDupplicate":true
+            },
+            {
+                "label": "Download",
+                "redirectUrl": "",
+                "status": "accept"
+            },
+            {
+                "label": "bi bi-file-earmark-medical h6",
+                "value": "Documents",
+                "type": "icon"
+            }
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "PR-Approved",
+                "name": "Approved",
+                "status": "Approved",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Saved",
+                "name": "Saved",
+                "status": "Saved",
+                "image": "PostedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "Posted",
+                "status": "Posted",
+                "image": "CompletedIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Pre Closed",
+                "name": "Pre-Close",
+                "status": "Pre-Close",
+                "image": "CompletedIcon"
+            },
+            {
+                "icon": "bi bi-x-circle-fill",
+                "label": "Rejected",
+                "name": "Reject",
+                "status": "Reject",
+                "image": "RejectedIcon"
+            },
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "PO-Approved",
+                "name": "Accept",
+                "status": "Accept",
+                "image": "PartialIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "accepted_sym",
+                "name": "PR-Approved",
+                "status": "Approved"
+            },
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "Saved"
+            },
+            {
+                "icon": "inprocess_sym",
+                "name": "Sent for Approval",
+                "status": "Posted"
+            },
+            {
+                "icon": "inprocess_sym",
+                "name": "Sent for pre close",
+                "status": "Pre-Close"
+            },
+            {
+                "icon": "rejected_sym",
+                "name": "Rejected",
+                "status": "reject"
+            },
+            {
+                "icon": "accepted_sym",
+                "name": "PO-Approved",
+                "status": "Accept"
+            }
+        ]
+    },
+    "popupMessages": {
+        "download": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

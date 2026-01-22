@@ -1,0 +1,277 @@
+{
+    "apiEndpoints": {
+        "create": "",
+        "read": "",
+        "update": "",
+        "delete": ""
+    },
+    "breadcom": [
+        {
+            "title": "Incentives List",
+            "redirect": "/incentivesList"
+        },
+        {
+            "title": "Incentive Form",
+            "redirect": "#"
+        }
+    ],
+    "moduleName": "incentives",
+    "sections": [
+        {
+            "title": "Add Incentive",
+            "moduleType": "incentives",
+            "fields": [
+                {
+                    "width": 12,
+                    "label": "Add Incentive",
+                    "type": "label",
+                    "name": "section_heading",
+                    "color": "$danger",
+                    "labelDecoration": "none",
+                    "styleName": "section_heading",
+                    "fontSize": "16px"
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_invoice_number",
+                    "label": "INV NO.",
+                    "type": "text",
+                    "required": true,
+                    "apiendpoint": "/invoices/list/",
+                    "model_name": "",
+                    "apimethod": "GET",
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "im_id",
+                        "label": "im_invoicenumber"
+                    },
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    },
+                    "useForViewOnly": true,
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_client_id",
+                    "type": "text",
+                    "label": "Client",
+                    "readOnly": true,
+                    "required": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_mode",
+                    "label": "Mode",
+                    "type": "text",
+                    "required": true,
+                    "readOnly": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_price",
+                    "label": "Price",
+                    "type": "number",
+                    "required": true,
+                    "readOnly": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_place_of_work",
+                    "label": "Place of Work",
+                    "type": "DropDownWithLoadMore",
+                    "required": true,
+                    "apiendpoint": "/masters/placeofwork/list/",
+                    "model_name": "",
+                    "apimethod": "GET",
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "pow_id",
+                        "label": "pow_name"
+                    },
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_vessel_quantity",
+                    "label": "Quantity",
+                    "type": "number"
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_work_completion_date",
+                    "label": "Work Completion Date",
+                    "type": "date",
+                    "required": true,
+                    "noDefaultValue": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_billing_date",
+                    "label": "Billing Date",
+                    "type": "date",
+                    "required": true,
+                    "noDefaultValue": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_delay_billing_days",
+                    "label": "Delay of Billing",
+                    "type": "text",
+                    "required": true,
+                    "readOnly": true,
+                    "useForViewOnly": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_billing_amt_inr",
+                    "label": "Billing Amount without GST (INR only)",
+                    "type": "number",
+                    "required": true,
+                    "readOnly": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_expense_amt",
+                    "label": "Expense Amount",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_profit_against_work",
+                    "label": "Profit Against Work",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_payment_collection_date",
+                    "label": "Payment Collection Date (As per Bank)",
+                    "type": "date",
+                    "required": true,
+                    "noDefaultValue": true,
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_delay_payment_days",
+                    "label": "Delay of Payment Collection",
+                    "type": "text",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_bonus_amount",
+                    "label": "Bonus for Advance Payment (25% on incentive amt)",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_total_delay_days",
+                    "label": "Delay of Payment (Total)",
+                    "type": "text",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_incentive_amount",
+                    "label": "Incentive Amount & Percentage",
+                    "secondName": "incentive_incentive_amount_perc",
+                    "type": "doubleText",
+                    "fieldWidth": 75,
+                    "upperFieldWidth": "75",
+                    "secondPlaceholder": "Incentive Percentage",
+                    "placeholder": "Incentive Amount",
+                    "secondType": "number",
+                    "firstType": "number",
+                    "readOnly":true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_penalty_amount",
+                    "label": "Penalty",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_receivable_amount",
+                    "label": "Receivable Amount",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_sales_lead_share",
+                    "label": "Sales Lead (20%)",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_actual_sales_share",
+                    "label": "Actual Sales (40%)",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_operations_share",
+                    "label": "Operations (25%)",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_collections_share",
+                    "label": "Collections (15%)",
+                    "type": "number",
+                    "readOnly": true
+                },
+                {
+                    "width": 6,
+                    "name": "incentive_remarks",
+                    "label": "Remarks",
+                    "type": "textArea"
+                }
+            ]
+        }
+    ],
+    "popupMessages": {
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save changes?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}
