@@ -1,43 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Row, Col } from "reactstrap";
+import React from "react";
 
-import formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
-import formConfig2 from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
-import H_H_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/H&HOperation.json";
-// import OnlySeal_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/OnlySealOperation.json";
-import QuantityAssessment_formConfig from "../../../../formJsonData/Operations/Rake/RakeOperations/QuantityAssessmentOperation.json";
-import supervission_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/supervission.json";
-import DraftSurvey_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/DraftSurvey.json";
-import ScopeWork_GroupParameters from "../../../../formJsonData/Operations/Vessel/VesseLOperations/ScopeWork_GroupParameters.json";
-import sizeAnalysis_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sizeAnalysis_Details.json";
-import sentToJRF_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sentToJRF_Detail.json";
+const RemovedPlantOperations = () => null;
 
-import OnlySeal_formConfig from "../../../../formJsonData/Operations/Truck/TruckOperations/OnlySealOperation.json";
-import CargoSupervision_formConfig from "../../../../formJsonData/Operations/Truck/TruckOperations/CargoSuperVisionOperation.json";
-
-import Form from "../../../../components/common/Form";
-import { sampleMarkOptionsApi } from "../../../../services/api";
-import { postDataFromApi } from "../../../../services/commonServices";
-import commonFields from "../../../../formJsonData/Operations/commonFields.json";
-import commonFieldsRake from "../../../../formJsonData/Operations/commonFieldsRake.json";
-import { useParams } from "react-router-dom";
-import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSOperationActivity, getRakeOperations, getTruckOperations, getPlantOperations, getActivityCode } from "../../../../services/commonFunction";
-
-const TruckOperations = () => {
-  let { TMLType } = useParams();
-  TMLType = TMLType ? decryptDataForURL(TMLType) : "";
-  TMLType = getActivityCode(TMLType)
-  const [actualConfigData, setActualConfigData] = useState(formConfig);
-  const countRef = useRef(0);
-  const [isViewOnly, setIsViewOnly] = useState(false);
-  const [operationStepNo, setOperationStepNo] = useState(0);
-  const [operationMode, setOperationMode] = useState("");
-  const tileSubHeaderQAss = [{ Text: "Quantity Assessment" }];
-  const tileSubHeaderOnlySeal = [{ Text: "Only Seal" }];
-  const tileSubHeadercargoSupervision = [{ Text: "Cargo Supervision" }];
-  const tileSubHeaderQA = [
-    { Text: "Sample Information" },
+export default RemovedPlantOperations;
     { Text: "Groups & Parameters" },
     { Text: "Assign Parameters" },
     { Text: "Size Analysis" },

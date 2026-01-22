@@ -1,16 +1,5 @@
 import React from "react";
-import { Row, Col } from "reactstrap";
-import formConfig from "../../../formJsonData/Operations/Rake/RakeJIListing.json";
-import searchConfigJson from "../../../formJsonData/LMS/searchFilterFields.json";
-import Form from "../../../components/common/Form";
-const RakeJIList = () => {
-  return (
-    <Row>
-      <Col>
-        <Form formConfig={formConfig} searchConfigJson={searchConfigJson.rakeList} useForComponent="Operations"/>
-      </Col>
-    </Row>
-  );
-};
 
-export default RakeJIList;
+const RemovedRakeJiList = () => null;
+
+export default RemovedRakeJiList;

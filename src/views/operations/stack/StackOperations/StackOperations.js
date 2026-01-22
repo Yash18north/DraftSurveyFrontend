@@ -1,43 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Row, Col } from "reactstrap";
+import React from "react";
 
-import formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
-import formConfig2 from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
-import ScopeWork_GroupParameters from "../../../../formJsonData/Operations/Vessel/VesseLOperations/ScopeWork_GroupParameters.json";
-import sizeAnalysis_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sizeAnalysis_Details.json";
-import Form from "../../../../components/common/Form";
-import { sampleMarkOptionsApi } from "../../../../services/api";
-import { postDataFromApi } from "../../../../services/commonServices";
-import commonFields from "../../../../formJsonData/Operations/commonFields.json";
-import { useParams } from "react-router-dom";
-import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getActivityCode, getLMSActivityHeaderTab, getLMSOperationActivity, getSampleCollectionActivity, getStackOperations } from "../../../../services/commonFunction";
-import sample_collection from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sample_collection.json";
-const StackOperations = () => {
-  let { TMLType } = useParams();
-  TMLType = TMLType ? decryptDataForURL(TMLType) : "";
-  TMLType = getActivityCode(TMLType)
-  TMLType = TMLType && TMLType.toLowerCase() != "othertpi" ? TMLType.toLowerCase() : TMLType
-  const [actualConfigData, setActualConfigData] = useState(formConfig);
-  const countRef = useRef(0);
-  const [isViewOnly, setIsViewOnly] = useState(false);
-  const [operationStepNo, setOperationStepNo] = useState(0);
-  const [operationMode, setOperationMode] = useState("");
-  const tileSubHeaderQA = getLMSActivityHeaderTab(TMLType)
-  useEffect(() => {
-    const hash = window.location.hash;
-    const params = new URLSearchParams(hash.split("?")[1]);
-    let useFor = params.get("useFor") ? params.get("useFor") : "";
+const RemovedStackOperations = () => null;
 
-    useFor = decryptDataForURL(useFor).toLowerCase();
-    setIsViewOnly(useFor === "viewonly" ? true : false);
-
-    useFor = decryptDataForURL(useFor).toLowerCase();
-    let stepNo = params.get("operationStepNo")
-      ? params.get("operationStepNo")
-      : "";
-    stepNo = decryptDataForURL(stepNo);
-    stepNo = parseInt(stepNo);
+export default RemovedStackOperations;
     let opsMode = params.get("operationMode")
       ? params.get("operationMode")
       : "";

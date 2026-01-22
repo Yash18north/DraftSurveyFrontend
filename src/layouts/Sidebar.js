@@ -8,13 +8,7 @@ import Operations from "../assets/images/icons/Operations.svg";
 
 //Sub Icon Images
 import jiIcon from "../assets/images/icons/jiIcon.svg";
-import vesselIcon from "../assets/images/icons/vesselIcon.svg";
-import truckIcon from "../assets/images/icons/truckIcon.svg";
-import rakeIcon from "../assets/images/icons/rakeIcon.svg";
-import plantIcon from "../assets/images/icons/plantIcon.svg";
-import stackIcon from "../assets/images/icons/stackIcon.svg";
 import ccIcon from "../assets/images/icons/ccIcon.svg";
-
 import jrfIcon from "../assets/images/icons/jrfIcon.svg";
 import sampleInwardIcon from "../assets/images/icons/sampleInwardIcon.svg";
 import testmemoIcon from "../assets/images/icons/testmemoIcon.svg";
@@ -28,11 +22,7 @@ import otherTpiIcon from "../assets/images/icons/otherTpiIcon.svg";
 
 //Sub Icon Hovered or Active Image
 import jiIconHover from "../assets/images/icons/jiIconHover.svg";
-import vesselIconHover from "../assets/images/icons/vesselIconHover.svg";
-import truckIconHover from "../assets/images/icons/truckIconHover.svg";
-import rakeIconHover from "../assets/images/icons/rakeIconHover.svg";
 import plantIconHover from "../assets/images/icons/plantIconHover.svg";
-import stackIconHover from "../assets/images/icons/stackIconHover.svg";
 import ccIconHover from "../assets/images/icons/ccIconHover.svg";
 
 import jrfIconHover from "../assets/images/icons/jrfIconHover.svg";
@@ -190,14 +180,6 @@ const navigation = [
     isMainPrmission: 1,
     submenu: [
       {
-        title: "Consortium",
-        href: "/operation/consortiums-list",
-        icon: "bi bi-clipboard-check ",
-        image: ccIcon,
-        hoverImage: ccIconHover,
-        permission: "consortiumorder",
-      },
-      {
         title: "Job Instructions",
         href: "/operation/jrfInstructionListing",
         icon: "bi bi-clipboard-check ",
@@ -207,47 +189,7 @@ const navigation = [
         // permission: "commercialcertificate",
       },
       {
-        title: "Vessel",
-        href: "/operation/vessel-ji-list",
-        icon: "bi bi-clipboard-check ",
-        image: vesselIcon,
-        hoverImage: vesselIconHover,
-        permission: "jioperationjsonb",
-      },
-      {
-        title: "Truck",
-        href: "/operation/truck-list",
-        icon: "bi bi-clipboard-check ",
-        image: truckIcon,
-        hoverImage: truckIconHover,
-        permission: "jioperationjsonb",
-      },
-      {
-        title: "Rake",
-        href: "/operation/rake-list",
-        icon: "bi bi-clipboard-check ",
-        image: rakeIcon,
-        hoverImage: rakeIconHover,
-        permission: "jioperationjsonb",
-      },
-      {
-        title: "Stack",
-        href: "/operation/stack-list",
-        icon: "bi bi-clipboard-check ",
-        image: stackIcon,
-        hoverImage: stackIconHover,
-        permission: "jioperationjsonb",
-      },
-      {
-        title: "Plant",
-        href: "/operation/plant-list",
-        icon: "bi bi-clipboard-check ",
-        image: plantIcon,
-        hoverImage: plantIconHover,
-        permission: "jioperationjsonb",
-      },
-      {
-        title: "Others",
+        title: "Draught Survey",
         href: "/operation/other-list",
         icon: "bi bi-info-circle",
         hoverImage: plantIconHover,

@@ -1,43 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Row, Col } from "reactstrap";
+import React from "react";
 
-import formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
-import formConfig2 from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
-import H_H_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/H&HOperation.json";
-import OnlySeal_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/OnlySealOperation.json";
-import QuantityAssessment_formConfig from "../../../../formJsonData/Operations/Rake/RakeOperations/QuantityAssessmentOperation.json";
-import supervission_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/supervission.json";
-import DraftSurvey_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/DraftSurvey.json";
-import ScopeWork_GroupParameters from "../../../../formJsonData/Operations/Vessel/VesseLOperations/ScopeWork_GroupParameters.json";
-import sizeAnalysis_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sizeAnalysis_Details.json";
-import sentToJRF_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sentToJRF_Detail.json";
+const RemovedRakeOperations = () => null;
 
-import Form from "../../../../components/common/Form";
-import { sampleMarkOptionsApi } from "../../../../services/api";
-import { postDataFromApi } from "../../../../services/commonServices";
-import commonFields from "../../../../formJsonData/Operations/commonFields.json";
-import commonFieldsRake from "../../../../formJsonData/Operations/commonFieldsRake.json";
-import { useParams } from "react-router-dom";
-import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSActivityHeaderTab, getLMSOperationActivity, getRakeOperations, getSampleCollectionActivity ,getActivityCode} from "../../../../services/commonFunction";
-import { getVesselOperation } from "../../../../services/commonFunction";
-import sample_collection from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sample_collection.json";
-const RakeOperations = () => {
-  let { TMLType } = useParams();
-  TMLType = TMLType ? decryptDataForURL(TMLType) : "";
-  TMLType = getActivityCode(TMLType)
-  TMLType = TMLType && TMLType.toLowerCase() != "othertpi" ? TMLType.toLowerCase() : TMLType
-  const [actualConfigData, setActualConfigData] = useState(formConfig);
-  const countRef = useRef(0);
-  const [isViewOnly, setIsViewOnly] = useState(false);
-  const [operationStepNo, setOperationStepNo] = useState(0);
-  const [operationMode, setOperationMode] = useState("");
-  const tileSubHeaderQAss = [{ Text: "Quantity Assessment" }];
-  const tileSubHeaderQA = getLMSActivityHeaderTab(TMLType)
-  useEffect(() => {
-    const hash = window.location.hash;
-    const params = new URLSearchParams(hash.split("?")[1]);
-    let useFor = params.get("useFor") ? params.get("useFor") : "";
+export default RemovedRakeOperations;
 
     useFor = decryptDataForURL(useFor).toLowerCase();
     setIsViewOnly(useFor === "viewonly" ? true : false);

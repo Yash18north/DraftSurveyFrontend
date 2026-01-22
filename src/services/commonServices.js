@@ -6,9 +6,9 @@ import {
   encryptData,
 } from "../utills/useCryptoUtils";
 import { store } from "./store";
-export const isDevelopments = "UAT";
-const isEncryption = "TRUE";
-export const developmentURL = process.env.REACT_APP_API_OPS_UAT_URL;
+export const isDevelopments = "DEV";
+const isEncryption = "FALSE";
+export const developmentURL = process.env.REACT_APP_API_DEV_URL;
 export const MainUrl = developmentURL
 
 const BASE_URL = MainUrl + "/api/v1";

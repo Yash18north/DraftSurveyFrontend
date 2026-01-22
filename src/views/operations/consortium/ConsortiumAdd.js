@@ -1,17 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Row, Col } from "reactstrap";
+import React from "react";
 
-import formConfig from "../../../formJsonData/Operations/Consortium/ConsortiumAdd.json";
-import Form from "../../../components/common/Form";
-const ConsortiumAdd = () => {
-  const [masterResponse, setMasterResponse] = useState([]);
-  return (
-    <Row className="rowWidthAdjust">
-      <Col>
-        <Form formConfig={formConfig} masterResponse={masterResponse} setMasterResponse={setMasterResponse}/>
-      </Col>
-    </Row>
-  );
-};
+const RemovedConsortiumAdd = () => null;
 
-export default ConsortiumAdd;
+export default RemovedConsortiumAdd;
