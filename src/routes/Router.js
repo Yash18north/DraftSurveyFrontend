@@ -152,13 +152,8 @@ const OperationCertificate = lazy(() => import("../views/operations/vessel/Opera
 const OtherTPIOperation = lazy(() => import("../views/operations/vessel/otherTPIOperation.js"));
 const Support = lazy(() => import("../views/Support.js"));
 const ReleaseNotes = lazy(() => import("../views/ReleaseNotes.js"));
-const LaboratoryDashboard = lazy(() => import("../views/Dashboard/LaboratoryDashboard.js"));
-const OperationAnalystDashboard = lazy(() => import("../views/Dashboard/OperationAnalystDashboard.js"));
-const OtherAnalystDashboard = lazy(() => import("../views/Dashboard/OtherAnalystDashboard.js"));
-const CreditControlDashboard = lazy(() => import("../views/Dashboard/CreditControlDashboard.js"));
 const JIManPower = lazy(() => import("../views/operations/JIManPower.js"));
 const OtherTPIList = lazy(() => import("../views/operations/OtherTPIList.js"));
-const OverallAnalytics = lazy(() => import("../views/Dashboard/OverallAnalytics.js"));
 //Plant Functions
 const PlantJIList = lazy(() => import("../views/operations/plant/PlantJIList.js"));
 const PlantList = lazy(() => import("../views/operations/plant/PlantList.js"));
@@ -173,15 +168,6 @@ const ConsortiumAdd = lazy(() => import("../views/operations/consortium/Consorti
 
 // Srushti 
 
-// Audit
-const BranchExpenseList = lazy(() => import("../views/Audit/BranchExpense/BranchExpenseList.js"));
-const SalesRegisterList = lazy(() => import("../views/Audit/SalesRegister/SalesRegisterList.js"));
-const OutstandingList = lazy(() => import("../views/Audit/Outstanding/OutstandingList.js"));
-const BranchExpenseForm = lazy(() => import("../views/Audit/BranchExpense/BranchExpenseForm.js"));
-const SalesRegisterForm = lazy(() => import("../views/Audit/SalesRegister/SalesRegisterForm.js"));
-const OutstandingForm = lazy(() => import("../views/Audit/Outstanding/OutstandingForm.js"));
-const JobCostingList = lazy(() => import("../views/Audit/JobCosting/JobCostingList.js"))
-const JobCostingEdit = lazy(() => import("../views/Audit/JobCosting/JobCostingEdit.js"))
 
 // Calibration
 const CalibrationForm = lazy(() => import("../views/Purchase/Calibration/CalibrationForm.js"));
@@ -780,67 +766,6 @@ const ThemeRoutes = [
 
       // Srushti
 
-      // Audit
-      {
-        path: "/audit/job-costing-list",
-        exact: true,
-        element: <ProtectedRoute component={JobCostingList} />,
-      },
-      {
-        path: "/audit/job-costing-list",
-        exact: true,
-        element: <ProtectedRoute component={JobCostingList} />
-      },
-      {
-        path: "/audit/job-costing-edit/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={JobCostingEdit} />,
-      },
-      {
-        path: "/audit/branch-expense-list",
-        exact: true,
-        element: <ProtectedRoute component={BranchExpenseList} />,
-      },
-      {
-        path: "/audit/outstanding-list",
-        exact: true,
-        element: <ProtectedRoute component={OutstandingList} />,
-      },
-      {
-        path: "/audit/sales-register-list",
-        exact: true,
-        element: <ProtectedRoute component={SalesRegisterList} />,
-      },
-      {
-        path: "/audit/auditSalesRegisterForm",
-        exact: true,
-        element: <ProtectedRoute component={SalesRegisterForm} />,
-      },
-      {
-        path: "/audit/auditSalesRegisterForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={SalesRegisterForm} />,
-      },
-      {
-        path: "/audit/auditBranchExpenseForm",
-        exact: true,
-        element: <ProtectedRoute component={BranchExpenseForm} />,
-      },
-      {
-        path: "/audit/auditBranchExpenseForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={BranchExpenseForm} />,
-      },
-      {
-        path: "/audit/auditOutstandingForm",
-        exact: true,
-        element: <ProtectedRoute component={OutstandingForm} />,
-      },
-      {
-        path: "/audit/auditOutstandingForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={OutstandingForm} />,
-      },
 
       // Purchase 
       {
@@ -1066,12 +991,7 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={InvoicePreview} />,
       },
-      { path: "/analytics/laboratory", exact: true, element: <LaboratoryDashboard /> },
-      { path: "/analytics/ops-analytics", exact: true, element: <OperationAnalystDashboard /> },
-      { path: "/analytics/other-analytics", exact: true, element: <OtherAnalystDashboard /> },
-      { path: "/analytics/credit-control", exact: true, element: <CreditControlDashboard /> },
-      { path: "/analytics/overall-analytics", exact: true, element: <OverallAnalytics /> },
-      {
+            {
         path: "/operation/tally-list",
         exact: true,
         element: <ProtectedRoute component={TallyListing} />,

@@ -84,7 +84,8 @@ import {
   getFormatedDate,
   getDateFromCreatedAt,
   getPurchaseManager,
-  handleCommonCustomConfirmHandler
+  handleCommonCustomConfirmHandler,
+  getCurrentRole
 } from "../../services/commonFunction";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -105,22 +106,16 @@ import {
   handleInwardStatusChange,
 } from "./commonHandlerFunction/sampleInwardHandlerFunctions";
 import GroupAssignmentButtons from "./ShowButtons/GroupAssignmentButtons";
-import { GroupAssignmentButtons as stubGroupAssignmentButtons } from "../../utils/stubFunctions";
 import GroupAssignmentPreviewButtons from "./ShowButtons/GroupAssignmentPreviewButtons";
-import { GroupAssignmentPreviewButtons as stubGroupAssignmentPreviewButtons } from "../../utils/stubFunctions";
 import SampleInwardButtons from "./ShowButtons/SampleInwardButtons";
-import { SampleInwardButtons as stubSampleInwardButtons } from "../../utils/stubFunctions";
 import InternalCertificateButtons from "./ShowButtons/InternalCertificateButtons";
 
 import ViewCheckListButtons from "./ShowButtons/ViewCheckListButtons";
 import JRFButtons from "./ShowButtons/JRFButtons";
 import JIButtons from "./ShowButtons/operations/JIButtons";
-import AuditButtons from "./ShowButtons/AuditButtons";
 import TenderButton from "./ShowButtons/Tender/TenderButton";
 import TestMemoButtons from "./ShowButtons/TestMemoButtons";
-import { TestMemoButtons as stubTestMemoButtons } from "../../utils/stubFunctions";
 import SampleVerificationButtons from "./ShowButtons/SampleVerificationButtons";
-import { SampleVerificationButtons as stubSampleVerificationButtons } from "../../utils/stubFunctions";
 import AllotmentButtons from "./ShowButtons/AllotmentButtons";
 import OperationCertificateButtons from "./ShowButtons/OperationCertificateButtons";
 import CommercialCertificateButtons from "./ShowButtons/CommercialCertificateButtons";
@@ -142,7 +137,6 @@ import {
   handleSFMVerificationMain,
 } from "./commonHandlerFunction/sfmHandlerFunctions";
 import SFMButtons from "./ShowButtons/SFMButtons";
-import { SFMButtons as stubSFMButtons } from "../../utils/stubFunctions";
 import {
   changeTestReportStatusChange,
   checkICULRNoAvailibility,
@@ -229,28 +223,17 @@ import RenderTableManualMultiEntrySection from "./RenderTableManualMultiEntrySec
 
 import { useLocation } from 'react-router-dom';
 import ConsortiumButton from "./ShowButtons/operations/ConsortiumButton";
-import { ConsortiumButton as stubConsortiumButton } from "../../utils/stubFunctions";
 import InvoiceButton from "./ShowButtons/operations/InvoiceButton";
-import { InvoiceButton as stubInvoiceButton } from "../../utils/stubFunctions";
 
 
 import { getSingleConsortiumRecord, handleConsortiumCreateOrUpdate } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 
 import JobCostingButton from "./ShowButtons/JobCosting";
-import { JobCostingButton as stubJobCostingButton } from "../../utils/stubFunctions";
 import { Input } from "reactstrap";
-import { getCalculationsForJobCosting, handleFormCreateAndUpdate, handleFormSave, handleFormUpdate, handleFormUpdateAndUpdate, handleGetJobCostingList, handleJobCostingFormCreateAndUpdate } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
 // import { handleFormCreateAndUpdate } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
-import OutStandingButtons from "./ShowButtons/Audit/OutStanding/OutStandingButtons";
-import { OutStandingButtons as stubOutStandingButtons } from "../../utils/stubFunctions";
-import { getMonthlyOutStanding, getTotalBranchAmountValue, getYearlyOutStanding, handleGetSingleOutstanding, OutStandingExtraFields } from "./commonHandlerFunction/Audit/OutStanding/OutStandingHandlerFunction";
-import { auditSalesRegisterExtraFields, getTotalBranchAmountValueForSalesRegister, handleGetSingleSalesRegister } from "./commonHandlerFunction/Audit/SalesRegister/SalesRegisterHandlerFunction";
 // import { getInvoiceData, handleInvoiceCreateOrUpdate } from "./commonHandlerFunction/InvoiceHandlerFunctions";
-import { getCalculationForBranchExpense, getSingleBranchExpense } from "./commonHandlerFunction/Audit/BranchExpenseHandler";
 import DocumentPopup from "../../views/Document/UploadFiles/DocumentPopup";
-import SalesRegisterButtons from "./ShowButtons/Audit/SalesRegister/SalesRegisterButton";
-import { SalesRegisterButtons as stubSalesRegisterButtons } from "../../utils/stubFunctions";
-
+// Removed SalesRegisterButtons import statement
 
 
 import { handleInvoiceCreateOrUpdate, getInvoiceData, handleInvoiceStubUpdate, hanfleInvoiceStatusChange } from "./commonHandlerFunction/InvoiceHandlerFunctions";
@@ -261,13 +244,9 @@ import { set } from "rsuite/esm/internals/utils/date";
 import Document from "../../formJsonData/Operations/jobinstructions/DocumentPopup.json";
 import RenderTallyListSection from "./RenderTallyListSection ";
 import PurchaseButtons from "./ShowButtons/Purchase/PurchasingOrder/PurchaseButtons";
-import { PurchaseButtons as stubPurchaseButtons } from "../../utils/stubFunctions";
 import PurchaseRequistionButtons from "./ShowButtons/Purchase/PurchaseRequistion/PurchaseRequistionButton";
-import { PurchaseRequistionButtons as stubPurchaseRequistionButtons } from "../../utils/stubFunctions";
 import CalibrationsButtons from "./ShowButtons/Purchase/Calibration/CalibrationsButtons";
-import { CalibrationsButtons as stubCalibrationsButtons } from "../../utils/stubFunctions";
 import SupplierButtons from "./ShowButtons/Purchase/Supplier/SupplierButtons";
-import { SupplierButtons as stubSupplierButtons } from "../../utils/stubFunctions";
 import PopUpPurchaseReq from "./PopUpPurchaseReq";
 import { handleGetPurchaseReq, handlePurchaseReqUpdateCreate } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseRequsitionHandler";
 import { handleGetSupplier } from "./commonHandlerFunction/Purchase/Supplier/SupplierHandler";
@@ -276,26 +255,20 @@ import { handleGetCalibration } from "./commonHandlerFunction/Purchase/Calibrati
 import { getCalculationsForPrice, getCalculationsForTotal, handleGetPurchaseOrder, handlePurchaseOrderCreateUpdate } from "./commonHandlerFunction/Purchase/PurchaseOrder/PurchaseOrderHandler";
 import { handleGetTender } from "./commonHandlerFunction/Tender/TenderHandlerFunc";
 import ChemicalStocksButtons from "./ShowButtons/ChemicalStocks/Stocks";
-import { ChemicalStocksButtons as stubChemicalStocksButtons } from "../../utils/stubFunctions";
 import { getChemicalStock } from "./commonHandlerFunction/ChemicalStocks/ChemicalstockHandler";
 import FeedbackButton from "./ShowButtons/Feedback/FeedbackButton";
-import { FeedbackButton as stubFeedbackButton } from "../../utils/stubFunctions";
 import IncentiveButton from "./ShowButtons/Feedback/IncentiveButton";
-import { IncentiveButton as stubIncentiveButton } from "../../utils/stubFunctions";
 import { handleGetFeedback } from "./commonHandlerFunction/Feedback/FeedbackHandler";
 import { handleGetCategory } from "./commonHandlerFunction/Purchase/Category/CategoryHandler"
 import { getBillingDelayDayCount, getJobCostingIncDataFunc, handleGetIncentive, incentivesCalculationData } from "./commonHandlerFunction/Feedback/IncentiveHandler";
 import PurchaseItemButton from "./ShowButtons/Purchase/Items/PurchaseItemButton";
-import { PurchaseItemButton as stubPurchaseItemButton } from "../../utils/stubFunctions";
 import { handleGetPurchaseItem } from "./commonHandlerFunction/Purchase/Items/ItemsHandler";
 import moment from "moment";
 import { handleActivityForInvoice, handleMultipleRefForInvoice } from "./commonHandlerFunction/operations/invoiceHandlerFunctions";
 import CustomPopupModal from "./commonModalForms/CustomPopupModal";
 import { handleGetclientMAsterData, handleGetUserMAsterData } from "./commonHandlerFunction/MasterData/Users/userHandler";
 import CategoryBtn from "./ShowButtons/Purchase/Category/CategoryBtns";
-import { CategoryBtn as stubCategoryBtn } from "../../utils/stubFunctions";
 import ClientDetailsButtons from "./ShowButtons/ClientDetails/ClientDetailsButtons";
-import { ClientDetailsButtons as stubClientDetailsButtons } from "../../utils/stubFunctions";
 
 export const selectUser = (state) => state.user;
 export const selectRolePermissions = (state) => state.rolePermissions;
@@ -352,7 +325,6 @@ const Forms = ({
   isRegularJRF,
   ...props
 }) => {
-
   let {
     EditRecordId,
     editReordType,
@@ -601,7 +573,7 @@ const Forms = ({
         const view = decryptDataForURL(params.get("view"));
         const status = decryptDataForURL(params.get("status"));
         setPageType(status);
-        if (view === "view" || user?.role !== "LR") {
+        if (view === "view" || !['LR', 'SU'].includes(user?.role)) {
           setViewOnly(true);
           setAction(view);
         }
@@ -695,40 +667,17 @@ const Forms = ({
           setViewOnly(true);
           setAction(status);
         }
-        if (EditRecordId) {
-          handleGetJobCostingList(
-            EditRecordId,
-            setFormData,
-
-          )
-        }
-
       }
       else if (moduleType == "auditBranchExpenses") {
         if (status === "View") {
           setViewOnly(true);
           setAction(status);
         }
-        if (EditRecordId) {
-          getSingleBranchExpense(
-            EditRecordId,
-            setFormData,
-            status
-          )
-        }
-
       }
       else if (moduleType === "auditOutstanding") {
         if (status === "View") {
           setViewOnly(true);
           setAction(status);
-        }
-        if (EditRecordId) {
-          handleGetSingleOutstanding(
-            EditRecordId,
-            setFormData,
-            status
-          )
         }
       }
       else if (moduleType === "auditSalesRegister") {
@@ -736,14 +685,6 @@ const Forms = ({
           setViewOnly(true);
           setAction(status);
         }
-        if (EditRecordId) {
-          handleGetSingleSalesRegister(
-            EditRecordId,
-            setFormData,
-            status
-          )
-        }
-
       }
       else if (moduleType === "tender") {
         if (status === "View") {
@@ -1964,20 +1905,9 @@ const Forms = ({
         setJrfId,
         navigate,
         setIsPopupOpen,
-        jrfCreationType,
-        isExternalJRF,
-        setIsOverlayLoader,
-        isRegularJRF
-      );
-    } else if (moduleType === "jobCosting") {
-      handleJobCostingFormCreateAndUpdate(
-        formData,
-        formConfig,
-        setIsOverlayLoader,
-        setIsPopupOpen,
-        navigate,
-        setFormData
       )
+    } else if (moduleType === "jobCosting") {
+      // Removed handleJobCostingFormCreateAndUpdate function call
     }
     else {
       navigate(redirectURL);
@@ -2358,8 +2288,8 @@ const Forms = ({
         }
       }
 
-      if (customFilterData?.[1]?.search_financial_year) {
-        querystring += '&financial_year=' + customFilterData?.[1]?.search_financial_year
+      if (customFilterData?.[1]?.search_financial_year && customFilterData?.[1]?.search_financial_year !== "all") {
+        querystring += '&fin_year=' + customFilterData?.[1]?.search_financial_year
       }
       setLoadingTable(true);
       let res;
@@ -2415,7 +2345,7 @@ const Forms = ({
     isClearBtn = "",
     isCustomFilter,
     // customFilterType,
-    // customFilterValue
+    // customFilterValue,
   ) => {
     try {
       if (["tender", "stocks", "incentives"].includes(listModuleType)) {
@@ -2561,8 +2491,8 @@ const Forms = ({
 
         setLoadingTable(true);
         let res;
-        if (customFilterData?.[1]?.search_financial_year) {
-          querystring += '&financial_year=' + customFilterData?.[1]?.search_financial_year
+        if (customFilterData?.[1]?.search_financial_year && customFilterData?.[1]?.search_financial_year !== "all") {
+          querystring += '&fin_year=' + customFilterData?.[1]?.search_financial_year
         }
         if (formConfig?.listView?.subModuleType === "commercialCertificate") {
           res = await postDataFromApi(endPoint + querystring);
@@ -2717,6 +2647,9 @@ const Forms = ({
     if (["sampleinward", "sampleverification", "jobinstruction", "auditSalesRegister", "auditBranchExpenses", "auditOutstanding", "purchaseReq", "purchase", 'incentives', 'allotment', 'jrf', 'dashboard', 'supplier', 'purchaseItems', 'calibration', 'stocks'].includes(
       listModuleType
     )) {
+      if (['SU'].includes(user?.role)) {
+        return true
+      }
       if (listModuleType === "allotment") {
         return CommonTMRoles.includes(user?.role)
       }
@@ -2741,8 +2674,8 @@ const Forms = ({
         return
       }
       let endPoint = formConfig?.apiEndpoints?.statuCount;
-      if (customFilterData?.[1]?.search_financial_year) {
-        endPoint += '?financial_year=' + customFilterData?.[1]?.search_financial_year
+      if (customFilterData?.[1]?.search_financial_year && customFilterData?.[1]?.search_financial_year !== "all") {
+        endPoint += '?fin_year=' + customFilterData?.[1]?.search_financial_year
       }
       const res = await getDataFromApi(endPoint);
 
@@ -3286,6 +3219,25 @@ const Forms = ({
             },
           };
         });
+      } else if (fieldName === "fk_prev_po_details") {
+        setFormData((prevFormData) => {
+          return {
+            ...prevFormData,
+            [0]: {
+              ...prevFormData[0],
+              "fk_supplier_id": optionDetails?.fk_supplier_id,
+              "po_billing_address": optionDetails?.supplier_details?.sup_address,
+              "po_gst_no": optionDetails?.supplier_details?.sup_gst_no,
+              "po_payment_term": optionDetails?.supplier_details?.sup_payment_terms,
+              "po_vendor_id": optionDetails?.supplier_details?.sup_id,
+              "po_vendor_name": optionDetails?.supplier_details?.sup_name,
+              "po_ship_to": optionDetails?.po_ship_to,
+              "po_ship_address": optionDetails?.po_ship_to_details?.cmp_address,
+              "po_quotation_no": optionDetails?.po_quotation_no,
+
+            },
+          };
+        });
       }
       else {
         let updatedFormData = { ...formData[1] };
@@ -3523,18 +3475,18 @@ const Forms = ({
       })
     }
     setTempJson([...newFields])
-    if (tempJson.length && formConfig?.sections?.[0]?.fields !== undefined) {
+    if (tempJson.length && formConfig?.sections?.[0]?.fields) {
       formConfig.sections[0].fields = formConfig.sections[0]?.fields?.filter(
         field => !tempJson.find(tempField => tempField.name === field.name)
       );
     }
     if (moduleType === "auditOutstanding") {
 
-      formConfig.sections[0].fields = OutStandingExtraFields
+      formConfig.sections[0].fields = []
     }
     else if (moduleType === "auditSalesRegister") {
 
-      formConfig.sections[0].fields = auditSalesRegisterExtraFields
+      formConfig.sections[0].fields = []
     }
     if (formData[0]?.branch_name != undefined) {
       formConfig.sections[0].fields?.splice(7, 0, ...newFields);
@@ -3645,9 +3597,7 @@ const Forms = ({
     }
   }, [formData[0]?.jc_inv_amt]);
   useEffect(() => {
-    if (moduleType === "jobCosting" && formData[0]) {
-      getCalculationsForJobCosting(formData[0], setFormData);
-    }
+    // Removed job costing calculations
   }, [
     formData[0]?.jc_misc_3p,
     formData[0]?.jc_ho_exp_10p,
@@ -3664,7 +3614,7 @@ const Forms = ({
   ]);
 
   useEffect(() => {
-    getCalculationForBranchExpense(formData[0], setFormData);
+    // Removed branch expense calculations
   }, [
     formData[0]?.salary_payroll,
     formData[0]?.salary_casual,
@@ -5180,7 +5130,8 @@ const Forms = ({
     }
     if (['operationCertificate', 'jobinstruction', 'vesselJICertificate'].includes(moduleType)) {
       if (cell.type === "date") {
-        cell.noRestrictionApply = true
+        // cell.noRestrictionApply = true || ['SU'].includes(getCurrentRole())
+        cell.noRestrictionApply = true || ['SU'].includes(getCurrentRole())
       }
     }
     // if (cell.name === "iv_jireference") {
@@ -5836,159 +5787,178 @@ const Forms = ({
   };
 
   const handlePublish = async () => {
-    let row = session?.selectedSingleRow;
-    if (row.cc_is_external) {
-      PublishCertificate(row.cc_id, "published");
-      return
-    }
-    //Use This Dynamic Folder ID
-    let folderPayload = {
-      data: {
-        // "fd_name": "27C2425A01VL0028"
-        fd_name: row?.cc_refencenumber,
-      },
-      parent_folder: "commercial_certificate",
-    };
-    let folderRes = await postDataFromApi(folderCreateApi, folderPayload);
-    let FolderID;
-    setLoading(true);
-
-    if (folderRes.data.status === 201 || folderRes.data.status === 200) {
-      FolderID = folderRes?.data?.data.fd_id;
-    } else {
-      FolderID = folderRes?.data?.message?.existing_folder_id;
-    }
-    if (
-      FolderID &&
-      (folderRes?.data.status === 200 || folderRes?.data?.status === 400)
-    ) {
-      let payload, generateCertificateResponse;
-      if (
-        !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
-      ) {
-        let payload = {
-          ji_id: row?.fk_jiid,
-          jis_id: row?.fk_jisid,
-          tenant: 1,
-        };
-        let OPSDSRes = await getNonLMSDetailsById(getActivityCode(row.activity_code).toLowerCase(), payload);
-        if (OPSDSRes.data.status === 200) {
-          generateCertificateResponse = await downLoadNonLMSCertificatePDFById(
-            getActivityCode(row?.activity_code).toLowerCase(),
-            OPSDSRes?.data?.data?.opsvd_id,
-            row?.cc_id,
-            "",
-            row?.fk_jisid
-          );
-        }
-      } else {
-        payload = {
-          ji_id: row?.fk_jiid,
-          cc_id: row?.cc_id,
-        };
-        if (isUseForPhysical) {
-          generateCertificateResponse = await postDataFromApi(physicalAnalysisPDF, payload, "", true, "", "");
-        }
-        else if (OperationType == getTruckOperations("DTM")) {
-          generateCertificateResponse = await postDataFromApi(truckQAPdfApi, payload, "", true, "", "");
-        }
-        else if ([getPlantOperations("TR"), getTruckOperations("QS")].includes(OperationType)) {
-          generateCertificateResponse = await postDataFromApi(truckQA2PdfApi, payload, "", true, "", "");
-        }
-        else if ([getPlantOperations("RK"), getRakeOperations('QA')].includes(OperationType)) {
-          generateCertificateResponse = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
-        }
-        else if (OperationType == getTruckOperations('CS')) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if (OperationType == getStackOperations("PV") || OperationType == getStackOperations()) {
-          generateCertificateResponse = await postDataFromApi(stackQAPdfApi, payload, "", true, "", "");
-        }
-        else if (OperationType == getVesselOperation('CS')) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if (OperationType == getVesselOperation('bulk_crg')) {
-          generateCertificateResponse = await postDataFromApi(bulkCargoPDF, payload, "", true, "", "");
-        }
-        else if (OperationType == getVesselOperation('VL_TML_M')) {
-          generateCertificateResponse = await postDataFromApi(tmlMoisturePDFApi, payload, "", true, "", "");
-        }
-        else if (OperationType == getRakeOperations('RK_SV')) {
-          payload.jis_id = opsTypeID
-          generateCertificateResponse = await postDataFromApi(opsRakeSVPDFApi, payload, "", true, "", "");
-        }
-        else if (OperationType == getStackOperations('ST_SV')) {
-          payload.jis_id = opsTypeID
-          generateCertificateResponse = await postDataFromApi(opsStackSVPDFApi, payload, "", true, "", "");
-        }
-        else {
-          generateCertificateResponse = await postDataFromApi(ccCertPdfApi, payload, "", true, "", "");
-
-        }
+    try {
+      setIsOverlayLoader(true)
+      let row = session?.selectedSingleRow;
+      if (row.cc_is_external) {
+        PublishCertificate(row.cc_id, "published");
+        return
       }
+      //Use This Dynamic Folder ID
+      let folderPayload = {
+        data: {
+          // "fd_name": "27C2425A01VL0028"
+          fd_name: row?.cc_refencenumber,
+        },
+        parent_folder: "commercial_certificate",
+      };
+      let folderRes = await postDataFromApi(folderCreateApi, folderPayload);
+      let FolderID;
+      setLoading(true);
 
+      if (folderRes.data.status === 201 || folderRes.data.status === 200) {
+        FolderID = folderRes?.data?.data.fd_id;
+      } else {
+        FolderID = folderRes?.data?.message?.existing_folder_id;
+      }
       if (
-        generateCertificateResponse &&
-        generateCertificateResponse.data &&
-        generateCertificateResponse.data.status === 200
+        FolderID &&
+        (folderRes?.data.status === 200 || folderRes?.data?.status === 400)
       ) {
-        const pdfBlob = new Blob([generateCertificateResponse.data], {
-          type: "application/pdf",
-        });
-        let payload = new FormData();
-        payload.append("document", pdfBlob, (row?.activity + "_" + row?.cc_certificatenumber + ".pdf") || "certificate.pdf");
-        payload.append("model_type ", "commercial_certificate");
-        payload.append("bypass_file_size_check ", true);
-        payload.append("sub_folder", 6);
-        let uploadResponse = await postDataFromApi(
-          masterUploadApi,
-          payload,
-          "TRUE"
-        );
-
-        if (uploadResponse.data.status === 200) {
+        let payload, generateCertificateResponse;
+        if (
+          !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
+        ) {
           let payload = {
-            data: {
-              dl_folder: FolderID,
-              // dl_sub_folder: 6,
-              dl_module: "commercial_certificate",
-              dl_document_name:
-                row?.cc_refencenumber || row?.cc_certificatenumber,
-              dl_document_reference: row?.fk_jiid,
-              dl_document_jisid: row?.fk_jisid,
-              dl_type: "Document Type",
-              dl_show_to_all: true,
-              dl_s3_url: uploadResponse.data?.data?.document,
-              dl_version: "1.0",
-              dl_file_type: getActivityName(row?.activity) + "_Certificate",
-              dl_date_uploaded: new Date(),
-              dl_status: "Active",
-              // dl_assigned_to: "Assigned User",
-              dl_discription:
-                getActivityName(row?.activity) ||
-                row?.cc_topheader ||
-                row?.cc_refencenumber ||
-                row?.cc_certificatenumber,
-              fk_cc_id: row?.cc_id
-              // document_type: "published_certificate",
-              // doc_ref_id: row?.cc_id
-            },
+            ji_id: row?.fk_jiid,
+            jis_id: row?.fk_jisid,
+            tenant: 1,
           };
-          let documentResponse = await postDataFromApi(
-            documentCreateApi,
-            payload
+          let OPSDSRes = await getNonLMSDetailsById(getActivityCode(row.activity_code).toLowerCase(), payload);
+          if (OPSDSRes.data.status === 200) {
+            generateCertificateResponse = await downLoadNonLMSCertificatePDFById(
+              getActivityCode(row?.activity_code).toLowerCase(),
+              OPSDSRes?.data?.data?.opsvd_id,
+              row?.cc_id,
+              "",
+              row?.fk_jisid
+            );
+          }
+        } else {
+          payload = {
+            ji_id: row?.fk_jiid,
+            cc_id: row?.cc_id,
+          };
+          if (isUseForPhysical) {
+            generateCertificateResponse = await postDataFromApi(physicalAnalysisPDF, payload, "", true, "", "");
+          }
+          else if (OperationType == getTruckOperations("DTM")) {
+            generateCertificateResponse = await postDataFromApi(truckQAPdfApi, payload, "", true, "", "");
+          }
+          else if ([getPlantOperations("TR"), getTruckOperations("QS")].includes(OperationType)) {
+            generateCertificateResponse = await postDataFromApi(truckQA2PdfApi, payload, "", true, "", "");
+          }
+          else if ([getPlantOperations("RK"), getRakeOperations('QA')].includes(OperationType)) {
+            generateCertificateResponse = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
+          }
+          else if (OperationType == getTruckOperations('CS')) {
+            generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
+          }
+          else if (OperationType == getStackOperations("PV") || OperationType == getStackOperations()) {
+            generateCertificateResponse = await postDataFromApi(stackQAPdfApi, payload, "", true, "", "");
+          }
+          else if (OperationType == getVesselOperation('CS')) {
+            generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
+          }
+          else if (OperationType == getVesselOperation('bulk_crg')) {
+            generateCertificateResponse = await postDataFromApi(bulkCargoPDF, payload, "", true, "", "");
+          }
+          else if (OperationType == getVesselOperation('VL_TML_M')) {
+            generateCertificateResponse = await postDataFromApi(tmlMoisturePDFApi, payload, "", true, "", "");
+          }
+          else if (OperationType == getRakeOperations('RK_SV')) {
+            payload.jis_id = opsTypeID
+            generateCertificateResponse = await postDataFromApi(opsRakeSVPDFApi, payload, "", true, "", "");
+          }
+          else if (OperationType == getStackOperations('ST_SV')) {
+            payload.jis_id = opsTypeID
+            generateCertificateResponse = await postDataFromApi(opsStackSVPDFApi, payload, "", true, "", "");
+          }
+          else {
+            generateCertificateResponse = await postDataFromApi(ccCertPdfApi, payload, "", true, "", "");
+          }
+        }
+
+        if (
+          generateCertificateResponse &&
+          generateCertificateResponse.data &&
+          generateCertificateResponse.data.status === 200
+        ) {
+          const pdfBlob = new Blob([generateCertificateResponse.data], {
+            type: "application/pdf",
+          });
+          let payload = new FormData();
+          payload.append("document", pdfBlob, (row?.activity + "_" + row?.cc_certificatenumber + ".pdf") || "certificate.pdf");
+          payload.append("model_type ", "commercial_certificate");
+          payload.append("bypass_file_size_check ", true);
+          payload.append("sub_folder", 6);
+          let uploadResponse = await postDataFromApi(
+            masterUploadApi,
+            payload,
+            "TRUE"
           );
 
-          if (documentResponse.data.status === 200) {
-            PublishCertificate(row.cc_id, "published");
+          if (uploadResponse.data.status === 200) {
+            let payload = {
+              data: {
+                dl_folder: FolderID,
+                // dl_sub_folder: 6,
+                dl_module: "commercial_certificate",
+                dl_document_name:
+                  row?.cc_refencenumber || row?.cc_certificatenumber,
+                dl_document_reference: row?.fk_jiid,
+                dl_document_jisid: row?.fk_jisid,
+                dl_type: "Document Type",
+                dl_show_to_all: true,
+                dl_s3_url: uploadResponse.data?.data?.document,
+                dl_version: "1.0",
+                dl_file_type: getActivityName(row?.activity) + "_Certificate",
+                dl_date_uploaded: new Date(),
+                dl_status: "Active",
+                // dl_assigned_to: "Assigned User",
+                dl_discription:
+                  getActivityName(row?.activity) ||
+                  row?.cc_topheader ||
+                  row?.cc_refencenumber ||
+                  row?.cc_certificatenumber,
+                fk_cc_id: row?.cc_id
+                // document_type: "published_certificate",
+                // doc_ref_id: row?.cc_id
+              },
+            };
+            let documentResponse = await postDataFromApi(
+              documentCreateApi,
+              payload
+            );
 
+            if (documentResponse.data.status === 200) {
+              PublishCertificate(row.cc_id, "published");
+
+            } else {
+              setLoading(false);
+            }
           } else {
+            toast.error(
+              uploadResponse?.message ||
+              uploadResponse?.data?.message ||
+              translate("loginPage.unExpectedError"),
+              {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              }
+            );
             setLoading(false);
           }
         } else {
           toast.error(
-            uploadResponse?.message ||
-            uploadResponse?.data?.message ||
+            generateCertificateResponse?.message ||
+            generateCertificateResponse?.data?.message ||
             translate("loginPage.unExpectedError"),
             {
               position: "top-right",
@@ -6004,25 +5974,11 @@ const Forms = ({
           setLoading(false);
         }
       } else {
-        toast.error(
-          generateCertificateResponse?.message ||
-          generateCertificateResponse?.data?.message ||
-          translate("loginPage.unExpectedError"),
-          {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          }
-        );
         setLoading(false);
       }
-    } else {
-      setLoading(false);
+    }
+    finally {
+      setIsOverlayLoader(false)
     }
   };
   const [IsPreviewUpload, setIsPreviewUpload] = useState(false);
@@ -6513,38 +6469,17 @@ const Forms = ({
 
       case "auditBranchExpenses":
         return (
-          <AuditButtons
-            moduleType={moduleType}
-            formData={formData}
-            formConfig={formConfig}
-            viewOnly={viewOnly}
-            setFormData={setFormData}
-            EditRecordId={EditRecordId}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-          />
+          <div>Audit functionality removed</div>
         );
 
       case "auditSalesRegister":
         return (
-          <SalesRegisterButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            EditRecordId={EditRecordId}
-            viewOnly={viewOnly}
-          />
+          <div>Sales register functionality removed</div>
         );
 
       case "auditOutstanding":
         return (
-          <OutStandingButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            EditRecordId={EditRecordId}
-            viewOnly={viewOnly}
-          />
+          <div>Outstanding functionality removed</div>
         );
 
       case "jobCosting":
@@ -7766,6 +7701,9 @@ const Forms = ({
                   )
                 }
 
+                {['SU'].includes(user?.role) && !viewOnly && <div className="alert alert-warning mt-2 py-2">
+                  <strong>Note:</strong> After clicking the <b>Post</b> button, the changes will reflect in the certificate.
+                </div>}
                 <p>
                   {rolesDetails.map((role, UserIndex) => (
                     <span key={"role-" + UserIndex}>
@@ -8063,11 +8001,30 @@ const Forms = ({
                                     !formData[1]?.sampleInwardIdMain
                                   ) {
                                     isViewOnly = false;
-                                  } else if (
+                                  } else {
+                                    isViewOnly = viewOnly;
+                                    //for temporry open date for inward
+                                    // if (field.name == "smpl_detail_dos" ||
+                                    //   field.name == "smpl_detail_recpt_mode") {
+                                    //   field.readOnly = false;
+                                    //   field.noRestrictionApply = true;
+                                    // }
+                                    // else if (field.type != 'label') {
+                                    //
+                                    if (field.type != 'label') {
+                                      field.type = 'label';
+                                    }
+                                  }
+                                  if (
                                     field.name === "jrf_branch_name" &&
                                     formData[0]?.jrf_is_external
                                   ) {
                                     isShow = false;
+                                  }
+                                  else if (field.name === "jrf_test_method") {
+                                    if (formData[0]?.jrf_is_ops) {
+                                      isShow = false;
+                                    }
                                   }
                                 } else if (moduleType === "jrf") {
                                   if (
@@ -8131,12 +8088,13 @@ const Forms = ({
                                     formData[0].status !== "cancel"
                                   ) {
                                     isShow = false;
-                                  } else if (field.name === "ji_is_consortium_order") {
+                                  }
+                                  else if (field.name === "ji_is_consortium_order") {
                                     if (formData[0]?.fk_operationtypetid_code != "CS") {
                                       isShow = false;
                                     }
                                   } else if (field.name === "fk_consortium_order" || field.name === "consortium_number") {
-                                    if (!formData[0]?.ji_is_consortium_order || formData[0]?.ji_is_consortium_order === "No") {
+                                    if (formData[0]?.ji_is_consortium_order === "No") {
                                       isShow = false;
                                     }
                                   } else if (field.name === "ji_dual_port_seq") {
@@ -8166,7 +8124,7 @@ const Forms = ({
                                     }
                                   }
                                   else if (field.name === "ji_eta") {
-                                    if (['PL', 'RK', 'ST', 'TR', 'PV', 'CS', 'PR', 'CV', 'BO', 'CN', 'RC', 'AS', 'SS', 'PL', 'CM', 'MI'].includes(formData[0]?.fk_operationtypetid_code)) {
+                                    if (['PL', 'RK', 'ST', 'TR', 'PV', 'CS', 'PR', 'CV', 'BO', 'CN', 'RC', 'AS', 'SS', 'PL', 'CM'].includes(formData[0]?.fk_operationtypetid_code)) {
                                       isShow = false
                                     }
                                   }
@@ -8235,6 +8193,13 @@ const Forms = ({
                                   //     isShow = false
                                   //   }
                                   // }
+                                }
+                                else if (moduleType === "purchase") {
+                                  if (
+                                    field.name == "fk_prev_po_details" && formData[0]?.po_no
+                                  ) {
+                                    isShow = false;
+                                  }
                                 }
                                 if (
                                   [
@@ -8721,17 +8686,12 @@ const Forms = ({
                           }
                         }
                         else if (moduleType === "jobCosting") {
-                          const { total_exp, profit_loss, profit_perc } = getCalculationsForJobCosting(formData[0]); // ✅ Call function properly
-
                           if (field.name === "jc_total_exp") {
-                            const defaultvalue = total_exp;
-                            field.defaultValue = defaultvalue;
+                            field.defaultValue = 0;
                           } else if (field.name === "jc_profit_loss") {
-                            const defaultvalue = profit_loss;
-                            field.defaultValue = defaultvalue;
+                            field.defaultValue = 0;
                           } else if (field.name === "jc_profit_perc") {
-                            const defaultvalue = profit_perc;
-                            field.defaultValue = defaultvalue;
+                            field.defaultValue = 0;
                           }
                           else if (field.name === "im_jc_comment") {
                             if (!formData[0]?.fk_im_id?.im_is_jc_comment) {
@@ -8755,10 +8715,7 @@ const Forms = ({
                         }
                         else if (moduleType === "auditOutstanding") {
                           if (field.name == "total_outstanding_amt") {
-
-                            const defaultvalue = getTotalBranchAmountValue(formData, 'branch_name', 'amount', sectionIndex)
-
-                            field.defaultValue = defaultvalue
+                            field.defaultValue = 0
                           }
                           else if (field.name === "year") {
                             const currentYear = new Date().getFullYear();
@@ -8773,17 +8730,13 @@ const Forms = ({
                         }
                         else if (moduleType === "auditSalesRegister") {
                           if (field.name == "total_sales_amt") {
-                            const defaultvalue = getTotalBranchAmountValueForSalesRegister(formData, 'branch_name', 'amount', sectionIndex)
-                            field.defaultValue = defaultvalue
+                            field.defaultValue = 0
                           }
                           else if (field.name == "credit_note_total") {
-                            const defaultvalue = getTotalBranchAmountValueForSalesRegister(formData, 'credit_note_branch_name', 'credit_note_amount', sectionIndex)
-
-                            field.defaultValue = defaultvalue
+                            field.defaultValue = 0
                           }
                           else if (field.name == "final_sales") {
-                            const defaultvalue = getTotalBranchAmountValueForSalesRegister(formData, 'credit_note_branch_name', 'credit_note_amount', 1) + getTotalBranchAmountValue(formData, 'branch_name', 'amount', 0)
-                            field.defaultValue = defaultvalue
+                            field.defaultValue = 0
                           }
                           else if (field.name === "year") {
                             const currentYear = new Date().getFullYear();
@@ -8847,6 +8800,11 @@ const Forms = ({
                             if (formData[0]?.po_status !== "Reject") {
                               isShow = false;
                             }
+                          }
+                          else if (
+                            field.name == "fk_prev_po_details" && formData[0]?.po_no
+                          ) {
+                            isShow = false;
                           }
                         }
                         else if (moduleType === "purchaseReq") {
@@ -9148,7 +9106,6 @@ const Forms = ({
                       setViewDetail={setViewDetail}
                       setIsOverlayLoader={setIsOverlayLoader}
                       isOverlayLoader={isOverlayLoader}
-                      checkShowButtonConditon={checkShowButtonConditon}
                     />
                   )}
                 </CardBody>
@@ -9381,36 +9338,120 @@ const Forms = ({
           viewOnly={viewOnly}
           handleBackButtonFunction={handleBackButtonFunction}
         />
-      ) : moduleType === "auditBranchExpenses" ? (<AuditButtons
-        moduleType={moduleType}
-        formData={formData}
-        formConfig={formConfig}
-        viewOnly={viewOnly}
-        setFormData={setFormData}
-        EditRecordId={EditRecordId}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-
-      />) : moduleType === "auditSalesRegister" ? (<SalesRegisterButtons
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        EditRecordId={EditRecordId}
-        viewOnly={viewOnly}
-      // formConfig={formConfig}
-      />) : moduleType === "auditOutstanding" ? (<OutStandingButtons
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        EditRecordId={EditRecordId}
-        viewOnly={viewOnly}
-
-      />) : moduleType === "jobCosting" ? (<JobCostingButton
-        status={status}
-        formData={formData}
-        formConfig={formConfig}
-        viewOnly={viewOnly}
-        setFormData={setFormData}
+      ) : moduleType === "auditBranchExpenses" ? (
+        <div>Audit functionality removed</div>
+      ) : moduleType === "auditSalesRegister" ? (
+        <div>Sales register functionality removed</div>
+      ) : moduleType === "auditOutstanding" ? (
+        <div>Outstanding functionality removed</div>
+      ) : moduleType === "jobCosting" ? (
+        <JobCostingButton
+          status={status}
+          formData={formData}
+          formConfig={formConfig}
+          viewOnly={viewOnly}
+          setFormData={setFormData}
+          EditRecordId={EditRecordId}
+          setIsOverlayLoader={setIsOverlayLoader}
+        />
+      ) : (moduleType === "invoice" && formData[0].im_id) ? (
+        <InvoiceButton
+          setIsPopupOpen={setIsPopupOpen}
+          setJRFCreationType={setJrfCreationType}
+          handleSubmit={handleSubmit}
+          viewOnly={viewOnly}
+          navigate={navigate}
+          formData={formData}
+          formConfig={formConfig}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          setTabOpen={setTabOpen}
+          setIsRejectPopupOpen={setIsRejectPopupOpen}
+          setIsCancelPopupOpen={setIsCancelPopupOpen}
+          masterResponse={masterResponse}
+          user={user}
+          subTableData={subTableData}
+        />
+      ) : ["purchase", "PoPreview"].includes(moduleType) ? (
+        <PurchaseButtons
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+          setPopupAddPurchaseReq={setPopupAddPurchaseReq}
+          // editableIndex={editableIndex}
+          // setEditableIndex={setEditableIndex}
+          setTableData={setSubTableData}
+          section={formConfig?.sections[0]}
+          setIsRejectPopupOpen={setIsRejectPopupOpen}
+          moduleType={moduleType}
+        />
+      ) : moduleType === "purchaseReq" ? (
+        <PurchaseRequistionButtons
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+          setPopupAddPurchaseReq={setPopupAddPurchaseReq}
+          // editableIndex={editableIndex}
+          // setEditableIndex={setEditableIndex}
+          setTableData={setSubTableData}
+          moduleType={moduleType}
+          section={formConfig?.sections[0]}
+          setIsRejectPopupOpen={setIsRejectPopupOpen}
+        />
+      ) : moduleType === "calibration" ? (
+        <CalibrationsButtons
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+        />
+      ) : moduleType === "supplier" ? (
+        <SupplierButtons
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+        />
+      ) : moduleType === "tender" ? (
+        <TenderButton
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+          participantFields={participantFields}
+        />
+      ) : moduleType === "stocks" ? (
+        <ChemicalStocksButtons
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+        />
+      ) : moduleType === "incentives" ? (
+        <IncentiveButton
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+        />
+      ) : moduleType === "feedback" ? (
+        <FeedbackButton
+          formData={formData}
+          handleSubmit={handleSubmit}
+          setIsOverlayLoader={setIsOverlayLoader}
+          setFormData={setFormData}
+          viewOnly={viewOnly}
+        />
+      ) : moduleType === "purchaseItems" ? (
         EditRecordId={EditRecordId}
         setIsOverlayLoader={setIsOverlayLoader}
       />) : (moduleType === "invoice" && formData[0].im_id) ? (<InvoiceButton
@@ -9604,33 +9645,7 @@ const Forms = ({
                         }
                       </>
                     }
-                    {/* <div
-                    // className={"col-md-6"}
-                    >
-                      <RenderFields
-                        field={{
-                          "name": "search_financial_year",
-                          "type": "select",
-                          "label": "FYI",
-                          "fieldWidth": 50,
-                          "options": ["All", "2024-25"]
-                        }}
-                        sectionIndex={1}
-                        fieldIndex={1}
-                        formData={customFilterData}
-                        handleFieldChange={(sectionIndex, fieldName, value) => {
-                          setCustomFilterData((prevFormData) => {
-                            return {
-                              ...prevFormData,
-                              [sectionIndex]: {
-                                ...prevFormData[sectionIndex],
-                                [fieldName]: value
-                              },
-                            };
-                          });
-                        }}
-                      />
-                    </div> */}
+
                     {!["feedback"].includes(listModuleType) &&
                       <div className="formSearch">
                         <i className="bi bi-search"></i>
@@ -10017,6 +10032,7 @@ const Forms = ({
                   setIsCustomPopup={setIsCustomPopup}
                   isCustomPopup={isCustomPopup}
                   getAllListingDataExports={getAllListingDataExports}
+                  setResponse={setResponse}
                 />
 
               )}

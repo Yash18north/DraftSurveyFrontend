@@ -58,7 +58,6 @@ import {
   getNonLMSDetailsById,
 } from "./commonHandlerFunction/OPscertificate/OPSCertificateHandlerFunctions";
 import { selectedSingleRow } from "../../actions/authActions";
-import { getMonthlyOutStanding } from "./commonHandlerFunction/Audit/OutStanding/OutStandingHandlerFunction";
 import { capitalize } from "lodash";
 import CustomPopupModal from "./commonModalForms/CustomPopupModal";
 import { handleTransferCertificateOwnershipHandler } from "./commonHandlerFunction/CommercialCertificateHandlerFunctions";

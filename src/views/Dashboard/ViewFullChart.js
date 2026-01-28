@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { exprtAnalyticsDataFunc } from "../../components/common/commonHandlerFunction/dashboard/OperationOtherAnalystDashboardHandlerFunction";
+// import { exprtAnalyticsDataFunc } from "../../components/common/commonHandlerFunction/dashboard/OperationOtherAnalystDashboardHandlerFunction";
 const ViewFullChart = ({
     setIsFullChart,
     chart,
@@ -17,7 +17,7 @@ const ViewFullChart = ({
                         fullChartData?.isExport && <button
                             type="button"
                             className="iconBtn"
-                            onClick={() => exprtAnalyticsDataFunc(fullChartData.apiEndPoint, customFilterData, setIsOverlayLoader, fullChartData.title)}
+                            // onClick={() => exprtAnalyticsDataFunc(fullChartData.apiEndPoint, customFilterData, setIsOverlayLoader, fullChartData.title)}
                         >
                             Export
                         </button>

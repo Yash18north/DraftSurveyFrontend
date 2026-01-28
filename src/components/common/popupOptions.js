@@ -47,10 +47,6 @@ import { handleVesselOperationDelete, handleDocumentDelete, handleCommercialCert
 import { handleConsortiumDelete } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 import { handleConsortiumDelete as stubHandleConsortiumDelete } from "../../utils/stubFunctions";
 import { useTranslation } from "react-i18next";
-import { handleGetJobCostingList } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
-import { getSingleBranchExpense } from "./commonHandlerFunction/Audit/BranchExpenseHandler";
-import { handleGetSingleOutstanding } from "./commonHandlerFunction/Audit/OutStanding/OutStandingHandlerFunction";
-import { handleGetSingleSalesRegister } from "./commonHandlerFunction/Audit/SalesRegister/SalesRegisterHandlerFunction";
 import { handleSupplierDelete } from "./commonHandlerFunction/Purchase/Supplier/SupplierHandler";
 import { handleSupplierDelete as stubHandleSupplierDelete } from "../../utils/stubFunctions";
 import { handleDownloadPR, handlePurchaseReqDelete } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseRequsitionHandler";
@@ -896,73 +892,6 @@ const PopupOptions = ({
           )}?action=${encryptDataForURL('View')}`
         );
       }
-    }
-    else if (moduleType === "jobCosting") {
-      if (value === "View") {
-        navigate(
-          `/audit/job-costing-edit/${encryptDataForURL(row["jc_id"])}?status=${encryptDataForURL('View')}`
-        )
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["jc_id"]}`,
-          model: model,
-          redirect: "/audit/job-costing-list",
-          Breadcrumb: "Job Costing List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?id=${encryptDataForURL(row["jc_id"])}&status=${encryptDataForURL('History')}`);
-      }
-    }
-    else if (moduleType === "auditBranchExpenses") {
-      if (value === "View") {
-        navigate(
-          `/audit/auditBranchExpenseForm/${encryptDataForURL(row["id"])}?status=${encryptDataForURL('View')}`
-        )
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["id"]}`,
-          model: model,
-          redirect: "/audit/branch-expense-list",
-          Breadcrumb: "Expenses List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?status=${encryptDataForURL('History')}/${encryptDataForURL(row["id"])}`);
-      }
-
-    }
-    else if (moduleType === "auditOutstanding") {
-      if (value === "View") {
-        navigate(`/audit/auditOutstandingForm/${encryptDataForURL(row["id"])}?status=${encryptDataForURL('View')}`);
-
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["id"]}`,
-          model: model,
-          redirect: "/audit/outstanding-list",
-          Breadcrumb: "Outstanding List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?status=${encryptDataForURL('History')}/${encryptDataForURL(row["id"])}`);
-      }
-    }
-    else if (moduleType === "auditSalesRegister") {
-      if (value === "View") {
-        navigate(`/audit/auditSalesRegisterForm/${encryptDataForURL(row["id"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["id"]}`,
-          model: model,
-          redirect: "/audit/sales-register-list",
-          Breadcrumb: "Sales List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?status=${encryptDataForURL('History')}/${encryptDataForURL(row["id"])}`);
-      }
-
     }
     else if (moduleType === "purchaseReq") {
 

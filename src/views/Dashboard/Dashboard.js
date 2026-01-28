@@ -13,7 +13,7 @@ import OverlayLoading from "../../components/common/OverlayLoading";
 import ViewFullChart from "./ViewFullChart";
 import TableListData from "../../components/common/elements/ChartSections/TableListData";
 import { getFormatedDate } from "../../services/commonFunction";
-import { exprtAnalyticsDataFunc } from "../../components/common/commonHandlerFunction/dashboard/OperationOtherAnalystDashboardHandlerFunction";
+// import { exprtAnalyticsDataFunc } from "../../components/common/commonHandlerFunction/dashboard/OperationOtherAnalystDashboardHandlerFunction";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { getAllBrancheDataforDropdown } from "../../components/common/commonHandlerFunction/jobinstructionHandlerFunctions";
@@ -381,7 +381,7 @@ const Dashboard = ({ formConfig, customFilterData, setCustomFilterData, isChartC
                           chart?.isExport && <button
                             type="button"
                             className="iconBtn"
-                            onClick={() => exprtAnalyticsDataFunc(chart.apiEndPoint, customFilterData, setIsOverlayLoader, chart.title)}
+                            // onClick={() => exprtAnalyticsDataFunc(chart.apiEndPoint, customFilterData, setIsOverlayLoader, chart.title)}
                           >
                             Export
                           </button>

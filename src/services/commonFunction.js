@@ -27,7 +27,6 @@ export const rolesDetails = [
   { role: "SLC", label: "Senior Chemist" },
   { role: "BH", label: "Branch Head" },
   { role: "CP", label: "Branch Captain" },
-  { role: "AUDIT", label: "AUDIT" },
   { role: "PM", label: "Purchase Manager" },
 ];
 export const CommonTMRoles = ["TM", "STM", "QM", "SQM", "SLC"];
@@ -61,13 +60,9 @@ export const isModuelePermission = (
       return ["BU", "OPS_ADMIN", "BH", 'CP', 'SU'].includes(userData?.role)
     }
     else if (module === "LMS") {
-      return !["OPS_ADMIN", "BH", "CP", "AUDIT", 'PM', 'CU'].includes(userData?.role)
-    }
-    else if (module === "audit") {
-      return ["AUDIT"].includes(userData?.role)
+      return !["OPS_ADMIN", "BH", "CP", 'PM', 'CU'].includes(userData?.role)
     }
     else if (module === "purchase") {
-      return ["PM", "SU", 'BH', 'AUDIT'].includes(userData?.role)
     }
     else if (module === "tender") {
       return ["P10076", "P10234", "P10235"].includes(userData?.all_roles?.usr_emp_id_orig)
@@ -81,10 +76,7 @@ export const isModuelePermission = (
     }
     else if (module === "incentives") {
       //"PM","BU"
-      return ["BU", 'LR', 'CU'].includes(userData?.role)
-    }
-    else if (module === "analytics") {
-      return [...CommonTMRoles, 'SU', 'BH', 'CU', 'LM'].includes(userData?.role)
+      return ["PM", "SU", 'BH'].includes(userData?.role)
     }
     else if (module === "collections") {
       return ['CU'].includes(userData?.role)
@@ -93,21 +85,8 @@ export const isModuelePermission = (
   }
   // return true
   if (iscustom) {
-    if (module === "analytics") {
-      if (["SU"].includes(userData?.role)) {
-        return !['overall_analytics'].includes(subItem?.subModuleType)
-      } else {
-        const roleWiseData = {
-          ['lms_analytics']: [...CommonTMRoles, 'LM'],
-          ['ops_analytics']: ["BH"],
-          ['other_analytics']: ["BH"],
-          ['credit_analytics']: ["CU"],
-          ['overall_analytics']: ["CU"],
-        }
-        return roleWiseData[subItem?.subModuleType].includes(userData?.role);
-      }
-    }
-    else if (module === "dashboard") {
+
+    if (module === "dashboard") {
       return ['BU', 'LR', 'SU', 'BH', 'OPS_ADMIN'].includes(userData?.role)
     }
     else if (module === "lms dashboard") {
@@ -124,26 +103,6 @@ export const isModuelePermission = (
   if (GetTenantDetails(1, 1) === "TPBPL" && module === "sampleverification") {
     return false;
   }
-  else if (module === "internalcertificate" && userDetails?.all_roles?.main_role_id && userDetails?.all_roles?.other_roles?.length) {
-    // if (["LR","TM"]userData?.role != "LR") {
-    //   return false;
-    // }
-
-  }
-  else if (module === "auditBranchExpenses" || module === "auditOutstanding" || module === "auditSalesRegister" || module === "jobCosting") {
-    return true
-  }
-  // else if (module === "purchaseReq") {
-  //   if (['BH', 'SU', 'AUDIT', "PM"].includes(userData?.role)) {
-  //     return ["T10075", "T10249", "SU2005", "P10115"].includes(userData?.all_roles?.usr_emp_id_orig)
-  //   }
-  // }
-  // else if (module === "purchase") {
-  //   if (['AUDIT'].includes(userData?.role)) {
-  //     return ["T10249"].includes(userData?.all_roles?.usr_emp_id_orig)
-  //   }
-  //   return true
-  // }
   module = permission + "_" + module;
   if (allPermissions) {
     let allPermissionsArrray = allPermissions;
@@ -278,7 +237,6 @@ export const redirectPageAfterLogin = (navigate, role, isReload) => {
   const allotRoles = ["TM", "STM", "QM", "SQM", "SLC", "DTM"];
   const verificationRoles = ["LC", "SLC"];
   const operations = [];
-  const audit = ["AUDIT"]
   const Analytics = []
   const supplier = ["PM"]
   const dashboard = ["BU", "LR", 'SU', 'BH', 'OPS_ADMIN']
@@ -296,20 +254,12 @@ export const redirectPageAfterLogin = (navigate, role, isReload) => {
       navigate("/operation/jrfInstructionListing");
     } else if (certificatePage.includes(role)) {
       navigate("/operation/commercial-certificate-list");
-    } else if (audit.includes(role)) {
-      navigate("/audit/job-costing-list");
-    }
-    else if (Analytics.includes(role)) {
-      navigate("/analytics/laboratory");
     }
     else if (supplier.includes(role)) {
       navigate("/PurchRequistion");
     }
     else if (dashboard.includes(role)) {
       navigate("/dashboard-listing");
-    }
-    else if (creditControl.includes(role)) {
-      navigate("/analytics/credit-control");
     }
     else if (collectionUser.includes(role)) {
       navigate("/collection-dashboard");
@@ -1412,7 +1362,7 @@ export const handleCommonDownloadFile = async (url, fileName = "download") => {
   }
 };
 
-export const getPurchaseManager = (moduleType,permission) => {
+export const getPurchaseManager = (moduleType, permission) => {
   if (['purchaseItems'].includes(moduleType)) {
     moduleType = "itemmaster"
   }
