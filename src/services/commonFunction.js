@@ -700,22 +700,19 @@ export const getLMSOperationActivity = () => {
     getVesselOperation('PSI'),
     getVesselOperation('QA'),
     getVesselOperation('TML'),
-    getTruckOperations("QS"),
-    getTruckOperations("DTM"),
     getRakeOperations('QA'),
     getStackOperations('PV'),
     getStackOperations(''),
     getPlantOperations('TR'),
     getPlantOperations('RK'),
-    getPlantOperations('VL'),
     getPlantOperations('ST'),
+    getPlantOperations('VL'),
     getOtherOperations('SS_QA'),
     getOtherOperations('CS_SSP'),
-    getVesselOperation('VL_TML_M'),
     getOtherOperations('CR_QA'),
     getOtherOperations('CN_QA'),
+    getVesselOperation('VL_TML_M'),
     getVesselOperation('VL_BQA'),
-    getPlantOperations('PL_CN'),
   ]
 }
 export const getNonLMSOperationActivity = () => {
@@ -725,8 +722,6 @@ export const getNonLMSOperationActivity = () => {
     getVesselOperation('HH'),
     getVesselOperation('CS'),
     getVesselOperation('DM'),
-    getTruckOperations('OS'),
-    getTruckOperations('CS'),
     getRakeOperations('QAss'),
     getVesselOperation('BC'),
     getVesselOperation('bulk_crg'),
@@ -761,9 +756,6 @@ export const getOperationActivityUrl = (operationMode) => {
   if (operationMode === "RAKE" || operationMode === "RK") {
     return "/operation/rake-list/rake-details-list/"
   }
-  else if (operationMode === "TRUCK" || operationMode === "TR") {
-    return "/operation/truck-list/truck-details-list/"
-  }
   else if (operationMode === "STACK" || operationMode === "ST") {
     return "/operation/stack-list/stack-details-list/"
   }
@@ -788,9 +780,6 @@ export const getOperationActivityListPageUrl = (operationMode) => {
   }
   if (operationMode === "RAKE" || operationMode === "RK") {
     return "/operation/rake-list/"
-  }
-  else if (operationMode === "TRUCK" || operationMode === "TR") {
-    return "/operation/truck-list/"
   }
   else if (operationMode === "STACK" || operationMode === "ST") {
     return "/operation/stack-list/"
@@ -875,22 +864,6 @@ export const getRakeOperations = (type = "") => {
   return Array.isArray(operationName) ? operationName : operationName.toLowerCase()
 }
 
-export const getTruckOperations = (type = "") => {
-  let operationName = ""
-  if (type == "OS") {
-    operationName = "TR_OS"
-  }
-  else if (type == "CS") {
-    operationName = "TR_CS"
-  }
-  else if (type == "DTM") {
-    operationName = "TR_DTM"
-  }
-  else if (type == "QS") {
-    operationName = "TR_QS"
-  }
-  return Array.isArray(operationName) ? operationName : operationName.toLowerCase()
-}
 export const getVesselOperation = (type = "") => {
   let operationName = ""
   if (type === "TML") {
@@ -1055,9 +1028,6 @@ export const getActivityCode = (amCode) => {
   else if (['VL_QA', 'QA', 'CS_QA'].includes(amCode)) {
     return 'VL_QA'
   }
-  else if (['TR_OS', 'CS_TS', 'PL_TR_SV'].includes(amCode)) {
-    return 'TR_OS'
-  }
   else if (['ST_SV', 'PL_ST_SV', 'ST_SV', 'MI_SV'].includes(amCode)) {
     return 'ST_SV'
   }
@@ -1066,9 +1036,6 @@ export const getActivityCode = (amCode) => {
   }
   else if (['VL_BC', 'TL_BC'].includes(amCode)) {
     return 'VL_BC'
-  }
-  else if (['TR_CS', 'VL_CS'].includes(amCode)) {
-    return 'TR_CS'
   }
   else if (['ST_QA', 'MI_QA'].includes(amCode)) {
     return 'ST_QA'
@@ -1103,9 +1070,6 @@ export const getOperationNameByCode = (operationMode) => {
   if (operationMode === "RAKE" || operationMode === "RK") {
     return "Rake"
   }
-  else if (operationMode === "TRUCK" || operationMode === "TR") {
-    return "Truck"
-  }
   else if (operationMode === "STACK" || operationMode === "ST") {
     return "Stack"
   }
@@ -1118,9 +1082,6 @@ export const getOperationNameByCode = (operationMode) => {
   else {
     return "Other"
   }
-  // else {
-  //   return "Vessel"
-  // }
 }
 export const getRakeCollectionActivity = (isFromCertificate = "") => {
   if (isFromCertificate) {
@@ -1184,8 +1145,7 @@ export const getUniqueData = (data) => {
 
 
 export const getDefaultActivityMode = () => {
-  // return []
-  return ['VL', 'TR', 'ST', 'PL', 'RK', 'DS', 'SU', 'PR', 'RANSPORTABLE MOISTURE LIMIT', 'SS', 'MI']
+  return ['VL', 'ST', 'PL', 'RK', 'DS', 'SU', 'PR', 'RANSPORTABLE MOISTURE LIMIT', 'SS', 'MI']
 }
 export const getVoucherTypes = (code) => {
   let TCRC = [

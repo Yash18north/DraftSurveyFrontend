@@ -6,7 +6,7 @@ import {
   postDataFromApi,
   putDataFromApi,
 } from "../../../services/commonServices";
-import { getVesselOperation, getTruckOperations, getStackOperations, getRakeOperations, getRakeCollectionActivity, getPlantOperations, getLMSOperationActivity, getActivityCode, getFormatedDate, getPDFFormattedDateWithTime } from "../../../services/commonFunction";
+import { getVesselOperation,  getStackOperations, getRakeOperations, getRakeCollectionActivity, getPlantOperations, getLMSOperationActivity, getActivityCode, getFormatedDate, getPDFFormattedDateWithTime } from "../../../services/commonFunction";
 import {
   reportConfigGetApi,
   ccCertGetApi,
@@ -282,56 +282,10 @@ export const getCommercialCertificateTopBottom = async (setFormData, EditRecordI
     payload.rhf_type = "DS"
     payload.rhf_id = 4
   }
-  else if (OperationType === getVesselOperation("TML")) {
-    payload.rhf_type = "TML"
-    payload.rhf_id = 5
-  }
-  else if (OperationType === getVesselOperation("PSI")) {
-    payload.rhf_type = "PSI"
-    payload.rhf_id = 6
-  }
   // else if (getVesselOperation().includes(OperationType)) {
   //   payload.rhf_type = "QA"
   //   payload.rhf_id = 1
   // }
-  // Truck Related Changes ------------------------------------------------
-  else if (OperationType === getTruckOperations("OS")) {
-    payload.rhf_type = "tsr"
-    payload.rhf_id = 7
-  }
-
-  else if (OperationType === getTruckOperations("CS")) {
-    payload.rhf_type = "tcs"
-    payload.rhf_id = 8
-  }
-  else if (OperationType === getTruckOperations("QS")) {
-    payload.rhf_type = "tqa"
-    payload.rhf_id = 9
-  }
-  else if (OperationType === getTruckOperations("DTM")) {
-    payload.rhf_type = "tdtm"
-    payload.rhf_id = 10
-  }
-  else if ([getStackOperations(), getPlantOperations('ST')].includes(OperationType)) {
-    payload.rhf_type = "ST_QA"
-    payload.rhf_id = 11
-  }
-  else if ([getTruckOperations(), getPlantOperations('TR')].includes(OperationType)) {
-    payload.rhf_type = "TR_QA"
-    payload.rhf_id = 12
-  }
-  else if ([getRakeOperations(), getPlantOperations('RK')].includes(OperationType)) {
-    payload.rhf_type = "RK_QA"
-    payload.rhf_id = 13
-  }
-  else if (OperationType === getVesselOperation('bulk_crg')) {
-    payload.rhf_type = "VL_BC"
-    payload.rhf_id = 14
-  }
-  else if (OperationType === getVesselOperation('VL_TML_M')) {
-    payload.rhf_type = "VL_TML_M"
-    payload.rhf_id = 15
-  }
   else {
     payload.rhf_type = "QA"
     payload.rhf_id = 1

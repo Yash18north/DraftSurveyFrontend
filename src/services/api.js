@@ -203,26 +203,13 @@ export const getQualityAnalysisApi = "/rake-quality-analysis/get/"
 export const createQualityAnalysisApi = "/rake-quality-analysis/create/"
 export const updateQualityAnalysisApi = "/rake-quality-analysis/update/"
 
-export const updateTruckSealingApi = "/truck-sealing/update/";
-export const createTruckSealingApi = "/truck-sealing/create/";
-export const getTruckSealingApi = "/truck-sealing/get/";
-export const updateCargoSupervisionApi = "/truck-cargo-sup/update/";
-export const createCargoSupervisionApi = "/truck-cargo-sup/create/";
-export const getCargoSupervisionApi = "/truck-cargo-sup/get/";
-export const testMemoPDFDownloadApi = "/testmemosfmpdf/get/";
-export const getSupervissionVesselInfoApi = "/supervision-vessel-info/";
 export const getSamplingMethodsApi = "/samplingmethods/get/";
 export const getCompanyBranchApi = "/company-branches/get/";
 export const getLoadingPortDataApi = "/countrywise-port/get/";
 
-export const truckSealingPdfApi = "/truck-sealing-pdf/";
-export const truckQAPdfApi = "/truck-daily-tm-pdf/";
-export const truckQA2PdfApi = "/truck-quality-sampling-pdf/";
 export const rakeAssessPdfApi = "/qty-assess-pdf/";
 export const rakeQAPdfApi = "/rake-quality-analysis-pdf/";
-// export const stackQAPdfApi = "/quality-analysis-pdf/";
 export const stackQAPdfApi = "/stack-quality-analysis-pdf/";
-export const truckCSPdfApi = "/cargo-sup-pdf/";
 export const consortiumDeleteApi = "/consortium-order/delete/";
 export const plantQAPdfApi = "/plant-quality-analysis-pdf/";
 

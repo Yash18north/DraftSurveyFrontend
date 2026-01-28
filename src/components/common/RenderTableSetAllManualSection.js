@@ -16,7 +16,6 @@ import {
   getRakeOperations,
   getSelectedOptionName,
   getVesselOperation,
-  getTruckOperations,
   getPlantOperations,
   getTotalCountBasedOnField,
   getTextWithouHtml
@@ -645,32 +644,6 @@ const RenderTableSetAllManualSection = ({
     return cell;
   };
   const [sampleOptions, setSampleOptions] = useState([]);
-  useEffect(() => {
-    if ([getTruckOperations('OS'), getTruckOperations('CS')].includes(OperationType)) {
-      const totalQuantity = allTableData
-        .map(item => parseFloat(item.quantity.replace(/\s*MT/, '')))
-        .reduce((sum, qty) => sum + qty, 0);
-      let noOfTruck = 0
-      if (OperationType === getTruckOperations('CS')) {
-        allTableData.map((singleRec) => {
-          noOfTruck = noOfTruck + parseInt(singleRec.no_of_truck || 0)
-        })
-      }
-
-      setFormData((prevData) => {
-        return {
-          ...prevData,
-          [1]: {
-            ...prevData[1],
-            ["tr_os_no_of_trucks"]: allTableData?.length || '0',
-            ["tr_cs_no_of_trs"]: noOfTruck,
-            ["tr_os_total_qty"]: parseFloat(totalQuantity).toFixed(3) || '0',
-            ["tr_cs_total_qty"]: parseFloat(totalQuantity).toFixed(3) || '0',
-          },
-        };
-      });
-    }
-  }, [allTableData.length])
 
   const getSingleOSCommonfield = () => {
     return (
@@ -837,12 +810,6 @@ const RenderTableSetAllManualSection = ({
             <CardSubtitle className="mb-2 text-muted" tag="h6">
               {/* Overview of the projects */}
             </CardSubtitle>
-            {(OperationType === getTruckOperations("OS")) && <div className="singleCommonFieldContainer">
-              {getSingleOSCommonfield()}
-            </div>}
-            {OperationType === getTruckOperations("CS") && <div className="singleCommonFieldContainer">
-              {getSingleCSCommonfield()}
-            </div>}
             <div className={isCustomPopupModalShow ? "manualTableSection" : ""}>
 
 

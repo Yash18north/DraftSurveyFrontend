@@ -50,10 +50,7 @@ import {
   reportConfigCreateApi,
   ccCertCreateApi,
   rakeQAPdfApi,
-  truckQA2PdfApi,
-  truckQAPdfApi,
   stackQAPdfApi,
-  truckCSPdfApi,
   getReferenceWiseDataApi,
   bulkCargoPDF,
   physicalAnalysisPDF,
@@ -72,7 +69,6 @@ import {
   getLMSOperationActivity,
   getPlantOperations,
   getRakeOperations,
-  getTruckOperations,
   getVesselOperation,
   getStackOperations,
   isModuelePermission,
@@ -183,17 +179,10 @@ import {
   // getSingleCSData,
   OperationCargoSupervisionCreateDataFunction,
   getSingleSizeAnalysisData,
-  getSingleBulkCargoData,
   Operation_BulkCargo_CreateDataFunction,
   vesselListNextFunctionality
 } from "./commonHandlerFunction/operations/TMLOperations";
 
-
-
-import {
-  getSingleOSData,
-  getSingleCSData,
-} from "./commonHandlerFunction/operations/TruckHandlerOperation";
 import {
   decryptDataForURL,
   encryptDataForURL,
@@ -217,7 +206,7 @@ import {
 
 import { getSingleQualityAnalysisData, getSingleQualityAssesmentData, OperationQualityAnalysisCreateDataFunction, OperationQualityAssesmentCreateDataFunction } from "./commonHandlerFunction/operations/RakeHandlerOperation";
 
-import { OperationOnlySealCreateDataFunction } from "./commonHandlerFunction/operations/TruckHandlerOperation";
+// Removed truck operation imports
 import RenderTableManualMultiEntrySection from "./RenderTableManualMultiEntrySection";
 
 
@@ -1213,36 +1202,6 @@ const Forms = ({
           activityJIID
         );
       }
-      else if (TMLType === getTruckOperations("OS")) {
-        getSingleOSData(
-          OperationTypeID,
-          formData,
-          setSubTableData,
-          setIsOverlayLoader,
-          setFormData,
-          formConfig.sections?.[1]?.tabs?.[0]
-        );
-      }
-      else if (TMLType === getTruckOperations("CS")) {
-        getSingleCSData(
-          OperationTypeID,
-          formData,
-          setSubTableData,
-          setIsOverlayLoader,
-          setFormData,
-          formConfig.sections?.[1]?.tabs?.[0]
-        );
-      }
-      else if (TMLType === getRakeOperations('QAss')) {
-        getSingleQualityAssesmentData(
-          OperationTypeID,
-          formData,
-          setSubTableData,
-          setIsOverlayLoader,
-          setFormData,
-          formConfig.sections?.[1]?.tabs?.[1]
-        );
-      }
       else if (TMLType === getVesselOperation('DM')) {
         getSingleSizeAnalysisData(
           OperationTypeID,
@@ -1252,15 +1211,7 @@ const Forms = ({
           setFormData
         );
       }
-      else if (TMLType === getVesselOperation("bulk_crg")) {
-        getSingleBulkCargoData(
-          OperationTypeID,
-          formData,
-          setIsOverlayLoader,
-          setFormData,
-          formConfig.sections?.[1]?.tabs?.[0]
-        );
-      }
+      
     }
   }, [OperationType, formData[1]?.["ji_id"]]);
   useEffect(() => {
@@ -1619,19 +1570,6 @@ const Forms = ({
               setFormData,
               formConfig,
               operationStepNo
-            );
-          }
-          else if (TMLType == getTruckOperations("OS")) {
-            OperationOnlySealCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              operationMode,
-              jrfCreationType,
             );
           }
           else if ([getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(TMLType)) {
@@ -5402,7 +5340,7 @@ const Forms = ({
                   );
                 }
               }
-            } else if ([getVesselOperation("DS"), getTruckOperations("OS"), getTruckOperations("CS"), getRakeOperations("QAss"), getVesselOperation('bulk_crg')].includes(OperationType)) {
+            } else if ([getVesselOperation("DS"), getRakeOperations("QAss"), getVesselOperation('bulk_crg')].includes(OperationType)) {
               navigate(
                 `/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
                   EditRecordId
@@ -5842,23 +5780,11 @@ const Forms = ({
           if (isUseForPhysical) {
             generateCertificateResponse = await postDataFromApi(physicalAnalysisPDF, payload, "", true, "", "");
           }
-          else if (OperationType == getTruckOperations("DTM")) {
-            generateCertificateResponse = await postDataFromApi(truckQAPdfApi, payload, "", true, "", "");
-          }
-          else if ([getPlantOperations("TR"), getTruckOperations("QS")].includes(OperationType)) {
-            generateCertificateResponse = await postDataFromApi(truckQA2PdfApi, payload, "", true, "", "");
-          }
           else if ([getPlantOperations("RK"), getRakeOperations('QA')].includes(OperationType)) {
             generateCertificateResponse = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
           }
-          else if (OperationType == getTruckOperations('CS')) {
-            generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-          }
           else if (OperationType == getStackOperations("PV") || OperationType == getStackOperations()) {
             generateCertificateResponse = await postDataFromApi(stackQAPdfApi, payload, "", true, "", "");
-          }
-          else if (OperationType == getVesselOperation('CS')) {
-            generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
           }
           else if (OperationType == getVesselOperation('bulk_crg')) {
             generateCertificateResponse = await postDataFromApi(bulkCargoPDF, payload, "", true, "", "");
@@ -8644,7 +8570,7 @@ const Forms = ({
                           }
                           else if (field.name == "fk_cc_cert_format_id") {
                             field.isCustomPayload = false
-                            if ([getPlantOperations("TR"), getTruckOperations("QS")].includes(OperationType)) {
+                            if ([getPlantOperations("TR")].includes(OperationType)) {
                               field.isCustomPayload = true
                               field.customPayload = {
                                 "name": "ops_code",

@@ -7,7 +7,6 @@ import {
   getLMSOperationActivity,
   getVesselOperation,
   getRakeOperations,
-  getTruckOperations,
   getStackOperations,
   getPlantOperations,
   getOperationActivityUrl,
@@ -38,9 +37,7 @@ import {
   dsSurveyPdfApi,
   ccCertPdfApi,
   mergeFilesApi,
-  masterUploadApi,
-  rakeQAPdfApi, truckQA2PdfApi, truckQAPdfApi, stackQAPdfApi, truckCSPdfApi,
-  plantQAPdfApi
+  masterUploadApi
 } from "../../services/api";
 import { encryptDataForURL } from "../../utills/useCryptoUtils";
 import PropTypes from "prop-types";
@@ -863,37 +860,8 @@ const RenderSubListSectionWithPagination = ({
           is_hard_copy: customFormData[0]?.download_is_hard_copy === "Hard Copy",
         };
 
-        if (getActivityCode(row?.activity_code).toLowerCase() == getVesselOperation("CS")) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getTruckOperations("DTM")) {
-          generateCertificateResponse = await postDataFromApi(truckQAPdfApi, payload, "", true, "", "");
-        }
-        else if ([getPlantOperations("TR"), getTruckOperations("QS")].includes(getActivityCode(row?.activity_code).toLowerCase())) {
-          generateCertificateResponse = await postDataFromApi(truckQA2PdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getTruckOperations("CS")) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getRakeOperations('QA')) {
-          generateCertificateResponse = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getStackOperations("PV") || getActivityCode(row?.activity_code).toLowerCase() == getStackOperations()) {
-          generateCertificateResponse = await postDataFromApi(stackQAPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getVesselOperation("CS")) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if ([getPlantOperations('TR'),
-        getPlantOperations('RK'),
-        getPlantOperations('VL'),
-        getPlantOperations('ST')].includes(getActivityCode(row?.activity).toLowerCase())) {
-          generateCertificateResponse = await postDataFromApi(plantQAPdfApi, payload, "", true, "", "");
-        }
-        else {
-          generateCertificateResponse = await postDataFromApi(ccCertPdfApi, payload, "", true, "", "");
+        generateCertificateResponse = await postDataFromApi(ccCertPdfApi, payload, "", true, "", "");
 
-        }
 
       }
 
@@ -1203,12 +1171,12 @@ const RenderSubListSectionWithPagination = ({
     }
     if (FolderID) {
       let refeNo = { dl_document_reference: EditRecordId }
-        if (moduleType === "purchasereqDocumentList") {
-          refeNo = { dl_document_reqid: EditRecordId }
-        }
-        else if (moduleType === "itemDocumentList") {
-          refeNo = { dl_document_fk_itemid: EditRecordId }
-        }
+      if (moduleType === "purchasereqDocumentList") {
+        refeNo = { dl_document_reqid: EditRecordId }
+      }
+      else if (moduleType === "itemDocumentList") {
+        refeNo = { dl_document_fk_itemid: EditRecordId }
+      }
       let payload = {
         data: {
           dl_folder: FolderID,

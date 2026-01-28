@@ -8,7 +8,6 @@ import {
   getLMSOperationActivity,
   getVesselOperation,
   getDaysColorCount,
-  getTruckOperations,
   getRakeOperations,
   getStackOperations,
   getUniqueData,
@@ -41,7 +40,7 @@ import PropTypes from "prop-types";
 import Loading from "./Loading";
 import $ from "jquery";
 import { getDataFromApi, postDataFromApi } from "../../services/commonServices";
-import { notificationListApi, ccCertPdfApi, truckCSPdfApi, rakeQAPdfApi, truckQAPdfApi, truckQA2PdfApi, stackQAPdfApi, bulkCargoPDF, physicalAnalysisPDF, tmlMoisturePDFApi, opsRakeSVPDFApi, opsStackSVPDFApi } from "../../services/api";
+import { notificationListApi, ccCertPdfApi, rakeQAPdfApi, truckQAPdfApi, truckQA2PdfApi, stackQAPdfApi, bulkCargoPDF, physicalAnalysisPDF, tmlMoisturePDFApi, opsRakeSVPDFApi, opsStackSVPDFApi } from "../../services/api";
 import RenderFields from "./RenderFields";
 import {
   getCommodityData,
@@ -1423,56 +1422,12 @@ const RenderListSection = ({
           cc_id: row?.cc_id,
           is_hard_copy: customFormData[0]?.download_is_hard_copy === "Hard Copy",
         };
-        // if (getActivityCode(row?.activity_code).toLowerCase() == getVesselOperation("CS")) {
-        //   generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        // } else {
-        //   generateCertificateResponse = await postDataFromApi(
-        //     ccCertPdfApi,
-        //     payload,
-        //     "",
-        //     true,
-        //     "",
-        //     ""
-        //   );
-        // }
+       
         if (row?.cc_is_physical) {
           generateCertificateResponse = await postDataFromApi(physicalAnalysisPDF, payload, "", true, "", "");
         }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getVesselOperation("CS")) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getTruckOperations("DTM")) {
-          generateCertificateResponse = await postDataFromApi(truckQAPdfApi, payload, "", true, "", "");
-        }
-        else if ([getPlantOperations("TR"), getTruckOperations("QS")].includes(getActivityCode(row?.activity_code).toLowerCase())) {
-          generateCertificateResponse = await postDataFromApi(truckQA2PdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getTruckOperations("CS")) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if ([getRakeOperations('QA'), getPlantOperations('RK')].includes(getActivityCode(row?.activity_code).toLowerCase())) {
-          generateCertificateResponse = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getStackOperations("PV") || getActivityCode(row?.activity_code).toLowerCase() == getStackOperations()) {
-          generateCertificateResponse = await postDataFromApi(stackQAPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getVesselOperation("CS")) {
-          generateCertificateResponse = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getVesselOperation("bulk_crg")) {
-          generateCertificateResponse = await postDataFromApi(bulkCargoPDF, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getVesselOperation("VL_TML_M")) {
-          generateCertificateResponse = await postDataFromApi(tmlMoisturePDFApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getRakeOperations('RK_SV')) {
-          payload.jis_id = row?.fk_jisid
-          generateCertificateResponse = await postDataFromApi(opsRakeSVPDFApi, payload, "", true, "", "");
-        }
-        else if (getActivityCode(row?.activity_code).toLowerCase() == getStackOperations('ST_SV')) {
-          payload.jis_id = row?.fk_jisid
-          generateCertificateResponse = await postDataFromApi(opsStackSVPDFApi, payload, "", true, "", "");
-        }
+    
+      
         else {
           generateCertificateResponse = await postDataFromApi(ccCertPdfApi, payload, "", true, "", "");
 

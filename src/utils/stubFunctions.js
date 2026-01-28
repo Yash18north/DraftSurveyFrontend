@@ -24,7 +24,6 @@ export const getSingleSupervissionData = () => null;
 export const getSingleOSData = () => null;
 export const getSingleCSData = () => null;
 export const getSingleSizeAnalysisData = () => null;
-export const getSingleBulkCargoData = () => null;
 export const handleMultipleRefForInvoice = () => null;
 export const handleActivityForInvoice = () => null;
 export const handleTestMemoStatusChange = () => null;

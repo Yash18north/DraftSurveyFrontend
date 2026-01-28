@@ -123,29 +123,22 @@ const JfInstructionNomination = lazy(() => import("../views/operations/JfInstruc
 // const vesselJIList = lazy(() => import("../views/operations/vessel/vesselJIList.js"));
 const OperationJIList = lazy(() => import("../views/operations/CommonOPS/OperationJIList.js"));
 const OperationActivityList = lazy(() => import("../views/operations/CommonOPS/OperationActivityList.js"));
-const TruckJiList = lazy(() => import("../views/operations/truck/TruckJiList.js"));
 const RakeJIList = lazy(() => import("../views/operations/rake/RakeJIList.js"));
 const RakeList = lazy(() => import("../views/operations/rake/RakeList.js"));
 const RakeOperations = lazy(() =>
   import("../views/operations/rake/RakeOperations/RakeOperations.js")
 );
-const TruckOperations = lazy(() =>
-  import("../views/operations/truck/TruckOperations/TruckOperations.js")
-);
 const StackOperations = lazy(() =>
   import("../views/operations/stack/StackOperations/StackOperations.js")
 );
-const TruckAnalysisOperations = lazy(() => import("../views/operations/truck/TruckOperations/TruckAnalysisOperations.js"));
 const RakeAnalysisOperations = lazy(() => import("../views/operations/rake/RakeOperations/RakeAnalysisOperations.js"));
 const StackAnalysisOperations = lazy(() => import("../views/operations/stack/StackOperations/StackAnalysisOperations.js"));
 const StackJIList = lazy(() => import("../views/operations/stack/StackJIList.js"));
 const StackList = lazy(() => import("../views/operations/stack/StackList.js"));
 const vesselJIEdit = lazy(() => import("../views/operations/vessel/vesselJIEdit.js"));
 const vesselList = lazy(() => import("../views/operations/vessel/vesselList.js"));
-const TruckList = lazy(() => import("../views/operations/truck/truckList.js"));
 
 const VesselJIDetais = lazy(() => import("../views/operations/vessel/vesselJIDetais.js"));
-const TruckJIDetails = lazy(() => import("../views/operations/truck/TruckJIDetails.js"));
 const VesselJIDetaisView = lazy(() => import("../views/operations/vessel/vesselJIDetaisView.js"));
 const TMLAnalysisOperations = lazy(() => import("../views/operations/vessel/vesselOperations/TMLAnalysisOperations.js"));
 const OperationCertificate = lazy(() => import("../views/operations/vessel/OperationCertificate.js"));
@@ -423,11 +416,6 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={VesselJIDetaisView} />,
       },
       {
-        path: "/operation/truck-list-view/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={VesselJIDetaisView} />,
-      },
-      {
         path: "/operation/plant-list-view/:EditRecordId",
         exact: true,
         element: <ProtectedRoute component={VesselJIDetaisView} />,
@@ -504,45 +492,6 @@ const ThemeRoutes = [
         path: "/operation/vessel-ji-list/other-tpi/:EditRecordId/:TMLType/:TMLID/:TPIID",
         exact: true,
         element: <ProtectedRoute component={OtherTPIOperation} />,
-      },
-      {
-        path: "/operation/truck-list",
-        exact: true,
-        // element: <ProtectedRoute component={TruckJiList} />,
-        element: <ProtectedRoute component={OperationJIList} ops_code={"TR"} />,
-      },
-      {
-        path: "/operation/truck-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={TruckJIDetails} />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/:EditRecordId",
-        exact: true,
-        // element: <ProtectedRoute component={TruckList} />,
-        element: <ProtectedRoute component={OperationActivityList} ops_code="TR" />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/:EditRecordId/:TMLType/:TMLID",
-        exact: true,
-        // element: <ProtectedRoute component={TruckAnalysisOperations} />,
-        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="TR" />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/:EditRecordId/:TMLType",
-        exact: true,
-        // element: <ProtectedRoute component={TruckOperations} />,
-        element: <ProtectedRoute component={OperationDetails} ops_code={'TR'} />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificateList} />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'TR'} />,
       },
       {
         path: "/operation/rake-list",

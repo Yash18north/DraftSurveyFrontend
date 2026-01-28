@@ -20,13 +20,11 @@ import {
   ccCertPdfApi,
   mergeFilesApi,
   masterUploadApi,
-  rakeQAPdfApi, truckQA2PdfApi, truckQAPdfApi, stackQAPdfApi, truckCSPdfApi,
-  plantQAPdfApi,
   physicalAnalysisPDF,
   tmlMoisturePDFApi
 } from "../../../services/api";
 import { downLoadNonLMSCertificatePDFById } from "../commonHandlerFunction/OPscertificate/OPSCertificateHandlerFunctions";
-import { getLMSOperationActivity, getVesselOperation, getTruckOperations, getRakeOperations, getStackOperations, getPlantOperations, getActivityCode } from "../../../services/commonFunction";
+import { getLMSOperationActivity, getVesselOperation, getRakeOperations, getStackOperations, getPlantOperations, getActivityCode } from "../../../services/commonFunction";
 
 const Preview = ({ pdfUrl, setPdfUrl, IsPreviewUpload, setSharingPdfUrl, label, isCustom, apiUrl, apiMethod, apiPayload }) => {
   let { EditRecordId, EditSubRecordId, s3URL } = useParams();
@@ -77,24 +75,6 @@ const Preview = ({ pdfUrl, setPdfUrl, IsPreviewUpload, setSharingPdfUrl, label, 
       };
       if (isUseForPhysical) {
         res = await postDataFromApi(physicalAnalysisPDF, payload, "", true, "", "");
-      }
-      else if (OperationType == getTruckOperations("DTM")) {
-        res = await postDataFromApi(truckQAPdfApi, payload, "", true, "", "");
-      }
-      else if ([getPlantOperations("TR"), getTruckOperations("QS")].includes(OperationType)) {
-        res = await postDataFromApi(truckQA2PdfApi, payload, "", true, "", "");
-      }
-      else if (OperationType == getTruckOperations("CS")) {
-        res = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
-      }
-      else if ([getPlantOperations("RK"), getRakeOperations('QA')].includes(OperationType)) {
-        res = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
-      }
-      else if ([getPlantOperations("ST"), getStackOperations("PV"), getStackOperations()].includes(OperationType)) {
-        res = await postDataFromApi(stackQAPdfApi, payload, "", true, "", "");
-      }
-      else if (OperationType == getVesselOperation("CS")) {
-        res = await postDataFromApi(truckCSPdfApi, payload, "", true, "", "");
       }
       else if (OperationType == getVesselOperation('VL_TML_M')) {
         res = await postDataFromApi(tmlMoisturePDFApi, payload, "", true, "", "");

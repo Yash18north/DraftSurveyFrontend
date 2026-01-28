@@ -6,19 +6,15 @@ import {
   getHHApi,
   getSVApi,
   H_H_PdfApi,
-  getTruckSealingApi,
   supervisionPdfApi,
-  getCargoSupervisionApi,
   rakeAssessPdfApi,
-  truckCSPdfApi,
-  truckSealingPdfApi,
   getQualityAssesmentApi,
   bulkCargoPDF,
   opsRakeSVPDFApi,
   opsStackSVPDFApi
 } from "../../../../services/api";
 import { postDataFromApi } from "../../../../services/commonServices";
-import { getRakeOperations, getTruckOperations, getVesselOperation, getPlantOperations, getActivityCode, getStackOperations } from "../../../../services/commonFunction";
+import { getRakeOperations, getVesselOperation, getPlantOperations, getActivityCode, getStackOperations } from "../../../../services/commonFunction";
 
 
 export const checkCettificateNoAvailibility = async (
@@ -96,26 +92,10 @@ export const getNonLMSDetailsById = async (OperationType, payload) => {
     if (responseData.data.status === 200) {
       responseData.data.data.opsvd_id = responseData.data.data.opsvsv_id;
     }
-  } else if (OperationType === getTruckOperations("OS")) {
-    responseData = await postDataFromApi(getTruckSealingApi, payload);
-    if (responseData.data.status === 200) {
-      responseData.data.data.opsvd_id = responseData.data.data.tr_os_id;
-    }
-  } else if (OperationType === getTruckOperations("CS")) {
-    responseData = await postDataFromApi(getCargoSupervisionApi, payload);
-    if (responseData.data.status === 200) {
-      responseData.data.data.opsvd_id = responseData.data.data.tr_cs_id;
-    }
   } else if (OperationType === getRakeOperations("QAss")) {
     responseData = await postDataFromApi(getQualityAssesmentApi, payload);
     if (responseData.data.status === 200) {
       responseData.data.data.opsvd_id = responseData.data.data.rake_qas_id;
-    }
-  }
-  else if (OperationType === getVesselOperation("CS")) {
-    responseData = await postDataFromApi(getCargoSupervisionApi, payload);
-    if (responseData.data.status === 200) {
-      responseData.data.data.opsvd_id = responseData.data.data.tr_cs_id;
     }
   }
   else {
@@ -157,35 +137,6 @@ export const downLoadNonLMSCertificatePDFById = async (
       "",
       ""
     );
-  } else if (OperationType === getTruckOperations("OS")) {
-    payload = {
-      tr_os_id: OPSId,
-      cc_id: CCID,
-      is_hard_copy: isHardCopy,
-    };
-    responseData = await postDataFromApi(
-      truckSealingPdfApi,
-      payload,
-      "",
-      true,
-      "",
-      ""
-    );
-  }
-  else if (OperationType === getTruckOperations("CS")) {
-    payload = {
-      tr_cs_id: OPSId,
-      cc_id: CCID,
-      is_hard_copy: isHardCopy,
-    };
-    responseData = await postDataFromApi(
-      truckCSPdfApi,
-      payload,
-      "",
-      true,
-      "",
-      ""
-    );
   } else if (OperationType === getRakeOperations("QAss")) {
     payload = {
       rake_qas_id: OPSId,
@@ -194,48 +145,6 @@ export const downLoadNonLMSCertificatePDFById = async (
     };
     responseData = await postDataFromApi(
       rakeAssessPdfApi,
-      payload,
-      "",
-      true,
-      "",
-      ""
-    );
-  } else if (OperationType === getTruckOperations("OS")) {
-    payload = {
-      tr_os_id: OPSId,
-      cc_id: CCID,
-      is_hard_copy: isHardCopy,
-    };
-    responseData = await postDataFromApi(
-      truckSealingPdfApi,
-      payload,
-      "",
-      true,
-      "",
-      ""
-    );
-  } else if (OperationType === getTruckOperations("OS")) {
-    payload = {
-      tr_os_id: OPSId,
-      cc_id: CCID,
-      is_hard_copy: isHardCopy,
-    };
-    responseData = await postDataFromApi(
-      truckSealingPdfApi,
-      payload,
-      "",
-      true,
-      "",
-      ""
-    );
-  } else if (OperationType === getTruckOperations("OS")) {
-    payload = {
-      tr_os_id: OPSId,
-      cc_id: CCID,
-      is_hard_copy: isHardCopy,
-    };
-    responseData = await postDataFromApi(
-      truckSealingPdfApi,
       payload,
       "",
       true,
