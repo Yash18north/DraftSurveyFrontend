@@ -5,7 +5,7 @@ import SaveSVG from "../../assets/images/icons/SaveSVG.svg";
 import EditSVG from "../../assets/images/icons/EditSVG.svg";
 import DeleteSVG from "../../assets/images/icons/DeleteSVG.svg";
 import { getRakeOperations, getSvgAccordingToCondition } from "../../services/commonFunction";
-import { handleGetPurchaseReqTableData, handlePurchaseReqTableDataDelete } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseReqTableHandler";
+import { handlePurchaseReqTableDataDelete } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseReqTableHandler";
 import { handleGetPurchaseOrderTableData } from "./commonHandlerFunction/Purchase/PurchaseOrder/PurchaseOrderHandler";
 import RenderTablePopup from "./commonModalForms/RenderTablePopup";
 const ActionOptionsTable = ({
@@ -128,20 +128,20 @@ const ActionOptionsTable = ({
       else if (moduleType === "purchaseReq" && action.text === "Edit") {
         setPopupAddPurchaseReq(true)
         setEditableIndex(tableIndex);
-        handleGetPurchaseReqTableData(
-          singleData,
-          setFormData,
-          tableIndex
-        )
+        // handleGetPurchaseReqTableData(
+        //   singleData,
+        //   setFormData,
+        //   tableIndex
+        // )
       }
       else if (moduleType === "purchase" && action.text === "Edit") {
         setPopupAddPurchaseReq(true)
         setEditableIndex(tableIndex);
-        handleGetPurchaseOrderTableData(
-          singleData,
-          setFormData,
-          tableIndex
-        )
+        // handleGetPurchaseOrderTableData(
+        //   singleData,
+        //   setFormData,
+        //   tableIndex
+        // )
       }
       else if (moduleType === "purchase" && action.text === "Delete") {
         setPopupIndex(tableIndex);

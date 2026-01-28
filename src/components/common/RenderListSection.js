@@ -63,7 +63,7 @@ import { capitalize } from "lodash";
 import CustomPopupModal from "./commonModalForms/CustomPopupModal";
 import { handleTransferCertificateOwnershipHandler } from "./commonHandlerFunction/CommercialCertificateHandlerFunctions";
 import { hanfleInvoiceStatusChange } from "./commonHandlerFunction/InvoiceHandlerFunctions";
-import { handleCancelRemarkFunck } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
+// import { handleCancelRemarkFunck } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
 import { toast } from "react-toastify";
 import NotInvoiced from "../../assets/images/icons/not_invoiced.svg";
 import CertificatePublished from "../../assets/images/icons/certificate_published.svg";
@@ -1643,7 +1643,7 @@ const RenderListSection = ({
       getAllListingDataExports(customFormData, 1)
     }
     else if (moduleType === "jobCosting") {
-      handleCancelRemarkFunck(customFormData, setIsOverlayLoader, navigate, currentActiverow, getAllListingData)
+      // handleCancelRemarkFunck(customFormData, setIsOverlayLoader, navigate, currentActiverow, getAllListingData)
     }
 
   }

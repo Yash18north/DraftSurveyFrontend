@@ -21,6 +21,7 @@ import {
 import { SFMSetCountApi } from "../../services/api";
 import SFMCalculationForm from "./commonModalForms/SFMCalculationForm";
 import { getSampleStatusCountsForTPI, getTPIParamBasis } from "./commonHandlerFunction/operations/TPIHandlerFunctions";
+import { getSampleStatusCountsForTPI as stubGetSampleStatusCountsForTPI, getTPIParamBasis as stubGetTPIParamBasis } from "../../utils/stubFunctions";
 import { toast } from "react-toastify";
 import { changeLanguage } from "i18next";
 

@@ -98,11 +98,6 @@ const ConfirugationCertificate = lazy(() =>
   import("../views/operations/vessel/vesselOperations/OperationCertificate.js")
 );
 
-// Other (kept) lazy imports
-const OtherList = lazy(() => import("../views/operations/other/OtherList.js"));
-const OtherJIList = lazy(() => import("../views/operations/other/OtherJIList.js"));
-const OtherJIDetails = lazy(() => import("../views/operations/other/OtherJIDetails.js"));
-
 
 const TestMemoPDF = lazy(() => import("../views/lms/TestMemoPDF.js"));
 const SFMPDF = lazy(() => import("../views/lms/SFMPDF.js"));
@@ -128,12 +123,33 @@ const JfInstructionNomination = lazy(() => import("../views/operations/JfInstruc
 // const vesselJIList = lazy(() => import("../views/operations/vessel/vesselJIList.js"));
 const OperationJIList = lazy(() => import("../views/operations/CommonOPS/OperationJIList.js"));
 const OperationActivityList = lazy(() => import("../views/operations/CommonOPS/OperationActivityList.js"));
+const TruckJiList = lazy(() => import("../views/operations/truck/TruckJiList.js"));
+const RakeJIList = lazy(() => import("../views/operations/rake/RakeJIList.js"));
+const RakeList = lazy(() => import("../views/operations/rake/RakeList.js"));
+const RakeOperations = lazy(() =>
+  import("../views/operations/rake/RakeOperations/RakeOperations.js")
+);
+const TruckOperations = lazy(() =>
+  import("../views/operations/truck/TruckOperations/TruckOperations.js")
+);
+const StackOperations = lazy(() =>
+  import("../views/operations/stack/StackOperations/StackOperations.js")
+);
+const TruckAnalysisOperations = lazy(() => import("../views/operations/truck/TruckOperations/TruckAnalysisOperations.js"));
+const RakeAnalysisOperations = lazy(() => import("../views/operations/rake/RakeOperations/RakeAnalysisOperations.js"));
+const StackAnalysisOperations = lazy(() => import("../views/operations/stack/StackOperations/StackAnalysisOperations.js"));
 const StackJIList = lazy(() => import("../views/operations/stack/StackJIList.js"));
 const StackList = lazy(() => import("../views/operations/stack/StackList.js"));
+const vesselJIEdit = lazy(() => import("../views/operations/vessel/vesselJIEdit.js"));
+const vesselList = lazy(() => import("../views/operations/vessel/vesselList.js"));
 const TruckList = lazy(() => import("../views/operations/truck/truckList.js"));
 
+const VesselJIDetais = lazy(() => import("../views/operations/vessel/vesselJIDetais.js"));
 const TruckJIDetails = lazy(() => import("../views/operations/truck/TruckJIDetails.js"));
+const VesselJIDetaisView = lazy(() => import("../views/operations/vessel/vesselJIDetaisView.js"));
+const TMLAnalysisOperations = lazy(() => import("../views/operations/vessel/vesselOperations/TMLAnalysisOperations.js"));
 const OperationCertificate = lazy(() => import("../views/operations/vessel/OperationCertificate.js"));
+const OtherTPIOperation = lazy(() => import("../views/operations/vessel/otherTPIOperation.js"));
 const Support = lazy(() => import("../views/Support.js"));
 const ReleaseNotes = lazy(() => import("../views/ReleaseNotes.js"));
 const LaboratoryDashboard = lazy(() => import("../views/Dashboard/LaboratoryDashboard.js"));
@@ -143,7 +159,17 @@ const CreditControlDashboard = lazy(() => import("../views/Dashboard/CreditContr
 const JIManPower = lazy(() => import("../views/operations/JIManPower.js"));
 const OtherTPIList = lazy(() => import("../views/operations/OtherTPIList.js"));
 const OverallAnalytics = lazy(() => import("../views/Dashboard/OverallAnalytics.js"));
-// Plant/Other/Consortium functions removed (pages disabled)
+//Plant Functions
+const PlantJIList = lazy(() => import("../views/operations/plant/PlantJIList.js"));
+const PlantList = lazy(() => import("../views/operations/plant/PlantList.js"));
+const PlantJIDetails = lazy(() => import("../views/operations/plant/PlantJIDetails.js"));
+const OtherJIDetails = lazy(() => import("../views/operations/other/OtherJIDetails.js"));
+const PlantOperations = lazy(() => import("../views/operations/plant/PlantOperations/PlantOperations.js"));
+const PlantAnalysisOperations = lazy(() => import("../views/operations/plant/PlantOperations/PlantAnalysisOperations.js"));
+
+
+const ConsortiumList = lazy(() => import("../views/operations/consortium/ConsortiumList.js"));
+const ConsortiumAdd = lazy(() => import("../views/operations/consortium/ConsortiumAdd.js"));
 
 // Srushti 
 
@@ -384,6 +410,71 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={JIManPower} />,
       },
       {
+        path: "/operation/vessel-ji-list",
+        exact: true,
+        // element: <ProtectedRoute component={vesselJIList} />,
+        element: <ProtectedRoute component={OperationJIList} ops_code={"VL"} />,
+      },
+
+      {
+        path: "/operation/vessel-ji-list/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={VesselJIDetais} />,
+      },
+      {
+        path: "/operation/vessel-ji-list-view/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
+      },
+      {
+        path: "/operation/rake-list-view/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
+      },
+      {
+        path: "/operation/stack-list-view/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
+      },
+      {
+        path: "/operation/truck-list-view/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
+      },
+      {
+        path: "/operation/plant-list-view/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
+      },
+      {
+        path: "/operation/vessel-ji-edit",
+        exact: true,
+        element: <ProtectedRoute component={vesselJIEdit} />,
+      },
+      {
+        path: "/operation/vessel-ji-list/vessel-list/:EditRecordId",
+        exact: true,
+        // element: <ProtectedRoute component={vesselList} />,
+        element: <ProtectedRoute component={OperationActivityList} ops_code="VL" />,
+      },
+      {
+        path: "/operation/vessel-ji-list/vessel-list/:EditRecordId/:TMLType",
+        exact: true,
+        // element: <ProtectedRoute component={TMLOperations} />,
+        element: <ProtectedRoute component={OperationDetails} ops_code={'VL'} />,
+      },
+      {
+        path: "/operation/vessel-ji-list/vessel-list/:EditRecordId/:TMLType/:TMLID",
+        exact: true,
+        // element: <ProtectedRoute component={TMLAnalysisOperations} />,
+        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="VL" />,
+      },
+      {
+        path: "/operation/vessel-ji-list/vessel-list/confirugation-certificate-list/:EditRecordId/:TMLType",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificateList} />,
+      },
+      {
         path: "/operation/commercial-certificate-list",
         exact: true,
         element: <ProtectedRoute component={CommercialCertificateList} />,
@@ -399,9 +490,19 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={ShareFiles} />,
       },
       {
+        path: "/operation/vessel-ji-list/vessel-list/commercial-certificate-preview/:EditRecordId/:EditSubRecordId",
+        exact: true,
+        element: <ProtectedRoute component={CommercialCertificatePreview} />,
+      },
+      {
         path: "/operation/commercial-certificate-list/commercial-certificate-preview/:EditRecordId/:EditSubRecordId",
         exact: true,
         element: <ProtectedRoute component={CommercialCertificatePreview} />,
+      },
+      {
+        path: "/operation/vessel-ji-list/vessel-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'VL'} />,
       },
       {
         path: "/operation/operation-certificate/:EditRecordId/:EditSubRecordId",
@@ -413,16 +514,175 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={OtherTPIList} />,
       },
-      // Other OPS (kept)
+      {
+        path: "/operation/vessel-ji-list/other-tpi/:EditRecordId/:TMLType/:TMLID/:TPIID",
+        exact: true,
+        element: <ProtectedRoute component={OtherTPIOperation} />,
+      },
+      {
+        path: "/operation/truck-list",
+        exact: true,
+        // element: <ProtectedRoute component={TruckJiList} />,
+        element: <ProtectedRoute component={OperationJIList} ops_code={"TR"} />,
+      },
+      {
+        path: "/operation/truck-list/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={TruckJIDetails} />,
+      },
+      {
+        path: "/operation/truck-list/truck-details-list/:EditRecordId",
+        exact: true,
+        // element: <ProtectedRoute component={TruckList} />,
+        element: <ProtectedRoute component={OperationActivityList} ops_code="TR" />,
+      },
+      {
+        path: "/operation/truck-list/truck-details-list/:EditRecordId/:TMLType/:TMLID",
+        exact: true,
+        // element: <ProtectedRoute component={TruckAnalysisOperations} />,
+        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="TR" />,
+      },
+      {
+        path: "/operation/truck-list/truck-details-list/:EditRecordId/:TMLType",
+        exact: true,
+        // element: <ProtectedRoute component={TruckOperations} />,
+        element: <ProtectedRoute component={OperationDetails} ops_code={'TR'} />,
+      },
+      {
+        path: "/operation/truck-list/truck-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificateList} />,
+      },
+      {
+        path: "/operation/truck-list/truck-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'TR'} />,
+      },
+      {
+        path: "/operation/rake-list",
+        exact: true,
+        // element: <ProtectedRoute component={RakeJIList} />,
+        element: <ProtectedRoute component={OperationJIList} ops_code={"RK"} />,
+      },
+      {
+        path: "/operation/rake-list/rake-details-list/:EditRecordId",
+        exact: true,
+        // element: <ProtectedRoute component={RakeList} />,
+        element: <ProtectedRoute component={OperationActivityList} ops_code="RK" />,
+      },
+      {
+        path: "/operation/rake-list/rake-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificateList} />,
+      },
+      {
+        path: "/operation/rake-list/rake-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'RK'} />,
+      },
+      {
+        path: "/operation/stack-list",
+        exact: true,
+        // element: <ProtectedRoute component={StackJIList} />,
+        element: <ProtectedRoute component={OperationJIList} ops_code={"ST"} />,
+      },
+      {
+        path: "/operation/stack-list/stack-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificateList} />,
+      },
+
+      {
+        path: "/operation/rake-list/rake-details-list/:EditRecordId/:TMLType",
+        exact: true,
+        // element: <ProtectedRoute component={RakeOperations} />,
+        element: <ProtectedRoute component={OperationDetails} ops_code={'RK'} />,
+      },
+      {
+        path: "/operation/rake-list/rake-details-list/:EditRecordId/:TMLType/:TMLID",
+        exact: true,
+        // element: <ProtectedRoute component={RakeAnalysisOperations} />,
+        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="RK" />,
+      },
+      {
+        path: "/operation/stack-list/stack-details-list/:EditRecordId",
+        exact: true,
+        // element: <ProtectedRoute component={StackList} />,
+        element: <ProtectedRoute component={OperationActivityList} ops_code="ST" />,
+      },
+      {
+        path: "/operation/stack-list/stack-details-list/:EditRecordId/:TMLType",
+        exact: true,
+        // element: <ProtectedRoute component={StackOperations} />,
+        element: <ProtectedRoute component={OperationDetails} ops_code={'ST'} />,
+      },
+      {
+        path: "/operation/stack-list/stack-details-list/:EditRecordId/:TMLType/:TMLID",
+        exact: true,
+        // element: <ProtectedRoute component={StackAnalysisOperations} />,
+        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="ST" />,
+      },
+      {
+        path: "/operation/stack-list/stack-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificateList} />,
+      },
+      {
+        path: "/operation/stack-list/stack-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'ST'} />,
+      },
+      //Plant Routes
+      {
+        path: "/operation/plant-list",
+        exact: true,
+        // element: <ProtectedRoute component={PlantJIList} />,
+        element: <ProtectedRoute component={OperationJIList} ops_code={"PL"} />,
+      },
+      {
+        path: "/operation/plant-list/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={PlantJIDetails} />,
+      },
+      {
+        path: "/operation/plant-list/plant-details-list/:EditRecordId",
+        exact: true,
+        // element: <ProtectedRoute component={PlantList} />,
+        element: <ProtectedRoute component={OperationActivityList} ops_code="PL" />,
+      },
+      {
+        path: "/operation/plant-list/plant-details-list/:EditRecordId/:TMLType/:TMLID",
+        exact: true,
+        // element: <ProtectedRoute component={PlantAnalysisOperations} />,
+        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="PL" />,
+      },
+      {
+        path: "/operation/plant-list/plant-details-list/:EditRecordId/:TMLType",
+        exact: true,
+        // element: <ProtectedRoute component={PlantOperations} />,
+        element: <ProtectedRoute component={OperationDetails} ops_code={"PL"} />,
+      },
+      {
+        path: "/operation/plant-list/plant-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificateList} />,
+      },
+      {
+        path: "/operation/plant-list/plant-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
+        exact: true,
+        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'PL'} />,
+      },
+      //Other OPS
       {
         path: "/operation/other-list",
         exact: true,
+        // element: <ProtectedRoute component={PlantJIList} />,
         element: <ProtectedRoute component={OperationJIList} ops_code={"OT"} />,
       },
       {
         path: "/operation/other-list-view/:EditRecordId",
         exact: true,
-        element: <ProtectedRoute component={OtherJIDetails} />,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
       },
       {
         path: "/operation/other-list/:EditRecordId",
@@ -432,16 +692,19 @@ const ThemeRoutes = [
       {
         path: "/operation/other-list/other-details-list/:EditRecordId",
         exact: true,
+        // element: <ProtectedRoute component={PlantList} />,
         element: <ProtectedRoute component={OperationActivityList} ops_code="OT" />,
       },
       {
         path: "/operation/other-list/other-details-list/:EditRecordId/:TMLType/:TMLID",
         exact: true,
+        // element: <ProtectedRoute component={PlantAnalysisOperations} />,
         element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="OT" />,
       },
       {
         path: "/operation/other-list/other-details-list/:EditRecordId/:TMLType",
         exact: true,
+        // element: <ProtectedRoute component={PlantOperations} />,
         element: <ProtectedRoute component={OperationDetails} ops_code={"OT"} />,
       },
       {
@@ -454,19 +717,16 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'OT'} />,
       },
-      // Routes for Truck, Rake, Stack have been removed
-      // Routes for Plant removed
-      // Routes for Other OPS removed
       //Admin job instruction
       {
         path: "/operation/jrfInstructionListing-view/:EditRecordId",
         exact: true,
-        element: <ProtectedRoute component={OtherJIDetails} />,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
       },
       {
         path: "/operation/jrfInstructionListing/ji-details-list-view/:EditRecordId",
         exact: true,
-        element: <ProtectedRoute component={OtherJIDetails} />,
+        element: <ProtectedRoute component={VesselJIDetaisView} />,
       },
       {
         path: "/operation/jrfInstructionListing/:EditRecordId",
@@ -502,7 +762,21 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'OT'} />,
       },
       //
-      // Routes for Consortium removed
+      {
+        path: "/operation/consortiums-list",
+        exact: true,
+        element: <ProtectedRoute component={ConsortiumList} />,
+      },
+      {
+        path: "/operation/consortiums-list/consortium",
+        exact: true,
+        element: <ProtectedRoute component={ConsortiumAdd} />,
+      },
+      {
+        path: "/operation/consortiums-list/consortium/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={ConsortiumAdd} />,
+      },
 
       // Srushti
 

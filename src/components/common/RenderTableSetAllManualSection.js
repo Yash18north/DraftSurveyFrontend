@@ -27,6 +27,7 @@ import { sampleVerificationHandler } from "./commonHandlerFunction/sampleVerific
 import PropTypes from "prop-types";
 import ModalInward from "./commonModalForms/modalInward";
 import SampleVerificationDetals from "./commonModalForms/SampleVerificationDetals";
+import { SampleVerificationDetals as stubSampleVerificationDetals } from "../../utils/stubFunctions";
 import { toast } from "react-toastify";
 import {
   getAllSampleMarkListDataForDD,
@@ -36,6 +37,14 @@ import {
   totalTannange,
   totalTannangeBalance
 } from "./commonHandlerFunction/operations/TMLOperations";
+import {
+  getAllSampleMarkListDataForDD as stubGetAllSampleMarkListDataForDD,
+  getSingleSampleCollectionData as stubGetSingleSampleCollectionData,
+  getSingleSizeAnalysisData as stubGetSingleSizeAnalysisData,
+  OperationSizeAnalysisCreateDataFunction as stubOperationSizeAnalysisCreateDataFunction,
+  totalTannange as stubTotalTannange,
+  totalTannangeBalance as stubTotalTannangeBalance
+} from "../../utils/stubFunctions";
 import { all } from "axios";
 import RenderTablePopup from "./commonModalForms/RenderTablePopup";
 

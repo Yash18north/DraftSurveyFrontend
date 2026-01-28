@@ -105,8 +105,11 @@ import {
   handleInwardStatusChange,
 } from "./commonHandlerFunction/sampleInwardHandlerFunctions";
 import GroupAssignmentButtons from "./ShowButtons/GroupAssignmentButtons";
+import { GroupAssignmentButtons as stubGroupAssignmentButtons } from "../../utils/stubFunctions";
 import GroupAssignmentPreviewButtons from "./ShowButtons/GroupAssignmentPreviewButtons";
+import { GroupAssignmentPreviewButtons as stubGroupAssignmentPreviewButtons } from "../../utils/stubFunctions";
 import SampleInwardButtons from "./ShowButtons/SampleInwardButtons";
+import { SampleInwardButtons as stubSampleInwardButtons } from "../../utils/stubFunctions";
 import InternalCertificateButtons from "./ShowButtons/InternalCertificateButtons";
 
 import ViewCheckListButtons from "./ShowButtons/ViewCheckListButtons";
@@ -115,7 +118,9 @@ import JIButtons from "./ShowButtons/operations/JIButtons";
 import AuditButtons from "./ShowButtons/AuditButtons";
 import TenderButton from "./ShowButtons/Tender/TenderButton";
 import TestMemoButtons from "./ShowButtons/TestMemoButtons";
+import { TestMemoButtons as stubTestMemoButtons } from "../../utils/stubFunctions";
 import SampleVerificationButtons from "./ShowButtons/SampleVerificationButtons";
+import { SampleVerificationButtons as stubSampleVerificationButtons } from "../../utils/stubFunctions";
 import AllotmentButtons from "./ShowButtons/AllotmentButtons";
 import OperationCertificateButtons from "./ShowButtons/OperationCertificateButtons";
 import CommercialCertificateButtons from "./ShowButtons/CommercialCertificateButtons";
@@ -137,6 +142,7 @@ import {
   handleSFMVerificationMain,
 } from "./commonHandlerFunction/sfmHandlerFunctions";
 import SFMButtons from "./ShowButtons/SFMButtons";
+import { SFMButtons as stubSFMButtons } from "../../utils/stubFunctions";
 import {
   changeTestReportStatusChange,
   checkICULRNoAvailibility,
@@ -223,22 +229,27 @@ import RenderTableManualMultiEntrySection from "./RenderTableManualMultiEntrySec
 
 import { useLocation } from 'react-router-dom';
 import ConsortiumButton from "./ShowButtons/operations/ConsortiumButton";
+import { ConsortiumButton as stubConsortiumButton } from "../../utils/stubFunctions";
 import InvoiceButton from "./ShowButtons/operations/InvoiceButton";
+import { InvoiceButton as stubInvoiceButton } from "../../utils/stubFunctions";
 
 
 import { getSingleConsortiumRecord, handleConsortiumCreateOrUpdate } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 
 import JobCostingButton from "./ShowButtons/JobCosting";
+import { JobCostingButton as stubJobCostingButton } from "../../utils/stubFunctions";
 import { Input } from "reactstrap";
 import { getCalculationsForJobCosting, handleFormCreateAndUpdate, handleFormSave, handleFormUpdate, handleFormUpdateAndUpdate, handleGetJobCostingList, handleJobCostingFormCreateAndUpdate } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
 // import { handleFormCreateAndUpdate } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
 import OutStandingButtons from "./ShowButtons/Audit/OutStanding/OutStandingButtons";
+import { OutStandingButtons as stubOutStandingButtons } from "../../utils/stubFunctions";
 import { getMonthlyOutStanding, getTotalBranchAmountValue, getYearlyOutStanding, handleGetSingleOutstanding, OutStandingExtraFields } from "./commonHandlerFunction/Audit/OutStanding/OutStandingHandlerFunction";
 import { auditSalesRegisterExtraFields, getTotalBranchAmountValueForSalesRegister, handleGetSingleSalesRegister } from "./commonHandlerFunction/Audit/SalesRegister/SalesRegisterHandlerFunction";
 // import { getInvoiceData, handleInvoiceCreateOrUpdate } from "./commonHandlerFunction/InvoiceHandlerFunctions";
 import { getCalculationForBranchExpense, getSingleBranchExpense } from "./commonHandlerFunction/Audit/BranchExpenseHandler";
 import DocumentPopup from "../../views/Document/UploadFiles/DocumentPopup";
 import SalesRegisterButtons from "./ShowButtons/Audit/SalesRegister/SalesRegisterButton";
+import { SalesRegisterButtons as stubSalesRegisterButtons } from "../../utils/stubFunctions";
 
 
 
@@ -250,9 +261,13 @@ import { set } from "rsuite/esm/internals/utils/date";
 import Document from "../../formJsonData/Operations/jobinstructions/DocumentPopup.json";
 import RenderTallyListSection from "./RenderTallyListSection ";
 import PurchaseButtons from "./ShowButtons/Purchase/PurchasingOrder/PurchaseButtons";
+import { PurchaseButtons as stubPurchaseButtons } from "../../utils/stubFunctions";
 import PurchaseRequistionButtons from "./ShowButtons/Purchase/PurchaseRequistion/PurchaseRequistionButton";
+import { PurchaseRequistionButtons as stubPurchaseRequistionButtons } from "../../utils/stubFunctions";
 import CalibrationsButtons from "./ShowButtons/Purchase/Calibration/CalibrationsButtons";
+import { CalibrationsButtons as stubCalibrationsButtons } from "../../utils/stubFunctions";
 import SupplierButtons from "./ShowButtons/Purchase/Supplier/SupplierButtons";
+import { SupplierButtons as stubSupplierButtons } from "../../utils/stubFunctions";
 import PopUpPurchaseReq from "./PopUpPurchaseReq";
 import { handleGetPurchaseReq, handlePurchaseReqUpdateCreate } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseRequsitionHandler";
 import { handleGetSupplier } from "./commonHandlerFunction/Purchase/Supplier/SupplierHandler";
@@ -261,20 +276,26 @@ import { handleGetCalibration } from "./commonHandlerFunction/Purchase/Calibrati
 import { getCalculationsForPrice, getCalculationsForTotal, handleGetPurchaseOrder, handlePurchaseOrderCreateUpdate } from "./commonHandlerFunction/Purchase/PurchaseOrder/PurchaseOrderHandler";
 import { handleGetTender } from "./commonHandlerFunction/Tender/TenderHandlerFunc";
 import ChemicalStocksButtons from "./ShowButtons/ChemicalStocks/Stocks";
+import { ChemicalStocksButtons as stubChemicalStocksButtons } from "../../utils/stubFunctions";
 import { getChemicalStock } from "./commonHandlerFunction/ChemicalStocks/ChemicalstockHandler";
 import FeedbackButton from "./ShowButtons/Feedback/FeedbackButton";
+import { FeedbackButton as stubFeedbackButton } from "../../utils/stubFunctions";
 import IncentiveButton from "./ShowButtons/Feedback/IncentiveButton";
+import { IncentiveButton as stubIncentiveButton } from "../../utils/stubFunctions";
 import { handleGetFeedback } from "./commonHandlerFunction/Feedback/FeedbackHandler";
 import { handleGetCategory } from "./commonHandlerFunction/Purchase/Category/CategoryHandler"
 import { getBillingDelayDayCount, getJobCostingIncDataFunc, handleGetIncentive, incentivesCalculationData } from "./commonHandlerFunction/Feedback/IncentiveHandler";
 import PurchaseItemButton from "./ShowButtons/Purchase/Items/PurchaseItemButton";
+import { PurchaseItemButton as stubPurchaseItemButton } from "../../utils/stubFunctions";
 import { handleGetPurchaseItem } from "./commonHandlerFunction/Purchase/Items/ItemsHandler";
 import moment from "moment";
 import { handleActivityForInvoice, handleMultipleRefForInvoice } from "./commonHandlerFunction/operations/invoiceHandlerFunctions";
 import CustomPopupModal from "./commonModalForms/CustomPopupModal";
 import { handleGetclientMAsterData, handleGetUserMAsterData } from "./commonHandlerFunction/MasterData/Users/userHandler";
 import CategoryBtn from "./ShowButtons/Purchase/Category/CategoryBtns";
+import { CategoryBtn as stubCategoryBtn } from "../../utils/stubFunctions";
 import ClientDetailsButtons from "./ShowButtons/ClientDetails/ClientDetailsButtons";
+import { ClientDetailsButtons as stubClientDetailsButtons } from "../../utils/stubFunctions";
 
 export const selectUser = (state) => state.user;
 export const selectRolePermissions = (state) => state.rolePermissions;

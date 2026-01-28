@@ -45,21 +45,32 @@ import { handleJobInstructionDelete } from "./commonHandlerFunction/jobinstructi
 import { getNonLMSDetailsById } from "./commonHandlerFunction/OPscertificate/OPSCertificateHandlerFunctions";
 import { handleVesselOperationDelete, handleDocumentDelete, handleCommercialCertDelete } from "./commonHandlerFunction/CommercialCertificateHandlerFunctions";
 import { handleConsortiumDelete } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
+import { handleConsortiumDelete as stubHandleConsortiumDelete } from "../../utils/stubFunctions";
 import { useTranslation } from "react-i18next";
 import { handleGetJobCostingList } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
 import { getSingleBranchExpense } from "./commonHandlerFunction/Audit/BranchExpenseHandler";
 import { handleGetSingleOutstanding } from "./commonHandlerFunction/Audit/OutStanding/OutStandingHandlerFunction";
 import { handleGetSingleSalesRegister } from "./commonHandlerFunction/Audit/SalesRegister/SalesRegisterHandlerFunction";
 import { handleSupplierDelete } from "./commonHandlerFunction/Purchase/Supplier/SupplierHandler";
+import { handleSupplierDelete as stubHandleSupplierDelete } from "../../utils/stubFunctions";
 import { handleDownloadPR, handlePurchaseReqDelete } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseRequsitionHandler";
+import { handleDownloadPR as stubHandleDownloadPR, handlePurchaseReqDelete as stubHandlePurchaseReqDelete } from "../../utils/stubFunctions";
 import { handleCalibrationDelete } from "./commonHandlerFunction/Purchase/Calibration/CalibrationHandler";
+import { handleCalibrationDelete as stubHandleCalibrationDelete } from "../../utils/stubFunctions";
 import { handleDownloadPO, handlePurchaseOrderDelete } from "./commonHandlerFunction/Purchase/PurchaseOrder/PurchaseOrderHandler";
+import { handleDownloadPO as stubHandleDownloadPO2, handlePurchaseOrderDelete as stubHandlePurchaseOrderDelete } from "../../utils/stubFunctions";
 import { handleTenderDelete } from "./commonHandlerFunction/Tender/TenderHandlerFunc";
+import { handleTenderDelete as stubHandleTenderDelete } from "../../utils/stubFunctions";
 import { handleChemicalStocksDelete } from "./commonHandlerFunction/ChemicalStocks/ChemicalstockHandler";
+import { handleChemicalStocksDelete as stubHandleChemicalStocksDelete } from "../../utils/stubFunctions";
 import { handleIncentiveDelete } from "./commonHandlerFunction/Feedback/IncentiveHandler";
+import { handleIncentiveDelete as stubHandleIncentiveDelete } from "../../utils/stubFunctions";
 import { handleCreateDebitFromList } from "./commonHandlerFunction/InvoiceHandlerFunctions";
+import { handleCreateDebitFromList as stubHandleCreateDebitFromList } from "../../utils/stubFunctions";
 import { handlePurchaseItemDelete } from "./commonHandlerFunction/Purchase/Items/ItemsHandler";
+import { handlePurchaseItemDelete as stubHandlePurchaseItemDelete } from "../../utils/stubFunctions";
 import { handleCategoryDelete, handleCategorykDelete } from "./commonHandlerFunction/Purchase/Category/CategoryHandler";
+import { handleCategoryDelete as stubHandleCategoryDelete } from "../../utils/stubFunctions";
 
 
 

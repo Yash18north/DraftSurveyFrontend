@@ -40,6 +40,13 @@ import {
   getAssignemtnLabDropdownData,
   getOPS3StepCheckLabWiseParameters,
 } from "./commonHandlerFunction/operations/TMLOperations";
+import {
+  createTMLAnalysisDetails as stubCreateTMLAnalysisDetails,
+  createTMLAnalysisPageHandleAction as stubCreateTMLAnalysisPageHandleAction,
+  getAllSampleAssignmentist as stubGetAllSampleAssignmentist,
+  getAssignemtnLabDropdownData as stubGetAssignemtnLabDropdownData,
+  getOPS3StepCheckLabWiseParameters as stubGetOPS3StepCheckLabWiseParameters
+} from "../../utils/stubFunctions";
 import { useSelector } from "react-redux";
 import { getSvgAccordingToCondition } from "../../services/commonFunction";
 import ConfirmationModal from "./ConfirmationModal";

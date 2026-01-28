@@ -98,11 +98,143 @@ const TruckOperations = () => {
         newConfig["sections"][1]["tabs"][1] = {
           label: "Job Description",
           type: "tablePreview",
-          import React from "react";
+          moduleType: "VesselListOperationAssignment",
+          isViewOnly: "View",
+          headers: [
+            {
+              label: "Samples",
+              name: "samples",
+              type: "label",
+              required: true,
+            },
+            {
+              label: "Type",
+              name: "samples",
+              type: "label",
+              required: true,
+            },
+            {
+              label: "Groups of Parameter",
+              name: "Groups",
+              type: "select",
 
-          const RemovedTruckOperations = () => null;
+              required: true,
+              options: ["ASTM", "IS", "ISO"],
+              placeholder: "Enter Parameter",
+            },
+            {
+              label: "Test Method",
+              name: "test_method",
+              type: "select",
+              required: true,
+              options: ["ASTM", "IS", "ISO"],
+              placeholder: "Enter Parameter",
+            },
+            {
+              label: "Basis",
+              name: "test_method",
+              type: "select",
+              required: true,
+              options: ["ASTM", "IS", "ISO"],
+              placeholder: "Enter Parameter",
+            },
+          ],
+          rows: [
+            [
+              {
+                width: 8,
+                name: "is_group_param",
+                subname: "isGroup",
+                type: "radio",
+                options: ["Group", "Parameter"],
 
-          export default RemovedTruckOperations;
+                required: true,
+                readOnly: true,
+                fieldWidth: "100",
+                placeholder: "1633",
+
+                multiple: true,
+              },
+
+              {
+                width: 8,
+
+                name: "smpl_set_paramjson",
+                subname: "param_name",
+                type: "select",
+                options: [],
+                required: true,
+                fieldWidth: 100,
+              },
+              {
+                width: 8,
+
+                name: "smpl_set_groupjson",
+                subname: "group_id",
+                type: "select",
+                options: [],
+                required: true,
+                fieldWidth: 100,
+              },
+              {
+                width: 8,
+                name: "smpl_set_testmethodjson",
+                subname: "std_name",
+                type: "select",
+                options: [],
+                required: true,
+                fieldWidth: 100,
+                errorlabel: "Test Method",
+              },
+              {
+                width: 8,
+                name: "smpl_set_basisjson",
+                subname: "basis",
+                type: "select",
+                options: [],
+                required: true,
+                fieldWidth: 100,
+                multiple: true,
+                errorlabel: "Basis",
+              },
+            ],
+          ],
+          actions: [
+            {
+              label: "bi bi-pencil h6",
+              value: "Edit",
+              type: "icon",
+              redirectUrl: "/inwardList/inwardForm",
+              permission: "update",
+            },
+            {
+              label: "bi bi-trash h6",
+              value: "Delete",
+              type: "icon",
+              redirectUrl: "/inwardList/inwardForm",
+              permission: "delete",
+            },
+            {
+              label: "bi bi-clock-history h6",
+              value: "History",
+              type: "icon",
+              permission: "history",
+            },
+          ],
+        };
+      }
+    }
+    if (![1, 4,6].includes(stepNo)) {
+      if (
+        getLMSOperationActivity().includes(TMLType)
+      ) {
+        if (countRef.current === 0) {
+          newConfig["sections"][1]["tabs"][0] = addFieldsinconfig(
+            newConfig["sections"][1]["tabs"][0]
+          );
+          countRef.current = 1;
+        }
+      }
     }
 
     setActualConfigData(newConfig);

@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { Row } from "react-bootstrap";
 import OverlayLoading from "../OverlayLoading";
 import { checkSampleIdAvailibility } from "../commonHandlerFunction/sampleInwardHandlerFunctions";
+import { checkSampleIdAvailibility as stubCheckSampleIdAvailibility } from "../../../utils/stubFunctions";
 import { GetTenantDetails } from "../../../services/commonServices";
 import { ToastContainer } from "react-toastify";
 
