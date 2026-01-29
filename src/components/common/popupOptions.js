@@ -668,7 +668,7 @@ const PopupOptions = ({
             recordNo: "Job Instruction No " + row.ji_reference_number,
             model: model,
             redirect: "/operation/jrfInstructionListing",
-            Breadcrumb: "Job Instruction List",
+            Breadcrumb: "Draught Survey List",
           };
 
           dispatch(historyData(historyDetails));

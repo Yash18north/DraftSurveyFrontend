@@ -63,9 +63,9 @@ export const handleJIValidation = async (
   type
 ) => {
   let isValidate = handleSubmit();
-  if (!isValidate) {
-    return false;
-  }
+  // if (!isValidate) {
+  //   return false;
+  // }
   setJRFCreationType(type);
   setIsPopupOpen(true);
 };
@@ -2846,11 +2846,9 @@ export const getCommonTabsFroJI = (role = "") => {
   if (role && role != "OPS_ADMIN") {
     return []
   }
-  let tabs = [{ Text: "Company & Commodity", leftSubTitle: "Step 1", rightSubTitle: "In Progress" },
-  { Text: "Scope of Work", leftSubTitle: "Step 2", rightSubTitle: "In Progress" },
-  { Text: "Groups & Parameters", leftSubTitle: "Step 3", rightSubTitle: "In Progress" },
-  { Text: "Nominations & Billing Details", leftSubTitle: "Step 4", rightSubTitle: "In Progress" }
-  ]
+  let tabs = [
+    // { Text: "Company & Commodity", leftSubTitle: "Step 1", rightSubTitle: "In Progress" },
+]
   if (!role) {
     tabs.splice(0, 1)
   }

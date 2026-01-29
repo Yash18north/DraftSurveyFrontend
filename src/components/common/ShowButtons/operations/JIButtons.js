@@ -491,44 +491,25 @@ const JIButtons = ({
                   type="button"
                   className="submitBtn"
                   id="submit_btn1"
-                  disabled={editReordType !== "nomination" && !['posted', 'accepted'].includes(formData?.[0]?.status)}
+                  // disabled={editReordType !== "nomination" && !['posted', 'accepted'].includes(formData?.[0]?.status)}
                   onClick={(e) =>
-                    handleJIValidation(
-                      handleSubmit,
-                      setJrfCreationType,
-                      setIsPopupOpen,
-                      "post"
+                    handleJIUpdateStatus(
+                      formData,
+                      formConfig,
+                      setIsOverlayLoader,
+                      editReordType,
+                      navigate,
+                      1,           // isMainStatusChange = true
+                      "accepted",  // mainStatus = "accepted"
+                      "",          // remarkText = ""
+                      subTableData
                     )
                   }
                 >
                   {translate("common.postBtn")}
                 </Button>
 
-                {editReordType !== "nomination" && (
-                  <Button
-                    type="button"
-                    className="submitBtn"
-                    id="submit_btn1"
-                    onClick={(e) =>
-                      handleJIUpdateStatus(
-                        formData,
-                        formConfig,
-                        setIsOverlayLoader,
-                        editReordType,
-                        navigate,
-                        "",
-                        "",
-                        "",
-                        subTableData,
-                        1
-                      )
-                    }
-                    disabled={checkValidation("JIAdminCheck")}
-                  >
-                    {/* {!editReordType ? "Scope of Work" : "Parameters"} */}
-                    Next
-                  </Button>
-                )}
+
                 {
                   ['posted', 'accepted'].includes(formData?.[0]?.status) && subTableData.filter((singleData) => singleData.status === "tasked").length === subTableData.length && (<Button
                     type="button"

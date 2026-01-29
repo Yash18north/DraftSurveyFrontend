@@ -5,7 +5,7 @@
       "redirect": "#"
     },
     {
-      "title": "Job Instruction List",
+      "title": "Draught Survey List",
       "redirect": "#"
     }
   ],
@@ -223,44 +223,11 @@
         "type": "icon"
       },
       {
-        "label": "Scope Of Work",
-        "redirectUrl": "/operation/jrfInstructionListing/job-instruction",
-        "status": "saved"
-      },
-      {
-        "label": "Specify  Parameters",
-        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
+        "label": "Create DS",
+        "redirectUrl": "/operation/jrfInstructionListing/ds-analysis",
         "status": "created",
         "isDupplicate": true,
-        "recordType": "analysis"
-      },
-      {
-        "label": "Specify Parameters",
-        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-analysis",
-        "status": "pre-analysis",
-        "isDupplicate": true,
-        "recordType": "analysis"
-      },
-      {
-        "label": "Nominate",
-        "redirectUrl": "/operation/jrfInstructionListing/job-instruction-nomination",
-        "status": "analysis",
-        "recordType": "nomination"
-      },
-      {
-        "label": "Update",
-        "redirectUrl": "/operation/jrfInstructionListing/job-instruction",
-        "status": "rejected"
-      },
-      {
-        "label": "Verify",
-        "redirectUrl": "/operation/vessel-ji-list-view",
-        "status": "posted"
-      },
-      {
-        "label": "Process",
-        "redirectUrl": "/operation/vessel-ji-list/vessel-list",
-        "status": "accepted"
+        "recordType": "ds-analysis"
       }
     ],
     "statusesWithIcon": [

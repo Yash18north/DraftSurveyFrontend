@@ -1,11 +1,11 @@
 {
   "breadcom": [
     {
-      "title": "Job Instruction List",
+      "title": "Draught Survey List",
       "redirect": "/operation/jrfInstructionListing"
     },
     {
-      "title": "Job Instruction",
+      "title": "Draught Survey",
       "redirect": "#"
     }
   ],
@@ -141,49 +141,6 @@
               "characterLimit": 255,
               "value": "",
               "required": true
-            },
-            {
-              "width": 6,
-              "name": "ji_sent_through",
-              "label": "Nomination",
-              "type": "checkbox",
-              "placeholder": "Enter Sent By",
-              "options": [
-                "Mail Order",
-                "Work Order",
-                "Verbal Nomination"
-              ],
-              "required": true
-            },
-            {
-              "width": 6,
-              "name": "ji_reference",
-              "label": "Work Order & Dt.",
-              "placeholder": "Work Order",
-              "required": true,
-              "secondName": "ji_work_date",
-              "type": "doubleText",
-              "fieldWidth": 75,
-              "upperFieldWidth": "75",
-              "secondPlaceholder": "Work date",
-              "secondType": "date",
-              "firstType": "text",
-              "secondNoRestrictionApply": true
-            },
-            {
-              "width": 6,
-              "name": "ji_work_order_2",
-              "label": "Work Order & Dt. 2",
-              "placeholder": "Work Order",
-              "secondName": "ji_work_date_2",
-              "type": "doubleText",
-              "fieldWidth": 75,
-              "upperFieldWidth": "75",
-              "secondPlaceholder": "Work date",
-              "secondType": "date",
-              "firstType": "text",
-              "secondNoRestrictionApply": true,
-              "secondnoDefaultValue": true
             }
           ]
         },
@@ -210,32 +167,6 @@
               "optionData": {
                 "id": "ops_id",
                 "label": "ops_name"
-              },
-              "options": [],
-              "required": true
-            },
-            {
-              "width": 6,
-              "name": "ji_is_consortium_order",
-              "label": "Is Consortium",
-              "type": "radio",
-              "options": [
-                "Yes",
-                "No"
-              ],
-              "defaultValue": "No"
-            },
-            {
-              "width": 6,
-              "name": "fk_consortium_order",
-              "label": "Consortium Number",
-              "type": "DropDownWithLoadMore",
-              "apiendpoint": "consortium-order/list/",
-              "apimethod": "GET",
-              "isSearchable": "true",
-              "optionData": {
-                "id": "co_id",
-                "label": "co_number"
               },
               "options": [],
               "required": true
@@ -627,49 +558,6 @@
           "required": true
         },
         {
-          "width": 6,
-          "name": "ji_sent_through",
-          "label": "Nomination",
-          "type": "select",
-          "placeholder": "Enter Sent By",
-          "options": [
-            "Mail Order",
-            "Work Order",
-            "Verbal Nomination"
-          ],
-          "required": true
-        },
-        {
-          "width": 6,
-          "name": "ji_reference",
-          "label": "Work Order & Dt.",
-          "placeholder": "Work Order",
-          "required": true,
-          "secondName": "ji_work_date",
-          "type": "doubleText",
-          "fieldWidth": 75,
-          "upperFieldWidth": "75",
-          "secondPlaceholder": "Work date",
-          "secondType": "date",
-          "firstType": "text",
-          "secondNoRestrictionApply": true
-        },
-        {
-          "width": 6,
-          "name": "ji_work_order_2",
-          "label": "Work Order & Dt. 2",
-          "placeholder": "Work Order",
-          "secondName": "ji_work_date_2",
-          "type": "doubleText",
-          "fieldWidth": 75,
-          "upperFieldWidth": "75",
-          "secondPlaceholder": "Work date",
-          "secondType": "date",
-          "firstType": "text",
-          "secondNoRestrictionApply": true,
-          "secondnoDefaultValue": true
-        },
-        {
           "width": 12,
           "label": "Commodity Details",
           "type": "label",
@@ -835,25 +723,6 @@
           "label": "Type Of Operation",
           "width": 6,
           "required": true
-        },
-        {
-          "width": 6,
-          "name": "ji_is_consortium_order",
-          "label": "Is Consortium",
-          "readOnly": true,
-          "type": "radio",
-          "options": [
-            "Yes",
-            "No"
-          ],
-          "defaultValue": "No"
-        },
-        {
-          "width": 6,
-          "name": "fk_consortium_order",
-          "label": "Consortium Number",
-          "type": "select",
-          "options": []
         },
         {
           "name": "ji_nameofoperationmode",

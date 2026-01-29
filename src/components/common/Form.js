@@ -618,316 +618,10 @@ const Forms = ({
       const params = new URLSearchParams(hash.split("?")[1]);
       setPageType('')
       setViewOnly(false)
-      if (moduleType === "allotment") {
-        const id = decryptDataForURL(params.get("testMemoId"));
-        const view = decryptDataForURL(params.get("view"));
-        if (view === "view") {
-          setViewOnly(true);
-          setAction(view);
-        }
-        setTestMemoId(id);
-        if (id) {
-          getTestMemoDetails(
-            id,
-            setTabOpen,
-            setFormData,
-            setTestMemoSetData,
-            "",
-            setIsOverlayLoader
-          );
-        } else {
-          getAllotmentDetails(setFormData, setIsOverlayLoader);
-        }
-      } else if (moduleType === "sampleverification") {
-        const sampleAllotmentId = decryptDataForURL(
-          params.get("sampleAllotmentId")
-        );
-        const view = decryptDataForURL(params.get("view"));
-        if (view === "view") {
-          setViewOnly(true);
-          setAction("View");
-        }
-        if (sampleAllotmentId) {
-          getAllotmentDetails(setFormData, setIsOverlayLoader);
-        } else {
-          getVerificationDetails();
-        }
-      } else if (moduleType === "testmemomain") {
-        const id = decryptDataForURL(params.get("testMemoId"));
-        const view = decryptDataForURL(params.get("view"));
-        const status = decryptDataForURL(params.get("status"));
-
-        setPageType(status);
-        if (view == "view") {
-          setViewOnly(true);
-          setAction(view);
-        }
-        setTestMemoId(id);
-        getTestMemoDetails(
-          id,
-          setTabOpen,
-          setFormData,
-          setTestMemoSetData,
-          "",
-          setIsOverlayLoader
-        );
-      } else if (moduleType == "internalcertificate") {
-        const id = decryptDataForURL(params.get("testMemoId"));
-        const editId = decryptDataForURL(params.get("editId"));
-        const view = decryptDataForURL(params.get("view"));
-        const status = decryptDataForURL(params.get("status"));
-        setPageType(status);
-        if (view === "view" || !['LR', 'SU'].includes(user?.role)) {
-          setViewOnly(true);
-          setAction(view);
-        }
-        if (editId) {
-          getCertificateDetailsById(
-            editId,
-            setTabOpen,
-            setFormData,
-            setTestMemoId,
-            "",
-            setViewOnly,
-            getAssignmentMasterData,
-            setIsValideValue,
-            setSubTableData
-          );
-        } else if (id) {
-          setTestMemoId(id);
-          getTestMemoDetailsWithCertificate(
-            id,
-            setTabOpen,
-            setFormData,
-            setTestMemoSetData,
-            setTestReportData,
-            getAssignmentMasterData,
-            setIsValideValue,
-            user,
-            setCustomOptions,
-            setIstestMethods
-          );
-        }
-      } else if (moduleType == "sfm") {
-        const id = decryptDataForURL(params.get("sfmid"));
-        const view = decryptDataForURL(params.get("view"));
-        if (view === "view") {
-          setViewOnly(true);
-        }
-        getSFMDetails(
-          id,
-          setFormData,
-          setTabOpen,
-          setIstavSaveClicked,
-          setTestMemoSetData,
-          view === "view",
-          formData
-        );
-        getallFormulaList(setAllformulaList);
-      }
-      else if (moduleType == "jobinstruction") {
+      if (moduleType == "jobinstruction") {
         setTabOpen(false);
-      }
-      else if (moduleType == "invoice") {
-        setTabOpen(false);
-        const status = decryptDataForURL(params.get("status"));
-        setPageType(status);
-        if (status == "View") {
-          setTabOpen(true)
-          setViewOnly(true);
-          setAction(status);
-          setTimeout(() => {
-            getInvoiceData(
-              EditRecordId,
-              setFormData,
-              setSubTableData,
-              formData,
-              formConfig?.sections[1]?.tabs[0]?.rows,
-              status
-            );
-          }, 1000)
-
-        }
-        else if (status == "Edit") {
-          setTabOpen(true)
-          setAction(status);
-          setTimeout(() => {
-            getInvoiceData(
-              EditRecordId,
-              setFormData,
-              setSubTableData,
-              formData,
-              formConfig?.sections[1]?.tabs[0]?.rows,
-              status
-            );
-          }, 1000)
-
-        }
       }
       else if (moduleType == "vesselJICertificate" && configCertStatusRPCID) {
-      }
-      else if (moduleType == "jobCosting" && EditRecordId) {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (moduleType == "auditBranchExpenses") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (moduleType === "auditOutstanding") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (moduleType === "auditSalesRegister") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (moduleType === "tender") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          handleGetTender(
-            EditRecordId,
-            setFormData,
-            status,
-            setParticipantFields
-          )
-        }
-      }
-      else if (moduleType === "stocks") {
-        if (status === "View") {
-
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          getChemicalStock(
-            EditRecordId,
-            setFormData,
-            status,
-            viewOnly
-          )
-        }
-      }
-      else if (moduleType === "purchaseReq") {
-
-        if (status === "View" || ["Sent for Approval", "Posted"].includes(formData[0]?.req_status)) {
-
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          handleGetPurchaseReq(
-            EditRecordId,
-            setFormData,
-            setSubTableData,
-            viewOnly,
-            status
-          )
-          setTabOpen(true);
-
-        }
-
-
-      }
-      else if (["purchase", "PoPreview"].includes(moduleType)) {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          handleGetPurchaseOrder(
-            EditRecordId,
-            setFormData,
-            setSubTableData,
-            viewOnly,
-            status
-          )
-        }
-      }
-      else if (moduleType === "supplier") {
-        if (status === "View") {
-
-          setViewOnly(true);
-          setAction(status);
-
-        }
-        if (EditRecordId) {
-          handleGetSupplier(
-            EditRecordId,
-            setFormData,
-
-          )
-        }
-      }
-      else if (moduleType === "calibration") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (['purchaseItems', 'purchaseReq', 'userMaster', "category"].includes(moduleType)) {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (moduleType === "incentives") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-
-          handleGetIncentive(
-            EditRecordId,
-            setFormData,
-            status,
-            setIsOverlayLoader
-          )
-        }
-      }
-      else if (moduleType === "ShipmentForm") {
-        
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-
-          // handleGetIncentive(
-          //   EditRecordId,
-          //   setFormData,
-          //   status,
-          //   setIsOverlayLoader
-          // )
-        }
-      }
-      else if (moduleType === "marketPlaceForm") {
-     
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-
-          // handleGetIncentive(
-          //   EditRecordId,
-          //   setFormData,
-          //   status,
-          //   setIsOverlayLoader
-          // )
-        }
       }
       else {
         getSingleData();
@@ -1001,28 +695,6 @@ const Forms = ({
 
     setRowAdded(false);
   }, [rowAdded]);
-  useEffect(() => {
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        0: {
-          ...prevFormData[0],
-          noOfSamples: totalSamples ? totalSamples.length : 0,
-        },
-      };
-    });
-  }, [formData[0]?.smpl_inwrd_No, totalSamples]);
-  useEffect(() => {
-    if (formConfig?.sections[0]?.moduleType === "internalcertificate") {
-      if (
-        formData[0]?.ic_is_size_analysis?.[0]
-      ) {
-        setTabOpen(true);
-      } else {
-        setTabOpen(false);
-      }
-    }
-  }, [formData[0]?.ic_is_size_analysis]);
 
   useEffect(() => {
     if (moduleType == "operationCertificate") {
@@ -1317,16 +989,7 @@ const Forms = ({
   }, [formData[0]?.["ji_id"]]);
   useEffect(() => {
     if (formData[0]?.["ji_id"]) {
-      if (TMLType === getVesselOperation("HH")) {
-        getSingleHHData(
-          OperationTypeID,
-          formData,
-          setSubTableData,
-          setIsOverlayLoader,
-          setFormData,
-          formConfig.sections?.[1]?.tabs?.[0]
-        );
-      } else if (TMLType === getVesselOperation("DS")) {
+      if (TMLType === getVesselOperation("DS")) {
         getSingleDraftSurveyData(
           OperationTypeID,
           formData,
@@ -1337,28 +1000,8 @@ const Forms = ({
           props.setIsTabOpened,
           activityJIID
         );
-      } else if (TMLType === getVesselOperation("SV")) {
-        getSingleSupervissionData(
-          OperationTypeID,
-          formData,
-          setSubTableData,
-          setIsOverlayLoader,
-          setFormData,
-          formConfig.sections?.[1]?.tabs,
-          subTableData,
-          activityJIID
-        );
       }
-      else if (TMLType === getVesselOperation('DM')) {
-        getSingleSizeAnalysisData(
-          OperationTypeID,
-          formData,
-          setSubTableData,
-          setIsOverlayLoader,
-          setFormData
-        );
-      }
-      
+
     }
   }, [OperationType, formData[1]?.["ji_id"]]);
   useEffect(() => {
@@ -1378,107 +1021,7 @@ const Forms = ({
 
   }, [props.isTabOpened])
 
-  const getNarrationNumber = (activities) => {
-    const resultString = activities?.map(item => {
-      const date = new Date(item.cc_created_time);
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based
-      const year = date.getFullYear();
-      return `${item.cc_certificatenumber} - DT.${day}.${month}.${year}`;
-    }).join(', ');
 
-    return resultString
-  }
-  useEffect(() => {
-    const hash = window.location.hash;
-    const params = new URLSearchParams(hash.split("?")[1]);
-    const Status = decryptDataForURL(params.get("status"));
-    if (!["Edit", "View"].includes(Status)) {
-      setFormData((prevFormData) => {
-        return {
-          ...prevFormData,
-          0: {
-            ...prevFormData[0],
-            reference_number: getUniqueData(ref_nos),
-            cc_ids: getUniqueData(cc_ids),
-            activities: activities,
-            im_naration_no: getNarrationNumber(activities)
-          },
-        };
-      });
-    }
-    else {
-      setFormData((prevFormData) => {
-        return {
-          ...prevFormData,
-          0: {
-            ...prevFormData[0],
-            activities: activities
-          },
-        };
-      });
-    }
-
-  }, []);
-
-  useEffect(() => {
-    if (moduleType == "tally") {
-      let UpdateDataforRow = JSON.parse(localStorage.getItem("row"));
-      setFormData((prevFormData) => {
-        return {
-          ...prevFormData,
-          0: {
-            ...prevFormData[0],
-            ...UpdateDataforRow
-          },
-        };
-      });
-    }
-  }, []);
-  useEffect(() => {
-    if (moduleType == "purchaseReq") {
-      if (formData[0]?.req_no) {
-        setTabOpen(true)
-      }
-      else {
-        setTabOpen(false)
-      }
-    }
-  }, [formData[0]?.req_no])
-  useEffect(() => {
-    if (moduleType == "invoice") {
-      if (viewOnly) {
-        return
-      }
-      if ((Type == "Advance" || formData[0]?.im_is_regular == "advance")) {
-        // handleMultipleRefForInvoice([formData[0]?.reference_number_data], [formData[0]?.reference_number_data_jrf]);
-        // handleActivityForInvoice([formData[0]?.reference_number_data], formData[0]?.activities, [formData[0]?.reference_number_data_jrf]);
-        handleMultipleRefForInvoice(formData[0]?.reference_number_data || [], formData[0]?.reference_number_data_jrf, EditRecordId, Type, formData, cc_ids, user, setFormData, setMasterResponse);
-        handleActivityForInvoice(formData[0]?.reference_number_data || [], formData[0]?.activities, formData[0]?.reference_number_data_jrf, EditRecordId, Type, formData, cc_ids, user, setFormData, setMasterResponse);
-      }
-      else {
-        if (EditRecordId && formData[0]?.reference_number) {
-          handleMultipleRefForInvoice(formData[0]?.reference_number.split(" , "), '', EditRecordId, Type, formData, cc_ids, user, setFormData, setMasterResponse);
-          handleActivityForInvoice(formData[0]?.reference_number.split(" , "), [], '', EditRecordId, Type, formData, cc_ids, user, setFormData, setMasterResponse);
-        }
-        if (ref_nos?.length > 0) {
-          handleMultipleRefForInvoice(ref_nos, formData[0]?.reference_number_data_jrf, EditRecordId, Type, formData, cc_ids, user, setFormData, setMasterResponse);
-          handleActivityForInvoice(ref_nos, formData[0]?.activities, formData[0]?.reference_number_data_jrf, EditRecordId, Type, formData, cc_ids, user, setFormData, setMasterResponse);
-        }
-      }
-      if (Type === "Advance" && !EditRecordId) {
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            0: {
-              ...prevFormData[0],
-              im_naration_no: formData[0]?.reference_number_data?.join(',')
-            },
-          };
-        });
-      }
-    }
-  }, [formData[0]?.reference_number]);
   useEffect(() => {
     if (moduleType != "invoice") {
       dispatch({
@@ -2043,17 +1586,6 @@ const Forms = ({
     }
 
     let redirectURL = "";
-    if (pageType === "inward" || pageType === "assignment") {
-      redirectURL = "/inwardList";
-    } else if (moduleType === "testmemomain") {
-      redirectURL = "/testmemoList";
-    } else if (moduleType == "internalcertificate") {
-      redirectURL = "/testmemoList";
-    } else if (moduleType == "allotment") {
-      redirectURL = "/allotmentList";
-    } else {
-      redirectURL = "/jrfListing";
-    }
     return (
       <DeleteConfirmation
         isOpen={isPopupOpen}
@@ -2126,25 +1658,11 @@ const Forms = ({
         "",
         isCancelPopupOpen
       );
-    } else if (moduleType === "invoice") {
-      hanfleInvoiceStatusChange(
-        formData,
-        formConfig,
-        setIsOverlayLoader,
-        "cancelled",
-        navigate,
-        isCancelPopupOpen,
-        remarkText,
-      )
     } else if (moduleType === "commercialCertificatePreview") {
       ApproveCertificate(
         "rejected",
         remarkText
       )
-    } else if (moduleType === "purchase") {
-      handlePurchaseOrderCreateUpdate(formData, handleSubmit, setIsOverlayLoader, navigate, 3, setFormData, "", setSubTableData, 1, remarkText)
-    } else if (moduleType === "purchaseReq") {
-      handlePurchaseReqUpdateCreate(formData, handleSubmit, setIsOverlayLoader, navigate, 4, setFormData, setSubTableData, 1, "", remarkText)
     } else {
       handleChecklistBtns(
         e,
@@ -2433,175 +1951,160 @@ const Forms = ({
     // customFilterValue,
   ) => {
     try {
-      if (["tender", "stocks", "incentives"].includes(listModuleType)) {
-        let customFilterType = customFilterData?.[1]?.['lastChangeFiledName']
-        let customFilterValue = customFilterData?.[1]?.['lastChangeFiledValue']
-        getAllListingDataForPurchaseModels(
-          pagination,
-          fieldName,
-          sortType,
-          searchValue,
-          isClearBtn,
-          isCustomFilter,
-          customFilterType,
-          customFilterValue
-        )
+      let endPoint =
+        ["LC", "SLC"].includes(user?.role) && listModuleType === "allotment"
+          ? formConfig?.apiEndpoints?.readUserWise
+          : formConfig?.apiEndpoints?.read;
+      if (listModuleType === "dashboard") {
+
+        // if (["LR"].includes(user?.role)) {
+        //   endPoint = "/jrf-dashboard/list/";
+        // }
+        endPoint += `?page_size=${sizeofPage || 25}`
+        if (customFilterData?.[1]?.from_date) {
+          endPoint += `&from_date=${customFilterData?.[1]?.from_date}&to_date=${customFilterData?.[1]?.end_date}`
+        }
+
       }
-      else {
-        let endPoint =
-          ["LC", "SLC"].includes(user?.role) && listModuleType === "allotment"
-            ? formConfig?.apiEndpoints?.readUserWise
-            : formConfig?.apiEndpoints?.read;
-        if (listModuleType === "dashboard") {
-
-          // if (["LR"].includes(user?.role)) {
-          //   endPoint = "/jrf-dashboard/list/";
-          // }
-          endPoint += `?page_size=${sizeofPage || 25}`
-          if (customFilterData?.[1]?.from_date) {
-            endPoint += `&from_date=${customFilterData?.[1]?.from_date}&to_date=${customFilterData?.[1]?.end_date}`
-          }
-
-        }
-        if (!endPoint) {
-          return;
-        }
-        const spQuerystring = endPoint.split('?')
-        endPoint = spQuerystring[0]
-        let querystring = spQuerystring.length > 1 ? "?" + spQuerystring[1] : ""
-        // querystring += querystring ? "&pages_size=10" : "?pages_size=10";
-        if (pagination) {
-          querystring += querystring ? "&page=" + pagination : "?page=" + pagination;
-        }
-        if (fieldName && sortType) {
-          if (["auditOutstanding", "auditSalesRegister", "auditBranchExpenses", "jobCosting"].includes(listModuleType)) {
-            if (sortType === "desc") {
-              querystring += querystring
-                ? "&sort_by=-" + fieldName
-                : "?sort_by=-" + fieldName;
-            }
-            else {
-              querystring += querystring
-                ? "&sort_by=" + fieldName
-                : "?sort_by=" + fieldName;
-            }
-          }
-          else if (["purchaseReq", "supplier", "calibration"].includes(listModuleType)) {
-            querystring += `&order_by=${fieldName},${sortType}`;
+      if (!endPoint) {
+        return;
+      }
+      const spQuerystring = endPoint.split('?')
+      endPoint = spQuerystring[0]
+      let querystring = spQuerystring.length > 1 ? "?" + spQuerystring[1] : ""
+      // querystring += querystring ? "&pages_size=10" : "?pages_size=10";
+      if (pagination) {
+        querystring += querystring ? "&page=" + pagination : "?page=" + pagination;
+      }
+      if (fieldName && sortType) {
+        if (["auditOutstanding", "auditSalesRegister", "auditBranchExpenses", "jobCosting"].includes(listModuleType)) {
+          if (sortType === "desc") {
+            querystring += querystring
+              ? "&sort_by=-" + fieldName
+              : "?sort_by=-" + fieldName;
           }
           else {
             querystring += querystring
               ? "&sort_by=" + fieldName
               : "?sort_by=" + fieldName;
-
-            querystring += "&sort_order=" + sortType
-          }
-
-
-        }
-        if (kpiValue) {
-          let newkpiValue = kpiValue.replace(/\s+/g, "__")
-          if (['purchaseReq'].includes(listModuleType)) {
-
-            newkpiValue = kpiValue
-          }
-          querystring += querystring
-            ? "&kpi_status=" + newkpiValue
-            : "?kpi_status=" + newkpiValue;
-        }
-        if (searchValue || searchValue === -1) {
-
-          searchValue = searchValue === -1 ? "" : searchValue;
-          querystring += querystring
-            ? "&search=" + searchValue
-            : "?search=" + searchValue;
-        } else if (searchTerm) {
-          querystring += querystring
-            ? "&search=" + searchTerm
-            : "?search=" + searchTerm;
-        }
-        if (!isClearBtn && searchFormData) {
-
-          querystring = querystring || "?search=";
-
-          for (let index = 1; index <= filterIndex; index++) {
-            if (searchFormData?.["fieldWiseFilter_" + index]) {
-              let fieldName = searchFormData?.["fieldWiseFilter_" + index] + "__" + searchFormData?.["fieldWiseFilterOption_" + index];
-
-              if (['jobCosting'].includes(listModuleType)) {
-                if (["commodity_json", "company", "ref_no_data", "certificate_data"].includes(searchFormData?.["fieldWiseFilter_" + index])) {
-                  fieldName = searchFormData?.["fieldWiseFilter_" + index]
-                }
-              }
-              else if (['jioperationjsonb'].includes(listModuleType) && ['commercialCertificate'].includes(formConfig?.listView?.subModuleType)) {
-                if (["cc_date_from", 'cc_date_to'].includes(searchFormData?.["fieldWiseFilter_" + index])) {
-                  fieldName = searchFormData?.["fieldWiseFilter_" + index]
-                }
-              }
-              // (listModuleType === "jobCosting" &&
-              //   ["commodity_json", "company", "ref_no_data", "certificate_data"].includes(searchFormData?.["fieldWiseFilter_" + index]))
-              //   ? searchFormData?.["fieldWiseFilter_" + index]
-              //   : searchFormData?.["fieldWiseFilter_" + index] + "__" + searchFormData?.["fieldWiseFilterOption_" + index];
-
-              querystring += "&" + fieldName + "=" + searchFormData?.["fieldWiseFilterValue_" + index];
-            }
           }
         }
-        const filterList = decryptDataForURL(params.get("filterList"))
-        if (filterList) {
-          const spString = filterList.split('-')
-          querystring += "&filter_context=" + spString[0] + "&filter_context_id=" + spString[1];
-        }
-
-        if (isFiltered && !isCustomFilter) {
-          let customFilterType = customFilterData?.[1]?.['lastChangeFiledName']
-          let customFilterValue = customFilterData?.[1]?.['lastChangeFiledValue']
-          if (customFilterType != undefined && customFilterValue != undefined) {
-            if (!["auditOutstanding", "auditSalesRegister", "auditBranchExpenses"].includes(listModuleType)) {
-              querystring +=
-                "&filter_context=" +
-                customFilterType +
-                "&filter_context_id=" +
-                customFilterValue;
-            }
-            else {
-              querystring +=
-                "&" +
-                customFilterType +
-                "=" +
-                customFilterValue;
-            }
-          }
-        }
-
-        setLoadingTable(true);
-        let res;
-        if (customFilterData?.[1]?.search_financial_year && customFilterData?.[1]?.search_financial_year !== "all") {
-          querystring += '&fin_year=' + customFilterData?.[1]?.search_financial_year
-        }
-        if (formConfig?.listView?.subModuleType === "commercialCertificate") {
-          res = await postDataFromApi(endPoint + querystring);
+        else if (["purchaseReq", "supplier", "calibration"].includes(listModuleType)) {
+          querystring += `&order_by=${fieldName},${sortType}`;
         }
         else {
-          res = await getDataFromApi(endPoint + querystring);
+          querystring += querystring
+            ? "&sort_by=" + fieldName
+            : "?sort_by=" + fieldName;
+
+          querystring += "&sort_order=" + sortType
         }
 
-        if (res?.data?.status === 200) {
-          setResponse(res.data);
-          setLoadingTable(false);
-        } else {
-          toast.error(res.message, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+
+      }
+      if (kpiValue) {
+        let newkpiValue = kpiValue.replace(/\s+/g, "__")
+        if (['purchaseReq'].includes(listModuleType)) {
+
+          newkpiValue = kpiValue
+        }
+        querystring += querystring
+          ? "&kpi_status=" + newkpiValue
+          : "?kpi_status=" + newkpiValue;
+      }
+      if (searchValue || searchValue === -1) {
+
+        searchValue = searchValue === -1 ? "" : searchValue;
+        querystring += querystring
+          ? "&search=" + searchValue
+          : "?search=" + searchValue;
+      } else if (searchTerm) {
+        querystring += querystring
+          ? "&search=" + searchTerm
+          : "?search=" + searchTerm;
+      }
+      if (!isClearBtn && searchFormData) {
+
+        querystring = querystring || "?search=";
+
+        for (let index = 1; index <= filterIndex; index++) {
+          if (searchFormData?.["fieldWiseFilter_" + index]) {
+            let fieldName = searchFormData?.["fieldWiseFilter_" + index] + "__" + searchFormData?.["fieldWiseFilterOption_" + index];
+
+            if (['jobCosting'].includes(listModuleType)) {
+              if (["commodity_json", "company", "ref_no_data", "certificate_data"].includes(searchFormData?.["fieldWiseFilter_" + index])) {
+                fieldName = searchFormData?.["fieldWiseFilter_" + index]
+              }
+            }
+            else if (['jioperationjsonb'].includes(listModuleType) && ['commercialCertificate'].includes(formConfig?.listView?.subModuleType)) {
+              if (["cc_date_from", 'cc_date_to'].includes(searchFormData?.["fieldWiseFilter_" + index])) {
+                fieldName = searchFormData?.["fieldWiseFilter_" + index]
+              }
+            }
+            // (listModuleType === "jobCosting" &&
+            //   ["commodity_json", "company", "ref_no_data", "certificate_data"].includes(searchFormData?.["fieldWiseFilter_" + index]))
+            //   ? searchFormData?.["fieldWiseFilter_" + index]
+            //   : searchFormData?.["fieldWiseFilter_" + index] + "__" + searchFormData?.["fieldWiseFilterOption_" + index];
+
+            querystring += "&" + fieldName + "=" + searchFormData?.["fieldWiseFilterValue_" + index];
+          }
         }
       }
+      const filterList = decryptDataForURL(params.get("filterList"))
+      if (filterList) {
+        const spString = filterList.split('-')
+        querystring += "&filter_context=" + spString[0] + "&filter_context_id=" + spString[1];
+      }
+
+      if (isFiltered && !isCustomFilter) {
+        let customFilterType = customFilterData?.[1]?.['lastChangeFiledName']
+        let customFilterValue = customFilterData?.[1]?.['lastChangeFiledValue']
+        if (customFilterType != undefined && customFilterValue != undefined) {
+          if (!["auditOutstanding", "auditSalesRegister", "auditBranchExpenses"].includes(listModuleType)) {
+            querystring +=
+              "&filter_context=" +
+              customFilterType +
+              "&filter_context_id=" +
+              customFilterValue;
+          }
+          else {
+            querystring +=
+              "&" +
+              customFilterType +
+              "=" +
+              customFilterValue;
+          }
+        }
+      }
+
+      setLoadingTable(true);
+      let res;
+      if (customFilterData?.[1]?.search_financial_year && customFilterData?.[1]?.search_financial_year !== "all") {
+        querystring += '&fin_year=' + customFilterData?.[1]?.search_financial_year
+      }
+      if (formConfig?.listView?.subModuleType === "commercialCertificate") {
+        res = await postDataFromApi(endPoint + querystring);
+      }
+      else {
+        res = await getDataFromApi(endPoint + querystring);
+      }
+
+      if (res?.data?.status === 200) {
+        setResponse(res.data);
+        setLoadingTable(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+
     } catch (error) {
       setLoadingTable(false);
 
@@ -3033,50 +2536,6 @@ const Forms = ({
           };
         });
       }
-    } else if (moduleType === "vesselJICertificate") {
-      // if (fieldName === "rpc_is_lot_no" && value) {
-      //   setFormData((prevFormData) => {
-      //     return {
-      //       ...prevFormData,
-      //       [sectionIndex]: {
-      //         ...prevFormData[sectionIndex],
-      //         ["rpc_is_wght_avg"]: "",
-      //       },
-      //     };
-      //   });
-      // } else if (fieldName === "rpc_is_wght_avg" && value) {
-      //   setFormData((prevFormData) => {
-      //     return {
-      //       ...prevFormData,
-      //       [sectionIndex]: {
-      //         ...prevFormData[sectionIndex],
-      //         ["rpc_is_lot_no"]: "",
-      //       },
-      //     };
-      //   });
-      // }
-      // if (fieldName === "rpc_is_lotwise_smpl_mark" && value) {
-      //   setFormData((prevFormData) => {
-      //     return {
-      //       ...prevFormData,
-      //       1: {
-      //         ...prevFormData[1],
-      //         rpc_is_lotwise_qty: [],
-      //       },
-      //     };
-      //   });
-      // }
-      // else if (fieldName === "rpc_is_lotwise_qty" && value) {
-      //   setFormData((prevFormData) => {
-      //     return {
-      //       ...prevFormData,
-      //       1: {
-      //         ...prevFormData[1],
-      //         rpc_is_lotwise_smpl_mark: [],
-      //       },
-      //     };
-      //   });
-      // }
     } else if (moduleType == "jobinstruction") {
       if (fieldName === "fk_operationtypetid") {
         setFormData((prevFormData) => {
@@ -3157,266 +2616,6 @@ const Forms = ({
           });
         }
       }
-    } else if (moduleType == "invoice") {
-      if (fieldName === "reference_number") {
-        // setFormData((prevFormData) => {
-        //   return {
-        //     ...prevFormData,
-        //     [0]: {
-        //       ...prevFormData[0],
-        //       "reference_number_data": optionDetails?.ji_reference_number,
-        //       "reference_number_data_jrf": optionDetails?.ji_id
-        //     },
-        //   };
-        // });
-        setFormData((prevFormData) => {
-          let updatedRefData = optionDetails.map((singleOPT) => {
-            return singleOPT.ji_reference_number
-          })
-          let updatedRefJRFData = optionDetails.map((singleOPT) => {
-            return singleOPT.ji_id
-          })
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-              "reference_number_data": updatedRefData,
-              "reference_number_data_jrf": updatedRefJRFData
-            },
-          };
-        });
-      }
-      else if (fieldName === "fk_invoice_branchid") {
-        setFormData((prevFormData) => {
-          let companycode = optionDetails?.br_code
-          companycode = companycode ? companycode[3] : 'C'
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-              "invoiceCompanyCode": companycode
-            },
-          };
-        });
-      }
-      // else if (fieldName.startsWith("activities_")) {
-      //   setFormData((prevFormData) => {
-      //     return {
-      //       ...prevFormData,
-      //       [0]: {
-      //         ...prevFormData[0],
-      //         "reference_number_data": optionDetails?.ji_reference_number
-      //       },
-      //     };
-      //   });
-      // }
-    } else if (moduleType === "jrf") {
-      if (fieldName === "jrf_branch") {
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            [sectionIndex]: {
-              ...prevFormData[sectionIndex],
-              "ji_branch_state_id": optionDetails?.state_id,
-              "ji_branch_state": optionDetails?.state_name
-            },
-          };
-        });
-      }
-    }
-    else if (moduleType === "stocks") {
-      if (fieldName === "fk_item_id") {
-
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-              "stock_name_of_chemical": optionDetails?.item_description,
-
-            },
-          };
-        });
-      }
-    }
-    else if (moduleType === "purchaseReq") {
-      const isIndexedField = fieldName.startsWith("prd_item_code_");
-      const isUnindexedField = fieldName === "prd_item_code";
-
-      if (isIndexedField) {
-        const index = fieldName.split("_").pop();
-
-        if (!isNaN(Number(index))) {
-          setFormData((prevFormData) => ({
-            ...prevFormData,
-            [1]: {
-              ...prevFormData[1],
-              [`prd_item_code_${index}`]: optionDetails?.item_id || "",
-              [`prd_item_description_${index}`]: optionDetails?.item_description || "",
-              [`prd_uom_${index}`]: optionDetails?.item_uom || "",
-              // [`prd_manufacture_time_${index}`]: optionDetails?.item_manufacture_time || "",
-            },
-          }));
-        }
-      }
-
-      if (isUnindexedField) {
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          [1]: {
-            ...prevFormData[1],
-            prd_item_code: optionDetails?.item_id || "",
-            prd_item_description: optionDetails?.item_description || "",
-            prd_uom: optionDetails?.item_uom || "",
-            // prd_manufacture_time: optionDetails?.item_manufacture_time || "",
-          },
-        }));
-      }
-    }
-
-    else if (moduleType === "purchase") {
-      if (fieldName === "fk_supplier_id") {
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-              "po_billing_address": optionDetails?.sup_address,
-              // "po_ship_address": optionDetails?.sup_address,
-              "po_gst_no": optionDetails?.sup_gst_no,
-              "po_payment_term": optionDetails?.sup_payment_terms,
-              "po_vendor_id": optionDetails?.sup_id,
-              "po_vendor_name": optionDetails?.sup_name,
-            },
-          };
-        });
-      }
-      else if (fieldName === "po_ship_to") {
-
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-
-              "po_ship_address": optionDetails?.cmp_address,
-
-            },
-          };
-        });
-      } else if (fieldName === "fk_prev_po_details") {
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-              "fk_supplier_id": optionDetails?.fk_supplier_id,
-              "po_billing_address": optionDetails?.supplier_details?.sup_address,
-              "po_gst_no": optionDetails?.supplier_details?.sup_gst_no,
-              "po_payment_term": optionDetails?.supplier_details?.sup_payment_terms,
-              "po_vendor_id": optionDetails?.supplier_details?.sup_id,
-              "po_vendor_name": optionDetails?.supplier_details?.sup_name,
-              "po_ship_to": optionDetails?.po_ship_to,
-              "po_ship_address": optionDetails?.po_ship_to_details?.cmp_address,
-              "po_quotation_no": optionDetails?.po_quotation_no,
-
-            },
-          };
-        });
-      }
-      else {
-        let updatedFormData = { ...formData[1] };
-        let price = 0;
-        let getIndex = 0;
-
-        if (fieldName.startsWith("prd_discount_") || fieldName.startsWith("prd_unit_price_")) {
-          getIndex = fieldName.split("_").pop();
-
-          updatedFormData = {
-            ...updatedFormData,
-            [fieldName]: value
-          };
-
-          price = getCalculationsForPrice(updatedFormData, getIndex);
-          // (price.toFixed(2))
-          setFormData((prev) => ({
-            ...prev,
-            [1]: {
-              ...prev[1],
-              [`prd_price_${getIndex}`]: price,
-            },
-          }));
-
-        }
-      }
-
-    }
-    else if (moduleType === "calibration") {
-      if (fieldName === "calib_date") {
-
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-              "calib_next_due_date": value,
-
-            },
-          };
-        });
-      }
-    }
-    else if (moduleType === "incentives") {
-
-      if (fieldName === "incentive_invoice_id") {
-
-        // setFormData((prevFormData) => {
-        //   return {
-        //     ...prevFormData,
-        //     [0]: {
-        //       ...prevFormData[0],
-        //       incentive_client: optionDetails?.client?.cust_id,
-        //       incentive_pow: optionDetails?.client?.state,
-        //       incentive_client_id: optionDetails?.client?.cust_name,
-        //       incentive_mode: optionDetails?.im_paymentmode,
-        //       incentive_price: optionDetails?.im_total,
-        //       incentive_place_of_work: optionDetails?.client?.state?.state_name || "NA",
-        //       incentive_billing_amt_inr: optionDetails?.im_total,
-        //       incentive_work_completion_date: getDateFromCreatedAt(optionDetails?.im_workorderdate) || "--/--/--",
-        //       incentive_vessel_quantity: optionDetails?.ji_quantity,
-        //       ji_payment_terms: optionDetails?.invoice_details?.[0]?.job_instruction_details?.ji_payment_terms
-
-        //     },
-        //   }
-        // })
-
-      }
-
-    }
-    else if (moduleType === "tender") {
-      if (fieldName === "tender_issue_date") {
-
-        setFormData((prevFormData) => {
-          return {
-            ...prevFormData,
-            [0]: {
-              ...prevFormData[0],
-              tender_submission_date: value
-
-            },
-          }
-        })
-
-      }
-
-    }
-
-    if (['purchaseItems', 'stocks'].includes(moduleType)) {
-      if (['item_services', 'stock_services'].includes(fieldName) && value === "Calibration") {
-        if (!EditRecordId && !formData[0]?.fk_calibration_id) {
-          setIsCustomPopup(true)
-        }
-      }
     }
     setFormData((prevFormData) => {
 
@@ -3441,18 +2640,6 @@ const Forms = ({
       return newFormErrors;
     });
   };
-  // useEffect(() => {
-  //   formData[0]?.incentive_invoice_id && getJobCostingIncDataFunc(setFormData, formData, setIsOverlayLoader)
-  // }, [formData[0]?.incentive_invoice_id])
-
-  useEffect(() => {
-    incentivesCalculationData('incentive_incentive_amount', formData[0]?.incentive_profit_against_work, setFormData, formData)
-  }, [formData[0]?.incentive_profit_against_work, formData[0]?.incentive_incentive_amount_perc])
-  useEffect(() => {
-    incentivesCalculationData('incentive_sales_lead_share', formData[0]?.incentive_receivable_amount, setFormData, formData)
-  }, [formData[0]?.incentive_receivable_amount])
-
-  // Tender
 
   useEffect(() => {
 
@@ -3581,144 +2768,6 @@ const Forms = ({
     formData[0]?.branch_name
   ]);
 
-
-  useEffect(() => {
-    let newFields = [{}];
-    if (Array.isArray(formData[1]?.credit_note_branch_name)) {
-
-      newFields = formData[1].credit_note_branch_name.map(branchInputName => {
-        const fieldName = branchInputName + '_credit_note_amount';
-
-        return {
-          width: 6,
-          name: branchInputName + '_credit_note_amount',
-          label: branchInputName,
-          value: branchInputName + '_credit_note_amount',
-          type: "number",
-          placeholder: "Enter Amount",
-          readOnly: fieldName in formData[1]
-        }
-      });
-    };
-    setTempJson([...newFields]);
-    if (tempJson.length && formConfig?.sections?.[1]?.fields !== undefined) {
-      formConfig.sections[1].fields = formConfig?.sections[1]?.fields.filter(
-        field => !tempJson.find(tempField => tempField.name === field.name)
-
-      )
-    }
-    if (formData[1]?.credit_note_branch_name === undefined) {
-      if (formConfig?.sections?.[1] && moduleType === "auditSalesRegister") {
-        formConfig.sections[1].fields = [
-          {
-            "width": 25,
-            "label": "Credit Note Details",
-            "name": "section_heading",
-            "type": "label",
-            "required": true,
-            "color": "$danger",
-            "textDecoration": "none",
-            "styleName": "section_heading",
-            "fontSize": "16px"
-          },
-          {
-            "width": 6,
-            "name": "credit_note_branch_name",
-            "label": "Select Branch",
-            "multiple": true,
-            "options": [],
-            "styleName": "custom_status",
-            "type": "select"
-          },
-          {
-            "width": 25,
-            "label": "Total",
-            "name": "section_heading",
-            "type": "label",
-            "color": "$danger",
-            "textDecoration": "none",
-            "styleName": "section_heading",
-            "fontSize": "16px",
-            "errorMsgs": {
-              "required": "This field is required"
-            }
-          },
-          {
-            "width": 6,
-            "label": "Total Credit Note Amount",
-            "name": "credit_note_total",
-            "type": "text",
-            "placeholder": "Auto Generated",
-            "errorMsgs": {
-              "required": "This field is required"
-            },
-            "defaultValue": 0,
-            "readOnly": true
-          }
-        ];
-      }
-    }
-    else {
-      formConfig.sections[1]?.fields.splice(2, 0, ...newFields)
-    }
-  }, [formData[1]?.credit_note_branch_name]);
-
-
-  useEffect(() => {
-    if (moduleType === "jobCosting" && formData[0]?.jc_inv_amt) {
-      let misc_3p = parseFloat(((parseFloat(formData[0]?.jc_inv_amt) * 3) / 100).toFixed(2));
-      let ho_exp_10p = parseFloat(((parseFloat(formData[0]?.jc_inv_amt) * 10) / 100).toFixed(2));
-
-      setTimeout(() => {
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          0: {
-            ...prevFormData[0],
-            jc_misc_3p: misc_3p,
-            jc_ho_exp_10p: ho_exp_10p,
-          },
-        }));
-      }, 10);
-    }
-  }, [formData[0]?.jc_inv_amt]);
-  useEffect(() => {
-    // Removed job costing calculations
-  }, [
-    formData[0]?.jc_misc_3p,
-    formData[0]?.jc_ho_exp_10p,
-    formData[0]?.jc_travel_expense,
-    formData[0]?.jc_survey_analysis,
-    formData[0]?.jc_courier,
-    formData[0]?.jc_charges,
-    formData[0]?.jc_jabour_charges,
-    formData[0]?.jc_food_charges,
-    formData[0]?.purcase_material,
-    formData[0]?.jc_ot,
-    formData[0]?.jc_analysis_charges,
-    formData[0]?.jc_guest_house_exp,
-  ]);
-
-  useEffect(() => {
-    // Removed branch expense calculations
-  }, [
-    formData[0]?.salary_payroll,
-    formData[0]?.salary_casual,
-    formData[0]?.salary_contract,
-    formData[0]?.rent,
-    formData[0]?.ot,
-    formData[0]?.shipment_and_sampling,
-    formData[0]?.analysis_charges,
-    formData[0]?.lab_exp_and_sampl_material,
-    formData[0]?.business_promotion,
-    formData[0]?.other,
-    formData[0]?.ho_overhead,
-    formData[0]?.guest_house_exp
-  ]);
-
-
-
-
-  //  ----------------------------------------------------------------
   const handleFieldBlur = (sectionIndex,
     fieldName,
     value,
@@ -6289,148 +5338,6 @@ const Forms = ({
   }
   const renderModuleWiseButtons = () => {
     switch (moduleType) {
-      case "GroupAssignment":
-        return (
-          <GroupAssignmentButtons
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            setInwardBtnchange={setInwardBtnchange}
-            subTableData={subTableData}
-            formData={formData}
-            jrfId={jrfId}
-            handleBackButtonFunction={handleBackButtonFunction}
-            isDisplayNewAddOption={isDisplayNewAddOption}
-          />
-        );
-
-      case "groupAssignmentPreview":
-        return (
-          <GroupAssignmentPreviewButtons
-            formData={formData}
-            jrfId={jrfId}
-            handleBackButtonFunction={handleBackButtonFunction}
-          />
-        );
-
-      case "testmemomain":
-        return (
-          <TestMemoButtons
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            setInwardBtnchange={setInwardBtnchange}
-            viewOnly={viewOnly}
-            role={user?.role}
-            setIsRejectPopupOpen={setIsRejectPopupOpen}
-            testMemoId={testMemoId}
-            pageType={pageType}
-            handleBackButtonFunction={handleBackButtonFunction}
-            setIsOverlayLoader={setIsOverlayLoader}
-          />
-        );
-
-      case "sampleverification":
-        return (
-          istavSaveClicked && (
-            <SampleVerificationButtons
-              setIsPopupOpen={setIsPopupOpen}
-              setJRFCreationType={setJrfCreationType}
-              handleSubmit={handleSubmit}
-              saveClicked={saveClicked}
-              tableData={subTableData}
-              formData={formData}
-              viewOnly={viewOnly}
-              handleBackButtonFunction={handleBackButtonFunction}
-              setSaveClicked={setSaveClicked}
-            />
-          )
-        );
-
-      case "allotment":
-        return (
-          <AllotmentButtons
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            saveClicked={saveClicked}
-            handleAllotValidate={handleAllotValidate}
-            viewOnly={viewOnly}
-            handleBackButtonFunction={handleBackButtonFunction}
-            setIsOverlayLoader={setIsOverlayLoader}
-          />
-        );
-
-      case "sampleinward":
-        return (
-          <SampleInwardButtons
-            action={action}
-            tabOpen={tabOpen}
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            setInwardBtnchange={setInwardBtnchange}
-            formData={formData}
-            subTableData={subTableData}
-            jrfId={jrfId}
-            viewOnly={viewOnly}
-            handleBackButtonFunction={handleBackButtonFunction}
-          />
-        );
-
-      case "internalcertificate":
-        return (
-          <InternalCertificateButtons
-            action={action}
-            tabOpen={tabOpen}
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            setInwardBtnchange={setInwardBtnchange}
-            formData={formData}
-            subTableData={subTableData}
-            jrfId={jrfId}
-            viewOnly={viewOnly}
-            handleSubmit={handleSubmit}
-            remarkText={remarkText}
-            setSaveClicked={setSaveClicked}
-            formConfig={formConfig}
-            saveClicked={saveClicked}
-            setIsRejectPopupOpen={setIsRejectPopupOpen}
-            handleBackButtonFunction={handleBackButtonFunction}
-            setIsOverlayLoader={setIsOverlayLoader}
-            isValideValue={isValideValue}
-          />
-        );
-
-      case "inwardChecklist":
-        return (
-          <ViewCheckListButtons
-            remarkText={remarkText}
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            setInwardBtnchange={setInwardBtnchange}
-            formData={formData}
-            setSaveClicked={setSaveClicked}
-            formConfig={formConfig}
-            saveClicked={saveClicked}
-            setIsRejectPopupOpen={setIsRejectPopupOpen}
-            viewOnly={viewOnly}
-            handleBackButtonFunction={handleBackButtonFunction}
-            setIsOverlayLoader={setIsOverlayLoader}
-          />
-        );
-
-      case "sfm":
-        return (
-          istavSaveClicked && (
-            <SFMButtons
-              setIsPopupOpen={setIsPopupOpen}
-              setJRFCreationType={setJrfCreationType}
-              handleSubmit={handleSubmit}
-              saveClicked={saveClicked}
-              formData={formData}
-              viewOnly={viewOnly}
-              testMemoSetData={testMemoSetData}
-              handleBackButtonFunction={handleBackButtonFunction}
-            />
-          )
-        );
 
       case "jobinstruction":
         return (
@@ -6518,7 +5425,6 @@ const Forms = ({
           />
         );
 
-      case "invoicePreview":
       case "documentPreview":
         return (
           <InvoicePreviewButtons
@@ -6534,231 +5440,6 @@ const Forms = ({
           />
         );
 
-      case "jrf":
-        return (
-          <JRFButtons
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            handleSubmit={handleSubmit}
-            viewOnly={viewOnly}
-            handleBackButtonFunction={handleBackButtonFunction}
-            formData={formData}
-            setIsOverlayLoader={setIsOverlayLoader}
-          />
-        );
-
-      case "consortiumorder":
-        return (
-          <ConsortiumButton
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            handleSubmit={handleSubmit}
-            viewOnly={viewOnly}
-            handleBackButtonFunction={handleBackButtonFunction}
-          />
-        );
-
-      case "auditBranchExpenses":
-        return (
-          <div>Audit functionality removed</div>
-        );
-
-      case "auditSalesRegister":
-        return (
-          <div>Sales register functionality removed</div>
-        );
-
-      case "auditOutstanding":
-        return (
-          <div>Outstanding functionality removed</div>
-        );
-
-      case "jobCosting":
-        return (
-          <JobCostingButton
-            status={status}
-            formData={formData}
-            formConfig={formConfig}
-            viewOnly={viewOnly}
-            setFormData={setFormData}
-            EditRecordId={EditRecordId}
-            setIsOverlayLoader={setIsOverlayLoader}
-          />
-        );
-
-      case "invoice":
-        if (formData[0].im_id) {
-          return (
-            <InvoiceButton
-              setIsPopupOpen={setIsPopupOpen}
-              setJRFCreationType={setJrfCreationType}
-              handleSubmit={handleSubmit}
-              viewOnly={viewOnly}
-              navigate={navigate}
-              formData={formData}
-              formConfig={formConfig}
-              setIsOverlayLoader={setIsOverlayLoader}
-              setFormData={setFormData}
-              setTabOpen={setTabOpen}
-              setIsRejectPopupOpen={setIsRejectPopupOpen}
-              setIsCancelPopupOpen={setIsCancelPopupOpen}
-              masterResponse={masterResponse}
-              user={user}
-              subTableData={subTableData}
-            />
-          );
-        }
-        return null;
-
-      case "purchase":
-      case "PoPreview":
-        return (
-          <PurchaseButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-            setPopupAddPurchaseReq={setPopupAddPurchaseReq}
-            setTableData={setSubTableData}
-            section={formConfig?.sections[0]}
-            setIsRejectPopupOpen={setIsRejectPopupOpen}
-            moduleType={moduleType}
-          />
-        );
-
-      case "purchaseReq":
-        return (
-          <PurchaseRequistionButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-            setPopupAddPurchaseReq={setPopupAddPurchaseReq}
-            setTableData={setSubTableData}
-            moduleType={moduleType}
-            section={formConfig?.sections[0]}
-            setIsRejectPopupOpen={setIsRejectPopupOpen}
-          />
-        );
-
-      case "calibration":
-        return (
-          <CalibrationsButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-
-      case "supplier":
-        return (
-          <SupplierButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-
-      case "tender":
-        return (
-          <TenderButton
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-            participantFields={participantFields}
-          />
-        );
-
-      case "stocks":
-        return (
-          <ChemicalStocksButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-
-      case "incentives":
-        return (
-          <IncentiveButton
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-
-      case "feedback":
-        return (
-          <FeedbackButton
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-
-      case "purchaseItems":
-        return (
-          <PurchaseItemButton
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-      case "category":
-        return (
-          <CategoryBtn
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />)
-      case "ClientDetails":
-        return (
-          <ClientDetailsButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-      case "ShipmentForm":
-        return (
-          <ShipmentButtons
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
-        case "marketPlaceForm":
-        return (
-          <MarketPlaceButton
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            setFormData={setFormData}
-            viewOnly={viewOnly}
-          />
-        );
       default:
         return null;
     }
@@ -7707,128 +6388,6 @@ const Forms = ({
                   </Col>
                 </Row>
               ))}
-            </div>
-          ) || null
-        ) : section.type === "SFMTabs" ? (
-          tabOpen && (
-            <div key={"form-section" + sectionIndex}>
-              <div className="nav nav-tabs nav-pills nav-fill card_header_btns_tabs">
-                {testMemoSetData.map((tab, tabIndex) => {
-                  return (
-                    <React.Fragment key={"tabIndex" + tabIndex}>
-                      <NavItem key={"section-tab" + tabIndex}>
-                        <NavLink
-                          className={classnames("nav-link tab_header", {
-                            active: activeTab === `${sectionIndex}-${tabIndex}`,
-                          })}
-                          onClick={() =>
-                            setActiveTab(`${sectionIndex}-${tabIndex}`)
-                          }
-                          tabIndex="0"
-                          href="#"
-                        >
-                          {"Set " + (tabIndex + 1)}
-                        </NavLink>
-                      </NavItem>
-                    </React.Fragment>
-                  );
-                })}
-              </div>
-              <div className="tab-content">
-                {testMemoSetData.map((tab, tabIndex) => (
-                  <div
-                    key={"tab-content" + tabIndex}
-                    role="tabpanel"
-                    className={classnames("tab-pane", {
-                      active: activeTab === `${sectionIndex}-${tabIndex}`,
-                    })}
-                  >
-                    <Row>
-                      <Col>
-                        <RenderAdvSFMTableSection
-                          key={`${sectionIndex}-${tabIndex}`}
-                          section={section}
-                          tabIndex={tabIndex}
-                          setData={tab}
-                          sectionIndex={sectionIndex}
-                          formData={formData}
-                          handleFieldChange={handleFieldChange}
-                          formErrors={formErrors}
-                          addRow={() => {
-                            true
-                              ? addRow(tab, sectionIndex)
-                              : setShowModal(true);
-                          }}
-                          addColumn={() => addColumn(tab, sectionIndex)}
-                          deleteRow={() => deleteRow(sectionIndex)}
-                          deleteColumn={(columnIndex) =>
-                            deleteColumn(sectionIndex, columnIndex)
-                          }
-                          groupAssignment={tab.groupAssignment}
-                          handleAllSave={handleAllSave}
-                          handleCancel={handleCancel}
-                          gaData={gaData}
-                          setGaData={setGaData}
-                          showModalGA={showModalGA}
-                          setShowModalGA={setShowModalGA}
-                          pageType={pageType}
-                          actionClicked={actionClicked}
-                          setFormData={setFormData}
-                          viewOnly={viewOnly}
-                          activeTab={activeTab}
-                          allFormulaList={allFormulaList}
-                          moduleType={moduleType}
-                          OperationTypeID={OperationTypeID}
-                          EditRecordId={EditRecordId}
-                          setIsOverlayLoader={setIsOverlayLoader}
-                          testMemoSetData={testMemoSetData}
-                        />
-                      </Col>
-                    </Row>
-                  </div>
-                ))}
-              </div>
-
-              <div className="tab_footer">
-                {
-                  formData[0]?.lab?.lab_is_skip_process ? (
-                    (<p>
-                      {rolesDetails.map((role, UserIndex) => (
-                        <span key={"role-" + UserIndex}>
-                          {formData[0]?.sfm_status !== "pending" && formData[0]?.sfm_updated_by?.role === role?.role ? role.label : null}
-                        </span>
-                      ))}{" "}
-                      <br />
-                      <br /> <span>{formData[0]?.sfm_status !== "pending" && formData[0]?.sfm_updated_by?.name}</span>
-                    </p>)
-                  ) : (
-                    <p>
-                      {rolesDetails.map((role, UserIndex) => (
-                        <span key={"role-" + UserIndex}>
-                          {formData[0]?.sfm_status !== "pending" && formData[0]?.allotment_details?.[0]?.chemist_role === role?.role ? role.label : null}
-                        </span>
-                      ))}{" "}
-                      <br />
-                      <br /> <span>{formData[0]?.sfm_status !== "pending" && formData[0]?.allotment_details?.[0]?.chemist_name}</span>
-                    </p>
-                  )
-                }
-
-                {['SU'].includes(user?.role) && !viewOnly && <div className="alert alert-warning mt-2 py-2">
-                  <strong>Note:</strong> After clicking the <b>Post</b> button, the changes will reflect in the certificate.
-                </div>}
-                <p>
-                  {rolesDetails.map((role, UserIndex) => (
-                    <span key={"role-" + UserIndex}>
-                      {formData[0]?.technical_manager?.role === role?.role
-                        ? role.label
-                        : null}
-                    </span>
-                  ))}{" "}
-                  <br />
-                  <br /> <span>{formData[0]?.technical_manager?.name}</span>
-                </p>
-              </div>
             </div>
           ) || null
         ) : section.type === "JIcertificate" ? (
@@ -9237,436 +7796,6 @@ const Forms = ({
           )
       )}
       {renderModuleWiseButtons()}
-      {/* {moduleType === "GroupAssignment" ? (
-        <GroupAssignmentButtons
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          setInwardBtnchange={setInwardBtnchange}
-          subTableData={subTableData}
-          formData={formData}
-          jrfId={jrfId}
-          handleBackButtonFunction={handleBackButtonFunction}
-          isDisplayNewAddOption={isDisplayNewAddOption}
-        />
-      ) : moduleType === "groupAssignmentPreview" ? (
-        <GroupAssignmentPreviewButtons
-          formData={formData}
-          jrfId={jrfId}
-          handleBackButtonFunction={handleBackButtonFunction}
-        />
-      ) : moduleType === "testmemomain" ? (
-        <TestMemoButtons
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          setInwardBtnchange={setInwardBtnchange}
-          viewOnly={viewOnly}
-          role={user?.role}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-          testMemoId={testMemoId}
-          pageType={pageType}
-          handleBackButtonFunction={handleBackButtonFunction}
-          setIsOverlayLoader={setIsOverlayLoader}
-        />
-      ) : moduleType === "sampleverification" ? (
-        istavSaveClicked && (
-          <SampleVerificationButtons
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            handleSubmit={handleSubmit}
-            saveClicked={saveClicked}
-            tableData={subTableData}
-            formData={formData}
-            viewOnly={viewOnly}
-            handleBackButtonFunction={handleBackButtonFunction}
-            setSaveClicked={setSaveClicked}
-          />
-        )
-      ) : moduleType === "allotment" ? (
-        <AllotmentButtons
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          saveClicked={saveClicked}
-          handleAllotValidate={handleAllotValidate}
-          viewOnly={viewOnly}
-          handleBackButtonFunction={handleBackButtonFunction}
-          setIsOverlayLoader={setIsOverlayLoader}
-        />
-      ) : moduleType === "sampleinward" ? (
-        <SampleInwardButtons
-          action={action}
-          tabOpen={tabOpen}
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          setInwardBtnchange={setInwardBtnchange}
-          formData={formData}
-          subTableData={subTableData}
-          jrfId={jrfId}
-          viewOnly={viewOnly}
-          handleBackButtonFunction={handleBackButtonFunction}
-        />
-      ) : moduleType === "internalcertificate" ? (
-        <InternalCertificateButtons
-          action={action}
-          tabOpen={tabOpen}
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          setInwardBtnchange={setInwardBtnchange}
-          formData={formData}
-          subTableData={subTableData}
-          jrfId={jrfId}
-          viewOnly={viewOnly}
-          handleSubmit={handleSubmit}
-          remarkText={remarkText}
-          setSaveClicked={setSaveClicked}
-          formConfig={formConfig}
-          saveClicked={saveClicked}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-          handleBackButtonFunction={handleBackButtonFunction}
-          setIsOverlayLoader={setIsOverlayLoader}
-          isValideValue={isValideValue}
-        />
-      ) : moduleType === "inwardChecklist" ? (
-        <ViewCheckListButtons
-          remarkText={remarkText}
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          setInwardBtnchange={setInwardBtnchange}
-          formData={formData}
-          setSaveClicked={setSaveClicked}
-          formConfig={formConfig}
-          saveClicked={saveClicked}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-          viewOnly={viewOnly}
-          handleBackButtonFunction={handleBackButtonFunction}
-          setIsOverlayLoader={setIsOverlayLoader}
-        />
-      ) : moduleType === "sfm" ? (
-        istavSaveClicked && (
-          <SFMButtons
-            setIsPopupOpen={setIsPopupOpen}
-            setJRFCreationType={setJrfCreationType}
-            handleSubmit={handleSubmit}
-            saveClicked={saveClicked}
-            formData={formData}
-            viewOnly={viewOnly}
-            testMemoSetData={testMemoSetData}
-            handleBackButtonFunction={handleBackButtonFunction}
-          />
-        )
-      ) : moduleType === "jobinstruction" ? (
-        <JIButtons
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          handleSubmit={handleSubmit}
-          viewOnly={viewOnly}
-          handleBackButtonFunction={handleBackButtonFunction}
-          action={action}
-          tabOpen={tabOpen}
-          setInwardBtnchange={setInwardBtnchange}
-          formData={formData}
-          subTableData={subTableData}
-          EditRecordId={EditRecordId ? EditRecordId : formData[0]?.ji_id}
-          editReordType={editReordType}
-          navigate={navigate}
-          setJrfCreationType={setJrfCreationType}
-          formConfig={formConfig}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-          setIsOverlayLoader={setIsOverlayLoader}
-          useForComponent={useForComponent}
-          setActiveTab={setActiveTab}
-          activeTab={activeTab}
-          testMemoSetData={testMemoSetData}
-          isDisplayNewAddOption={isDisplayNewAddOption}
-          isViewOnlyTable={isViewOnlyTable}
-          operationStepNo={operationStepNo}
-          OperationType={OperationType}
-          OperationTypeID={OperationTypeID}
-          parameterDataTableMain={parameterDataTableMain}
-          isUseForManPower={formConfig?.sections[0]?.isUseForManPower}
-          operationMode={operationMode}
-          setSubTableData={setSubTableData}
-          setFormData={setFormData}
-          JRFTPIFormData={JRFTPIFormData}
-          setMainJISaved={props.setMainJISaved}
-          isMainJiSaved={props.isMainJiSaved}
-          setTabOpen={setTabOpen}
-          labDropDownOptions={labDropDownOptions}
-          allSampleIds={props.allSampleIds}
-          setIsCancelPopupOpen={setIsCancelPopupOpen}
-          isRakeDetails={isRakeDetails}
-        />
-      ) : moduleType === "operationCertificate" ? (
-        <>
-
-          <OperationCertificateButtons
-            status={status}
-            moduleSubType={moduleSubType}
-            RPCID={RPCID}
-            encryptDataForURL={encryptDataForURL}
-            EditRecordId={EditRecordId}
-            JISID={JISID}
-            previewCertificate={previewCertificate}
-            generateCertificate={generateCertificate}
-            isValideValue={isValideValue}
-            handleShareFile={handleShareFile}
-            EditGeneratedCertificate={EditGeneratedCertificate}
-            OperationType={OperationType}
-            resendShareFile={resendShareFile}
-            operationMode={operationMode}
-            isCustomMode={isCustomMode}
-            setUploadPopup={setUploadPopup}
-            setPopupType={setPopupType}
-            formData={formData}
-          />
-        </>
-      ) : moduleType === "commercialCertificatePreview" ? (
-        <CommercialCertificateButtons
-          useFor={useFor}
-          status={status}
-          ApproveCertificate={ApproveCertificate}
-          handlePublish={handlePublish}
-          sendForApproval={sendForApproval}
-          IsPreviewUpload={IsPreviewUpload}
-          setIsPreviewUpload={setIsPreviewUpload}
-          dailyReportInDocument={dailyReportInDocument}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-        />
-      ) : ['invoicePreview', 'documentPreview'].includes(moduleType) ? (
-        <InvoicePreviewButtons
-          useFor={useFor}
-          status={status}
-          ApproveCertificate={ApproveCertificate}
-          handlePublish={handlePublish}
-          sendForApproval={sendForApproval}
-          IsPreviewUpload={IsPreviewUpload}
-          setIsPreviewUpload={setIsPreviewUpload}
-          dailyReportInDocument={dailyReportInDocument}
-          moduleType={moduleType}
-        />
-      ) : moduleType === "jrf" ? (
-        <JRFButtons
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          handleSubmit={handleSubmit}
-          viewOnly={viewOnly}
-          handleBackButtonFunction={handleBackButtonFunction}
-          formData={formData}
-          setIsOverlayLoader={setIsOverlayLoader}
-        />
-      ) : moduleType === "consortiumorder" ? (
-        <ConsortiumButton
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          handleSubmit={handleSubmit}
-          viewOnly={viewOnly}
-          handleBackButtonFunction={handleBackButtonFunction}
-        />
-      ) : moduleType === "auditBranchExpenses" ? (
-        <div>Audit functionality removed</div>
-      ) : moduleType === "auditSalesRegister" ? (
-        <div>Sales register functionality removed</div>
-      ) : moduleType === "auditOutstanding" ? (
-        <div>Outstanding functionality removed</div>
-      ) : moduleType === "jobCosting" ? (
-        <JobCostingButton
-          status={status}
-          formData={formData}
-          formConfig={formConfig}
-          viewOnly={viewOnly}
-          setFormData={setFormData}
-          EditRecordId={EditRecordId}
-          setIsOverlayLoader={setIsOverlayLoader}
-        />
-      ) : (moduleType === "invoice" && formData[0].im_id) ? (
-        <InvoiceButton
-          setIsPopupOpen={setIsPopupOpen}
-          setJRFCreationType={setJrfCreationType}
-          handleSubmit={handleSubmit}
-          viewOnly={viewOnly}
-          navigate={navigate}
-          formData={formData}
-          formConfig={formConfig}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          setTabOpen={setTabOpen}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-          setIsCancelPopupOpen={setIsCancelPopupOpen}
-          masterResponse={masterResponse}
-          user={user}
-          subTableData={subTableData}
-        />
-      ) : ["purchase", "PoPreview"].includes(moduleType) ? (
-        <PurchaseButtons
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-          setPopupAddPurchaseReq={setPopupAddPurchaseReq}
-          // editableIndex={editableIndex}
-          // setEditableIndex={setEditableIndex}
-          setTableData={setSubTableData}
-          section={formConfig?.sections[0]}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-          moduleType={moduleType}
-        />
-      ) : moduleType === "purchaseReq" ? (
-        <PurchaseRequistionButtons
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-          setPopupAddPurchaseReq={setPopupAddPurchaseReq}
-          // editableIndex={editableIndex}
-          // setEditableIndex={setEditableIndex}
-          setTableData={setSubTableData}
-          moduleType={moduleType}
-          section={formConfig?.sections[0]}
-          setIsRejectPopupOpen={setIsRejectPopupOpen}
-        />
-      ) : moduleType === "calibration" ? (
-        <CalibrationsButtons
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-        />
-      ) : moduleType === "supplier" ? (
-        <SupplierButtons
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-        />
-      ) : moduleType === "tender" ? (
-        <TenderButton
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-          participantFields={participantFields}
-        />
-      ) : moduleType === "stocks" ? (
-        <ChemicalStocksButtons
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-        />
-      ) : moduleType === "incentives" ? (
-        <IncentiveButton
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-        />
-      ) : moduleType === "feedback" ? (
-        <FeedbackButton
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-        />
-      ) : moduleType === "purchaseItems" ? (
-        EditRecordId={EditRecordId}
-        setIsOverlayLoader={setIsOverlayLoader}
-      />) : (moduleType === "invoice" && formData[0].im_id) ? (<InvoiceButton
-        setIsPopupOpen={setIsPopupOpen}
-        setJRFCreationType={setJrfCreationType}
-        handleSubmit={handleSubmit}
-        viewOnly={viewOnly}
-        navigate={navigate}
-        formData={formData}
-        formConfig={formConfig}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        setTabOpen={setTabOpen}
-        setIsRejectPopupOpen={setIsRejectPopupOpen}
-        setIsCancelPopupOpen={setIsCancelPopupOpen}
-        masterResponse={masterResponse}
-        user={user}
-        subTableData={subTableData}
-      />
-      ) : ["purchase", "PoPreview"].includes(moduleType) ? (<PurchaseButtons
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-        setPopupAddPurchaseReq={setPopupAddPurchaseReq}
-        // editableIndex={editableIndex}
-        // setEditableIndex={setEditableIndex}
-        setTableData={setSubTableData}
-        section={formConfig?.sections[0]}
-        setIsRejectPopupOpen={setIsRejectPopupOpen}
-        moduleType={moduleType}
-      />) : moduleType === "purchaseReq" ? (<PurchaseRequistionButtons
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-        setPopupAddPurchaseReq={setPopupAddPurchaseReq}
-        // editableIndex={editableIndex}
-        // setEditableIndex={setEditableIndex}
-        setTableData={setSubTableData}
-        moduleType={moduleType}
-        section={formConfig?.sections[0]}
-        setIsRejectPopupOpen={setIsRejectPopupOpen}
-      />) : moduleType === "calibration" ? (<CalibrationsButtons
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-      />) : moduleType === "supplier" ? (<SupplierButtons
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-      />) : moduleType === "tender" ? (<TenderButton
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-        participantFields={participantFields}
-      />) : moduleType === "stocks" ? (<ChemicalStocksButtons
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-      />) : moduleType === "incentives" ? (<IncentiveButton
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-      />) : moduleType === "feedback" ? (<FeedbackButton
-        formData={formData}
-        handleSubmit={handleSubmit}
-        setIsOverlayLoader={setIsOverlayLoader}
-        setFormData={setFormData}
-        viewOnly={viewOnly}
-      />) : moduleType === "purchaseItems" ? (
-        <PurchaseItemButton
-          formData={formData}
-          handleSubmit={handleSubmit}
-          setIsOverlayLoader={setIsOverlayLoader}
-          setFormData={setFormData}
-          viewOnly={viewOnly}
-        />
-      ) : null} */}
-      {/* <button>Share</button> */}
 
       {isPopupOpen && openDeletePopup()}
       {isRejectPopupOpen && openRejectModal()}
@@ -9813,7 +7942,7 @@ const Forms = ({
                         </button>
                       )}
 
-                      {["jobinstruction","jioperationjsonb"].includes(listModuleType) &&
+                      {["jobinstruction", "jioperationjsonb"].includes(listModuleType) &&
                         user?.role == "OPS_ADMIN" &&
                         isModuelePermission(
                           rolePermissions,
@@ -10067,20 +8196,20 @@ const Forms = ({
                                                 + Shipment
                                               </button>
                                               :
-                                            listModuleType === "marketPlaceListing" ?
-                                              <button
-                                                type="button"
-                                                className="createfeedback_button"
-                                                onClick={
-                                                  () => {
-                                                    navigate("/market/marketForm/")
+                                              listModuleType === "marketPlaceListing" ?
+                                                <button
+                                                  type="button"
+                                                  className="createfeedback_button"
+                                                  onClick={
+                                                    () => {
+                                                      navigate("/market/marketForm/")
+                                                    }
                                                   }
-                                                }
-                                              >
-                                                + MarketPlace
-                                              </button>
-                                              :
-                                              null
+                                                >
+                                                  + MarketPlace
+                                                </button>
+                                                :
+                                                null
                       }
                     </div>
 
@@ -10112,12 +8241,12 @@ const Forms = ({
             }
 
             {listSubModuleType !== "tally" && (isModuelePermission(rolePermissions, listModuleType, "view") ||
-              ["TPIMain", "auditBranchExpenses", "auditSalesRegister", "auditOutstanding", "jobCosting", "purchaseReq", "purchase", "supplier", "calibration", "tender", "dashboard", "stocks", "incentives", "feedback", 'purchaseItems', "category", 'ClientDetails', 'PaymentDetails', "ShipmentList","marketPlaceListing"].includes(listModuleType) || (["BH", "OPS_ADMIN", "SU", "CP"].includes(user?.role) && isModuelePermission(rolePermissions, 'commercialcertificate', "view"))) && (
+              ["TPIMain", "auditBranchExpenses", "auditSalesRegister", "auditOutstanding", "jobCosting", "purchaseReq", "purchase", "supplier", "calibration", "tender", "dashboard", "stocks", "incentives", "feedback", 'purchaseItems', "category", 'ClientDetails', 'PaymentDetails', "ShipmentList", "marketPlaceListing"].includes(listModuleType) || (["BH", "OPS_ADMIN", "SU", "CP"].includes(user?.role) && isModuelePermission(rolePermissions, 'commercialcertificate', "view"))) && (
                 <RenderListSection
                   section={formConfig.listView}
                   sectionIndex={1}
                   actions={formConfig.listView.actions}
-                  responseData={listModuleType === "ShipmentList" ? response_shipment : listModuleType === "marketPlaceListing" ? response_marketPlace :response}
+                  responseData={listModuleType === "ShipmentList" ? response_shipment : listModuleType === "marketPlaceListing" ? response_marketPlace : response}
                   getAllListingData={getAllListingData}
                   formConfig={formConfig}
                   setFormData={setFormData}

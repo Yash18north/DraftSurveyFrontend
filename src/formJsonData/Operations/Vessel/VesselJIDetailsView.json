@@ -1,7 +1,7 @@
 {
   "breadcom": [
     {
-      "title": "Job Instruction List",
+      "title": "Draught Survey List",
       "redirect": "/operation/jrfInstructionListing"
     },
     {
@@ -163,7 +163,7 @@
             {
               "width": 6,
               "name": "ji_work_order_2",
-              "label": "Work Order & Dt. 2",
+              "label": "Work Order & Dt. 2v 4",
               "placeholder": "Work Order",
               "secondName": "ji_work_date_2",
               "type": "doubleText",

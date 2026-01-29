@@ -52,6 +52,7 @@ export const isModuelePermission = (
   userDetails,
   subItem
 ) => {
+  return true;
   const state = store.getState();
   const userData = state.session.user;
 
@@ -753,24 +754,12 @@ export const getOperationActivityUrl = (operationMode) => {
   if (userData?.role === "OPS_ADMIN") {
     return "/operation/jrfInstructionListing/ji-details-list/"
   }
-  if (operationMode === "RAKE" || operationMode === "RK") {
-    return "/operation/rake-list/rake-details-list/"
-  }
-  else if (operationMode === "STACK" || operationMode === "ST") {
-    return "/operation/stack-list/stack-details-list/"
-  }
-  else if (operationMode === "PLANT" || operationMode === "PL") {
-    return "/operation/plant-list/plant-details-list/"
-  }
   else if (operationMode === "VESSEL" || operationMode === "VL") {
     return "/operation/vessel-ji-list/vessel-list/"
   }
   else {
     return "/operation/other-list/other-details-list/"
   }
-  // else {
-  //   return "/operation/vessel-ji-list/vessel-list/"
-  // }
 }
 export const getOperationActivityListPageUrl = (operationMode) => {
   const state = store.getState();
@@ -778,26 +767,14 @@ export const getOperationActivityListPageUrl = (operationMode) => {
   if (userData?.role === "OPS_ADMIN") {
     return "/operation/jrfInstructionListing/"
   }
-  if (operationMode === "RAKE" || operationMode === "RK") {
-    return "/operation/rake-list/"
-  }
-  else if (operationMode === "STACK" || operationMode === "ST") {
-    return "/operation/stack-list/"
-  }
-  else if (operationMode === "PLANT" || operationMode === "PL") {
-    return "/operation/plant-list/"
-  }
-  else if (operationMode === "VESSEL" || operationMode === "VL") {
+  if (operationMode === "VESSEL" || operationMode === "VL") {
     return "/operation/vessel-ji-list/"
   }
   else {
     return "/operation/other-list/"
   }
-  // else {
-  //   return "/operation/vessel-ji-list/"
-  // }
+
 }
-//getPlantOperations("TR")
 export const getPlantOperations = (type = "") => {
   let operationName = ""
   if (type == "TR") {

@@ -656,7 +656,7 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'OT'} />,
       },
-      //Admin job instruction
+      //AdminDraught Survey
       {
         path: "/operation/jrfInstructionListing-view/:EditRecordId",
         exact: true,

@@ -25,7 +25,7 @@ const navigation = [
     title: "Operations",
     href: "/operation",
     icon: "bi bi-gear ",
-    permission: "operations",
+    permission: "custom",
     isMainPrmission: 1,
     submenu: [
       
@@ -34,7 +34,7 @@ const navigation = [
         href: "/operation/other-list",
         icon: "bi bi-info-circle",
         hoverImage: plantIconHover,
-        permission: "jobinstruction",
+        permission: "shipment",
       },
       {
         title: "Certificates",
@@ -42,7 +42,7 @@ const navigation = [
         icon: "bi bi-clipboard-check ",
         image: ccIcon,
         hoverImage: ccIconHover,
-        permission: "commercialcertificate",
+        permission: "shipment",
       },
     ],
   },
