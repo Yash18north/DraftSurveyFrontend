@@ -1,0 +1,150 @@
+{
+    "breadcom": [
+        {
+            "title": "Market Place",
+            "redirect": "#"
+        },
+        {
+            "title": "Market Place List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "",
+        "update": "",
+        "delete": "",
+        "statuCount": "",
+        "exportExcel": "",
+        "exportMethod": "GET"
+    },
+    "listView": {
+        "title": "Market Place",
+        "isCustomTitle": true,
+        "moduleType": "marketPlaceListing",
+        "headers": [
+            {
+                "label": "Captain Name",
+                "name": "captain_name",
+                "type": "text",
+                "sortName": "captain_name"
+            },
+            {
+                "label": "Place",
+                "name": "place",
+                "type": "text",
+                "sortName": "place"
+            },
+            {
+                "label": "Experience (Years)",
+                "name": "experience_years",
+                "type": "number",
+                "sortName": "experience_years"
+            },
+            {
+                "label": "Ratings",
+                "name": "ratings",
+                "type": "number",
+                "sortName": "ratings"
+            },
+            {
+                "label": "Status",
+                "name": "status",
+                "type": "text",
+                "sortName": "status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Edit",
+                "type": "icon",
+                "permission": "update"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/inwardForm",
+                "permission": "delete"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/market/marketForm/:EditRecordId",
+                "status": "saved"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

@@ -512,7 +512,23 @@ const ListingActionButton = ({
         status: "saved",
         btnshortName: "saved",
       },
-    ]
+    ],
+    ShipmentList: [
+      {
+        btnStatus: "saved",
+        label: "Edit",
+        status: "saved",
+        btnshortName: "saved",
+      }
+    ],
+    marketPlaceListing: [
+      {
+        btnStatus: "saved",
+        label: "Edit",
+        status: "saved",
+        btnshortName: "saved",
+      }
+    ],
   };
 
   const rolesWiseBtnList = {
@@ -724,7 +740,12 @@ const ListingActionButton = ({
       PM: ["saved"],
       BU: ["saved"]
     },
-
+    ShipmentList:{
+      SU: ["saved","posted"],
+    },
+    marketPlaceListing:{
+      SU: ["saved"],
+    },
   };
 
   const getBtnListArray = () => {
@@ -1122,6 +1143,24 @@ const ListingActionButton = ({
         )
           }`);
       }
+    }
+    else if (moduleType === "marketPlaceListing") {
+      if (action?.label == "Edit") {
+        navigate(`/market/marketForm/${encryptDataForURL(
+          row["id"]
+        )
+          }`);
+      }
+
+    }
+    else if (moduleType === "ShipmentList") {
+      if (action?.label == "Edit") {
+        navigate(`/shipment/shipmentForm/${encryptDataForURL(
+          row["id"]
+        )
+          }`);
+      }
+
     }
     else {
       if (action?.status == "testReport") {

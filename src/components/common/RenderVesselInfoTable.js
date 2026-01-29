@@ -13,6 +13,7 @@ const RenderVesselInfoTable = ({
   pageType,
   viewOnly
 }) => {
+  
   const { t } = useTranslation();
   const translate = t;
   const [formCount, setFormCount] = useState(1);

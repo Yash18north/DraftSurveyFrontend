@@ -296,6 +296,8 @@ import CategoryBtn from "./ShowButtons/Purchase/Category/CategoryBtns";
 import { CategoryBtn as stubCategoryBtn } from "../../utils/stubFunctions";
 import ClientDetailsButtons from "./ShowButtons/ClientDetails/ClientDetailsButtons";
 import { ClientDetailsButtons as stubClientDetailsButtons } from "../../utils/stubFunctions";
+import ShipmentButtons from "./ShowButtons/Shipment/ShipmentButton";
+import MarketPlaceButton from "./ShowButtons/MarketPlace/MarketPlaceButtons";
 
 export const selectUser = (state) => state.user;
 export const selectRolePermissions = (state) => state.rolePermissions;
@@ -501,6 +503,119 @@ const Forms = ({
   const [sizeofPage, setSizeOfPage] = useState(0);
   const [isCustomPopup, setIsCustomPopup] = useState(false);
   let navigate = useNavigate();
+  const response_shipment = {
+
+    data: [
+      {
+        id: 1,
+        vessel_name: "MV Ocean Star",
+        total_quantity: 1250,
+        place_of_work: "Mumbai Port",
+        app_quantity: 1200,
+        loading_unloading: "Loading",
+        status: "saved"
+      },
+      {
+        id: 2,
+        vessel_name: "SS Eastern Wave",
+        total_quantity: 980,
+        place_of_work: "JNPT",
+        app_quantity: 950,
+        loading_unloading: "Unloading",
+        status: "posted"
+      },
+      {
+        id: 3,
+        vessel_name: "MV Blue Horizon",
+        total_quantity: 1500,
+        place_of_work: "Chennai Port",
+        app_quantity: 1475,
+        loading_unloading: "Loading",
+        status: "saved"
+      },
+      {
+        id: 4,
+        vessel_name: "MV Pacific Crown",
+        total_quantity: 720,
+        place_of_work: "Visakhapatnam Port",
+        app_quantity: 700,
+        loading_unloading: "Unloading",
+        status: "posted"
+      },
+      {
+        id: 5,
+        vessel_name: "SS Coastal Runner",
+        total_quantity: 1100,
+        place_of_work: "Kandla Port",
+        app_quantity: 1080,
+        loading_unloading: "Loading",
+        status: "saved"
+      },
+      {
+        id: 6,
+        vessel_name: "MV Arabian Pearl",
+        total_quantity: 640,
+        place_of_work: "Cochin Port",
+        app_quantity: 620,
+        loading_unloading: "Unloading",
+        status: "posted"
+      }
+    ]
+  };
+
+  const response_marketPlace = {
+    data: [
+      {
+        id: 1,
+        captain_name: "Captain R. Malhotra",
+        place: "Mumbai Port",
+        experience_years: 18,
+        ratings: 4.8,
+        status: "saved"
+      },
+      {
+        id: 2,
+        captain_name: "Captain S. Nakamura",
+        place: "Yokohama Port",
+        experience_years: 22,
+        ratings: 4.9,
+        status: "posted"
+      },
+      {
+        id: 3,
+        captain_name: "Captain A. Fernandez",
+        place: "Goa Port",
+        experience_years: 14,
+        ratings: 4.5,
+        status: "saved"
+      },
+      {
+        id: 4,
+        captain_name: "Captain L. Sørensen",
+        place: "Oslo Harbor",
+        experience_years: 26,
+        ratings: 4.7,
+        status: "posted"
+      },
+      {
+        id: 5,
+        captain_name: "Captain V. Iyer",
+        place: "Chennai Port",
+        experience_years: 16,
+        ratings: 4.6,
+        status: "saved"
+      },
+      {
+        id: 6,
+        captain_name: "Captain M. Al-Farsi",
+        place: "Dubai Port",
+        experience_years: 20,
+        ratings: 4.9,
+        status: "posted"
+      }
+    ]
+  };
+
 
   let vieableArr = [
     "view",
@@ -852,6 +967,38 @@ const Forms = ({
           )
         }
       }
+      else if (moduleType === "ShipmentForm") {
+        
+        if (status === "View") {
+          setViewOnly(true);
+          setAction(status);
+        }
+        if (EditRecordId) {
+
+          // handleGetIncentive(
+          //   EditRecordId,
+          //   setFormData,
+          //   status,
+          //   setIsOverlayLoader
+          // )
+        }
+      }
+      else if (moduleType === "marketPlaceForm") {
+     
+        if (status === "View") {
+          setViewOnly(true);
+          setAction(status);
+        }
+        if (EditRecordId) {
+
+          // handleGetIncentive(
+          //   EditRecordId,
+          //   setFormData,
+          //   status,
+          //   setIsOverlayLoader
+          // )
+        }
+      }
       else {
         getSingleData();
         if (status.toLowerCase() !== "view") {
@@ -921,7 +1068,7 @@ const Forms = ({
     }
   }, [referenceNo]);
   useEffect(() => {
-    // Reset rowAdded to false after the component has re-rendered
+
     setRowAdded(false);
   }, [rowAdded]);
   useEffect(() => {
@@ -4459,7 +4606,8 @@ const Forms = ({
   const getCustomCellValues = (cell, useFor, formIndex) => {
     // if(useFor === "sub_table"){
     //   cell.name = cell.name + "_" + formIndex
-    // }
+    // } 
+
     if (cell.type == "date") {
       if (!TMLType) {
         cell.readOnly = false;
@@ -4669,6 +4817,7 @@ const Forms = ({
           cell.required = false;
         }
       } else if (cell.name === "ji_loading_unloading_name") {
+
         if (formData[0].ji_is_loading !== "Loading") {
           cell.label = "Name of Unloading Port";
         } else {
@@ -5153,6 +5302,22 @@ const Forms = ({
         if (!['stock_consumed_qty'].includes(cell.name)) {
           cell.readOnly = true
           cell.isDisabledField = true
+        }
+      }
+    }
+    else if (moduleType === "ShipmentForm") {
+
+      if (formData[0].ji_is_loading === "Loading") {
+        if (cell.name === "loading_unloading_port_name") {
+          cell.label = "Unloading Port and country";
+        }
+
+
+
+      } else {
+        if (cell.name === "loading_unloading_port_name") {
+
+          cell.label = "Loading Port and country";
         }
       }
     }
@@ -6713,6 +6878,26 @@ const Forms = ({
             viewOnly={viewOnly}
           />
         );
+      case "ShipmentForm":
+        return (
+          <ShipmentButtons
+            formData={formData}
+            handleSubmit={handleSubmit}
+            setIsOverlayLoader={setIsOverlayLoader}
+            setFormData={setFormData}
+            viewOnly={viewOnly}
+          />
+        );
+        case "marketPlaceForm":
+        return (
+          <MarketPlaceButton
+            formData={formData}
+            handleSubmit={handleSubmit}
+            setIsOverlayLoader={setIsOverlayLoader}
+            setFormData={setFormData}
+            viewOnly={viewOnly}
+          />
+        );
       default:
         return null;
     }
@@ -7334,6 +7519,8 @@ const Forms = ({
                                     {tab.tabType !== "vessel_Info" ? (
                                       tab.fields.map((field, fieldIndex) => {
                                         let isShow = true;
+
+
                                         if (moduleType === "inwardChecklist") {
                                           if (
                                             field.name ===
@@ -8015,6 +8202,7 @@ const Forms = ({
                             <Row className="main_form _form">
                               {/* <Row className="main_form subSection_main_form"> */}
                               {subSection.fields.map((field, fieldIndex) => {
+
                                 let isShow = true;
                                 let isViewOnly = viewOnly;
                                 if (!isViewOnly && field.fieldName == "msfm_number") {
@@ -8357,7 +8545,7 @@ const Forms = ({
                     <Row className="main_form">
                       {section.fields.map((field, fieldIndex) => {
 
-
+                        console.log("viewOnly", viewOnly)
                         let isShow = true;
                         let isViewOnly = viewOnly;
                         if (!isViewOnly && field.fieldName == "msfm_number") {
@@ -8720,6 +8908,7 @@ const Forms = ({
                             }
                           }
                         }
+
                         else if (moduleType === "jobCosting") {
                           const { total_exp, profit_loss, profit_perc } = getCalculationsForJobCosting(formData[0]); // ✅ Call function properly
 
@@ -8857,6 +9046,7 @@ const Forms = ({
                             }
                           }
                         }
+
                         if (
                           OperationType === getVesselOperation("DS") &&
                           field.name === "jrf_header"
@@ -8908,6 +9098,13 @@ const Forms = ({
                             }
                           }
                         }
+                        else if (moduleType === "ShipmentForm") {
+
+                          if (field.name === "loading_unloading_port_name" && !["Loading", "Unloading"].includes(formData[0]?.ji_is_loading)) {
+                            isShow = false
+                          }
+                        }
+
 
                         return (
                           isShow && (
@@ -9949,9 +10146,36 @@ const Forms = ({
                                                 Export Vend. Rating
 
                                               </button>
+
                                             </>
                                             :
-                                            null
+                                            listModuleType === "ShipmentList" ?
+                                              <button
+                                                type="button"
+                                                className="createfeedback_button"
+                                                onClick={
+                                                  () => {
+                                                    navigate("/shipment/shipmentForm")
+                                                  }
+                                                }
+                                              >
+                                                + Shipment
+                                              </button>
+                                              :
+                                            listModuleType === "marketPlaceListing" ?
+                                              <button
+                                                type="button"
+                                                className="createfeedback_button"
+                                                onClick={
+                                                  () => {
+                                                    navigate("/market/marketForm/")
+                                                  }
+                                                }
+                                              >
+                                                + MarketPlace
+                                              </button>
+                                              :
+                                              null
                       }
                     </div>
 
@@ -9983,12 +10207,12 @@ const Forms = ({
             }
 
             {listSubModuleType !== "tally" && (isModuelePermission(rolePermissions, listModuleType, "view") ||
-              ["TPIMain", "auditBranchExpenses", "auditSalesRegister", "auditOutstanding", "jobCosting", "purchaseReq", "purchase", "supplier", "calibration", "tender", "dashboard", "stocks", "incentives", "feedback", 'purchaseItems', "category", 'ClientDetails', 'PaymentDetails'].includes(listModuleType) || (["BH", "OPS_ADMIN", "SU", "CP"].includes(user?.role) && isModuelePermission(rolePermissions, 'commercialcertificate', "view"))) && (
+              ["TPIMain", "auditBranchExpenses", "auditSalesRegister", "auditOutstanding", "jobCosting", "purchaseReq", "purchase", "supplier", "calibration", "tender", "dashboard", "stocks", "incentives", "feedback", 'purchaseItems', "category", 'ClientDetails', 'PaymentDetails', "ShipmentList","marketPlaceListing"].includes(listModuleType) || (["BH", "OPS_ADMIN", "SU", "CP"].includes(user?.role) && isModuelePermission(rolePermissions, 'commercialcertificate', "view"))) && (
                 <RenderListSection
                   section={formConfig.listView}
                   sectionIndex={1}
                   actions={formConfig.listView.actions}
-                  responseData={response}
+                  responseData={listModuleType === "ShipmentList" ? response_shipment : listModuleType === "marketPlaceListing" ? response_marketPlace :response}
                   getAllListingData={getAllListingData}
                   formConfig={formConfig}
                   setFormData={setFormData}

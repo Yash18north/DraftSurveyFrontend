@@ -77,7 +77,6 @@ const RenderFields = ({
 
     newFieldName = field.name;
   }
-
   let { type, validation, name, value } = field;
   let newFieldValue = "";
   if (type === "date") {

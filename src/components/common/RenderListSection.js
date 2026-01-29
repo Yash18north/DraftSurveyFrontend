@@ -234,7 +234,7 @@ const RenderListSection = ({
   let statusesWithIcon = formConfig?.listView?.statusesWithIcon;
 
   const statusesWithColor = formConfig?.listView?.statusesWithColor;
-
+ 
   const getAlstatusesNames = () => {
     let filterData = statusesWithIcon?.filter((status) => {
       if (moduleType === "jrf") {
@@ -314,7 +314,6 @@ const RenderListSection = ({
     }
   }
   const getStatus = (formConfig, row) => {
-
     switch (moduleType) {
       case "sampleinward":
         return row["smpl_status"];
@@ -369,6 +368,10 @@ const RenderListSection = ({
         return incentivesStatusMap[row?.incentive_status]
       case "feedback":
         return feedbackStatusMap[0]
+      case "ShipmentList":
+        return row["status"]
+      case "marketPlaceListing":
+        return row["status"]
       // case "category":
       //   return categoryStatusMap[0]
 
@@ -379,6 +382,7 @@ const RenderListSection = ({
   };
 
   const getStatusNameValue = (cellData, newraw) => {
+    
 
     let statusData = statusesWithColor;
 
@@ -422,6 +426,7 @@ const RenderListSection = ({
             ? " ext_status"
             : ""
           }`}>
+            
           <div
             className={"table_item_sym " + filterStatusData?.icon + "_bg"}
             key={"table-item"}
@@ -2338,6 +2343,14 @@ const RenderListSection = ({
                             return getStatusNameValue(categoryStatusMap[0])
                           }
                         }
+                        else if(moduleType === "ShipmentList"){
+                          if(header?.name==="status")
+                           return getStatusNameValue(row["status"])
+                        }
+                        else if(moduleType === "marketPlaceListing"){
+                          if(header?.name==="status")
+                           return getStatusNameValue(row["status"])
+                        }
                         // else if (moduleType === "dashboard" && !["im_total", "im_remark", "im_status", "im_is_regular", "iv_jireference"].includes(header.name)) {
                         //   return <td key={"cellIndex" + index} style={{ textAlign: header?.textAlign || "left" }}>
 
@@ -2365,6 +2378,7 @@ const RenderListSection = ({
                           );
                         }
                         if (header?.fieldName === "status") {
+                          console.log("object",cellData, row)
                           return getStatusNameValue(cellData, row);
                         } else if (header.type === "dayCount") {
                           return (
