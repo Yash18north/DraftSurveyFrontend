@@ -48,7 +48,7 @@ const navigation = [
         href: "/operation/other-list",
         icon: "bi bi-info-circle",
         hoverImage: plantIconHover,
-        permission: "jioperationjsonb",
+        permission: "jobinstruction",
       },
       {
         title: "Certificates",
@@ -181,12 +181,11 @@ const Sidebar = ({ changePassword, setChangePassword, setShowSidebar, showSideba
             ) && (
               <NavItem key={index} className="sidenav-bg">
                 <Link
-                  className={`nav-link py-3 ${
-                    openSubMenu === index ||
-                    location.pathname.indexOf(navi.href) !== -1
+                  className={`nav-link py-3 ${openSubMenu === index ||
+                      location.pathname.indexOf(navi.href) !== -1
                       ? "active"
                       : ""
-                  } ${!navi.submenu ? "mainMenu" : ""}`}
+                    } ${!navi.submenu ? "mainMenu" : ""}`}
                   to={navi.submenu ? null : navi.href}
                   onClick={() => handleSubMenuClick(index, navi)}
                   title={navi.title}
