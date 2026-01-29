@@ -69,7 +69,7 @@ const navigation = [
   },
   {
     title: "Marketplace",
-    href: "/marketplace",
+    href: "/market",
     icon: "bi bi-shop ",
     permission: "marketplace",
     type: "custom",

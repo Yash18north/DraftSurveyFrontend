@@ -99,10 +99,10 @@ const PopupOptions = ({
   let user;
   const session = useSelector((state) => state.session);
   user = session?.user;
-
+  
   let rolePermissions;
   rolePermissions = session?.user?.permissions;
-
+ 
   const hash = window.location.hash;
   const params = new URLSearchParams(hash.split("?")[1]);
   let OperationType = decryptDataForURL(params.get("OperationType"));
@@ -1051,6 +1051,32 @@ const PopupOptions = ({
         setIsDelete(true)
       }
     }
+    else if (moduleType === "ShipmentList") {
+
+      if (value === "View") {
+        
+        navigate(`/shipment/shipmentForm/${encryptDataForURL(row["id"])}?status=${encryptDataForURL('View')}`);
+      }
+      else if (value === "Edit") {
+        navigate(`/shipment/shipmentForms/${encryptDataForURL(row["id"])}?action=${encryptDataForURL('Change')}`);
+      }
+      else if (value === "Delete") {
+        setIsDelete(true)
+      }
+    }
+    else if (moduleType === "marketPlaceListing") {
+
+      if (value === "View") {
+        
+        navigate(`/market/marketForm/${encryptDataForURL(row["id"])}?status=${encryptDataForURL('View')}`);
+      }
+      else if (value === "Edit") {
+        navigate(`/market/marketForm/${encryptDataForURL(row["id"])}?action=${encryptDataForURL('Change')}`);
+      }
+      else if (value === "Delete") {
+        setIsDelete(true)
+      }
+    }
     else if (moduleType === "userMaster") {
       if (value === "View") {
         navigate(`/users/user-form/${encryptDataForURL(row["usr_id"])}?status=${encryptDataForURL('View')}`);
@@ -1216,6 +1242,22 @@ const PopupOptions = ({
         getAllListingData,
         setPopupIndex
       )
+    }
+    else if (moduleType === "ShipmentList") {
+      // handleIShipmentRecordDelete(
+      //   row["id"],
+      //   setIsDelete,
+      //   getAllListingData,
+      //   setPopupIndex
+      // )
+    }
+    else if (moduleType === "marketPlaceListing") {
+      // handleIShipmentRecordDelete(
+      //   row["id"],
+      //   setIsDelete,
+      //   getAllListingData,
+      //   setPopupIndex
+      // )
     }
     else {
       let deleteBody = {
@@ -1550,7 +1592,7 @@ const PopupOptions = ({
     permission,
     value = ""
   ) => {
-
+    console.log("module",module)
     let isVisbile = false;
     if (
       permission &&
@@ -1782,6 +1824,7 @@ const PopupOptions = ({
         }
         isVisbile = true;
       }
+     
       else {
         isVisbile = true;
       }
@@ -1913,6 +1956,24 @@ const PopupOptions = ({
     else if (module == "ClientDetails") {
       isVisbile = true;
     }
+     else if(module ==="ShipmentList"){
+         
+          if (['edit', 'delete',"view","history"].includes(value.toLowerCase())) {
+            isVisbile = true;
+          }
+         else {
+            isVisbile=false
+         }
+      }
+     else if(module ==="marketPlaceListing"){
+         
+          if (['edit', 'delete',"view","history"].includes(value.toLowerCase())) {
+            isVisbile = true;
+          }
+         else {
+            isVisbile=false
+         }
+      }
     else {
 
       if (value.toLowerCase() === "download") {

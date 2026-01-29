@@ -4,6 +4,10 @@ import ProtectedRoute from "./ProtectedRoute.js";
 import PublicRoute from "./PublicRoute.js";
 import CategoryList from "../views/Purchase/Category/CategoryList.js";
 import CategoryForm from "../views/Purchase/Category/CategoryForm.js";
+import ShipmentList from "../views/Shipment/ShipmentList.js";
+import ShipmentForm from "../views/Shipment/ShipmentForm.js";
+import MarketList from "../views/MarketPlace/MarketList.jsx";
+import MarketForm from "../views/MarketPlace/MarketForm.jsx"
 
 // import PageNotFound from "../views/PageNotFound.js";
 
@@ -737,7 +741,7 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={PurchasereqDocumentList} />
       },
-       {
+      {
         path: "/PurchRequistion/purchreqDocumentlist/document/ShareFiles",
         exact: true,
         element: <ProtectedRoute component={ShareFiles} />,
@@ -808,7 +812,7 @@ const ThemeRoutes = [
         path: "/tenderList/tenderForm/:EditRecordId",
         exact: true,
         element: <ProtectedRoute component={TenderForm} />,
-      },      
+      },
       {
         path: "/itemlist",
         exact: true,
@@ -902,7 +906,46 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={IncentivesForm} />,
       },
-      // ----------------------------------------------------------------
+      // Shipment 
+
+      {
+        path: "/shipment",
+        exact: true,
+        element: <ProtectedRoute component={ShipmentList} />,
+      },
+
+      {
+        path: "/shipment/shipmentForm",
+        exact: true,
+        element: <ProtectedRoute component={ShipmentForm} />,
+      },
+
+      {
+        path: "/shipment/shipmentForm/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={ShipmentForm} />,
+      },
+
+
+      {
+        path: "/market",
+        exact: true,
+        element: <ProtectedRoute component={MarketList} />,
+      },
+
+      {
+        path: "/market/marketForm",
+        exact: true,
+        element: <ProtectedRoute component={MarketForm} />,
+      },
+
+      {
+        path: "/market/marketForm/:EditRecordId",
+        exact: true,
+        element: <ProtectedRoute component={MarketForm} />,
+      },
+
+
       //Invoice
       {
         path: "/operation/invoice-listing",
@@ -962,7 +1005,7 @@ const ThemeRoutes = [
       {
         path: "/lms-dashboard-listing",
         exact: true,
-        element: <ProtectedRoute component={LMSDashboard}/>,
+        element: <ProtectedRoute component={LMSDashboard} />,
       },
 
       //

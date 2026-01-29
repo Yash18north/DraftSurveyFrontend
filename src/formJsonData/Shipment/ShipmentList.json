@@ -1,0 +1,193 @@
+{
+    "breadcom": [
+        {
+            "title": "Shipment",
+            "redirect": "#"
+        },
+        {
+            "title": "Shipment List",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "title": "JRF List",
+            "type": "list",
+            "listView": true,
+            "headers": [
+                {
+                    "label": "JRF No.",
+                    "name": "jrf_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Reference Number",
+                    "name": "reference_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Commodity",
+                    "name": "commodity",
+                    "type": "number"
+                },
+                {
+                    "label": "Customer Name",
+                    "name": "jrf_client_name",
+                    "type": "text"
+                },
+                {
+                    "label": "Contact Person",
+                    "name": "contact_person",
+                    "type": "text"
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "type": "text"
+                },
+                {
+                    "label": "Actions",
+                    "name": "action",
+                    "type": "text",
+                    "colSpan": "8"
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "read": "",
+        "update": "",
+        "delete": "",
+        "statuCount": "",
+        "exportExcel": "",
+        "exportMethod": "GET"
+    },
+    "listView": {
+        "title": "Shipment List",
+        "isCustomTitle": true,
+        "moduleType": "ShipmentList",
+        "headers": [
+            {
+                "label": "Vessel Name",
+                "name": "vessel_name",
+                "type": "text",
+                "sortName": "vessel_name"
+            },
+            {
+                "label": "Total Quantity",
+                "name": "total_quantity",
+                "type": "number",
+                "sortName": "total_quantity"
+            },
+            {
+                "label": "Place of Work",
+                "name": "place_of_work",
+                "type": "select",
+                "sortName": "place_of_work"
+            },
+            {
+                "label": "App Quantity",
+                "name": "app_quantity",
+                "type": "number",
+                "sortName": "app_quantity"
+            },
+            {
+                "label": "Loading / Unloading",
+                "name": "loading_unloading",
+                "type": "radio",
+                "options": [
+                    {
+                        "label": "Loading",
+                        "value": "loading"
+                    },
+                    {
+                        "label": "Unloading",
+                        "value": "unloading"
+                    }
+                ],
+                "sortName": "loading_unloading"
+            },
+            {
+                "label": "Status",
+                "name": "status",
+                "type": "text",
+                "sortName": "status"
+            }
+        ],
+        "rows": [
+            []
+        ],
+        "isCustomFilter": true,
+        "filterListing": [],
+        "actions": [
+            {
+                "label": "bi bi-eye h6",
+                "value": "View",
+                "type": "icon",
+                "redirectUrl": "/shipment/shipmentForm/:EditRecordId",
+                "permission": "view"
+            },
+            {
+                "label": "bi bi-pencil h6",
+                "value": "Edit",
+                "type": "icon",
+                "redirectUrl": "/shipment/shipmentForm/:EditRecordId",
+                "permission": "update"
+            },
+            {
+                "label": "bi bi-trash h6",
+                "value": "Delete",
+                "type": "icon",
+                "redirectUrl": "/inwardForm",
+                "permission": "delete"
+            },
+            {
+                "label": "bi bi-clock-history h6",
+                "value": "History",
+                "type": "icon",
+                "permission": "history"
+            },
+            {
+                "label": "Edit",
+                "redirectUrl": "/shipment/shipmentForm/:EditRecordId",
+                "status": "saved"
+            }
+
+        ],
+        "statusesWithIcon": [
+            {
+                "icon": "bi bi-arrow-up-circle-fill",
+                "label": "Saved",
+                "name": "saved",
+                "status": "saved",
+                "image": "PartialIcon"
+            },
+            {
+                "icon": "bi bi-cloud-check-fill",
+                "label": "Posted",
+                "name": "posted",
+                "status": "posted",
+                "image": "PostedIcon"
+            }
+        ],
+        "statusesWithColor": [
+            {
+                "icon": "saved_sym",
+                "name": "Saved",
+                "status": "saved"
+            },
+            {
+                "icon": "posted_sym",
+                "name": "Posted",
+                "status": "posted"
+            }
+        ]
+    },
+    "popupMessages": {
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        }
+    }
+}

@@ -1,0 +1,138 @@
+{
+    "breadcom": [
+        {
+            "title": "Market Place Listing",
+            "redirect": "/market"
+        },
+        {
+            "title": "Market Place Form",
+            "redirect": "#"
+        }
+    ],
+    "sections": [
+        {
+            "moduleType": "marketPlaceForm",
+            "type": "market",
+            "title": "Market Form",
+            "customField": {
+                "title": "Export Data",
+                "buttons": {
+                    "cancel": {
+                        "title": "Cancel"
+                    },
+                    "confirm": {
+                        "title": "Save"
+                    }
+                },
+                "fields": []
+            },
+            "fields": [
+                {
+                    "width": 25,
+                    "label": "Captain Details",
+                    "name": "section_heading",
+                    "styleName": "section_heading",
+                    "type": "label"
+                },
+                {
+                    "width": 6,
+                    "name": "captain_name",
+                    "label": "Captain Name",
+                    "type": "text",
+                    "required": true,
+                    "placeholder": "Enter Captain Name"
+                },
+                {
+                    "width": 6,
+                    "name": "place",
+                    "label": "Place",
+                    "type": "text",
+                    "required": true,
+                    "placeholder": "Enter Place"
+                },
+                {
+                    "width": 6,
+                    "name": "experience_years",
+                    "label": "Experience (Years)",
+                    "type": "number",
+                    "required": true,
+                    "placeholder": "Enter Experience in Years"
+                },
+                {
+                    "width": 6,
+                    "name": "ratings",
+                    "label": "Ratings",
+                    "type": "number",
+                    "required": true,
+                    "placeholder": "Enter Ratings (1–5)"
+                },
+                {
+                    "width": 6,
+                    "name": "is_active",
+                    "label": "Is Active",
+                    "type": "radio",
+                    "options": [
+                        "Active",
+                        "Not Active"
+                    ],
+                    "useForViewOnly": true
+                }
+            ]
+        }
+    ],
+    "apiEndpoints": {
+        "create": "",
+        "update": ""
+    },
+    "actions": [
+        {
+            "label": "bi bi-eye h6",
+            "value": "View",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/",
+            "permission": "read"
+        },
+        {
+            "label": "bi bi-pencil h6",
+            "value": "Edit",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/:EditorId",
+            "permission": "update"
+        },
+        {
+            "label": "bi bi-trash h6",
+            "value": "Delete",
+            "type": "icon",
+            "redirectUrl": "/itemListing/itemsForm/",
+            "permission": "delete"
+        },
+        {
+            "label": "bi bi-clock-history h6",
+            "value": "History",
+            "type": "icon",
+            "permission": "history"
+        }
+    ],
+    "popupMessages": {
+        "download": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to download?"
+        },
+        "delete": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to delete?"
+        },
+        "post": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to post?"
+        },
+        "save": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to save?"
+        },
+        "cancel": {
+            "headerMsg": "Confirmation!",
+            "titleMsg": "Are you sure you want to cancel?"
+        }
+    }
+}
