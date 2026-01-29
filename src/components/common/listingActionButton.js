@@ -9,10 +9,6 @@ import { useDispatch } from "react-redux"
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { handleFormSave } from "./commonHandlerFunction/JRFHandlerFunctions";
-import { handleGetJobCostingList, handleJobCostingFormCreateAndUpdate } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
-import { getSingleBranchExpense } from "./commonHandlerFunction/Audit/BranchExpenseHandler";
-import { handleGetSingleOutstanding } from "./commonHandlerFunction/Audit/OutStanding/OutStandingHandlerFunction";
-import { handleGetSingleSalesRegister } from "./commonHandlerFunction/Audit/SalesRegister/SalesRegisterHandlerFunction";
 import { handleDownloadPO, handlePurchaseOrderCreateUpdate } from "./commonHandlerFunction/Purchase/PurchaseOrder/PurchaseOrderHandler";
 import { handleDownloadPO as stubHandleDownloadPO, handlePurchaseOrderCreateUpdate as stubHandlePurchaseOrderCreateUpdate } from "../../utils/stubFunctions";
 import { handlePurchaseReqUpdateCreate } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseRequsitionHandler";
@@ -344,27 +340,6 @@ const ListingActionButton = ({
         btnshortName: "cancelled",
       }
     ],
-    auditBranchExpenses: [
-      {
-        btnStatus: "saved",
-        label: "Edit",
-        status: "saved",
-        btnshortName: "saved",
-      }],
-    auditOutstanding: [
-      {
-        btnStatus: "saved",
-        label: "Edit",
-        status: "saved",
-        btnshortName: "saved",
-      }],
-    auditSalesRegister: [
-      {
-        btnStatus: "saved",
-        label: "Edit",
-        status: "saved",
-        btnshortName: "saved",
-      }],
     invoice: [
       {
         btnStatus: "saved",
@@ -674,38 +649,17 @@ const ListingActionButton = ({
       SU: ['posted']
     },
     jobCosting: {
-      BU: ["updated", "saved"],
-      "AUDIT": ["updated", "saved", 'cancelled']
-    },
-    auditBranchExpenses: {
-      AUDIT: ["updated", "saved"],
-      BU: ["updated", "saved"],
-      "OPS_ADMIN": ["updated", "saved"],
-      "AUDIT": ["updated", "saved"]
-    },
-    auditOutstanding: {
-      AUDIT: ["updated", "saved"],
-      BU: ["updated", "saved"],
-      "OPS_ADMIN": ["updated", "saved"],
-      "AUDIT": ["updated", "saved"]
-    },
-    auditSalesRegister: {
-      AUDIT: ["updated", "saved"],
-      BU: ["updated", "saved"],
-      "OPS_ADMIN": ["updated", "saved"],
-      "AUDIT": ["updated", "saved"]
+      BU: ["updated", "saved"]
     },
     purchase: {
       PM: ["approved", "published", "saved", "posted", "accept", "Pre-Close"],
       SU: ["posted", "Pre-Close"],
-      BH: ["posted", "approved", "published", "saved", "accept", "Pre-Close"],
-      AUDIT: ["posted", "Pre-Close"]
+      BH: ["posted", "approved", "published", "saved", "accept", "Pre-Close"]
     },
     purchaseReq: {
       PM: ["sent for Approval", "saved", "posted", 'reject'],
       SU: ["sent for Approval"],
-      BH: ["sent for Approval", "saved", "posted", 'reject'],
-      AUDIT: ["sent for Approval"]
+      BH: ["sent for Approval", "saved", "posted", 'reject']
     },
     supplier: {
       PM: ["saved", "posted"]
@@ -723,9 +677,6 @@ const ListingActionButton = ({
       "OPS_ADMIN": ["invoice_generated", "debit_save"],
       SU: ["invoice_generated", "debit_save"],
       CU: ["invoice_generated", "debit_save"]
-    },
-    AUDIT: {
-      BU: ["updated", "saved"]
     },
     calibration: {
       PM: ["saved"]
@@ -1033,28 +984,8 @@ const ListingActionButton = ({
         setIsCustomPopup(true);
       }
       else {
-        navigate(`/audit/job-costing-edit/${encryptDataForURL(
-          row["jc_id"]
-        )}`);
+        // Handle job costing navigation here
       }
-    }
-    else if (moduleType === "auditBranchExpenses") {
-      navigate(`/audit/auditBranchExpenseForm/${encryptDataForURL(
-        row["id"]
-      )}`);
-
-
-    }
-    else if (moduleType === "auditOutstanding") {
-      navigate(`/audit/auditOutstandingForm/${encryptDataForURL(
-        row["id"]
-      )}`);
-
-    }
-    else if (moduleType === "auditSalesRegister") {
-      navigate(`/audit/auditSalesRegisterForm/${encryptDataForURL(
-        row["id"]
-      )}`);
     }
     else if (moduleType === "purchaseReq") {
       if (action?.label == "Edit") {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { exprtAnalyticsDataFunc } from "../../components/common/commonHandlerFunction/dashboard/OperationOtherAnalystDashboardHandlerFunction";
+// import { exprtAnalyticsDataFunc } from "../../components/common/commonHandlerFunction/dashboard/OperationOtherAnalystDashboardHandlerFunction";
 const ViewFullChart = ({
     setIsFullChart,
     chart,

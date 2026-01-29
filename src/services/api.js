@@ -203,26 +203,13 @@ export const getQualityAnalysisApi = "/rake-quality-analysis/get/"
 export const createQualityAnalysisApi = "/rake-quality-analysis/create/"
 export const updateQualityAnalysisApi = "/rake-quality-analysis/update/"
 
-export const updateTruckSealingApi = "/truck-sealing/update/";
-export const createTruckSealingApi = "/truck-sealing/create/";
-export const getTruckSealingApi = "/truck-sealing/get/";
-export const updateCargoSupervisionApi = "/truck-cargo-sup/update/";
-export const createCargoSupervisionApi = "/truck-cargo-sup/create/";
-export const getCargoSupervisionApi = "/truck-cargo-sup/get/";
-export const testMemoPDFDownloadApi = "/testmemosfmpdf/get/";
-export const getSupervissionVesselInfoApi = "/supervision-vessel-info/";
 export const getSamplingMethodsApi = "/samplingmethods/get/";
 export const getCompanyBranchApi = "/company-branches/get/";
 export const getLoadingPortDataApi = "/countrywise-port/get/";
 
-export const truckSealingPdfApi = "/truck-sealing-pdf/";
-export const truckQAPdfApi = "/truck-daily-tm-pdf/";
-export const truckQA2PdfApi = "/truck-quality-sampling-pdf/";
 export const rakeAssessPdfApi = "/qty-assess-pdf/";
 export const rakeQAPdfApi = "/rake-quality-analysis-pdf/";
-// export const stackQAPdfApi = "/quality-analysis-pdf/";
 export const stackQAPdfApi = "/stack-quality-analysis-pdf/";
-export const truckCSPdfApi = "/cargo-sup-pdf/";
 export const consortiumDeleteApi = "/consortium-order/delete/";
 export const plantQAPdfApi = "/plant-quality-analysis-pdf/";
 
@@ -330,29 +317,6 @@ export const opsStackSVPDFApi = "/stack-supervision-pdf/"
 export const getSampleAnalyzedDataApi = "/samples-analysis-per-client-commodity/"
 export const getUserSampleHeatMapApi = "/user-samples-heatmap/"
 export const getClientRevenueChartApi = "/client-revenue-chart/"
-export const getAnalyticsSampleAnalyzedApi = "/analytics/samples-analyzed/"
-export const getAnalyticsSampleSubmissionTrendApi = "/analytics/sample-submission-trend/"
-export const getPortLoadingUnloadingApi = "/analytics/port-loading-unloading-count/"
-export const getBranchLoadingUnloadingApi = "/analytics/branch-loading-unloading-count/"
-export const getExternalSampleCountApi = "/analytics/sample-submitted-by-external-client/"
-export const getMonthSalesTrendApi = "/analytics/sales-trend/"
-export const getClientPaymentStackbarApi = "/analytics/client-payment-stacked-bar/"
-// export const getPortLoadingUnloadingCountApi = "/analytics/port-loading-status/"
-export const getPortLoadingUnloadingCountApi = "/analytics/kpi-loading-unloading-count/"
-export const getClientPaymentCountApi = "/analytics/client-payment-status/"
-export const getAVGSampleAnalysusCountApi = "/analytics/avg-sample-analysis-per-analyst/"
-export const getCommodityHandlesCountApi = "/analytics/unique-commodities-handled/"
-export const getCostingExpenseCountApi = "/analytics/costing-and-expense/"
-export const getClientPaymentTableDataApi = "/analytics/kpi-client-payment-status/"
-export const getSalesPersonPerformanceTableDataApi = "/analytics/salesperson-performance/"
-export const getStateWisePaymentDataApi = "/analytics/state-wise-revenue/"
-export const getCommodityWiseSalesDataApi = "/analytics/commodity-wise-sales/"
-export const getOPSModeWiseJobsDataApi = "/analytics/mode-wise-count/"
-export const getOverallSalesPersonPerformanceApi = "/analytics/sales-performance-report/"
-export const getOverallBranchOutstandingApi = "/analytics/branch-outstanding-report/"
-export const getOverallcommodityOutstandingApi = "/analytics/commodity-outstanding-report/"
-
-
 
 export const opsRakeSVCreateApi = "/ops-rake-sv/create/"
 export const opsRakeSVUpdateApi = "/ops-rake-sv/update/"

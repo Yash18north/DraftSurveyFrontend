@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Card, CardTitle, Row, Button, Col } from "react-bootstrap";
 import { postDataFromApi, GetTenantDetails } from "../../services/commonServices";
-import { pdfDetailsApi, testMemoPDFDownloadApi } from "../../services/api";
+import { pdfDetailsApi } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
@@ -185,7 +185,7 @@ const ModuleTestmemo = () => {
   const handlePDFConfirmAPI = async () => {
     try {
       setIsPDFDownload(true);
-      let endPoint = testMemoPDFDownloadApi;
+      let endPoint = "/test-memo-pdf/create/";
       const hash = window.location.hash;
       const params = new URLSearchParams(hash.split("?")[1]);
       const tm_id = decryptDataForURL(params.get("id"));

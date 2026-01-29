@@ -8,7 +8,7 @@ import { postDataFromApi } from "../../../../services/commonServices";
 import commonFields from "../../../../formJsonData/Operations/commonFields.json";
 import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
 import { useParams } from "react-router-dom";
-import { getRakeOperations, getTruckOperations,getPlantOperations, getActivityCode } from "../../../../services/commonFunction";
+import { getRakeOperations,getPlantOperations, getActivityCode } from "../../../../services/commonFunction";
 import { getSampleMarkForDropdown } from "../../../../components/common/commonHandlerFunction/jobinstructionHandlerFunctions";
 formConfig["sections"][0].fields = commonFields;
 const TruckAnalysisOperations = () => {

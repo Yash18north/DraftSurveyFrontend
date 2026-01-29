@@ -24,7 +24,6 @@ export const getSingleSupervissionData = () => null;
 export const getSingleOSData = () => null;
 export const getSingleCSData = () => null;
 export const getSingleSizeAnalysisData = () => null;
-export const getSingleBulkCargoData = () => null;
 export const handleMultipleRefForInvoice = () => null;
 export const handleActivityForInvoice = () => null;
 export const handleTestMemoStatusChange = () => null;
@@ -68,7 +67,6 @@ export const incentivesCalculationData = () => null;
 export const getCalculationsForTotal = () => null;
 export const calculateTotalGST = () => null;
 export const OutStandingExtraFields = () => null;
-export const auditSalesRegisterExtraFields = () => null;
 export const getCalculationsForJobCosting = () => null;
 export const getCalculationForBranchExpense = () => null;
 export const getBillingDelayDayCount = () => null;
@@ -138,10 +136,6 @@ export const SampleVerificationButtons = () => null;
 export const SampleInwardButtons = () => null;
 export const SFMButtons = () => null;
 export const ConsortiumButton = () => null;
-export const AuditButtons = () => null;
-export const SalesRegisterButtons = () => null;
-export const OutStandingButtons = () => null;
-export const JobCostingButton = () => null;
 export const InvoiceButton = () => null;
 export const PurchaseButtons = () => null;
 export const PurchaseRequistionButtons = () => null;
@@ -158,6 +152,9 @@ export const RenderTableOperationSection = () => null;
 export const RenderAdvtestMemoTableSection = () => null;
 export const PopUpPurchaseReq = () => null;
 export const SampleVerificationDetals = () => null;
+
+// Button component stubs
+export const JobCostingButton = () => null;
 
 // Value functions
 export const getTotalBranchAmountValue = () => null;

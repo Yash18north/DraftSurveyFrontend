@@ -127,42 +127,30 @@ const JfInstructionNomination = lazy(() => import("../views/operations/JfInstruc
 // const vesselJIList = lazy(() => import("../views/operations/vessel/vesselJIList.js"));
 const OperationJIList = lazy(() => import("../views/operations/CommonOPS/OperationJIList.js"));
 const OperationActivityList = lazy(() => import("../views/operations/CommonOPS/OperationActivityList.js"));
-const TruckJiList = lazy(() => import("../views/operations/truck/TruckJiList.js"));
 const RakeJIList = lazy(() => import("../views/operations/rake/RakeJIList.js"));
 const RakeList = lazy(() => import("../views/operations/rake/RakeList.js"));
 const RakeOperations = lazy(() =>
   import("../views/operations/rake/RakeOperations/RakeOperations.js")
 );
-const TruckOperations = lazy(() =>
-  import("../views/operations/truck/TruckOperations/TruckOperations.js")
-);
 const StackOperations = lazy(() =>
   import("../views/operations/stack/StackOperations/StackOperations.js")
 );
-const TruckAnalysisOperations = lazy(() => import("../views/operations/truck/TruckOperations/TruckAnalysisOperations.js"));
 const RakeAnalysisOperations = lazy(() => import("../views/operations/rake/RakeOperations/RakeAnalysisOperations.js"));
 const StackAnalysisOperations = lazy(() => import("../views/operations/stack/StackOperations/StackAnalysisOperations.js"));
 const StackJIList = lazy(() => import("../views/operations/stack/StackJIList.js"));
 const StackList = lazy(() => import("../views/operations/stack/StackList.js"));
 const vesselJIEdit = lazy(() => import("../views/operations/vessel/vesselJIEdit.js"));
 const vesselList = lazy(() => import("../views/operations/vessel/vesselList.js"));
-const TruckList = lazy(() => import("../views/operations/truck/truckList.js"));
 
 const VesselJIDetais = lazy(() => import("../views/operations/vessel/vesselJIDetais.js"));
-const TruckJIDetails = lazy(() => import("../views/operations/truck/TruckJIDetails.js"));
 const VesselJIDetaisView = lazy(() => import("../views/operations/vessel/vesselJIDetaisView.js"));
 const TMLAnalysisOperations = lazy(() => import("../views/operations/vessel/vesselOperations/TMLAnalysisOperations.js"));
 const OperationCertificate = lazy(() => import("../views/operations/vessel/OperationCertificate.js"));
 const OtherTPIOperation = lazy(() => import("../views/operations/vessel/otherTPIOperation.js"));
 const Support = lazy(() => import("../views/Support.js"));
 const ReleaseNotes = lazy(() => import("../views/ReleaseNotes.js"));
-const LaboratoryDashboard = lazy(() => import("../views/Dashboard/LaboratoryDashboard.js"));
-const OperationAnalystDashboard = lazy(() => import("../views/Dashboard/OperationAnalystDashboard.js"));
-const OtherAnalystDashboard = lazy(() => import("../views/Dashboard/OtherAnalystDashboard.js"));
-const CreditControlDashboard = lazy(() => import("../views/Dashboard/CreditControlDashboard.js"));
 const JIManPower = lazy(() => import("../views/operations/JIManPower.js"));
 const OtherTPIList = lazy(() => import("../views/operations/OtherTPIList.js"));
-const OverallAnalytics = lazy(() => import("../views/Dashboard/OverallAnalytics.js"));
 //Plant Functions
 const PlantJIList = lazy(() => import("../views/operations/plant/PlantJIList.js"));
 const PlantList = lazy(() => import("../views/operations/plant/PlantList.js"));
@@ -177,15 +165,6 @@ const ConsortiumAdd = lazy(() => import("../views/operations/consortium/Consorti
 
 // Srushti 
 
-// Audit
-const BranchExpenseList = lazy(() => import("../views/Audit/BranchExpense/BranchExpenseList.js"));
-const SalesRegisterList = lazy(() => import("../views/Audit/SalesRegister/SalesRegisterList.js"));
-const OutstandingList = lazy(() => import("../views/Audit/Outstanding/OutstandingList.js"));
-const BranchExpenseForm = lazy(() => import("../views/Audit/BranchExpense/BranchExpenseForm.js"));
-const SalesRegisterForm = lazy(() => import("../views/Audit/SalesRegister/SalesRegisterForm.js"));
-const OutstandingForm = lazy(() => import("../views/Audit/Outstanding/OutstandingForm.js"));
-const JobCostingList = lazy(() => import("../views/Audit/JobCosting/JobCostingList.js"))
-const JobCostingEdit = lazy(() => import("../views/Audit/JobCosting/JobCostingEdit.js"))
 
 // Calibration
 const CalibrationForm = lazy(() => import("../views/Purchase/Calibration/CalibrationForm.js"));
@@ -441,11 +420,6 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={VesselJIDetaisView} />,
       },
       {
-        path: "/operation/truck-list-view/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={VesselJIDetaisView} />,
-      },
-      {
         path: "/operation/plant-list-view/:EditRecordId",
         exact: true,
         element: <ProtectedRoute component={VesselJIDetaisView} />,
@@ -522,45 +496,6 @@ const ThemeRoutes = [
         path: "/operation/vessel-ji-list/other-tpi/:EditRecordId/:TMLType/:TMLID/:TPIID",
         exact: true,
         element: <ProtectedRoute component={OtherTPIOperation} />,
-      },
-      {
-        path: "/operation/truck-list",
-        exact: true,
-        // element: <ProtectedRoute component={TruckJiList} />,
-        element: <ProtectedRoute component={OperationJIList} ops_code={"TR"} />,
-      },
-      {
-        path: "/operation/truck-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={TruckJIDetails} />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/:EditRecordId",
-        exact: true,
-        // element: <ProtectedRoute component={TruckList} />,
-        element: <ProtectedRoute component={OperationActivityList} ops_code="TR" />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/:EditRecordId/:TMLType/:TMLID",
-        exact: true,
-        // element: <ProtectedRoute component={TruckAnalysisOperations} />,
-        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="TR" />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/:EditRecordId/:TMLType",
-        exact: true,
-        // element: <ProtectedRoute component={TruckOperations} />,
-        element: <ProtectedRoute component={OperationDetails} ops_code={'TR'} />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificateList} />,
-      },
-      {
-        path: "/operation/truck-list/truck-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'TR'} />,
       },
       {
         path: "/operation/rake-list",
@@ -784,67 +719,6 @@ const ThemeRoutes = [
 
       // Srushti
 
-      // Audit
-      {
-        path: "/audit/job-costing-list",
-        exact: true,
-        element: <ProtectedRoute component={JobCostingList} />,
-      },
-      {
-        path: "/audit/job-costing-list",
-        exact: true,
-        element: <ProtectedRoute component={JobCostingList} />
-      },
-      {
-        path: "/audit/job-costing-edit/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={JobCostingEdit} />,
-      },
-      {
-        path: "/audit/branch-expense-list",
-        exact: true,
-        element: <ProtectedRoute component={BranchExpenseList} />,
-      },
-      {
-        path: "/audit/outstanding-list",
-        exact: true,
-        element: <ProtectedRoute component={OutstandingList} />,
-      },
-      {
-        path: "/audit/sales-register-list",
-        exact: true,
-        element: <ProtectedRoute component={SalesRegisterList} />,
-      },
-      {
-        path: "/audit/auditSalesRegisterForm",
-        exact: true,
-        element: <ProtectedRoute component={SalesRegisterForm} />,
-      },
-      {
-        path: "/audit/auditSalesRegisterForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={SalesRegisterForm} />,
-      },
-      {
-        path: "/audit/auditBranchExpenseForm",
-        exact: true,
-        element: <ProtectedRoute component={BranchExpenseForm} />,
-      },
-      {
-        path: "/audit/auditBranchExpenseForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={BranchExpenseForm} />,
-      },
-      {
-        path: "/audit/auditOutstandingForm",
-        exact: true,
-        element: <ProtectedRoute component={OutstandingForm} />,
-      },
-      {
-        path: "/audit/auditOutstandingForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={OutstandingForm} />,
-      },
 
       // Purchase 
       {
@@ -1109,12 +983,7 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={InvoicePreview} />,
       },
-      { path: "/analytics/laboratory", exact: true, element: <LaboratoryDashboard /> },
-      { path: "/analytics/ops-analytics", exact: true, element: <OperationAnalystDashboard /> },
-      { path: "/analytics/other-analytics", exact: true, element: <OtherAnalystDashboard /> },
-      { path: "/analytics/credit-control", exact: true, element: <CreditControlDashboard /> },
-      { path: "/analytics/overall-analytics", exact: true, element: <OverallAnalytics /> },
-      {
+            {
         path: "/operation/tally-list",
         exact: true,
         element: <ProtectedRoute component={TallyListing} />,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RenderFields from "./RenderFields";
 import ActionOptionsTable from "./ActionOptionsTable";
-import { getActivityCode, getRakeOperations, getSelectedOptionName, getStackOperations, getSvgAccordingToCondition, getTruckOperations, getUniqueData, getVesselOperation } from "../../services/commonFunction";
+import { getActivityCode, getRakeOperations, getSelectedOptionName, getStackOperations, getSvgAccordingToCondition, getUniqueData, getVesselOperation } from "../../services/commonFunction";
 import {
   decryptDataForURL,
   encryptDataForURL,
@@ -97,7 +97,6 @@ const RenderTableSectionActivity = ({
   useEffect(() => {
     if (isShowAdditionalActivity) {
       getOPActivityData(setFilteredOptions, 9, null, null, null, null, formData[0]?.invoice_details, 1)
-      // const lastQuantityDetailsData = formData[0]?.invoice_details?.find((item) => [getVesselOperation('QA'), getRakeOperations('QA'), getStackOperations('QA'), getTruckOperations('QS')].includes(getActivityCode(item.activitymaster.am_code).toLowerCase()))
       const lastQuantityDetailsData = groupedTableData[0]
       let updatedFormData = { ...formData };
       if (!updatedFormData[1]) {
@@ -740,7 +739,6 @@ const RenderTableSectionActivity = ({
         {
           (action != "opsView" &&
             action !== "View" && !decryptDataForURL(params.get("isCourier")) &&
-            // (formData[0]?.invoice_details?.find((item) => [getVesselOperation('QA'), getRakeOperations('QA'), getStackOperations('QA'), getTruckOperations('QS')].includes(getActivityCode(item.activitymaster.am_code).toLowerCase()))) &&
             !isShowAdditionalActivity) && groupedTableData.length > 0 ? ((
               <div className="submitBtn_container">
                 <button

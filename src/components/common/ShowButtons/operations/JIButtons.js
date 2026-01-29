@@ -15,7 +15,7 @@ import {
   OperationSizeAnalysisCreateDataFunction
 } from "../../commonHandlerFunction/operations/TMLOperations";
 import { encryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSOperationActivity, getOperationActivityUrl, getPlantOperations, getRakeOperations, getVesselOperation, getWithoutSizeAnalysisActivity, getActivityCode, getTruckOperations, getStackOperations, getOperationActivityListPageUrl } from "../../../../services/commonFunction";
+import { getLMSOperationActivity, getOperationActivityUrl, getPlantOperations, getRakeOperations, getVesselOperation, getWithoutSizeAnalysisActivity, getActivityCode, getStackOperations, getOperationActivityListPageUrl } from "../../../../services/commonFunction";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { OperationQualityAssesmentCreateDataFunction, RakeSupervissionDailyReport } from "../../commonHandlerFunction/operations/RakeHandlerOperation";
@@ -69,7 +69,7 @@ const JIButtons = ({
     return count;
   };
   const checkValidation = (useFor = "") => {
-    if ([getVesselOperation("HH"), getTruckOperations("OS"), getTruckOperations("CS")].includes(OperationType)) {
+    if ([getVesselOperation("HH")].includes(OperationType)) {
       return subTableData.length === 0;
     }
     else if (OperationType === getVesselOperation("DS") && useFor == "post") {
@@ -352,9 +352,7 @@ const JIButtons = ({
   const sendDailyReportHandler = async () => {
     try {
       setIsOverlayLoader(true)
-      if (getTruckOperations("OS") === OperationType)
-        await truckOnlySealDailyReport(formData, navigate, subTableData, OperationTypeID)
-      else if (getRakeOperations("QAss") === OperationType)
+      if (getRakeOperations("QAss") === OperationType)
         await OperationQualityAssesmentCreateDataFunction(
           formData,
           setIsOverlayLoader,
@@ -801,7 +799,7 @@ const JIButtons = ({
                     Post
                   </Button>
                 ) : null}
-                {[getTruckOperations("OS"), getRakeOperations("QAss"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(OperationType) &&
+                {[getRakeOperations("QAss"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(OperationType) &&
                   <Button
                     type="button"
                     className="submitBtn"

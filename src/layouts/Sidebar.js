@@ -63,7 +63,7 @@ const navigation = [
   {
     title: "Shipment",
     href: "/shipment",
-    icon: "bi bi-truck ",
+    icon: "bi bi-box-seam ",
     permission: "shipment",
     type: "custom",
   },

@@ -12,7 +12,6 @@ import {
   getlotnodropdownApi,
   getScopeworkSingleDataApi,
   getScopeworkUpdateApi,
-  getSupervissionVesselInfoApi,
   getSVApi,
   jobinstructionUpdateApi,
   labGroupsStdBasisApi,
@@ -28,17 +27,10 @@ import {
   updateDSApi,
   updateHHApi,
   updateSVApi,
-  updateCargoSupervisionApi,
-  createCargoSupervisionApi,
-  getCargoSupervisionApi,
   dailyReportPDFApi,
   masterUploadApi,
   folderCreateApi,
   documentCreateApi,
-  createTruckSealingApi,
-  getBulkCargoApi,
-  updateBulkCargoApi,
-  createBulkCargoApi
 } from "../../../../services/api";
 import {
   deleteDataFromApi,
@@ -1995,23 +1987,7 @@ export const truckOnlySealDailyReport = async (formData, navigate, subTableData,
   let tr_os_id;
   if (formData[1]?.tr_os_id) {
     tr_os_id = formData[1]?.tr_os_id;
-  } else {
-    let truck_sealing = {
-      "tr_os_no_of_trucks": formData[1].tr_os_no_of_trucks,
-      "tr_os_total_qty": formData[1].tr_os_total_qty,
-      "tr_os_json_data": subTableData,
-      "fk_jiid": formData[0].ji_id,
-      "fk_jisid": OperationTypeID,
-      tenant: GetTenantDetails(1),
-    }
-    let MainData = {
-      truck_sealing: truck_sealing,
-    };
-    let res = await postDataFromApi(createTruckSealingApi, MainData);
-    if (res.status == 200) {
-      tr_os_id = res.data.data.tr_os_id
-    }
-  }
+  } 
   if (tr_os_id) {
     let payload = {
       "tr_os_id": tr_os_id,
@@ -3095,28 +3071,6 @@ export const getSingleDraftSurveyData = async (
     console.error(error);
   }
   finally {
-    try {
-      let res = await postDataFromApi(getSupervissionVesselInfoApi, {
-        ji_id: formData[1]?.ji_id,
-      });
-      if (res?.data?.status === 200 && res.data.data) {
-        const responseData = res.data.data?.[0]
-        updatedFormData[1]["fromdate_time-initial"] = !updatedFormData[1]["fromdate_time-initial"] ? responseData?.initial_draught_survey : updatedFormData[1]["fromdate_time-initial"];
-        updatedFormData[1]["todate_time-initial"] = !updatedFormData[1]["todate_time-initial"] ? responseData?.end_initial_draught_survey : updatedFormData[1]["todate_time-initial"];
-
-        updatedFormData[1]["fromdate_time-final"] = !updatedFormData[1]["fromdate_time-final"] ? responseData?.final_draught_survey : updatedFormData[1]["fromdate_time-final"];
-        updatedFormData[1]["todate_time-final"] = !updatedFormData[1]["todate_time-final"] ? responseData?.end_final_draught_survey : updatedFormData[1]["todate_time-final"];
-
-        updatedFormData[1]["fromdate_time-interim_0"] = !updatedFormData[1]["fromdate_time-interim_0"] ? responseData?.intrim_draught_survey : updatedFormData[1]["fromdate_time-interim_0"];
-        updatedFormData[1]["todate_time-interim_0"] = !updatedFormData[1]["todate_time-interim_0"] ? responseData?.end_intrim_draught_survey : updatedFormData[1]["todate_time-interim_0"];
-      }
-    }
-    catch (ex) {
-
-    }
-    finally {
-      setFormData(updatedFormData);
-    }
   }
 };
 
@@ -3285,20 +3239,6 @@ export const OperationCargoSupervisionCreateDataFunction = async (
     tenant: GetTenantDetails(1),
   }
 
-
-  if (formData[1].tr_cs_id) {
-    let MainData = {
-      tr_cs_id: formData[1].tr_cs_id,
-      truck_cargo_supervision: truck_cargo_supervision,
-    };
-    res = await putDataFromApi(updateCargoSupervisionApi, MainData);
-  }
-  else {
-    let MainData = {
-      truck_cargo_supervision: truck_cargo_supervision,
-    };
-    res = await postDataFromApi(createCargoSupervisionApi, MainData);
-  }
   if (res?.data?.status === 200) {
     toast.success(res?.data?.message, {
       position: "top-right",
@@ -3352,90 +3292,6 @@ export const OperationCargoSupervisionCreateDataFunction = async (
 };
 
 
-export const getSingleCSData = async (
-  OperationTypeID,
-  formData,
-  setTableData,
-  setIsOverlayLoader,
-  setFormData,
-  section
-) => {
-  try {
-    let res = await postDataFromApi(getCargoSupervisionApi, {
-      ji_id: formData[1]?.ji_id,
-      jis_id: OperationTypeID,
-    });
-    if (res?.data?.status === 200 && res.data.data) {
-      const updatedFormData = { ...formData };
-      if (!updatedFormData[1]) {
-        updatedFormData[1] = {};
-      }
-      updatedFormData[1]["tr_cs_no_of_trs"] =
-        res.data.data.tr_cs_no_of_trs;
-      updatedFormData[1]["tr_cs_total_qty"] =
-        res.data.data.tr_cs_total_qty;
-      res.data.data.tr_cs_json_data.map((singleValue, index) => {
-        section.headers.map((singleField) => {
-          const fieldName = singleField.name;
-          updatedFormData[1][fieldName + "_" + index] = singleValue[fieldName];
-        });
-      });
-      updatedFormData[1]["tr_cs_id"] = res.data.data.tr_cs_id;
-      setFormData(updatedFormData);
-      setTableData(res.data.data.tr_cs_json_data);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-};
-export const getSingleBulkCargoData = async (
-  OperationTypeID,
-  formData,
-  setIsOverlayLoader,
-  setFormData,
-  section
-) => {
-  try {
-    setIsOverlayLoader(true)
-    let res = await postDataFromApi(getBulkCargoApi, {
-      fk_jiid: formData[1]?.ji_id,
-      fk_jisid: OperationTypeID
-    });
-    if (res?.data?.status === 200 && res.data.data) {
-      const updatedFormData = { ...formData };
-      if (!updatedFormData[1]) {
-        updatedFormData[1] = {};
-      }
-      if (res.data.data.bulk_crg_id) {
-        updatedFormData[1]["bulk_crg_id"] =
-          res.data.data.bulk_crg_id;
-        const singleValue = res.data.data
-        section.fields.map((field) => {
-          updatedFormData[1][field.name] = singleValue[field.name];
-        });
-        updatedFormData[0]["bulk_crg_id"] = res.data.data.bulk_crg_id;
-      }
-      else {
-        updatedFormData[1]["bulk_crg_smpl"] = `As per ${formData[0]?.sampling_method_details?.join(',')}. Samples have been collected from the stack of ${formData[0]?.commodity_details?.cmd_name} at PlotNo. ${formData[0]?.ji_is_plot_no ? formData[0]?.ji_plot_no || '' : ''}`
-      }
-
-      setFormData(updatedFormData);
-    }
-    else {
-      const updatedFormData = { ...formData };
-      if (!updatedFormData[1]) {
-        updatedFormData[1] = {};
-      }
-      updatedFormData[1]["bulk_crg_smpl"] = "As per IS: 1405-2010. Samples have been collected from the stack of Iron Ore Fines at PlotNo. XX"
-      setFormData(updatedFormData);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-  finally {
-    setIsOverlayLoader(false)
-  }
-};
 export const Operation_BulkCargo_CreateDataFunction = async (
   formData,
   setIsOverlayLoader,
@@ -3464,60 +3320,7 @@ export const Operation_BulkCargo_CreateDataFunction = async (
         tenant: GetTenantDetails(1)
       }
     }
-    // console.log('MainData',MainData)
-    // return
-    if (formData[1].bulk_crg_id) {
-      MainData.bulk_crg_id = formData[1].bulk_crg_id
-      res = await putDataFromApi(updateBulkCargoApi, MainData);
-    } else {
-      res = await postDataFromApi(createBulkCargoApi, MainData);
-    }
-    if (res?.data?.status === 200) {
-      toast.success(res?.data?.message, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setIsOverlayLoader(false);
-      OperationCreateDataFunction(
-        formData,
-        setIsOverlayLoader,
-        setIsPopupOpen,
-        OperationType,
-        OperationTypeID,
-        navigate,
-        submitType === "post" ? "posted" : "in-process",
-        "",
-        [],
-        "",
-        1,
-        "",
-        operationMode
-      );
-      const redirectUrl = getOperationActivityUrl(operationMode)
-      navigate(
-        `${redirectUrl}${encryptDataForURL(
-          formData[0].ji_id
-        )}`
-      );
-      return;
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
+    
 
   }
   catch (ex) {

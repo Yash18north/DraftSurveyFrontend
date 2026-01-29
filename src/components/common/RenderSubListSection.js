@@ -14,7 +14,6 @@ import {
   getDefaultActivityMode,
   getRakeOperations,
   getStackOperations,
-  getTruckOperations
 } from "../../services/commonFunction";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";

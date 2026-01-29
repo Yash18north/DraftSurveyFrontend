@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import { handleJobCostingFormCreateAndUpdate } from '../commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction'
 import { useNavigate } from 'react-router-dom'
 import { encryptDataForURL } from '../../../utills/useCryptoUtils'
 
@@ -41,17 +40,10 @@ const JobCostingButton = ({
                 <Button
                   type="button"
                   className="saveBtn"
-                  onClick={() =>
-                    handleJobCostingFormCreateAndUpdate(
-                      setFormData,
-                      EditRecordId,
-                      formData,
-                      formConfig,
-                      navigate,
-                      "saved",
-                      viewOnly
-                    )
-                  }
+                  onClick={() => {
+                    // Job costing functionality removed
+                    console.log('Save button clicked - functionality removed');
+                  }}
                 >
                   Save
                 </Button>
@@ -61,17 +53,10 @@ const JobCostingButton = ({
               <Button
                 type="button"
                 className="submitBtn"
-                onClick={() =>
-                  handleJobCostingFormCreateAndUpdate(
-                    setFormData,
-                    EditRecordId,
-                    formData,
-                    formConfig,
-                    navigate,
-                    "posted",
-                    viewOnly
-                  )
-                }
+                onClick={() => {
+                  // Job costing functionality removed
+                  console.log('Post button clicked - functionality removed');
+                }}
               >
                 Post
               </Button>
@@ -84,34 +69,20 @@ const JobCostingButton = ({
               <Button
                 type="button"
                 className="saveBtn"
-                onClick={() =>
-                  handleJobCostingFormCreateAndUpdate(
-                    setFormData,
-                    EditRecordId,
-                    formData,
-                    formConfig,
-                    navigate,
-                    "saved",
-                    viewOnly
-                  )
-                }
+                onClick={() => {
+                  // Job costing functionality removed
+                  console.log('Save button clicked - functionality removed');
+                }}
               >
                 Save
               </Button>
               <Button
                 type="button"
                 className="submitBtn"
-                onClick={() =>
-                  handleJobCostingFormCreateAndUpdate(
-                    setFormData,
-                    EditRecordId,
-                    formData,
-                    formConfig,
-                    navigate,
-                    "posted",
-                    viewOnly
-                  )
-                }
+                onClick={() => {
+                  // Job costing functionality removed
+                  console.log('Post button clicked - functionality removed');
+                }}
               >
                 Post
               </Button>

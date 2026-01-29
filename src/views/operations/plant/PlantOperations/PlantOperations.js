@@ -12,8 +12,6 @@ import ScopeWork_GroupParameters from "../../../../formJsonData/Operations/Vesse
 import sizeAnalysis_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sizeAnalysis_Details.json";
 import sentToJRF_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sentToJRF_Detail.json";
 
-import OnlySeal_formConfig from "../../../../formJsonData/Operations/Truck/TruckOperations/OnlySealOperation.json";
-import CargoSupervision_formConfig from "../../../../formJsonData/Operations/Truck/TruckOperations/CargoSuperVisionOperation.json";
 
 import Form from "../../../../components/common/Form";
 import { sampleMarkOptionsApi } from "../../../../services/api";
@@ -22,7 +20,7 @@ import commonFields from "../../../../formJsonData/Operations/commonFields.json"
 import commonFieldsRake from "../../../../formJsonData/Operations/commonFieldsRake.json";
 import { useParams } from "react-router-dom";
 import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSOperationActivity, getRakeOperations, getTruckOperations, getPlantOperations, getActivityCode } from "../../../../services/commonFunction";
+import { getLMSOperationActivity, getRakeOperations, getPlantOperations, getActivityCode } from "../../../../services/commonFunction";
 
 const TruckOperations = () => {
   let { TMLType } = useParams();
@@ -88,14 +86,6 @@ const TruckOperations = () => {
     }
     else if ([getPlantOperations("TR"), getPlantOperations("RK"), getPlantOperations("ST")].includes(TMLType)) {
       newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQA;
-    }
-    else if (TMLType == getTruckOperations("OS")) {
-      newConfig["sections"][1] = OnlySeal_formConfig;
-      newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderOnlySeal;
-    }
-    else if (TMLType == getTruckOperations("CS")) {
-      newConfig["sections"][1] = CargoSupervision_formConfig;
-      newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeadercargoSupervision;
     }
     else {
       if (useFor === "viewonly") {

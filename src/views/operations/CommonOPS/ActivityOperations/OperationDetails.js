@@ -20,9 +20,8 @@ import commonFields from "../../../../formJsonData/Operations/commonFields.json"
 import DraftSurveyMainSection from "../../../../formJsonData/Operations/DraftSurveyMainSection.json";
 import { useParams } from "react-router-dom";
 import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSActivityHeaderTab, getLMSOperationActivity, getPlantOperations, getRakeOperations, getSampleCollectionActivity, getTruckOperations, getVesselOperation, getActivityCode, getOperationNameByCode, getOperationActivityListPageUrl, getOperationActivityUrl, getStackOperations } from "../../../../services/commonFunction";
+import { getLMSActivityHeaderTab, getLMSOperationActivity, getPlantOperations, getRakeOperations, getSampleCollectionActivity, getVesselOperation, getActivityCode, getOperationNameByCode, getOperationActivityListPageUrl, getOperationActivityUrl, getStackOperations } from "../../../../services/commonFunction";
 import QuantityAssessment_formConfig from "../../../../formJsonData/Operations/Rake/RakeOperations/QuantityAssessmentOperation.json";
-import OnlySeal_formConfig from "../../../../formJsonData/Operations/Truck/TruckOperations/OnlySealOperation.json";
 import commonFieldsRake from "../../../../formJsonData/Operations/commonFieldsRake.json";
 import BulkCargoSupevission from "../../../../formJsonData/Operations/Vessel/VesseLOperations/BulkCargoSupevission.json";
 import { useSelector } from "react-redux";
@@ -157,7 +156,7 @@ const OperationDetails = ({ ops_code }) => {
             newConfig["sections"][0].subSections[1].fields = DraftSurveyMainSection;
             newConfig["sections"][1] = DraftSurvey_formConfig;
             newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderDS;
-        } else if ([getVesselOperation("CS"), getTruckOperations("CS")].includes(TMLType) && ["VL", "OT", "TR", "PL"].includes(ops_code)) {
+        } else if ([getVesselOperation("CS")].includes(TMLType) && ["VL", "OT", "PL"].includes(ops_code)) {
             newConfig["sections"][1] = CargoSupervision_formConfig;
             newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeadercargoSupervision;
         } else if (TMLType == getVesselOperation("DM") && ["VL", "OT"].includes(ops_code)) {
@@ -175,13 +174,6 @@ const OperationDetails = ({ ops_code }) => {
         } else if (TMLType == getRakeOperations('QAss') && ["TR", "OT", "PL", "OT"].includes(ops_code)) {
             newConfig["sections"][1] = QuantityAssessment_formConfig;
             newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQAss;
-        }
-        else if ((TMLType == getTruckOperations('DTM') || TMLType == getTruckOperations("QS")) && ops_code === "TR") {
-            newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQA;
-        }
-        else if (TMLType == getTruckOperations("OS") && ["RK", "TR", "OT", 'VL', 'PL'].includes(ops_code)) {
-            newConfig["sections"][1] = OnlySeal_formConfig;
-            newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderOnlySeal;
         }
         else if ([getPlantOperations("TR"), getPlantOperations("RK"), getPlantOperations("ST")].includes(TMLType) && ops_code === "PL") {
             newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQA;
