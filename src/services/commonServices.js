@@ -8,8 +8,8 @@ import {
 import { store } from "./store";
 export const isDevelopments = "DEV";
 const isEncryption = "FALSE";
-// export const developmentURL = process.env.REACT_APP_API_DEV_URL;
-export const developmentURL = "http://127.0.0.1:8000";
+export const developmentURL = process.env.REACT_APP_API_DEV_URL;
+// export const developmentURL = "http://127.0.0.1:8000";
 export const MainUrl = developmentURL
 
 const BASE_URL = MainUrl + "/api/v1";
@@ -20,7 +20,6 @@ Date:25-04-2024
 */
 const successStatus = [200, 201, 202];
 const encryptionData = (payloadData) => {
-  console.log('payload----',payloadData)
   if (isEncryption === "TRUE") {
     payloadData = {
       body: encryptData(payloadData),
@@ -32,7 +31,6 @@ const encryptionData = (payloadData) => {
 const decryptedData = (resData) => {
   if (isEncryption === "TRUE") {
     resData = decryptData(resData);
-    console.log('resData----',resData)
     return resData
   }
 
@@ -89,7 +87,6 @@ export const getDataFromApi = (getUrl, model = {}, isTenantUrl = "", isNoEncrypt
       return res;
     })
     .catch((err) => {
-      console.log('eee', err)
       if (err?.response?.data) {
         err.response.data = decryptedData(err?.response?.data);
         err.response.data = err.response.data
@@ -331,7 +328,8 @@ export function GetTenantDetails(isTenantId, isTenantcode = "",isPetroJRF="") {
     }
   } else {
     const hostname = window.location.origin;
-    return "https://tcrc-uatops.tayadigital.com";
+    return developmentURL;
+    // return "https://tcrc-uatops.tayadigital.com";
     // return process.env.REACT_APP_API_DEV_URL;
 
     return hostname;

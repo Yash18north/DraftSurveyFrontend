@@ -784,7 +784,6 @@ export const handleDebitCreate = async (
 
 
   } catch (ex) {
-    // console.log("error :", ex)
 
   }
   finally {

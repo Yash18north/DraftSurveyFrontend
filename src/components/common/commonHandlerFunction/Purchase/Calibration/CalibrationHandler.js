@@ -37,7 +37,7 @@ export const handleGetCalibration = async (EditRecordId, setFormData, setIsOverl
             });
         }
     } catch (error) {
-        // console.log('errrr',error)
+        // 
     }
     finally {
         setIsOverlayLoaders(false)
@@ -151,7 +151,7 @@ export const handleCalibrationCreateUpdate = async (
         }
     }
     catch (ex) {
-        console.log('---', ex)
+        // 
     }
     finally {
         setIsOverlayLoader(false)

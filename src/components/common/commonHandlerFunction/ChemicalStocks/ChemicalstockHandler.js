@@ -36,7 +36,7 @@ export const getChemicalStock = async (chemicalStockId, setformData, status, set
             });
         }
     } catch (error) {
-        // console.log('errrr', error)
+        // // console.log('errrr', error)
     }
 }
 
@@ -109,7 +109,7 @@ export const handleChemicalStocksCreateAndUpdate = async (formData, handleSubmit
         }
 
     } catch (error) {
-        // console.log('errrr', error)
+        // // console.log('errrr', error)
     }
 }
 

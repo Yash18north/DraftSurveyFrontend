@@ -252,7 +252,7 @@ export const handlePurchaseReqTableDataCreateUpdate = async (
         }
     }
     catch (ex) {
-        console.log('ex--', ex)
+        // console.log('ex--', ex)
     }
 }
 

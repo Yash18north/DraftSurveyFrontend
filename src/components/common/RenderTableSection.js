@@ -1664,7 +1664,7 @@ const RenderTableSection = ({
   const hash = window.location.hash;
   const params = new URLSearchParams(hash.split("?")[1]);
   const Status = decryptDataForURL(params.get("status"));
-  console.log('params.get("isInsurance")',params.get("isInsurance"))
+  // console.log('params.get("isInsurance")',params.get("isInsurance"))
   const isInsurance = decryptDataForURL(params.get("isInsurance"));
   // if (Status == "Edit") {
   //   MainAction.splice(1, 2);

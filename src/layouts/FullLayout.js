@@ -76,7 +76,7 @@ Description: Added This below code to restrict right click
   const handleScroll = () => {
     if (mainBodyRef.current?.scrollTop > 80) { // Adjust threshold as needed
       setShowShadow(true);
-      // console.log("Scroll Value is More than 50")
+      // // console.log("Scroll Value is More than 50")
     } else {
       setShowShadow(false);
     }

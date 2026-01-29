@@ -42,7 +42,6 @@ const JobCostingButton = ({
                   className="saveBtn"
                   onClick={() => {
                     // Job costing functionality removed
-                    console.log('Save button clicked - functionality removed');
                   }}
                 >
                   Save
@@ -55,7 +54,6 @@ const JobCostingButton = ({
                 className="submitBtn"
                 onClick={() => {
                   // Job costing functionality removed
-                  console.log('Post button clicked - functionality removed');
                 }}
               >
                 Post
@@ -71,7 +69,6 @@ const JobCostingButton = ({
                 className="saveBtn"
                 onClick={() => {
                   // Job costing functionality removed
-                  console.log('Save button clicked - functionality removed');
                 }}
               >
                 Save
@@ -81,7 +78,6 @@ const JobCostingButton = ({
                 className="submitBtn"
                 onClick={() => {
                   // Job costing functionality removed
-                  console.log('Post button clicked - functionality removed');
                 }}
               >
                 Post

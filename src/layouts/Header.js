@@ -243,7 +243,7 @@ const Header = ({ showSidebar, setShowSidebar, setIsLoggedInUser, changePassword
         setAllAnnouncements(filteredAnnouncements);
       }
     } catch (error) {
-      console.log("Error in Announcement: ", error);
+      // console.log("Error in Announcement: ", error);
     }
   };
 

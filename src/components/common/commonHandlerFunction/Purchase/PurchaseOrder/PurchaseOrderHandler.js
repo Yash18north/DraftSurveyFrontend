@@ -357,7 +357,7 @@ export const handlePurchaseOrderCreateUpdate = async (
         }
     }
     catch (ex) {
-        // console.log("Purchase Order", ex)
+        // // console.log("Purchase Order", ex)
     }
 }
 
@@ -553,7 +553,7 @@ export const handleDownloadPO = async (poId, poNo,) => {
             });
         }
     } catch (err) {
-        console.log("err", err)
+        // console.log("err", err)
     }
 
 }

@@ -7,12 +7,13 @@ import {
   handleJIValidation,
 } from "../../commonHandlerFunction/jobinstructionHandlerFunctions";
 import {
-  Operation_Supervision_CreateDataFunction,
+  OperationCargoSupervisionCreateDataFunction,
   vesselListBackFunctionality,
   vesselListNextFunctionality,
   vesselListCancelFunctionality,
   truckOnlySealDailyReport,
-  OperationSizeAnalysisCreateDataFunction
+  OperationSizeAnalysisCreateDataFunction,
+  Operation_Supervision_CreateDataFunction
 } from "../../commonHandlerFunction/operations/TMLOperations";
 import { encryptDataForURL } from "../../../../utills/useCryptoUtils";
 import { getLMSOperationActivity, getOperationActivityUrl, getPlantOperations, getRakeOperations, getVesselOperation, getWithoutSizeAnalysisActivity, getActivityCode, getStackOperations, getOperationActivityListPageUrl } from "../../../../services/commonFunction";
@@ -676,7 +677,7 @@ const JIButtons = ({
                             const spValue = activeTab.split("-");
                             const newValue = parseInt(spValue[1]) + 1;
                             // setActiveTab("1-" + newValue);
-                            Operation_Supervision_CreateDataFunction(
+                            OperationCargoSupervisionCreateDataFunction(
                               formData,
                               setIsOverlayLoader,
                               setIsPopupOpen,
@@ -704,7 +705,7 @@ const JIButtons = ({
                             className="submitBtn"
                             id="submit_btn1"
                             onClick={(e) => {
-                              Operation_Supervision_CreateDataFunction(
+                              OperationCargoSupervisionCreateDataFunction(
                                 formData,
                                 setIsOverlayLoader,
                                 setIsPopupOpen,

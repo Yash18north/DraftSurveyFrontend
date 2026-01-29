@@ -33,8 +33,6 @@ import {
   getSingleSampleCollectionData,
   getSingleSizeAnalysisData,
   OperationSizeAnalysisCreateDataFunction,
-  totalTannange,
-  totalTannangeBalance
 } from "./commonHandlerFunction/operations/TMLOperations";
 import {
   getAllSampleMarkListDataForDD as stubGetAllSampleMarkListDataForDD,
@@ -109,8 +107,8 @@ const RenderTableSetAllManualSection = ({
     if (operationStepNo == 6) {
       fieldName = 'sample_qty'
     }
-    totalTannangeBal = totalTannangeBalance(allTableData, formData, fieldName)
-    actualTannantbal = totalTannange(allTableData, formData)
+    totalTannangeBal = stubTotalTannangeBalance(allTableData, formData, fieldName)
+    actualTannantbal = stubTotalTannange(allTableData, formData)
   }
   useEffect(() => {
     if ((OperationType === getVesselOperation("SV") && tabIndex === 7) || operationStepNo == 6) {

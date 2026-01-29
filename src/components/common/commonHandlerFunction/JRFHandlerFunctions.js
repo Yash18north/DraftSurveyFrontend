@@ -374,7 +374,7 @@ export const handleJRFCreateOrUpdateWithOperations = async (
   let MainData = {
     jrf: payloadData,
   };
-  // console.log( getOperationActivityUrl(formData[0]?.operation_type?.operation_type_name),formData[0]?.operation_type?.operation_type_name, formData);
+  // // console.log( getOperationActivityUrl(formData[0]?.operation_type?.operation_type_name),formData[0]?.operation_type?.operation_type_name, formData);
   res = await postDataFromApi(jrfCreateUrl, MainData);
   if (res?.data?.status === 200) {
     toast.success(res?.data?.message, {

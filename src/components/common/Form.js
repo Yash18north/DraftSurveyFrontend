@@ -165,7 +165,6 @@ import {
 } from "./commonHandlerFunction/CommercialCertificateHandlerFunctions";
 import RenderSubListSection from "./RenderSubListSection";
 import RenderSubListSectionPagination from "./RenderSubListSectionWithPagination";
-
 import {
   getSingleDraftSurveyData,
   getSingleHHData,
@@ -1611,7 +1610,7 @@ const Forms = ({
               operationMode
             );
           } else if (OperationType == getVesselOperation("SV")) {
-            Operation_Supervision_CreateDataFunction(
+            OperationCargoSupervisionCreateDataFunction(
               formData,
               setIsOverlayLoader,
               setIsPopupOpen,
@@ -8437,7 +8436,7 @@ const Forms = ({
                     <Row className="main_form">
                       {section.fields.map((field, fieldIndex) => {
 
-                        console.log("viewOnly", viewOnly)
+                        // console.log("viewOnly", viewOnly)
                         let isShow = true;
                         let isViewOnly = viewOnly;
                         if (!isViewOnly && field.fieldName == "msfm_number") {
@@ -9814,43 +9813,7 @@ const Forms = ({
                         </button>
                       )}
 
-                      {["jrf"].includes(listModuleType) &&
-                        isModuelePermission(
-                          rolePermissions,
-                          listModuleType,
-                          "add"
-                        ) ? ['BU'].includes(user?.role) ? null : (
-                          <button
-                            type="button"
-                            onClick={() =>
-                              navigate(
-                                user?.role === "LR"
-                                  ? "/jrfListing/external-jrf"
-                                  : "/jrfListing/jrf"
-                              )
-                            }
-                            className="create_button"
-                          >
-                            <i className="bi bi-plus-lg"></i>
-                            {translate("common.createBtn")}
-                          </button>
-                        ) : null}
-                      {(["invoice"].includes(listSubModuleType)) && ['LR', 'BU'].includes(user?.role) &&
-                        (
-                          <button
-                            type="button"
-                            onClick={() =>
-                              navigate(
-                                "/operation/invoice-listing/advance-invoice" + `?type=${encryptDataForURL("Advance")}`
-                              )
-                            }
-                            className="create_button create_button_payment"
-                          >
-                            <i class="bi bi-currency-rupee"></i>
-                            Create Invoice
-                          </button>
-                        )}
-                      {["jobinstruction"].includes(listModuleType) &&
+                      {["jobinstruction","jioperationjsonb"].includes(listModuleType) &&
                         user?.role == "OPS_ADMIN" &&
                         isModuelePermission(
                           rolePermissions,

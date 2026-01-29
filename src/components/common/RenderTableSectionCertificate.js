@@ -1013,7 +1013,7 @@ const RenderAssignmentTableSection = ({
     //       const sampleMarksDis = [
     //         ...sampleAllOptions.filter(item => item.sample_id).map(item => item.sample_id),
     //       ];
-    //       console.log('matchingComposite',matchingComposite,sampleMarks)
+    //       // console.log('matchingComposite',matchingComposite,sampleMarks)
     //       const secondArray = [...sampleMarks, singleSampleSet]; // Combine sampleMarks and last element of custTemp
 
     //       const filteredSampleMarks = sampleMarksDis.filter(item => !secondArray.includes(item));
@@ -1070,15 +1070,15 @@ const RenderAssignmentTableSection = ({
         jis_id: EditSubRecordId,
       }
       const res = await postDataFromApi(certConfigGetApi, payload);
-      // console.log(formData[0]?.rpc_id, configCertStatusRPCID, res.data.data);
+      // // console.log(formData[0]?.rpc_id, configCertStatusRPCID, res.data.data);
       // // Extract matching objects
       // const matchingData = res.data.data.filter(item => {
-      //   console.log(item.fk_rpc_id, item);
+      //   // console.log(item.fk_rpc_id, item);
       //   // Make sure to return the result of the comparison
       //   return parseInt(item.fk_rpc_id) === parseInt(configCertStatusRPCID);
       // });
 
-      // console.log(matchingData);
+      // // console.log(matchingData);
 
       if (res?.data?.status === 200) {
         // let sampleIds = res.data.data[0].cert_config_sampleids.map(item => item.sample_id);
@@ -1088,7 +1088,7 @@ const RenderAssignmentTableSection = ({
         //   `${item.sample_mark}--###TCRCOPS###--${item.sample_id}`
         // );
 
-        // console.log(transformedArray);
+        // // console.log(transformedArray);
         // setCustomFormData(prevData => ({
         //   ...prevData,
         //   2: {
@@ -1720,7 +1720,7 @@ const RenderAssignmentTableSection = ({
         return acc;
       }, {});
 
-      // console.log('cert_config_sampleids',cert_config_sampleids)
+      // // console.log('cert_config_sampleids',cert_config_sampleids)
       const targetSampleMark = customFormData[2]?.configured_smpl;
       const result = sampleAllOptions.find((item) => {
         let sampleMark = item.sample_mark;
