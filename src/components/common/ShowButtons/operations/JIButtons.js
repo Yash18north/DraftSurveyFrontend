@@ -433,7 +433,7 @@ const JIButtons = ({
                 id="submit_btn3"
                 onClick={() => {
                   if (editReordType === "nomination") {
-                    navigate('/operation/jrfInstructionListing/job-instruction-analysis/' + encryptDataForURL(formData?.[0]?.ji_id) + '/' + encryptDataForURL('analysis'))
+                    navigate('/operation/draught-list')
                   }
                   else if (editReordType === "analysis") {
                     // localStorage.setItem('isMainScopeWork',1);
@@ -443,7 +443,7 @@ const JIButtons = ({
                         isMainScopeWork: 1
                       }
                     );
-                    navigate('/operation/jrfInstructionListing/job-instruction/' + encryptDataForURL(formData?.[0]?.ji_id))
+                    navigate('/operation/draught-list')
                   }
                   else {
                     if (props.isMainJiSaved) {

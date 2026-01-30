@@ -82,26 +82,8 @@ export const getNonLMSDetailsById = async (OperationType, payload) => {
   let responseData;
   OperationType = getActivityCode(OperationType)
   OperationType = OperationType ? OperationType.toLowerCase() : OperationType
-  if (OperationType === getVesselOperation("HH")) {
-    responseData = await postDataFromApi(getHHApi, payload);
-    if (responseData.data.status === 200) {
-      responseData.data.data.opsvd_id = responseData.data.data.opsvhh_id;
-    }
-  } else if (OperationType === getVesselOperation("SV")) {
-    responseData = await postDataFromApi(getSVApi, payload);
-    if (responseData.data.status === 200) {
-      responseData.data.data.opsvd_id = responseData.data.data.opsvsv_id;
-    }
-  } else if (OperationType === getRakeOperations("QAss")) {
-    responseData = await postDataFromApi(getQualityAssesmentApi, payload);
-    if (responseData.data.status === 200) {
-      responseData.data.data.opsvd_id = responseData.data.data.rake_qas_id;
-    }
-  }
-  else {
-    responseData = await postDataFromApi(getDSApi, payload);
-  }
 
+  responseData = await postDataFromApi(getDSApi, payload);
   return responseData;
 };
 

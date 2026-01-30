@@ -989,7 +989,7 @@ export const getTotalCountBasedOnField = (tableData, field, isCustomChanged, val
 }
 
 export const getActivityCode = (amCode) => {
-  if (amCode.toLowerCase() != "othertpi") {
+  if (amCode && amCode.toLowerCase() != "othertpi") {
     amCode = amCode ? amCode.toUpperCase() : amCode
   }
   if (['VL_DS', 'DS', 'CS_DS'].includes(amCode)) {

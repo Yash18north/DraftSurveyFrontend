@@ -269,6 +269,9 @@ export const handleJICreateOrUpdate = async (
       setMainJISaved(true)
     }
     if (!formData[0].ji_id) {
+      // Redirect to draught-list after successful creation
+      navigate('/operation/draught-list');
+      return;
 
       // navigate(
       //   "/operation/jrfInstructionListing/job-instruction/" +

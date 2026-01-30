@@ -120,7 +120,7 @@ const PopupOptions = ({
   const handleClick = async (value, actionType = "") => {
     setActionType(value);
     setDontClick(true);
-    if (value.toLowerCase() === "rake details") {
+    if (value && value.toLowerCase() === "rake details") {
       if (getLMSOperationActivity().includes(getActivityCode(row["activity_master"]["activity_code"]).toLowerCase())) {
         navigate(
           getOperationActivityUrl(operationMode) +
@@ -397,13 +397,7 @@ const PopupOptions = ({
             )}`
           );
           setPopupIndex(-1);
-        } else if (value === "Man Power") {
-          navigate(
-            `/operation/jrfInstructionListing/job-instruction/man-power/${encryptDataForURL(
-              row["ji_id"]
-            )}`
-          );
-        } else {
+        }else {
           if (['CP', 'BH'].includes(user?.role)) {
             let redirectUrl = getOperationActivityUrl(row["operation_type"]['operation_type_name'])
             navigate(
@@ -431,15 +425,6 @@ const PopupOptions = ({
 
       if (value === "Delete") {
         setIsDelete(true);
-      }
-      else if (value === "Man Power") {
-        navigate(
-          `/operation/jrfInstructionListing/job-instruction/man-power/${encryptDataForURL(
-            row["fk_jiid"]
-          )}/${encryptDataForURL(
-            row["fk_activitymasterid"]
-          )}?activityName=${encryptDataForURL(row?.activity_master?.activity_name)}&operationMode=${encryptDataForURL(operationMode)}`
-        );
       }
       else {
         if (from === "subListTable") {

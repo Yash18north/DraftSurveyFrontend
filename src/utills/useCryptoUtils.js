@@ -51,6 +51,7 @@ const decryptData = (encryptedData) => {
     return decryptedData;
   }
   catch(ex){
+    return null; // Return null if decryption fails
   }
 };
 const encryptDataForURL = (plainTextOrNumber) => {
@@ -81,7 +82,7 @@ const decryptDataForURL = (ciphertext) => {
     return decryptedText;
   } catch (error) {
     console.warn('Failed to decrypt URL parameter:', ciphertext, error);
-    return ciphertext; // Return original value if decryption fails
+    return ciphertext || ""; // Return original value or empty string if decryption fails
   }
 };
 export { encryptData, decryptData,encryptDataForURL,decryptDataForURL };
