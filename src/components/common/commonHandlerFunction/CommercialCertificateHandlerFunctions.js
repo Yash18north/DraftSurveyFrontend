@@ -580,8 +580,7 @@ export const handleCommercialCertDelete = async (
       cc_id: cc_id,
       is_non_lms: !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && !row?.cc_is_external
     };
-    // console.log('ttt',deleteBody)
-    // return
+    // 
     let res = await postDataFromApi(ccCertDeleteApi, deleteBody);
 
     if (res?.data?.status === 200) {

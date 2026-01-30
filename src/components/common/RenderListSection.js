@@ -2358,7 +2358,7 @@ const RenderListSection = ({
                           );
                         }
                         if (header?.fieldName === "status") {
-                          console.log("object",cellData, row)
+                          // console.log("object",cellData, row)
                           return getStatusNameValue(cellData, row);
                         } else if (header.type === "dayCount") {
                           return (

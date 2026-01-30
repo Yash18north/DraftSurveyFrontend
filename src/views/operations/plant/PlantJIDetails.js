@@ -22,10 +22,8 @@ const PlantJIDetais = () => {
     setIsViewOnly(useFor === "viewonly" ? true : false)
   }, []);
 
-  const tileHeader = [{ Text: "Company & Commodity", leftSubTitle: "Step 1", rightSubTitle: "In Progress" },
-  { Text: "Scope of Work", leftSubTitle: "Step 2", rightSubTitle: "In Progress" },
-  { Text: "Groups & Parameters", leftSubTitle: "Step 3", rightSubTitle: "In Progress" },
-  { Text: "Nominations Details", leftSubTitle: "Step 4", rightSubTitle: "In Progress" }
+  const tileHeader = [
+    // { Text: "Company & Commodity", leftSubTitle: "Step 1", rightSubTitle: "In Progress" },
   ]
   return (
     <Row className="rowWidthAdjust">

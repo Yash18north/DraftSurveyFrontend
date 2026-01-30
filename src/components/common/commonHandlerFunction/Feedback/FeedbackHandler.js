@@ -33,7 +33,7 @@ export const handleGetFeedback = async (feedbackId, setformData, status, setIsOv
             });
         }
     } catch (error) {
-        // console.log('errrr', error)
+        // // console.log('errrr', error)
     }
 }
 
@@ -111,7 +111,7 @@ export const handleFeedbackCreateAndUpdate = async (
         }
 
     } catch (error) {
-        // console.log('errrr', error)
+        // // console.log('errrr', error)
     }
 }
 

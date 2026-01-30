@@ -71,13 +71,18 @@ const decryptDataForURL = (ciphertext) => {
   if(!ciphertext){
     return ""
   }
-  const base64Ciphertext = ciphertext.replace(/-/g, '+').replace(/_/g, '/');
+  try {
+    const base64Ciphertext = ciphertext.replace(/-/g, '+').replace(/_/g, '/');
     
     // Decrypt the string
     const bytes = CryptoJS.AES.decrypt(base64Ciphertext, secretKey);
     const decryptedText = bytes.toString(CryptoJS.enc.Utf8);
     
     return decryptedText;
+  } catch (error) {
+    console.warn('Failed to decrypt URL parameter:', ciphertext, error);
+    return ciphertext; // Return original value if decryption fails
+  }
 };
 export { encryptData, decryptData,encryptDataForURL,decryptDataForURL };
 

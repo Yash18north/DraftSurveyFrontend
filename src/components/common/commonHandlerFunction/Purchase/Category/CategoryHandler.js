@@ -68,7 +68,7 @@ export const handleCategoryCreateAndUpdate = async (
         }
 
     } catch (error) {
-        console.log('errrr', error)
+        // console.log('errrr', error)
     }
 }
 

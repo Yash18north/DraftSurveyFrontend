@@ -38,7 +38,7 @@ const RenderTableManualMultiEntrySection = ({
           weight: tableData?.[section.tableNumber]?.[i]?.['weight'] || '',
         })
         if (OperationType === getVesselOperation("SV") && tabIndex === 0) {
-          // console.log('hat----','Hatch-' + (i + 1))
+          // // console.log('hat----','Hatch-' + (i + 1))
           // handleFieldChange(sectionIndex, 'hatch_' + i, 'Hatch-' + (i + 1));
         }
       }

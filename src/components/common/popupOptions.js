@@ -669,7 +669,7 @@ const PopupOptions = ({
             recordNo: "Job Instruction No " + row.ji_reference_number,
             model: model,
             redirect: "/operation/jrfInstructionListing",
-            Breadcrumb: "Job Instruction List",
+            Breadcrumb: "Draught Survey List",
           };
 
           dispatch(historyData(historyDetails));
@@ -1593,7 +1593,7 @@ const PopupOptions = ({
     permission,
     value = ""
   ) => {
-    console.log("module",module)
+    // console.log("module",module)
     let isVisbile = false;
     if (
       permission &&
@@ -1892,7 +1892,7 @@ const PopupOptions = ({
         }
       }
       else if (['Accept'].includes(status)) {
-        console.log('vall', value)
+        // console.log('vall', value)
         if (['Documents', "View", "Insurance Details"].includes(value)) {
           isVisbile = true
         }

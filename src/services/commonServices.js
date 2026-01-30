@@ -20,21 +20,19 @@ Date:25-04-2024
 */
 const successStatus = [200, 201, 202];
 const encryptionData = (payloadData) => {
-  console.log('payload----',payloadData)
-  if (isEncryption === "TRUE") {
-    payloadData = {
-      body: encryptData(payloadData),
-    };
-  }
+  // if (isEncryption === "TRUE") {
+  //   payloadData = {
+  //     body: encryptData(payloadData),
+  //   };
+  // }
 
   return payloadData;
 };
 const decryptedData = (resData) => {
-  if (isEncryption === "TRUE") {
-    resData = decryptData(resData);
-    console.log('resData----',resData)
-    return resData
-  }
+  // if (isEncryption === "TRUE") {
+  //   resData = decryptData(resData);
+  //   return resData
+  // }
 
   return resData;
 };
@@ -89,7 +87,6 @@ export const getDataFromApi = (getUrl, model = {}, isTenantUrl = "", isNoEncrypt
       return res;
     })
     .catch((err) => {
-      console.log('eee', err)
       if (err?.response?.data) {
         err.response.data = decryptedData(err?.response?.data);
         err.response.data = err.response.data
@@ -333,6 +330,11 @@ export function GetTenantDetails(isTenantId, isTenantcode = "",isPetroJRF="") {
     const hostname = window.location.origin;
     // return developmentURL;
     return "https://tcrc-uatops.tayadigital.com";
+<<<<<<< HEAD
+=======
+    // return process.env.REACT_APP_API_DEV_URL;
+
+>>>>>>> d7ebf82bb7a46b8df6d23a6bbe4aac0867d04084
     return hostname;
   }
 }

@@ -23,33 +23,19 @@ import { removeToken } from "../services/localStorageServices";
 
 const navigation = [
   {
-    title: "Dashboard",
-    href: "/dashboard-listing",
-    icon: "bi bi-house-door-fill ",
-    permission: "dashboard",
-    type: "custom",
-  },
-  {
     title: "Operations",
     href: "/operation",
     icon: "bi bi-gear ",
-    permission: "operations",
+    permission: "custom",
     isMainPrmission: 1,
     submenu: [
-      {
-        title: "Job Instructions",
-        href: "/operation/jrfInstructionListing",
-        icon: "bi bi-clipboard-check ",
-        image: jiIcon,
-        hoverImage: jiIconHover,
-        permission: "jobinstruction",
-      },
+      
       {
         title: "Draught Survey",
         href: "/operation/other-list",
         icon: "bi bi-info-circle",
         hoverImage: plantIconHover,
-        permission: "jioperationjsonb",
+        permission: "shipment",
       },
       {
         title: "Certificates",
@@ -57,7 +43,7 @@ const navigation = [
         icon: "bi bi-clipboard-check ",
         image: ccIcon,
         hoverImage: ccIconHover,
-        permission: "commercialcertificate",
+        permission: "shipment",
       },
     ],
   },

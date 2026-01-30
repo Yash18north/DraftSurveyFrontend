@@ -63,9 +63,9 @@ export const handleJIValidation = async (
   type
 ) => {
   let isValidate = handleSubmit();
-  if (!isValidate) {
-    return false;
-  }
+  // if (!isValidate) {
+  //   return false;
+  // }
   setJRFCreationType(type);
   setIsPopupOpen(true);
 };
@@ -150,7 +150,7 @@ export const handleJICreateOrUpdate = async (
       : "",
     fk_usersalespersonid: formData[0].fk_usersalespersonid,
     ji_nameofoperationmode: formData[0].ji_nameofoperationmode,
-    fk_operationtypetid: formData[0].fk_operationtypetid,
+    fk_operationtypetid: 1,
     ji_is_supplier: formData[0].ji_is_supplier === "Supplier" ? 1 : 0,
     ji_port: formData[0].ji_port,
     ji_is_loading: formData[0].ji_is_loading === "Loading" ? 1 : 0,
@@ -494,6 +494,41 @@ export const getclientDetails = async (
             state_of_client: responseData?.state?.state_name || '--',
             "im_billtoplace": responseData?.state?.state_name || '--',
             "im_shiptoplace": responseData?.state?.state_name || '--',
+          },
+        };
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setTimeout(() => {
+      setIsOverlayLoader(false);
+    }, 10);
+  }
+};
+export const getShipmentDetails = async (
+  shipment_id,
+  setFormData,
+  setIsOverlayLoader,
+  formData
+) => {
+  try {
+    setIsOverlayLoader(true);
+    let res = await getDataFromApi(`/shipment/get/${shipment_id}/`, {});
+    if (res?.data?.status === 200 && res.data.data) {
+      let responseData = res.data.data;
+      setFormData((prevFormData) => {
+        return {
+          ...prevFormData,
+          0: {
+            ...prevFormData[0],
+            ji_nameofoperationmode: responseData.ship_vessel_name,
+            fk_commodityid: responseData.ship_commodity,
+            fk_subcommodityid: responseData.ship_sub_commodity,
+            ji_totalqty: responseData.ship_total_quantity,
+            ji_appointed_totalqty: responseData.ship_appointed_quantity,
+            fk_placeworkid: responseData.ship_place_of_work,
+            ji_is_loading: responseData.ship_loading_unloading === "loading" ? "Loading" : "Unloading",
           },
         };
       });
@@ -2846,11 +2881,9 @@ export const getCommonTabsFroJI = (role = "") => {
   if (role && role != "OPS_ADMIN") {
     return []
   }
-  let tabs = [{ Text: "Company & Commodity", leftSubTitle: "Step 1", rightSubTitle: "In Progress" },
-  { Text: "Scope of Work", leftSubTitle: "Step 2", rightSubTitle: "In Progress" },
-  { Text: "Groups & Parameters", leftSubTitle: "Step 3", rightSubTitle: "In Progress" },
-  { Text: "Nominations & Billing Details", leftSubTitle: "Step 4", rightSubTitle: "In Progress" }
-  ]
+  let tabs = [
+    // { Text: "Company & Commodity", leftSubTitle: "Step 1", rightSubTitle: "In Progress" },
+]
   if (!role) {
     tabs.splice(0, 1)
   }

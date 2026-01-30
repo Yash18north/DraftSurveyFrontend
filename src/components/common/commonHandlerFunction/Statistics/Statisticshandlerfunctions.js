@@ -136,7 +136,7 @@ export const getChartDataFromResponse = async (setActualFormConfig, actualRespon
             return formConfig
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     } finally {
         setTimeout(() => {
             setIsOverlayLoader(false)

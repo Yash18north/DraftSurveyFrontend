@@ -7,12 +7,13 @@ import {
   handleJIValidation,
 } from "../../commonHandlerFunction/jobinstructionHandlerFunctions";
 import {
-  Operation_Supervision_CreateDataFunction,
+  OperationCargoSupervisionCreateDataFunction,
   vesselListBackFunctionality,
   vesselListNextFunctionality,
   vesselListCancelFunctionality,
   truckOnlySealDailyReport,
-  OperationSizeAnalysisCreateDataFunction
+  OperationSizeAnalysisCreateDataFunction,
+  Operation_Supervision_CreateDataFunction
 } from "../../commonHandlerFunction/operations/TMLOperations";
 import { encryptDataForURL } from "../../../../utills/useCryptoUtils";
 import { getLMSOperationActivity, getOperationActivityUrl, getPlantOperations, getRakeOperations, getVesselOperation, getWithoutSizeAnalysisActivity, getActivityCode, getStackOperations, getOperationActivityListPageUrl } from "../../../../services/commonFunction";
@@ -490,44 +491,25 @@ const JIButtons = ({
                   type="button"
                   className="submitBtn"
                   id="submit_btn1"
-                  disabled={editReordType !== "nomination" && !['posted', 'accepted'].includes(formData?.[0]?.status)}
+                  // disabled={editReordType !== "nomination" && !['posted', 'accepted'].includes(formData?.[0]?.status)}
                   onClick={(e) =>
-                    handleJIValidation(
-                      handleSubmit,
-                      setJrfCreationType,
-                      setIsPopupOpen,
-                      "post"
+                    handleJIUpdateStatus(
+                      formData,
+                      formConfig,
+                      setIsOverlayLoader,
+                      editReordType,
+                      navigate,
+                      1,           // isMainStatusChange = true
+                      "accepted",  // mainStatus = "accepted"
+                      "",          // remarkText = ""
+                      subTableData
                     )
                   }
                 >
                   {translate("common.postBtn")}
                 </Button>
 
-                {editReordType !== "nomination" && (
-                  <Button
-                    type="button"
-                    className="submitBtn"
-                    id="submit_btn1"
-                    onClick={(e) =>
-                      handleJIUpdateStatus(
-                        formData,
-                        formConfig,
-                        setIsOverlayLoader,
-                        editReordType,
-                        navigate,
-                        "",
-                        "",
-                        "",
-                        subTableData,
-                        1
-                      )
-                    }
-                    disabled={checkValidation("JIAdminCheck")}
-                  >
-                    {/* {!editReordType ? "Scope of Work" : "Parameters"} */}
-                    Next
-                  </Button>
-                )}
+
                 {
                   ['posted', 'accepted'].includes(formData?.[0]?.status) && subTableData.filter((singleData) => singleData.status === "tasked").length === subTableData.length && (<Button
                     type="button"
@@ -676,7 +658,7 @@ const JIButtons = ({
                             const spValue = activeTab.split("-");
                             const newValue = parseInt(spValue[1]) + 1;
                             // setActiveTab("1-" + newValue);
-                            Operation_Supervision_CreateDataFunction(
+                            OperationCargoSupervisionCreateDataFunction(
                               formData,
                               setIsOverlayLoader,
                               setIsPopupOpen,
@@ -704,7 +686,7 @@ const JIButtons = ({
                             className="submitBtn"
                             id="submit_btn1"
                             onClick={(e) => {
-                              Operation_Supervision_CreateDataFunction(
+                              OperationCargoSupervisionCreateDataFunction(
                                 formData,
                                 setIsOverlayLoader,
                                 setIsPopupOpen,
