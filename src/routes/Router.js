@@ -383,6 +383,12 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={JfInstructionAnalys} />,
       },
       {
+        path: "/operation/jrfInstructionListing/ds-analysis/:EditRecordId/:editReordType",
+        exact: true,
+        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="VL" />,
+
+      },
+      {
         path: "/operation/jrfInstructionListing/job-instruction-nomination/:EditRecordId/:editReordType",
         exact: true,
         element: <ProtectedRoute component={JfInstructionNomination} />,
@@ -983,7 +989,7 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={InvoicePreview} />,
       },
-            {
+      {
         path: "/operation/tally-list",
         exact: true,
         element: <ProtectedRoute component={TallyListing} />,
@@ -998,7 +1004,7 @@ const ThemeRoutes = [
       },
       //Dashboard
       {
-        path: "/dashboard-listing",
+        path: "/operation/other-list",
         exact: true,
         element: <ProtectedRoute component={DashboardListing} />,
       },

@@ -260,7 +260,7 @@ export const redirectPageAfterLogin = (navigate, role, isReload) => {
       navigate("/PurchRequistion");
     }
     else if (dashboard.includes(role)) {
-      navigate("/dashboard-listing");
+      navigate("/operation/other-list");
     }
     else if (collectionUser.includes(role)) {
       navigate("/collection-dashboard");

@@ -225,7 +225,7 @@
       {
         "label": "Create DS",
         "redirectUrl": "/operation/jrfInstructionListing/ds-analysis",
-        "status": "created",
+        "status": "accepted",
         "isDupplicate": true,
         "recordType": "ds-analysis"
       }

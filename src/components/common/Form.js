@@ -151,6 +151,7 @@ import {
   getJIsowandactivityData,
   getReferenceNoListData,
   getSingleJiRecord,
+  getShipmentDetails,
   getSubCommodityData,
   handleJICreateOrUpdate,
   handleJIUpdateStatus,
@@ -800,6 +801,20 @@ const Forms = ({
       }
     }
   }, [formData[0]?.fk_clientid]);
+
+  useEffect(() => {
+    if (["jobinstruction"].includes(moduleType)) {
+      if (formData[0]?.fk_shipmentid && !viewOnly) {
+        getShipmentDetails(
+          formData[0]?.fk_shipmentid,
+          setFormData,
+          setIsOverlayLoader,
+          formData
+        );
+      }
+    }
+  }, [formData[0]?.fk_shipmentid]);
+
   useEffect(() => {
     if (["jrf"].includes(moduleType)) {
       if (formData[0]?.fk_clientid) {

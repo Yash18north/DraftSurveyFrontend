@@ -144,13 +144,7 @@ const OperationDetails = ({ ops_code }) => {
         }
         else if (stepNo == 7) {
             newConfig["sections"][1] = Rake_Details;
-        }
-        if (TMLType == getVesselOperation("HH") && ["VL", "OT"].includes(ops_code)) {
-            newConfig["sections"][1] = H_H_formConfig;
-            newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderHH;
-        } else if (TMLType == getVesselOperation("SV") && ["VL", "PL", "OT"].includes(ops_code)) {
-            newConfig["sections"][1] = supervission_formConfig;
-        } else if (TMLType == getVesselOperation("DS") && ["VL", "OT"].includes(ops_code)) {
+        } if (TMLType == getVesselOperation("DS") && ["VL", "OT"].includes(ops_code)) {
             newConfig["sections"][0].subSections = [{ fields: [] }, { fields: [] }];
             newConfig["sections"][0].subSections[0].fields = commonFields;
             newConfig["sections"][0].subSections[1].fields = DraftSurveyMainSection;
@@ -162,40 +156,6 @@ const OperationDetails = ({ ops_code }) => {
         } else if (TMLType == getVesselOperation("DM") && ["VL", "OT"].includes(ops_code)) {
             newConfig["sections"][1] = sizeAnalysis_Details;
             newConfig["sections"][1]["tabs"][0].tileSubHeader = [{ Text: "Daily Moisture" }];
-        }
-        else if (TMLType == getVesselOperation("bulk_crg") && ["VL", "OT"].includes(ops_code)) {
-            newConfig["sections"][1] = BulkCargoSupevission;
-        }
-        else if (TMLType == getRakeOperations('QAss') && ["RK", "OT"].includes(ops_code)) {
-            newConfig["sections"][1] = QuantityAssessment_formConfig;
-            if (isRakeDetails) {
-                delete newConfig["sections"][1]
-            }
-        } else if (TMLType == getRakeOperations('QAss') && ["TR", "OT", "PL", "OT"].includes(ops_code)) {
-            newConfig["sections"][1] = QuantityAssessment_formConfig;
-            newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQAss;
-        }
-        else if ([getPlantOperations("TR"), getPlantOperations("RK"), getPlantOperations("ST")].includes(TMLType) && ops_code === "PL") {
-            newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQA;
-        }
-        else if (TMLType == getStackOperations("ST_SV")) {
-            newConfig["sections"][1] = StackSupervission;
-            newConfig["sections"][1]["tabs"][0].headers = newConfig["sections"][1]["tabs"][0].headers.map((singleField) => {
-                if (singleField.name === "st_sv_stack_no") {
-                    singleField.label = ops_code === "OT" ? "Mines No." : 'Stack No.'
-                }
-                return singleField
-            });
-            newConfig["sections"][1]["tabs"][0].rows = newConfig["sections"][1]["tabs"][0].rows.map((singleField) => {
-                if (singleField.name === "st_sv_stack_no") {
-                    singleField.label = ops_code === "OT" ? "Mines No." : 'Stack No.'
-                }
-                return singleField
-            });
-            newConfig["sections"][1]["tabs"][0].label = `${ops_code === "OT" ? "Mines" : "Stack"} Supervission`
-        }
-        else if (TMLType == getRakeOperations("RK_SV") && ["RK", "PL"].includes(ops_code)) {
-            newConfig["sections"][1] = RakeSupervission;
         }
         else if (getLMSOperationActivity().includes(TMLType)) {
             newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQA;

@@ -20,19 +20,19 @@ Date:25-04-2024
 */
 const successStatus = [200, 201, 202];
 const encryptionData = (payloadData) => {
-  if (isEncryption === "TRUE") {
-    payloadData = {
-      body: encryptData(payloadData),
-    };
-  }
+  // if (isEncryption === "TRUE") {
+  //   payloadData = {
+  //     body: encryptData(payloadData),
+  //   };
+  // }
 
   return payloadData;
 };
 const decryptedData = (resData) => {
-  if (isEncryption === "TRUE") {
-    resData = decryptData(resData);
-    return resData
-  }
+  // if (isEncryption === "TRUE") {
+  //   resData = decryptData(resData);
+  //   return resData
+  // }
 
   return resData;
 };

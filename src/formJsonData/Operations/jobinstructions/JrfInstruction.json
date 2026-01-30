@@ -67,6 +67,21 @@
             },
             {
               "width": 6,
+              "name": "fk_shipmentid",
+              "label": "Shipment",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/shipment/list/",
+              "model_name": "",
+              "apimethod": "GET",
+              "required": true,
+              "isSearchable": true,
+              "optionData": {
+                "id": "ship_id",
+                "label": "ship_number"
+              }
+            },
+            {
+              "width": 6,
               "name": "ji_client_address",
               "label": "Client Address",
               "type": "textArea",
@@ -156,21 +171,7 @@
               "styleName": "section_heading",
               "fontSize": "16px"
             },
-            {
-              "width": 6,
-              "name": "fk_operationtypetid",
-              "label": "Type Of Operation",
-              "type": "DropDownWithLoadMore",
-              "apiendpoint": "masters/opmaster/list/",
-              "apimethod": "GET",
-              "isSearchable": "true",
-              "optionData": {
-                "id": "ops_id",
-                "label": "ops_name"
-              },
-              "options": [],
-              "required": true
-            },
+            
             {
               "name": "ji_nameofoperationmode",
               "type": "text",
