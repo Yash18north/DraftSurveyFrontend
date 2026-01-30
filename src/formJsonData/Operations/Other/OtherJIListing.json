@@ -158,7 +158,7 @@
       },
       {
         "label": "Process",
-        "redirectUrl": "/operation/other-list/other-details-list",
+        "redirectUrl": "/operation/draught-list/other-details-list",
         "status": "accepted"
       }
     ],

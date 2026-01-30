@@ -223,7 +223,7 @@
         "type": "icon"
       },
       {
-        "label": "Create DS",
+        "label": "Fill DS",
         "redirectUrl": "/operation/jrfInstructionListing/ds-analysis",
         "status": "accepted",
         "isDupplicate": true,

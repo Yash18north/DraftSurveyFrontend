@@ -168,11 +168,7 @@ import RenderSubListSection from "./RenderSubListSection";
 import RenderSubListSectionPagination from "./RenderSubListSectionWithPagination";
 import {
   getSingleDraftSurveyData,
-  getSingleHHData,
-  getSingleSupervissionData,
   Operation_DraftSurvey_CreateDataFunction,
-  Operation_HH_CreateDataFunction,
-  Operation_Supervision_CreateDataFunction,
   OperationCreateDataFunction,
   OperationSampleCollectionCreateDataFunction,
   OperationSizeAnalysisCreateDataFunction,
@@ -503,7 +499,6 @@ const Forms = ({
     }
   }, [customFilterData?.[1]?.search_financial_year]);
 
-  console.log("object",EditRecordId)
   useEffect(() => {
     try {
       setIsOverlayLoader(true)
@@ -1210,39 +1205,7 @@ const Forms = ({
     } else if (moduleType === "jobinstruction") {
       if (['save', 'post', 'postOther', 'postJRF'].includes(jrfCreationType)) {
         if (useForComponent == "OperationDetails") {
-          if (TMLType == getVesselOperation("HH")) {
-            Operation_HH_CreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              jrfCreationType,
-              operationMode
-            );
-          } else if (OperationType == getVesselOperation("SV")) {
-            OperationCargoSupervisionCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              jrfCreationType,
-              operationMode,
-              "",
-              activeTab,
-              setActiveTab,
-              setSubTableData,
-              setFormData,
-              formConfig,
-              '',
-              generateCertificate
-            );
-          } else if (OperationType == getVesselOperation("DS")) {
+           if (OperationType == getVesselOperation("DS")) {
             Operation_DraftSurvey_CreateDataFunction(
               formData,
               setIsOverlayLoader,
@@ -1256,106 +1219,6 @@ const Forms = ({
               setFormData,
               setSubTableData,
               props.setIsTabOpened
-            );
-          }
-          else if (TMLType == getVesselOperation("CS")) {
-
-            OperationCargoSupervisionCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              operationMode,
-              jrfCreationType,
-            );
-          }
-          else if (TMLType == getVesselOperation("bulk_crg")) {
-            Operation_BulkCargo_CreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              jrfCreationType,
-              operationMode,
-
-            );
-          }
-          else if (TMLType == getRakeOperations('QAss')) {
-            const isForMainSection = isSubSectionSave
-            setIsSubSectionSave(false)
-            OperationQualityAssesmentCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              jrfCreationType,
-              operationMode,
-              operationStepNo,
-              '',
-              formConfig.sections[1]?.tabs?.[0],
-              setSubTableData,
-              setFormData,
-              formConfig,
-              setActiveTab,
-              activeTab
-            );
-
-            if (jrfCreationType === "post") {
-              generateCertificate("uploadedDocument", "posted", '', 1)
-            }
-          }
-          else if ([getRakeOperations('QA')].includes(TMLType) && isSubSectionSave) {
-            const isForMainSection = isSubSectionSave
-            setIsSubSectionSave(false)
-            OperationQualityAnalysisCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              jrfCreationType,
-              operationMode,
-              isForMainSection,
-              formConfig.sections[0],
-              setSubTableData,
-              setFormData,
-              formConfig,
-              operationStepNo
-            );
-          }
-          else if ([getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(TMLType)) {
-            OperationCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              "posted",
-              "",
-              [],
-              "",
-              1,
-              "",
-              operationMode
-            );
-            if (jrfCreationType === "post") {
-              generateCertificate("uploadedDocument", "posted", '', 1)
-            }
-            const redirectUrl = getOperationActivityUrl(operationMode)
-            navigate(
-              redirectUrl + `${encryptDataForURL(
-                formData[0].ji_id
-              )}`
             );
           }
           else {

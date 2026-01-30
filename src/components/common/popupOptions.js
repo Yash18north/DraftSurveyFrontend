@@ -100,10 +100,10 @@ const PopupOptions = ({
   let user;
   const session = useSelector((state) => state.session);
   user = session?.user;
-  console.log("roeship",row)
+  console.log("roeship", row)
   let rolePermissions;
   rolePermissions = session?.user?.permissions;
- 
+
   const hash = window.location.hash;
   const params = new URLSearchParams(hash.split("?")[1]);
   let OperationType = decryptDataForURL(params.get("OperationType"));
@@ -153,307 +153,7 @@ const PopupOptions = ({
       }
       return
     }
-
-    if (moduleType === "sampleinward") {
-      if (actionType === "View") {
-        navigate(
-          `/inwardList/inwardForm?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(id)}&sampleInwardId=${encryptDataForURL(
-            sampleInwardFormId
-          )}&action=${encryptDataForURL("View")}`
-        );
-      } else if (value === "History") {
-        const historyDetails = {
-          recordNo: "Inward No " + row.smpl_inward_number,
-          model: model,
-          redirect: "/inwardList",
-          Breadcrumb: "Sample Inward List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(
-          `/module-history?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(row["smpl_inwrd_id"])}`
-        );
-
-        setPopupIndex(-1);
-      } else if (value === "assignmentview") {
-        navigate(
-          "/inwardList/groupAssignmentPreview?status=" +
-          encryptDataForURL("assignment") +
-          "&sampleInwardId=" +
-          encryptDataForURL(sampleInwardFormId) +
-          "&id=" +
-          encryptDataForURL(id)
-        );
-      } else if (value === "Delete") {
-        setIsDelete(true);
-      } else {
-        navigate(
-          `/inwardList/inwardForm?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(id)}&sampleInwardId=${encryptDataForURL(
-            sampleInwardFormId
-          )}&action=${encryptDataForURL("Edit")}`
-        );
-      }
-    } else if (moduleType === "testmemomain") {
-      if (value === "Delete") {
-        setIsDelete(true);
-      } else if (value === "View") {
-        navigate(
-          `/testmemoList/testmemo?view=${encryptDataForURL(
-            "view"
-          )}&status=${encryptDataForURL(
-            "testMemo"
-          )}&testMemoId=${encryptDataForURL(row["tm_id"])}`
-        );
-      } else if (value === "History") {
-        const historyDetails = {
-          recordNo: "Test Memo No " + row.tm_number,
-          model: model,
-          redirect: "/testmemoList",
-          Breadcrumb: "Test Memo List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(
-          `/module-history?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(row["tm_id"])}`
-        );
-
-        setPopupIndex(-1);
-      } else if (value === "PDF") {
-        const historyDetails = {
-          recordNo: "Test Memo No " + row.tm_number,
-          model: model,
-          redirect: "/testmemoList",
-          Breadcrumb: "Test Memo List",
-        };
-        dispatch(historyData(historyDetails));
-        const encryptedValue = encryptDataForURL(value);
-        const encryptedId = encryptDataForURL(row["tm_id"]);
-        navigate(
-          `/testmemoList/testmemoPDF?status=${encryptedValue}&id=${encryptedId}`
-        );
-
-        setPopupIndex(-1);
-      } else {
-        navigate(`/testmemoList`);
-      }
-    } else if (moduleType === "allotment") {
-      if (value === "View") {
-        navigate(
-          `/allotmentList/allotment?view=${encryptDataForURL(
-            "view"
-          )}&status=${encryptDataForURL(
-            "allotment"
-          )}&sampleAllotmentId=${encryptDataForURL(row["sa_id"])}`
-        );
-      } else if (value === "Delete") {
-        setIsDelete(true);
-      } else if (value === "History") {
-        const historyDetails = {
-          recordNo: "Allotment No " + row.tm_number,
-          model: model,
-          redirect: "/allotmentList",
-          Breadcrumb: "Allotment List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(
-          `/module-history?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(row["sa_id"])}`
-        );
-
-        setPopupIndex(-1);
-      } else {
-        navigate(`/testmemoList`);
-      }
-    } else if (moduleType === "sampleverification") {
-      if (value === "View") {
-        navigate(
-          `/verificationList/sampleVerification?view=${encryptDataForURL(
-            "view"
-          )}&status=${encryptDataForURL(
-            "verification"
-          )}&sampleVarificationId=${encryptDataForURL(row["sv_id"])}`
-        );
-      } else if (value === "History") {
-        const historyDetails = {
-          recordNo: "Verification No " + row.sv_verificationno,
-          model: model,
-          redirect: "/verificationList",
-          Breadcrumb: "Verification List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(
-          `/module-history?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(row["sv_id"])}`
-        );
-
-        setPopupIndex(-1);
-      } else if (value === "Delete") {
-        setIsDelete(true);
-      } else {
-        navigate(`/testmemoList`);
-      }
-    } else if (moduleType === "sfm") {
-      if (value === "View") {
-        navigate(
-          `/SFMList/result?view=${encryptDataForURL(
-            "view"
-          )}&status=${encryptDataForURL("SFMResult")}&sfmid=${encryptDataForURL(
-            row["sfm_id"]
-          )}`
-        );
-      } else if (value === "PDF") {
-        const historyDetails = {
-          recordNo: "SFM No " + row.sfm_msfm_no,
-          model: model,
-          redirect: "/SFMList",
-          Breadcrumb: "SFM List",
-        };
-        dispatch(historyData(historyDetails));
-        const encryptedValue = encryptDataForURL(value);
-        const encryptedId = encryptDataForURL(row["sfm_id"]);
-        navigate(`/SFMList/SFMPDF?status=${encryptedValue}&id=${encryptedId}`);
-
-        setPopupIndex(-1);
-      } else if (value === "History") {
-        const historyDetails = {
-          recordNo: "SFM No " + row.sfm_msfm_no,
-          model: model,
-          redirect: "/SFMList",
-          Breadcrumb: "SFM List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(
-          `/module-history?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(row["sfm_id"])}`
-        );
-
-        setPopupIndex(-1);
-      } else if (value === "PDF") {
-        const historyDetails = {
-          recordNo: "SFM No " + row.sfm_msfm_no,
-          model: model,
-          redirect: "/SFMList",
-          Breadcrumb: "SFM List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/SFMPDF?status=${value}&id=${row["sfm_id"]}`);
-
-        setPopupIndex(-1);
-      } else if (value === "Delete") {
-        setIsDelete(true);
-      } else {
-        navigate(`/testmemoList`);
-      }
-    } else if (moduleType === "internalcertificate") {
-      if (value === "View") {
-        navigate(
-          `/testReport/test-results?view=${encryptDataForURL(
-            "view"
-          )}&status=${encryptDataForURL(
-            "testmemoresult"
-          )}&editId=${encryptDataForURL(row["ic_id"])}`
-        );
-      } else if (value === "History") {
-        const historyDetails = {
-          recordNo: "ULR No " + row.ic_ulrno,
-          model: model,
-          redirect: "/testReport",
-          Breadcrumb: "Test Report List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(
-          `/module-history?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(row["ic_id"])}`
-        );
-
-        setPopupIndex(-1);
-      } else if (value === "Edit") {
-        navigate(
-          `/testReport/test-results?status=${encryptDataForURL(
-            "testmemoresult"
-          )}&editId=${encryptDataForURL(row["ic_id"])}`
-        );
-      } else if (value === "Delete") {
-        setIsDelete(true);
-      } else if (value === "Preview Report") {
-        navigate(`/testReport/previewPDF/${encryptDataForURL(row["ic_id"])}` + "?ReferenceNo=" +
-          encryptDataForURL(row?.ic_refenence));
-        // navigate(`/testReport/preview/${encryptDataForURL(row["ic_id"])}`);
-        // handleTestReport(row);
-      } else {
-        navigate(`/testmemoList`);
-      }
-    } else if (moduleType === "jrf") {
-      if (value === "Delete") {
-        setIsDelete(true);
-      } else if (value === "Download") {
-        navigate(`/jrfListing/jrf-pdf-preview/${encryptDataForURL(id)}`);
-        setPopupIndex(-1);
-      } else if (value === "History") {
-        const historyDetails = {
-          recordNo: "JRF No " + row.jrf_no,
-          model: model,
-          redirect: "/jrfListing",
-          Breadcrumb: "JRF List",
-        };
-
-        dispatch(historyData(historyDetails));
-        navigate(
-          `/module-history?status=${encryptDataForURL(
-            value
-          )}&id=${encryptDataForURL(id)}`
-        );
-
-        setPopupIndex(-1);
-      }
-      else if (value === "Documents") {
-        navigate(
-          "/jrfListing/jrf-document-list/" +
-          encryptDataForURL(id)
-        );
-      }
-      else if (value === "Reject") {
-        let redirectUrl = !row["jrf_is_ops"] ? "/jrfListing/inwardForm-checklist" : "/jrfListing/operation-inwardForm-checklist"
-        navigate(
-          redirectUrl + "?status=" +
-          encryptDataForURL("checklist") +
-          "&id=" +
-          encryptDataForURL(id)
-        );
-      }
-      else {
-        if (row.jrf_is_external) {
-          navigate(
-            `/jrfListing/external-jrf?status=${encryptDataForURL(
-              value
-            )}&id=${encryptDataForURL(id)}`
-          );
-        } else if (row.jrf_is_ops) {
-          navigate(
-            `/jrfListing/operation-jrf?status=${encryptDataForURL(
-              value
-            )}&id=${encryptDataForURL(id)}`
-          );
-        } else {
-          navigate(
-            `/jrfListing/jrf?status=${encryptDataForURL(
-              value
-            )}&id=${encryptDataForURL(id)}`
-          );
-        }
-        setPopupIndex(-1);
-      }
-    } else if (
+    if (
       moduleType === "jobinstruction" ||
       moduleType === "jioperationjsonb" || moduleType === "invoice"
     ) {
@@ -1055,7 +755,7 @@ const PopupOptions = ({
     else if (moduleType === "ShipmentList") {
 
       if (value === "View") {
-        
+
         navigate(`/shipment/shipmentForm/${encryptDataForURL(row["ship_id"])}?status=${encryptDataForURL('View')}`);
       }
       else if (value === "Edit") {
@@ -1068,7 +768,7 @@ const PopupOptions = ({
     else if (moduleType === "marketPlaceListing") {
 
       if (value === "View") {
-        
+
         navigate(`/market/marketForm/${encryptDataForURL(row["id"])}?status=${encryptDataForURL('View')}`);
       }
       else if (value === "Edit") {
@@ -1825,7 +1525,7 @@ const PopupOptions = ({
         }
         isVisbile = true;
       }
-     
+
       else {
         isVisbile = true;
       }
@@ -1957,24 +1657,24 @@ const PopupOptions = ({
     else if (module == "ClientDetails") {
       isVisbile = true;
     }
-     else if(module ==="ShipmentList"){
-         
-          if (['edit', 'delete',"view","history"].includes(value.toLowerCase())) {
-            isVisbile = true;
-          }
-         else {
-            isVisbile=false
-         }
+    else if (module === "ShipmentList") {
+
+      if (['edit', 'delete', "view", "history"].includes(value.toLowerCase())) {
+        isVisbile = true;
       }
-     else if(module ==="marketPlaceListing"){
-         
-          if (['edit', 'delete',"view","history"].includes(value.toLowerCase())) {
-            isVisbile = true;
-          }
-         else {
-            isVisbile=false
-         }
+      else {
+        isVisbile = false
       }
+    }
+    else if (module === "marketPlaceListing") {
+
+      if (['edit', 'delete', "view", "history"].includes(value.toLowerCase())) {
+        isVisbile = true;
+      }
+      else {
+        isVisbile = false
+      }
+    }
     else {
 
       if (value.toLowerCase() === "download") {

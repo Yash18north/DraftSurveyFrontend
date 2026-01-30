@@ -684,17 +684,17 @@ const ListingActionButton = ({
     stocks: {
       PM: ["saved"],
       BU: ["saved"],
-      SLC: ["saved","posted"],
-      LC: ["saved","posted"],
+      SLC: ["saved", "posted"],
+      LC: ["saved", "posted"],
     },
     incentives: {
       PM: ["saved"],
       BU: ["saved"]
     },
-    ShipmentList:{
-      SU: ["saved","posted"],
+    ShipmentList: {
+      SU: ["saved", "posted"],
     },
-    marketPlaceListing:{
+    marketPlaceListing: {
       SU: ["saved"],
     },
   };
@@ -716,111 +716,8 @@ const ListingActionButton = ({
 
   //table Action buttion handler
   const handleOnclick = (action) => {
-
-    if (moduleType === "sampleinward") {
-      if (action.status === "testMemo") {
-        cretateTestMemoDetails(
-          sampleInwardFormId,
-          action,
-          navigate,
-          setIsOverlayLoader
-        );
-      } else if (action?.status == "testReport") {
-        // navigate(action?.redirectUrl + "/" + encryptDataForURL(row["internal_certificate_id"]));
-        navigate(`/testReport/previewPDF/${encryptDataForURL(row["internal_certificate_id"])}` + "?ReferenceNo=" +
-          encryptDataForURL(row?.jrf_referenceno));
-        // handleTestReport(row, action);
-      } else {
-        navigate(
-          action?.redirectUrl +
-          "?status=" +
-          encryptDataForURL(action?.status) +
-          "&sampleInwardId=" +
-          encryptDataForURL(sampleInwardFormId) +
-          "&id=" +
-          encryptDataForURL(jrf_id)
-        );
-      }
-    } else if (moduleType === "allotment") {
-      navigate(
-        action?.redirectUrl +
-        "?status=" +
-        encryptDataForURL(action?.status) +
-        "&sampleAllotmentId=" +
-        encryptDataForURL(row["sa_id"])
-      );
-    } else if (moduleType === "sampleverification") {
-      navigate(
-        action?.redirectUrl +
-        "?status=" +
-        encryptDataForURL(action?.status) +
-        "&sampleVarificationId=" +
-        encryptDataForURL(row["sv_id"])
-      );
-    } else if (moduleType === "testmemomain") {
-      if (
-        action.status === "create-allot" ||
-        action.status === "sendToLab" ||
-        action.status === "verifytestmemo"
-      ) {
-        navigate(
-          action?.redirectUrl +
-          "?status=" +
-          encryptDataForURL(action?.status) +
-          "&testMemoId=" +
-          encryptDataForURL(row["tm_id"])
-        );
-      } else if (action.status == "verifytestresult") {
-        navigate(
-          action?.redirectUrl +
-          "?status=" +
-          encryptDataForURL(action?.status) +
-          "&testMemoId=" +
-          encryptDataForURL(row["tm_id"])
-        );
-      } else if (action.status == "testmemoresult") {
-        navigate(
-          action?.redirectUrl +
-          "?status=" +
-          encryptDataForURL(action?.status) +
-          "&testMemoId=" +
-          encryptDataForURL(row["tm_id"])
-        );
-      } else if (action.status == "Edit") {
-        navigate(
-          action?.redirectUrl +
-          "?status=" +
-          encryptDataForURL(action?.status) +
-          "&testMemoId=" +
-          encryptDataForURL(row["tm_id"])
-        );
-      }
-    } else if (moduleType === "sfm") {
-      navigate(
-        action?.redirectUrl +
-        "?status=" +
-        encryptDataForURL(action?.status) +
-        "&sfmid=" +
-        encryptDataForURL(row["sfm_id"])
-      );
-    } else if (moduleType === "internalcertificate") {
-      localStorage.setItem("icId", encryptDataForURL(row["ic_id"]));
-      if (action?.status == "approveByDTM") {
-        setIsPopupOpen(true);
-        setJRFCreationType("approve");
-      } else if (action?.status == "rejectByDTM") {
-        setIsRejectPopupOpen(true);
-      } else {
-        navigate(
-          action?.redirectUrl +
-          "?status=" +
-          encryptDataForURL(action?.status) +
-          "&editId=" +
-          encryptDataForURL(row["ic_id"])
-        );
-      }
-    } else if (moduleType == "jobinstruction") {
-
+    console.log("moduleType", moduleType)
+    if (moduleType == "jobinstruction") {
       if (action.recordType) {
         navigate(
           action?.redirectUrl +
@@ -871,47 +768,19 @@ const ListingActionButton = ({
           navigate(action?.redirectUrl + "/" + encryptDataForURL(row["ji_id"]));
         }
       }
-    } else if (moduleType === "invoice") {
-      if (action?.label == "Edit") {
-        navigate(
-          `/operation/invoice-listing/create-invoice/${encryptDataForURL(
-            row["im_id"]
-          )}` + "?status=" +
-          encryptDataForURL("Edit")
-        );
-      }
-      else if (action?.value == "View Invoice") {
-        navigate(
-          `/operation/invoice-listing/invoice-preview/${encryptDataForURL(
-            row["im_id"]
-          )}/${encryptDataForURL(
-            row["im_invoiceurl"]
-          )}/${encryptDataForURL(
-            row["im_invoiceurl"]
-          )}`
-        );
-      }
-      else if (action?.label == "View Invoice") {
-        navigate(
-          `/operation/invoice-listing/invoice-preview/${encryptDataForURL(
-            row["im_id"]
-          )}/${encryptDataForURL(
-            row["im_invoiceurl"]
-          )}/${encryptDataForURL(
-            row["im_invoicenumber"]
-          )}`
-        );
-      }
-      else if (action?.label == "Edit Debit") {
-        navigate(
-          `/operation/invoice-listing/create-debit/${encryptDataForURL(
-            row["im_id"]
-          )}` + "?status=" +
-          encryptDataForURL("Edit")
-        );
-      }
     } else if (moduleType == "jioperationjsonb") {
-      if (action.status === "accepted") {
+      console.log("this is callinf ")
+      if (action.recordType == 'ds-analysis') {
+        navigate(
+          action?.redirectUrl +
+          "/"
+          +
+          encryptDataForURL(row["ji_id"]) +
+          "/" +
+          encryptDataForURL(action.recordType)
+        );
+      }
+      else if (action.status === "accepted") {
         let redirectUrl = getOperationActivityUrl(row["operation_type"]['operation_type_name'])
         navigate(
           redirectUrl +
@@ -962,118 +831,6 @@ const ListingActionButton = ({
           row["fk_jis_id"]
         )}`
       );
-    } else if (moduleType === "consortiumorder") {
-      if (action?.label == "View JI") {
-        navigate(
-          `/operation/jrfInstructionListing?filterList=${encryptDataForURL(
-            'consortium_order-' + row['co_id']
-          )}`
-        );
-      }
-      else {
-        navigate(
-          `/operation/consortiums-list/consortium/${encryptDataForURL(
-            row["co_id"]
-          )}`
-        );
-      }
-    }
-    else if (moduleType === "jobCosting") {
-      if (action?.label == "Comment") {
-        setCurrentActiverow(row)
-        setIsCustomPopup(true);
-      }
-      else {
-        // Handle job costing navigation here
-      }
-    }
-    else if (moduleType === "purchaseReq") {
-      if (action?.label == "Edit") {
-        navigate(`/PurchRequistion/PurchaseRequistionForm/${encryptDataForURL(
-          row["req_no"]
-        )}`);
-      }
-      else if (action?.label == "Send for Approval") {
-        navigate(`/PurchRequistion/PurchaseRequistionForm/${encryptDataForURL(
-          row["req_no"]
-        )}`);
-      }
-      else if (action?.label == "Approve") {
-        navigate(`/PurchRequistion/PurchaseRequistionForm/${encryptDataForURL(
-          row["req_no"]
-        )}`);
-
-        // handlePurchaseOrderCreateUpdate(
-        //   row,
-        //   handleSubmit,
-        //   setIsOverlayLoader,
-        //   navigate,
-        //   3,
-        //   setFormData
-        // )
-      }
-      else if (action?.label == "Update") {
-        navigate(`/PurchRequistion/PurchaseRequistionForm/${encryptDataForURL(
-          row["req_no"]
-        )}`);
-      }
-    }
-    else if (moduleType === "purchase") {
-      if (action?.label == "Create P.O") {
-        navigate(`/purchase/purchaseForm/${encryptDataForURL(
-          row["po_id"]
-        )}`);
-      } else if (action?.label == "Edit") {
-        navigate(`/purchase/purchaseForm/${encryptDataForURL(
-          row["po_id"]
-        )}`);
-      }
-      else if (action?.label == "Download") {
-        //  // console.log("@@", row)
-        handleDownloadPO(row["po_id"], row["po_number"])
-
-      }
-      else if (action?.label == "Approve") {
-        // handleDownloadPO(row["po_id"])
-        navigate(`/purchase/purchaseForm/${encryptDataForURL(
-          row["po_id"]
-        )}?status=${encryptDataForURL('View')}&action=${encryptDataForURL("approve")}`);
-      }
-    }
-    else if (moduleType === "supplier") {
-      if (action?.label == "Edit") {
-        navigate(`/supplierList/supplierForm/${encryptDataForURL(
-          row["sup_id"]
-        )
-          } `);
-      }
-
-    }
-    else if (moduleType === "calibration") {
-      if (action?.label == "Edit") {
-        navigate(`/calibrationList/calibrationForm/${encryptDataForURL(
-          row["calib_id"]
-        )
-          } `);
-      }
-
-    }
-    else if (moduleType === "stocks") {
-      if (action?.label == "Edit") {
-        navigate(`/chemicalStocks/chemicalStocksForm/${encryptDataForURL(
-          row["chemist_stock_id"]
-        )
-          }`);
-      }
-
-    }
-    else if (moduleType === "incentives") {
-      if (action?.label == "Edit") {
-        navigate(`/incentivesList/incentivesForm/${encryptDataForURL(
-          row["incentive_id"]
-        )
-          }`);
-      }
     }
     else if (moduleType === "marketPlaceListing") {
       if (action?.label == "Edit") {
@@ -1215,8 +972,8 @@ const ListingActionButton = ({
       }
     }
     else if (moduleType === "purchaseReq") {
-      if (!getPurchaseManager(moduleType,"change")) {
-        if (['saved', 'reject'].includes(buttonDetails.btnshortName)) { 
+      if (!getPurchaseManager(moduleType, "change")) {
+        if (['saved', 'reject'].includes(buttonDetails.btnshortName)) {
           return false;
         }
       }
@@ -1225,7 +982,7 @@ const ListingActionButton = ({
       }
     }
     else if (['supplier', 'stocks', 'calibration'].includes(moduleType)) {
-      if (['saved', 'posted'].includes(buttonDetails.btnshortName) && !getPurchaseManager(moduleType,"change")) {
+      if (['saved', 'posted'].includes(buttonDetails.btnshortName) && !getPurchaseManager(moduleType, "change")) {
         return false;
       }
     }

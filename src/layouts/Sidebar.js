@@ -32,7 +32,7 @@ const navigation = [
       
       {
         title: "Draught Survey",
-        href: "/operation/other-list",
+        href: "/operation/draught-list",
         icon: "bi bi-info-circle",
         hoverImage: plantIconHover,
         permission: "shipment",

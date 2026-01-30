@@ -33,7 +33,7 @@
           "listView": {
             "title": "Other Details",
             "moduleType": "vesselOperation",
-            "redirectUrl":"/operation/other-list/other-details-list/",
+            "redirectUrl":"/operation/draught-list/other-details-list/",
             "headers": [
               {
                 "label": "Date",
