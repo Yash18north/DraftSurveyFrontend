@@ -26,6 +26,7 @@ import {
   getFormatedDateWithtime,
   getLogoCondition,
   rolesDetails,
+  useScreenSize,
 } from "../services/commonFunction";
 import { clearSessionAsync } from "../reducers/sessionActions";
 import OtherRolesButtons from "./OtherRolesButtons";
@@ -48,6 +49,7 @@ const Header = ({ showSidebar, setShowSidebar, setIsLoggedInUser, changePassword
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  const { width } = useScreenSize()
   // const [changePassword, setChangePassword] = useState(false);
   const [allNotifications, setAllNotifications] = useState([]);
   const [nextPage, setNextPage] = useState(0);
@@ -351,7 +353,7 @@ const Header = ({ showSidebar, setShowSidebar, setIsLoggedInUser, changePassword
 
         <div className="d-flex justify-content-between w-100">
           {/* {showSidebar && ( */}
-          <NavbarBrand className="tcrcLogo ">
+          <NavbarBrand className={`${width <= 1024 ? "tcrcLogoMobile" :"tcrcLogo"}`}>
             <Nav.Item aria-label="List Icon">
               <Nav>
                 <button
@@ -374,7 +376,7 @@ const Header = ({ showSidebar, setShowSidebar, setIsLoggedInUser, changePassword
               src={getLogoCondition(user?.logged_in_user_info?.lab_or_branch?.company_code)}
               width="181"
               height="48"
-              className="responsive"
+              className="responsive "
               alt="logo"
             />
 

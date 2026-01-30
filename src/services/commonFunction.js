@@ -14,6 +14,7 @@ import { store } from "./store";
 import { GetTenantDetails } from "./commonServices";
 import { handleCalibrationCreateUpdate } from "../components/common/commonHandlerFunction/Purchase/Calibration/CalibrationHandler";
 import { handleCalibrationCreateUpdate as stubHandleCalibrationCreateUpdate } from "../utils/stubFunctions";
+import { useEffect, useState } from "react";
 export const rolesDetails = [
   { role: "BU", label: "Operation Executive" },
   { role: "LR", label: "Lab Receptionist" },
@@ -1446,3 +1447,26 @@ export const getTextWithouHtml = (singleText) => {
     .replace(/&nbsp;/g, " ")
     .trim();
 };
+
+export const useScreenSize = () => {
+  const [size, setSize] = useState(() => ({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  }));
+
+  useEffect(() => {
+    
+    const handleResize = () => {
+      setSize(
+        {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        }
+      )
+    }
+    console.log("window",window.addEventListener("resize", handleResize))
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize);
+  }, [])
+  return size;
+}

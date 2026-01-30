@@ -44,23 +44,45 @@
                 },
                 {
                     "width": 6,
-                    "name": "cmd_id",
+                    "name": "ship_commodity",
                     "label": "Commodity",
-                    "type": "select",
                     "required": true,
-                    "placeholder": "Enter Vessel Name"
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/masters/list",
+                    "model_name": "commodity",
+                    "apimethod": "POST",
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "cmd_id",
+                        "label": "cmd_name"
+                    }
                 },
                 {
                     "width": 6,
-                    "name": "fk_sub_cmd_id",
-                    "label": "SubCommodity",
-                    "type": "select",
+                    "name": "ship_sub_commodity",
+                    "label": "Sub Commodity",
+                    "type": "DropDownWithLoadMore",
+                    "apiendpoint": "/ji-commodity/get/",
+                    "apimethod": "POST",
+                    "isSearchable": "true",
+                    "optionData": {
+                        "id": "sub_cmd_id",
+                        "label": "sub_cmd_name"
+                    },
+                    "customPayload": {
+                        "name": "cmd_id",
+                        "value": "fk_commodityid"
+                    },
+                    "isCustomPayload": true,
                     "required": true,
-                    "placeholder": "Enter Vessel Name"
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    },
+                    "value": "-"
                 },
                 {
                     "width": 6,
-                    "name": "total_quantity",
+                    "name": "ship_total_quantity",
                     "label": "Total Quantity",
                     "type": "number",
                     "required": true,
@@ -68,7 +90,7 @@
                 },
                 {
                     "width": 6,
-                    "name": "place_of_work",
+                    "name": "ship_place_of_work",
                     "label": "Place of Work",
                     "type": "select",
                     "required": true,
@@ -85,7 +107,7 @@
                 },
                 {
                     "width": 6,
-                    "name": "app_quantity",
+                    "name": "ship_appointed_quantity",
                     "label": "Appointed Quantity",
                     "type": "number",
                     "required": true,

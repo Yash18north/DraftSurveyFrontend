@@ -19,6 +19,7 @@ import {
   getOperationActivityUrl,
   getPlantOperations,
   formatCurrency,
+  useScreenSize,
 } from "../../services/commonFunction";
 
 import { useSelector } from "react-redux";
@@ -146,7 +147,7 @@ const RenderListSection = ({
     0: {}
   });
   const hash = window.location.hash;
-
+  const { width } = useScreenSize()
   const params = new URLSearchParams(hash.split("?")[1]);
   const opsTypeID = decryptDataForURL(params.get("activityJIID"));
   const status = decryptDataForURL(params.get("status"));
@@ -416,14 +417,37 @@ const RenderListSection = ({
       }
 
       return (
-        <td key="status_list" className={`status-td ${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR"
-          ? "ic_status"
-          : moduleType === "dashboard" || user?.role == "CU" ? "" : "status-stickycol"
-          } ${(subModuleType === "commercialCertificate" &&
-            user?.logged_in_user_info?.role === "BU")
-            ? " ext_status"
-            : ""
-          }`}>
+        // <td key="status_list" className={`status-td ${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR"
+        //   ? "ic_status"
+        //   : moduleType === "dashboard" || user?.role == "CU" ? "" :"status-stickycol"
+        //   } ${(subModuleType === "commercialCertificate" &&
+        //     user?.logged_in_user_info?.role === "BU")
+        //     ? " ext_status"
+        //     : ""
+        //   }`}>
+
+        <td
+  key="status_list"
+  className={`
+    status-td
+    ${
+      moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR"
+        ? "ic_status"
+        : moduleType === "dashboard" || user?.role === "CU"
+        ? ""
+        : width < 1024
+        ? ""
+        : "status-stickycol"
+    }
+    ${
+      subModuleType === "commercialCertificate" &&
+      user?.logged_in_user_info?.role === "BU"
+        ? "ext_status"
+        : ""
+    }
+  `}
+>
+
             
           <div
             className={"table_item_sym " + filterStatusData?.icon + "_bg"}
@@ -437,7 +461,7 @@ const RenderListSection = ({
       );
     } else {
       return (
-        <td key="status_list" className={(moduleType === "dashboard" ? "" : "status-stickycol") + ((subModuleType == "commercialCertificate" || moduleType == "internalcertificate") &&
+        <td key="status_list" className={(moduleType === "dashboard" ? "" :width < 1024  ?""  :"status-stickycol") + ((subModuleType == "commercialCertificate" || moduleType == "internalcertificate") &&
           user?.logged_in_user_info?.role === "BU" ? " ext_status" : "")}>
           <div className="table_item_sym" key={"table-item"} title="">
             {/* <div className="posted_sym"> </div> */}
@@ -1915,7 +1939,8 @@ const RenderListSection = ({
                             onClick={() =>
                               !header.isNoSort ? handleClick(headerIndex, header?.sortName) : null
                             }
-                            className={user?.role !== "CU" && ` ${moduleType === "internalcertificate" && header?.label === "Status" && user?.logged_in_user_info?.role === "LR" ? "ic_status" : header?.label === "Status" || (header?.label === "Tender Final Status" && moduleType === "tender" && header?.name !== "dashboard_status") ? "statusHeader" : " "}` + ((subModuleType == "commercialCertificate") &&
+                            className={user?.role !== "CU" && ` ${moduleType === "internalcertificate" && header?.label === "Status" && user?.logged_in_user_info?.role === "LR" ? "ic_status" : header?.label === "Status" || (header?.label === "Tender Final Status" && moduleType === "tender" && header?.name !== "dashboard_status") && "statusHeader} "}
+                               }` + ((subModuleType == "commercialCertificate") &&
                               user?.logged_in_user_info?.role === "BU" ? " ext_status" : " ") + (header?.isCustomLink && " custom-link-class" || '') + (header.customClass ? header.customClass : '')}
                           >
                             {getHeaderTileConditonWise(header)}
@@ -1934,10 +1959,11 @@ const RenderListSection = ({
                     )}
                     {((subModuleType == "commercialCertificate" && ["BU"].includes(user?.logged_in_user_info?.role)) || (moduleType == "internalcertificate" && ["LR"].includes(user?.logged_in_user_info?.role))) ?
 
-                      <th className={`statusHeader ${moduleType === "internalcertificate" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : ""}`}> Select for Inv.</th> :
+                      <th className={`"statusHeader" ${moduleType === "internalcertificate" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : ""}`}> Select for Inv.</th> :
                       null
                     }
-                    {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") ? <th className={` ${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : moduleType === "internalcertificate" && user?.logged_in_user_info?.role !== "LR" ? "actioncolNoLR" : "actioncol list_th_action"}`}>Actions</th> : null}
+                    {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") ? <th className={` ${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : moduleType === "internalcertificate" && user?.logged_in_user_info?.role !== "LR" ? "actioncolNoLR" :
+                       width < 1024 ? "" :"actioncol "}list_th_action`}>Actions</th> : null}
                   </tr>
                 </thead>
                 <tbody>
@@ -2794,7 +2820,8 @@ const RenderListSection = ({
                               (moduleType == "internalcertificate" && ["LR"].includes(user?.logged_in_user_info?.role) && ((!row?.ic_certificate_transfered_to_user || user?.logged_in_user_info?.usr_id == row?.ic_certificate_transfered_to_user?.usr_id)))))
                           && (row?.ic_iv_status === null || (subModuleType == "commercialCertificate" && ["BU"].includes(user?.logged_in_user_info?.role) && ((!row?.fk_certificate_transfered_to && user?.logged_in_user_info?.usr_id == row?.useropsexecutive?.usr_id) || user?.logged_in_user_info?.usr_id == row?.fk_certificate_transfered_to)))
                           ?
-                          <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : moduleType === "internalcertificate" && user?.logged_in_user_info?.role !== "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role !== "BU" ? "stickyColForICNonLR" : moduleType === "dashboard" ? "" : "list_th_action status-stickycol"}`}>
+                          <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : moduleType === "internalcertificate" && user?.logged_in_user_info?.role !== "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role !== "BU" ? "stickyColForICNonLR" : moduleType === "dashboard" ? "" :
+                           "list_th_action status-stickycol"}`}>
                             <input
                               ref={(el) => (checkboxRefs.current[rowIndex] = el)}
                               type="checkbox"
@@ -2804,12 +2831,13 @@ const RenderListSection = ({
                             />
                           </td>
                           :
-                          <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : moduleType === "dashboard" ? "" : "list_th_action status-stickycol"}`}>{`${moduleType === "internalcertificate" && !row.ic_is_external_jrf ? 'NA' : ''}`}</td>
+                          <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : moduleType === "dashboard" ? "" : 
+                            "list_th_action status-stickycol"}`}>{`${moduleType === "internalcertificate" && !row.ic_is_external_jrf ? 'NA' : ''}`}</td>
                         :
                         null
                       }
 
-                      {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") && <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : "list_th_action actioncol"} ` + (popupIndex === rowIndex && " actionColActive")} ref={popupRef}>
+                      {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") && <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : width < 1024 ? "" :"actioncol "} "list_th_action"} ` + (popupIndex === rowIndex && " actionColActive")} ref={popupRef}>
                         <div className="renderListButtonDiv">
 
                           <span ref={popupOptionsRef}>

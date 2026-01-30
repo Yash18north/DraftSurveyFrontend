@@ -56,7 +56,7 @@
     ],
     "apiEndpoints": {
         "create": "",
-        "read": "",
+        "read": "/shipment/list/",
         "update": "",
         "delete": "",
         "statuCount": "",
@@ -69,32 +69,38 @@
         "moduleType": "ShipmentList",
         "headers": [
             {
-                "label": "Vessel Name",
-                "name": "vessel_name",
+                "label": "Vessel Number",
+                "name": "ship_number",
                 "type": "text",
-                "sortName": "vessel_name"
+                "sortName": "ship_number"
+            },
+            {
+                "label": "Vessel Name",
+                "name": "ship_vessel_name",
+                "type": "text",
+                "sortName": "ship_vessel_name"
             },
             {
                 "label": "Total Quantity",
-                "name": "total_quantity",
+                "name": "ship_total_quantity",
                 "type": "number",
-                "sortName": "total_quantity"
+                "sortName": "ship_total_quantity"
             },
             {
                 "label": "Place of Work",
-                "name": "place_of_work",
+                "name": "ship_place_of_work",
                 "type": "select",
-                "sortName": "place_of_work"
+                "sortName": "ship_place_of_work"
             },
             {
-                "label": "App Quantity",
-                "name": "app_quantity",
+                "label": "Appointed Quantity",
+                "name": "ship_appointed_quantity",
                 "type": "number",
-                "sortName": "app_quantity"
+                "sortName": "ship_appointed_quantity"
             },
             {
                 "label": "Loading / Unloading",
-                "name": "loading_unloading",
+                "name": "ship_loading_unloading",
                 "type": "radio",
                 "options": [
                     {
@@ -106,7 +112,7 @@
                         "value": "unloading"
                     }
                 ],
-                "sortName": "loading_unloading"
+                "sortName": "ship_loading_unloading"
             },
             {
                 "label": "Status",

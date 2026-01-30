@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from "react-bootstrap";
 // import { handleCreateUpdateSalesRegister } from '../../../commonHandlerFunction/Audit/SalesRegister/SalesRegisterHandlerFunction';
 import { useNavigate } from 'react-router-dom';
+import { handleShipmentCreateAndUpdate } from '../../commonHandlerFunction/Shipment/ShipmentHandler';
 
 
 const ShipmentButtons = ({ formData, handleSubmit, setIsOverlayLoader, EditRecordId, viewOnly }) => {
@@ -27,20 +28,20 @@ const ShipmentButtons = ({ formData, handleSubmit, setIsOverlayLoader, EditRecor
             type="button"
             className="submitBtn"
             onClick={() =>
-              <></>
-              // handleCreateUpdateSalesRegister(formData, handleSubmit, EditRecordId, navigate, "posted")
+              
+               handleShipmentCreateAndUpdate(formData, handleSubmit, EditRecordId, navigate, "posted")
             }
           >
             Post
           </Button>
 
-          {!formData[0]?.id && (
+          {!formData[0]?.ship_id && (
             <Button
               type="button"
               className="saveBtn"
               onClick={() =>
-                <></>
-                // handleCreateUpdateSalesRegister(formData, handleSubmit, setIsOverlayLoader, navigate,"saved")
+                
+                handleShipmentCreateAndUpdate(formData, handleSubmit, setIsOverlayLoader, navigate,"saved")
               }
             >
               Save

@@ -261,6 +261,7 @@ import ClientDetailsButtons from "./ShowButtons/ClientDetails/ClientDetailsButto
 import { ClientDetailsButtons as stubClientDetailsButtons } from "../../utils/stubFunctions";
 import ShipmentButtons from "./ShowButtons/Shipment/ShipmentButton";
 import MarketPlaceButton from "./ShowButtons/MarketPlace/MarketPlaceButtons";
+import { handleGetAShipmet } from "./commonHandlerFunction/Shipment/ShipmentHandler";
 
 export const selectUser = (state) => state.user;
 export const selectRolePermissions = (state) => state.rolePermissions;
@@ -465,118 +466,7 @@ const Forms = ({
   const [sizeofPage, setSizeOfPage] = useState(0);
   const [isCustomPopup, setIsCustomPopup] = useState(false);
   let navigate = useNavigate();
-  const response_shipment = {
-
-    data: [
-      {
-        id: 1,
-        vessel_name: "MV Ocean Star",
-        total_quantity: 1250,
-        place_of_work: "Mumbai Port",
-        app_quantity: 1200,
-        loading_unloading: "Loading",
-        status: "saved"
-      },
-      {
-        id: 2,
-        vessel_name: "SS Eastern Wave",
-        total_quantity: 980,
-        place_of_work: "JNPT",
-        app_quantity: 950,
-        loading_unloading: "Unloading",
-        status: "posted"
-      },
-      {
-        id: 3,
-        vessel_name: "MV Blue Horizon",
-        total_quantity: 1500,
-        place_of_work: "Chennai Port",
-        app_quantity: 1475,
-        loading_unloading: "Loading",
-        status: "saved"
-      },
-      {
-        id: 4,
-        vessel_name: "MV Pacific Crown",
-        total_quantity: 720,
-        place_of_work: "Visakhapatnam Port",
-        app_quantity: 700,
-        loading_unloading: "Unloading",
-        status: "posted"
-      },
-      {
-        id: 5,
-        vessel_name: "SS Coastal Runner",
-        total_quantity: 1100,
-        place_of_work: "Kandla Port",
-        app_quantity: 1080,
-        loading_unloading: "Loading",
-        status: "saved"
-      },
-      {
-        id: 6,
-        vessel_name: "MV Arabian Pearl",
-        total_quantity: 640,
-        place_of_work: "Cochin Port",
-        app_quantity: 620,
-        loading_unloading: "Unloading",
-        status: "posted"
-      }
-    ]
-  };
-
-  const response_marketPlace = {
-    data: [
-      {
-        id: 1,
-        captain_name: "Captain R. Malhotra",
-        place: "Mumbai Port",
-        experience_years: 18,
-        ratings: 4.8,
-        status: "saved"
-      },
-      {
-        id: 2,
-        captain_name: "Captain S. Nakamura",
-        place: "Yokohama Port",
-        experience_years: 22,
-        ratings: 4.9,
-        status: "posted"
-      },
-      {
-        id: 3,
-        captain_name: "Captain A. Fernandez",
-        place: "Goa Port",
-        experience_years: 14,
-        ratings: 4.5,
-        status: "saved"
-      },
-      {
-        id: 4,
-        captain_name: "Captain L. Sørensen",
-        place: "Oslo Harbor",
-        experience_years: 26,
-        ratings: 4.7,
-        status: "posted"
-      },
-      {
-        id: 5,
-        captain_name: "Captain V. Iyer",
-        place: "Chennai Port",
-        experience_years: 16,
-        ratings: 4.6,
-        status: "saved"
-      },
-      {
-        id: 6,
-        captain_name: "Captain M. Al-Farsi",
-        place: "Dubai Port",
-        experience_years: 20,
-        ratings: 4.9,
-        status: "posted"
-      }
-    ]
-  };
+  
 
 
   let vieableArr = [
@@ -612,6 +502,8 @@ const Forms = ({
       getAllListingData();
     }
   }, [customFilterData?.[1]?.search_financial_year]);
+
+  console.log("object",EditRecordId)
   useEffect(() => {
     try {
       setIsOverlayLoader(true)
@@ -899,19 +791,19 @@ const Forms = ({
         }
       }
       else if (moduleType === "ShipmentForm") {
-        
+       
         if (status === "View") {
           setViewOnly(true);
           setAction(status);
         }
         if (EditRecordId) {
 
-          // handleGetIncentive(
-          //   EditRecordId,
-          //   setFormData,
-          //   status,
-          //   setIsOverlayLoader
-          // )
+          handleGetAShipmet(
+            EditRecordId,
+            setFormData,
+            status,
+            setIsOverlayLoader
+          )
         }
       }
       else if (moduleType === "marketPlaceForm") {
@@ -5199,6 +5091,7 @@ const Forms = ({
       if (formData[0].ji_is_loading === "Loading") {
         if (cell.name === "loading_unloading_port_name") {
           cell.label = "Unloading Port and country";
+          
         }
 
 
@@ -10154,7 +10047,7 @@ const Forms = ({
                   section={formConfig.listView}
                   sectionIndex={1}
                   actions={formConfig.listView.actions}
-                  responseData={listModuleType === "ShipmentList" ? response_shipment : listModuleType === "marketPlaceListing" ? response_marketPlace :response}
+                  responseData={response}
                   getAllListingData={getAllListingData}
                   formConfig={formConfig}
                   setFormData={setFormData}

@@ -2,8 +2,9 @@ import { Collapse, Nav, NavItem } from "reactstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { NavbarBrand } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { getLogoCondition, isModuelePermission } from "../services/commonFunction";
+import { getLogoCondition, isModuelePermission, useScreenSize } from "../services/commonFunction";
 import { useDispatch, useSelector } from "react-redux";
+
 
 // Sub Icon Images
 import jiIcon from "../assets/images/icons/jiIcon.svg";
@@ -84,10 +85,12 @@ const navigation = [
 ];
 
 const Sidebar = ({ changePassword, setChangePassword, setShowSidebar, showSidebar }) => {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const session = useSelector((state) => state.session);
   const sessionData = useSelector((state) => state.session.sessionData);
   const rolePermissions = session?.sessionData?.permissions;
   const user = session.user;
+  const { width } = useScreenSize()
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -155,10 +158,11 @@ const Sidebar = ({ changePassword, setChangePassword, setShowSidebar, showSideba
     }
   };
 
+
   return (
     <span>
       <Nav vertical className="sidebarNav">
-        <NavbarBrand className="tcrcLogo">
+        {/* <NavbarBrand className="tcrcLogo">
           <img
             src={getLogoCondition(
               user?.logged_in_user_info?.lab_or_branch?.company_code
@@ -168,7 +172,7 @@ const Sidebar = ({ changePassword, setChangePassword, setShowSidebar, showSideba
             className="responsive"
             alt="logo"
           />
-        </NavbarBrand>
+        </NavbarBrand> */}
 
         {navigation.map(
           (navi, index) =>
@@ -179,16 +183,21 @@ const Sidebar = ({ changePassword, setChangePassword, setShowSidebar, showSideba
               navi.isMainPrmission,
               navi.type
             ) && (
-              <NavItem key={index} className="sidenav-bg">
+              <NavItem key={index} className="sidenav-bg ">
                 <Link
-                  className={`nav-link py-3 ${
-                    openSubMenu === index ||
+                  className={`nav-link py-3 ${openSubMenu === index ||
                     location.pathname.indexOf(navi.href) !== -1
-                      ? "active"
-                      : ""
-                  } ${!navi.submenu ? "mainMenu" : ""}`}
+                    ? "active"
+                    : ""
+                    } ${!navi.submenu ? "mainMenu" : ""}`}
                   to={navi.submenu ? null : navi.href}
-                  onClick={() => handleSubMenuClick(index, navi)}
+                  onClick={() => {
+                    handleSubMenuClick(index, navi);
+                    if (width <= 1024) {
+                      console.log("1024")
+                      setShowSidebar(false)
+                    }
+                  }}
                   title={navi.title}
                 >
                   <i className={`${navi.icon} sidebar_icon SidebarMainItemIcon`} />

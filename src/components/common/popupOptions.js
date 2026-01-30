@@ -67,6 +67,7 @@ import { handlePurchaseItemDelete } from "./commonHandlerFunction/Purchase/Items
 import { handlePurchaseItemDelete as stubHandlePurchaseItemDelete } from "../../utils/stubFunctions";
 import { handleCategoryDelete, handleCategorykDelete } from "./commonHandlerFunction/Purchase/Category/CategoryHandler";
 import { handleCategoryDelete as stubHandleCategoryDelete } from "../../utils/stubFunctions";
+import { handleIShipmentRecordDelete } from "./commonHandlerFunction/Shipment/ShipmentHandler";
 
 
 
@@ -99,7 +100,7 @@ const PopupOptions = ({
   let user;
   const session = useSelector((state) => state.session);
   user = session?.user;
-  
+  console.log("roeship",row)
   let rolePermissions;
   rolePermissions = session?.user?.permissions;
  
@@ -1055,10 +1056,10 @@ const PopupOptions = ({
 
       if (value === "View") {
         
-        navigate(`/shipment/shipmentForm/${encryptDataForURL(row["id"])}?status=${encryptDataForURL('View')}`);
+        navigate(`/shipment/shipmentForm/${encryptDataForURL(row["ship_id"])}?status=${encryptDataForURL('View')}`);
       }
       else if (value === "Edit") {
-        navigate(`/shipment/shipmentForms/${encryptDataForURL(row["id"])}?action=${encryptDataForURL('Change')}`);
+        navigate(`/shipment/shipmentForm/${encryptDataForURL(row["ship_id"])}?action=${encryptDataForURL('Change')}`);
       }
       else if (value === "Delete") {
         setIsDelete(true)
@@ -1244,12 +1245,12 @@ const PopupOptions = ({
       )
     }
     else if (moduleType === "ShipmentList") {
-      // handleIShipmentRecordDelete(
-      //   row["id"],
-      //   setIsDelete,
-      //   getAllListingData,
-      //   setPopupIndex
-      // )
+      handleIShipmentRecordDelete(
+        row["ship_id"],
+        setIsDelete,
+        getAllListingData,
+        setPopupIndex
+      )
     }
     else if (moduleType === "marketPlaceListing") {
       // handleIShipmentRecordDelete(

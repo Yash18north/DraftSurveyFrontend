@@ -352,3 +352,9 @@ export const usersGetApi="/users/get/";
 
 export const clientUpdateApi="/masters/customer/update/";
 export const clientGetApi="/masters/customer/get/";
+
+// Shipment 
+export const getShipmentDetail = (shipmentId) => `/shipment/get/${shipmentId}/`
+export const shipmentCreateApi="/shipment/create/";
+export const shipmentUpdateApi =  (shipmentId) =>`/shipment/update/${shipmentId}/`
+export const shipmentDeleteApi =  (shipmentId) =>`/shipment/delete/${shipmentId}/`

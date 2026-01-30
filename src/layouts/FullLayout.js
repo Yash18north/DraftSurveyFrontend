@@ -5,16 +5,18 @@ import Loading from "../components/common/Loading";
 import { Container } from "reactstrap";
 import { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
+import { useScreenSize } from "../services/commonFunction";
 
 
 const FullLayout = () => {
   const navigate = useNavigate();
   const [isLoggedInUser, setIsLoggedInUser] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const session = useSelector((state) => state.session);
 
   const [changePassword, setChangePassword] = useState(false);
 
-
+  
 
   useEffect(() => {
     let isLoggedIn = session.isAuthenticated
@@ -60,14 +62,22 @@ Description: Added This below code to restrict right click
 
   useEffect(() => {
     const handleResize = () => {
-      setShowSidebar(window.innerWidth >= 992);
+      if (window.innerWidth <= 1024 && window.innerWidth >= 325) {
+        setShowSidebar(false);
+        setSidebarCollapsed(false);
+      } else if (window.innerWidth > 1024) {
+        setShowSidebar(true);
+        setSidebarCollapsed(false);
+      } else if (window.innerWidth < 325) {
+        setShowSidebar(false);
+        setSidebarCollapsed(false);
+      }
     };
 
+    handleResize(); // run once
     window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
   const mainBodyRef = useRef(null);
 
@@ -106,8 +116,11 @@ Description: Added This below code to restrict right click
       <div className="pageWrapper d-lg-flex">
         {/********Sidebar**********/}
         {/* {showSidebar && ( */}
-        <aside className={"sidebarArea bg-danger" + (showSidebar ? " " : " hideSidebar")} id="sidebarArea">
-          {/* <aside className="sidebarArea shadow bg-danger" id="sidebarArea"> */}
+        {/* <aside className={"sidebarArea bg-danger" + (showSidebar ? " " : " hideSidebar")} id="sidebarArea"> */}
+        <aside
+          className={`sidebarArea bg-danger ${showSidebar ? "sidebar-open" : "sidebar-closed"}`}
+          id="sidebarArea"
+        >
           <Sidebar
             changePassword={changePassword}
             setChangePassword={setChangePassword}

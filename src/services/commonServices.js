@@ -8,7 +8,8 @@ import {
 import { store } from "./store";
 export const isDevelopments = "DEV";
 const isEncryption = "FALSE";
-export const developmentURL = process.env.REACT_APP_API_DEV_URL;
+// export const developmentURL = process.env.REACT_APP_API_DEV_URL;
+export const developmentURL = "http://192.168.1.2:8000";
 export const MainUrl = developmentURL
 
 const BASE_URL = MainUrl + "/api/v1";
@@ -330,7 +331,8 @@ export function GetTenantDetails(isTenantId, isTenantcode = "",isPetroJRF="") {
     }
   } else {
     const hostname = window.location.origin;
-    return developmentURL;
+    // return developmentURL;
+    return "https://tcrc-uatops.tayadigital.com";
     return hostname;
   }
 }
