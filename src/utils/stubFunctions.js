@@ -32,7 +32,6 @@ export const handleInwardStatusChange = () => null;
 export const handleVerificationMain = () => null;
 
 // Operation functions
-export const Operation_HH_CreateDataFunction = () => null;
 export const Operation_Supervision_CreateDataFunction = () => null;
 export const Operation_DraftSurvey_CreateDataFunction = () => null;
 export const OperationCargoSupervisionCreateDataFunction = () => null;

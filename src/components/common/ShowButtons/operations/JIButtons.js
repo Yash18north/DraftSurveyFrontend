@@ -421,7 +421,7 @@ const JIButtons = ({
         Save
       </button>
     </div>
-  ) : !isUseForManPower ? (
+  ) :
     action !== "opsView" ? (
       <div className="submit_btns">
         {!useForComponent ? (
@@ -1066,9 +1066,7 @@ const JIButtons = ({
     ) : (
       LMSViewDetailsButton()
     )
-  ) : (
-    manPowerButton()
-  );
+  
 };
 
 JIButtons.propTypes = {

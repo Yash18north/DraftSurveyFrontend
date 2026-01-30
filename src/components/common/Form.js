@@ -168,11 +168,7 @@ import RenderSubListSection from "./RenderSubListSection";
 import RenderSubListSectionPagination from "./RenderSubListSectionWithPagination";
 import {
   getSingleDraftSurveyData,
-  getSingleHHData,
-  getSingleSupervissionData,
   Operation_DraftSurvey_CreateDataFunction,
-  Operation_HH_CreateDataFunction,
-  Operation_Supervision_CreateDataFunction,
   OperationCreateDataFunction,
   OperationSampleCollectionCreateDataFunction,
   OperationSizeAnalysisCreateDataFunction,
@@ -1210,218 +1206,87 @@ const Forms = ({
     } else if (moduleType === "jobinstruction") {
       if (['save', 'post', 'postOther', 'postJRF'].includes(jrfCreationType)) {
         if (useForComponent == "OperationDetails") {
-          if (TMLType == getVesselOperation("HH")) {
-            Operation_HH_CreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              jrfCreationType,
-              operationMode
-            );
-          } else if (OperationType == getVesselOperation("SV")) {
-            OperationCargoSupervisionCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              jrfCreationType,
-              operationMode,
-              "",
-              activeTab,
-              setActiveTab,
-              setSubTableData,
-              setFormData,
-              formConfig,
-              '',
-              generateCertificate
-            );
-          } else if (OperationType == getVesselOperation("DS")) {
-            Operation_DraftSurvey_CreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              formConfig.sections[1].tabs[0],
-              jrfCreationType,
-              operationMode,
-              setFormData,
-              setSubTableData,
-              props.setIsTabOpened
-            );
-          }
-          else if (TMLType == getVesselOperation("CS")) {
+          //  if (OperationType == getVesselOperation("DS")) {
 
-            OperationCargoSupervisionCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              operationMode,
-              jrfCreationType,
-            );
-          }
-          else if (TMLType == getVesselOperation("bulk_crg")) {
-            Operation_BulkCargo_CreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              jrfCreationType,
-              operationMode,
-
-            );
-          }
-          else if (TMLType == getRakeOperations('QAss')) {
-            const isForMainSection = isSubSectionSave
-            setIsSubSectionSave(false)
-            OperationQualityAssesmentCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              subTableData,
-              jrfCreationType,
-              operationMode,
-              operationStepNo,
-              '',
-              formConfig.sections[1]?.tabs?.[0],
-              setSubTableData,
-              setFormData,
-              formConfig,
-              setActiveTab,
-              activeTab
-            );
-
-            if (jrfCreationType === "post") {
-              generateCertificate("uploadedDocument", "posted", '', 1)
-            }
-          }
-          else if ([getRakeOperations('QA')].includes(TMLType) && isSubSectionSave) {
-            const isForMainSection = isSubSectionSave
-            setIsSubSectionSave(false)
-            OperationQualityAnalysisCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              jrfCreationType,
-              operationMode,
-              isForMainSection,
-              formConfig.sections[0],
-              setSubTableData,
-              setFormData,
-              formConfig,
-              operationStepNo
-            );
-          }
-          else if ([getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(TMLType)) {
-            OperationCreateDataFunction(
-              formData,
-              setIsOverlayLoader,
-              setIsPopupOpen,
-              OperationType,
-              OperationTypeID,
-              navigate,
-              "posted",
-              "",
-              [],
-              "",
-              1,
-              "",
-              operationMode
-            );
-            if (jrfCreationType === "post") {
-              generateCertificate("uploadedDocument", "posted", '', 1)
-            }
-            const redirectUrl = getOperationActivityUrl(operationMode)
-            navigate(
-              redirectUrl + `${encryptDataForURL(
-                formData[0].ji_id
-              )}`
-            );
-          }
-          else {
-            if (operationStepNo == 4 || TMLType == getVesselOperation("DM")) {
-              OperationSizeAnalysisCreateDataFunction(
-                formData,
-                setIsOverlayLoader,
-                setIsPopupOpen,
-                OperationType,
-                OperationTypeID,
-                navigate,
-                subTableData,
-                operationStepNo,
-                operationMode,
-                TMLType !== getVesselOperation("DM"),
-                jrfCreationType
-              );
-            }
-            else if (operationStepNo == 6) {
-              OperationSampleCollectionCreateDataFunction(
-                formData,
-                setIsOverlayLoader,
-                setIsPopupOpen,
-                OperationType,
-                OperationTypeID,
-                navigate,
-                subTableData,
-                operationStepNo,
-                operationMode
-              );
-            }
-            else if (operationStepNo == 7) {
-              OperationQualityAnalysisCreateDataFunction(
-                formData,
-                setIsOverlayLoader,
-                setIsPopupOpen,
-                OperationType,
-                OperationTypeID,
-                navigate,
-                jrfCreationType,
-                operationMode,
-                '',
-                formConfig.sections[1].tabs[0].fields,
-                setSubTableData,
-                setFormData,
-                formConfig,
-                operationStepNo
-              );
-            } else {
-              OperationCreateDataFunction(
-                formData,
-                setIsOverlayLoader,
-                setIsPopupOpen,
-                OperationType,
-                OperationTypeID,
-                navigate,
-                "in-process",
-                1,
-                null,
-                operationStepNo,
-                "",
-                "",
-                operationMode
-              );
-            }
-          }
+          Operation_DraftSurvey_CreateDataFunction(
+            formData,
+            setIsOverlayLoader,
+            setIsPopupOpen,
+            OperationType,
+            OperationTypeID,
+            navigate,
+            formConfig.sections[1].tabs[0],
+            jrfCreationType,
+            operationMode,
+            setFormData,
+            setSubTableData,
+            props.setIsTabOpened
+          );
+          // }
+          // else {
+          //   if (operationStepNo == 4 || TMLType == getVesselOperation("DM")) {
+          //     OperationSizeAnalysisCreateDataFunction(
+          //       formData,
+          //       setIsOverlayLoader,
+          //       setIsPopupOpen,
+          //       OperationType,
+          //       OperationTypeID,
+          //       navigate,
+          //       subTableData,
+          //       operationStepNo,
+          //       operationMode,
+          //       TMLType !== getVesselOperation("DM"),
+          //       jrfCreationType
+          //     );
+          //   }
+          //   else if (operationStepNo == 6) {
+          //     OperationSampleCollectionCreateDataFunction(
+          //       formData,
+          //       setIsOverlayLoader,
+          //       setIsPopupOpen,
+          //       OperationType,
+          //       OperationTypeID,
+          //       navigate,
+          //       subTableData,
+          //       operationStepNo,
+          //       operationMode
+          //     );
+          //   }
+          //   else if (operationStepNo == 7) {
+          //     OperationQualityAnalysisCreateDataFunction(
+          //       formData,
+          //       setIsOverlayLoader,
+          //       setIsPopupOpen,
+          //       OperationType,
+          //       OperationTypeID,
+          //       navigate,
+          //       jrfCreationType,
+          //       operationMode,
+          //       '',
+          //       formConfig.sections[1].tabs[0].fields,
+          //       setSubTableData,
+          //       setFormData,
+          //       formConfig,
+          //       operationStepNo
+          //     );
+          //   } else {
+          //     OperationCreateDataFunction(
+          //       formData,
+          //       setIsOverlayLoader,
+          //       setIsPopupOpen,
+          //       OperationType,
+          //       OperationTypeID,
+          //       navigate,
+          //       "in-process",
+          //       1,
+          //       null,
+          //       operationStepNo,
+          //       "",
+          //       "",
+          //       operationMode
+          //     );
+          //   }
+          // }
         } else if (useForComponent == "OperationDetailsAssignment") {
           let JRFData = [];
           let TPIData = [];
@@ -4552,136 +4417,37 @@ const Forms = ({
       if (payload?.commercial_certificate?.fk_cert_config_id || !getLMSOperationActivity().includes(OperationType) || true) {
         let res = await postDataFromApi(ccCertCreateApi, payload);
         if (moduleType == "operationCertificate" && (formData[0]?.cc_is_rake_details?.length > 0 && formData[0]?.cc_is_rake_details?.[0])) {
-          await OperationQualityAnalysisCreateDataFunction(
-            formData,
-            setIsOverlayLoader,
-            setIsPopupOpen,
-            OperationType,
-            JISID,
-            navigate,
-            jrfCreationType,
-            operationMode,
-            true,
-            formConfig.sections[0],
-            setSubTableData,
-            setFormData,
-            formConfig,
-            operationStepNo,
-            OpsConfigID,
-            isUseForPhysical,
-            res?.data?.data?.cc_id
-          );
+          // await OperationQualityAnalysisCreateDataFunction(
+          //   formData,
+          //   setIsOverlayLoader,
+          //   setIsPopupOpen,
+          //   OperationType,
+          //   JISID,
+          //   navigate,
+          //   jrfCreationType,
+          //   operationMode,
+          //   true,
+          //   formConfig.sections[0],
+          //   setSubTableData,
+          //   setFormData,
+          //   formConfig,
+          //   operationStepNo,
+          //   OpsConfigID,
+          //   isUseForPhysical,
+          //   res?.data?.data?.cc_id
+          // );
         }
 
         if (res.data.status === 200) {
-          if (isUseForPhysical) {
-            navigate(
-              `/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
-                EditRecordId
-              )}/${encryptDataForURL(res?.data?.data?.cc_id)}` +
-              "?OperationType=" +
-              encryptDataForURL(OperationType) + "&isExternal=" + encryptDataForURL(isExternal) + "&isUseForPhysical=" + encryptDataForURL(isUseForPhysical)
-            );
-            return
-          }
-          if (RPCID !== "-999") {
-            if (!isSupervission) {
-              updateConfiguredStatus(
-                "completed",
-                res?.data?.data?.cc_id,
-                certificateStatus
-              );
-            }
-          } else {
-            if (status === "NonLMS" && ![getVesselOperation('bulk_crg')].includes(OperationType)) {
-              let payload = {
-                ji_id: EditRecordId,
-                jis_id: JISID,
-                tenant: 1,
-              };
-              let OPSDSRes = await getNonLMSDetailsById(OperationType, payload);
-              if (OPSDSRes.data.status === 200) {
-                if (certificateStatus === "saved") {
-                  navigate(
-                    `/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
-                      OPSDSRes?.data?.data?.opsvd_id
-                    )}/${encryptDataForURL(
-                      res?.data?.data?.cc_id
-                    )}?status=${encryptDataForURL("NonLMS")}` +
-                    "&OperationType=" +
-                    encryptDataForURL(OperationType) +
-                    "&useFor=" +
-                    encryptDataForURL('savedCertificate') + "&isExternal=" + encryptDataForURL(isExternal)
-                  );
-                } else {
-                  navigate(
-                    `/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
-                      OPSDSRes?.data?.data?.opsvd_id
-                    )}/${encryptDataForURL(
-                      res?.data?.data?.cc_id
-                    )}?status=${encryptDataForURL("NonLMSPosted")}` +
-                    "&OperationType=" +
-                    encryptDataForURL(OperationType) + "&isExternal=" + encryptDataForURL(isExternal)
-                  );
-                }
-              }
-            } else if ([getVesselOperation("DS"), getRakeOperations("QAss"), getVesselOperation('bulk_crg')].includes(OperationType)) {
-              navigate(
-                `/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
-                  EditRecordId
-                )}/${encryptDataForURL(
-                  res?.data?.data?.cc_id
-                )}/?status=${encryptDataForURL("NonLMSPosted")}` +
-                "&OperationType=" +
-                encryptDataForURL(OperationType) + "&isExternal=" + encryptDataForURL(isExternal)
-              );
-            }
-            else {
-              if (isExternal) {
-                OperationCreateDataFunction(
-                  null,
-                  setIsOverlayLoader,
-                  setIsPopupOpen,
-                  OperationType,
-                  JISID,
-                  null,
-                  "generated",
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  1
-                );
-                getCommercialCertificateSingle(EditRecordId, JISID, res?.data?.data?.cc_id, setFormData, null, null, null, null, setNewExtraFields, isUseForPhysical)
-                const redirectUrl = getOperationActivityUrl(res?.data?.data?.operationmode?.ops_code)
-                navigate(
-                  `${redirectUrl}confirugation-certificate/${encryptDataForURL(
-                    EditRecordId
-                  )}/${encryptDataForURL(JISID)}/${encryptDataForURL(
-                    res?.data?.data?.cc_id
-                  )}?status=${encryptDataForURL(
-                    "Edit"
-                  )}&OperationType=${encryptDataForURL(OperationType)}` +
-                  "&isExternal=" + encryptDataForURL(isExternal) + "&isCustomMode=" + encryptDataForURL(1) + "&operationMode=" + encryptDataForURL(res?.data?.data?.operationmode?.ops_code)
-                );
-              }
-              else {
-                if (!isSupervission) {
-                  navigate(
-                    `operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
-                      EditRecordId
-                    )}/${encryptDataForURL(res?.data?.data?.cc_id)}` +
-                    "?OperationType=" +
-                    encryptDataForURL(OperationType) + "&isExternal=" + encryptDataForURL(isExternal)
-                  );
-                }
-              }
 
-
-            }
-          }
+          navigate(
+            `/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
+              EditRecordId
+            )}/${encryptDataForURL(res?.data?.data?.cc_id)}` +
+            "?OperationType=" +
+            encryptDataForURL(OperationType) + "&isExternal=" + encryptDataForURL(isExternal) + "&isUseForPhysical=" + encryptDataForURL(isUseForPhysical)
+          );
+         
         }
         else {
           setIsOverlayLoader(false);
@@ -5408,6 +5174,7 @@ const Forms = ({
     return formConfig
   }
   const renderModuleWiseButtons = () => {
+    console.log("moduleType", moduleType)
     switch (moduleType) {
 
       case "jobinstruction":

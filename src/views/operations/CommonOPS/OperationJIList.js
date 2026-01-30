@@ -26,7 +26,7 @@ const OperationJIList = ({ ops_code }) => {
         newConfig.apiEndpoints.statuCount = newConfig.apiEndpoints.statuCount + "?ops_code=" + ops_code
 
         newConfig.listView.actions = newConfig.listView.actions.filter((action) => {
-            if (action.status == "accepted") {
+            if (action.status == "accepted" && action.recordType !== "ds-analysis") {
                 action.redirectUrl = getOperationActivityUrl(ops_code).slice(0, -1)
             }
             return action

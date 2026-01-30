@@ -261,7 +261,7 @@ export const redirectPageAfterLogin = (navigate, role, isReload) => {
       navigate("/PurchRequistion");
     }
     else if (dashboard.includes(role)) {
-      navigate("/operation/other-list");
+      navigate("/operation/draught-list");
     }
     else if (collectionUser.includes(role)) {
       navigate("/collection-dashboard");
@@ -752,14 +752,18 @@ export const getLMSOperationTML = () => {
 export const getOperationActivityUrl = (operationMode) => {
   const state = store.getState();
   const userData = state?.session?.user
-  if (userData?.role === "OPS_ADMIN") {
+  console.log("operationMode",operationMode)
+  if (operationMode === "DS" || operationMode === "Draft Survey") {
+    return "/operation/jrfInstructionListing/ds-analysis/"
+  }
+  else if (userData?.role === "OPS_ADMIN") {
     return "/operation/jrfInstructionListing/ji-details-list/"
   }
   else if (operationMode === "VESSEL" || operationMode === "VL") {
     return "/operation/vessel-ji-list/vessel-list/"
   }
   else {
-    return "/operation/other-list/other-details-list/"
+    return "/operation/draught-list/other-details-list/"
   }
 }
 export const getOperationActivityListPageUrl = (operationMode) => {
@@ -772,7 +776,7 @@ export const getOperationActivityListPageUrl = (operationMode) => {
     return "/operation/vessel-ji-list/"
   }
   else {
-    return "/operation/other-list/"
+    return "/operation/draught-list/"
   }
 
 }

@@ -1616,89 +1616,6 @@ export const createTMLAnalysisPageHandleAction = async (
   }
 };
 
-export const Operation_HH_CreateDataFunction = async (
-  formData,
-  setIsOverlayLoader,
-  setIsPopupOpen,
-  OperationType,
-  OperationTypeID,
-  navigate,
-  subTableData,
-  submitType,
-  operationMode
-) => {
-  let res;
-  setIsOverlayLoader(true);
-  let ops_vessel_hh = {
-    fk_jiid: formData[0].ji_id,
-    fk_jisid: OperationTypeID,
-    opsvhh_data: subTableData,
-    status: submitType === "post" ? "posted" : "in-process",
-    tenant: GetTenantDetails(1),
-  };
-
-  if (formData[1].opsvhh_id) {
-    let MainData = {
-      opsvhh_id: formData[1].opsvhh_id,
-      ops_vessel_hh: ops_vessel_hh,
-    };
-    res = await putDataFromApi(updateHHApi, MainData);
-  } else {
-    let MainData = {
-      ops_vessel_hh: ops_vessel_hh,
-    };
-    res = await postDataFromApi(createHHApi, MainData);
-  }
-  if (res?.data?.status === 200) {
-    toast.success(res?.data?.message, {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-    setIsOverlayLoader(false);
-    setIsPopupOpen(false);
-    OperationCreateDataFunction(
-      formData,
-      setIsOverlayLoader,
-      setIsPopupOpen,
-      OperationType,
-      OperationTypeID,
-      navigate,
-      submitType === "post" ? "posted" : "in-process",
-      "",
-      [],
-      "",
-      1,
-      "",
-      operationMode
-    );
-    const redirectUrl = getOperationActivityUrl(operationMode)
-    navigate(
-      `${redirectUrl}${encryptDataForURL(
-        formData[0].ji_id
-      )}`
-    );
-    return;
-  } else {
-    toast.error(res.message, {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  }
-  setIsPopupOpen(false);
-  setIsOverlayLoader(false);
-};
 export const totalTannange = (subTableData, formData) => {
   // let totalCount = 0;
 
@@ -1987,7 +1904,7 @@ export const truckOnlySealDailyReport = async (formData, navigate, subTableData,
   let tr_os_id;
   if (formData[1]?.tr_os_id) {
     tr_os_id = formData[1]?.tr_os_id;
-  } 
+  }
   if (tr_os_id) {
     let payload = {
       "tr_os_id": tr_os_id,
@@ -2225,33 +2142,33 @@ export const Operation_DraftSurvey_CreateDataFunction = async (
       [header.name]: formData[1][header.name + "-final"] || defaultValue,
       "unit": formData[1][header.name + "-unit"] && formData[1][header.name + "-final"] ? formData[1][header.name + "-unit"] : '',
     });
-    if (['mean_forward', 'mean_aft', 'port_mid_ship', 'starboard_ship', 'corrected_mean_of_means'].includes(header.name)) {
-      if (!formData[1][header.name + "-initial"]) {
-        errorMesg = header.label + ' fields is required'
-        isValudValue = false;
-      }
-      else if (formData[1].opsvd_is_final && !formData[1][header.name + "-final"]) {
-        errorMesg = header.label + ' fields is required'
-        isValudValue = false;
-      }
-    }
+    // if (['mean_forward', 'mean_aft', 'port_mid_ship', 'starboard_ship', 'corrected_mean_of_means'].includes(header.name)) {
+    //   if (!formData[1][header.name + "-initial"]) {
+    //     errorMesg = header.label + ' fields is required'
+    //     isValudValue = false;
+    //   }
+    //   else if (formData[1].opsvd_is_final && !formData[1][header.name + "-final"]) {
+    //     errorMesg = header.label + ' fields is required'
+    //     isValudValue = false;
+    //   }
+    // }
   });
-  if (!formData[1]['fromdate_time' + "-initial"]) {
-    errorMesg = 'Start Date fields is required'
-    isValudValue = false;
-  }
-  else if (!formData[1]['todate_time' + "-initial"]) {
-    errorMesg = 'Start Date fields is required'
-    isValudValue = false;
-  }
-  else if (formData[1].opsvd_is_final && !formData[1]['fromdate_time' + "-final"]) {
-    errorMesg = 'Start Date fields is required'
-    isValudValue = false;
-  }
-  else if (formData[1].opsvd_is_final && !formData[1]['todate_time' + "-final"]) {
-    errorMesg = 'End Time fields is required'
-    isValudValue = false;
-  }
+  // if (!formData[1]['fromdate_time' + "-initial"]) {
+  //   errorMesg = 'Start Date fields is required'
+  //   isValudValue = false;
+  // }
+  // else if (!formData[1]['todate_time' + "-initial"]) {
+  //   errorMesg = 'Start Date fields is required'
+  //   isValudValue = false;
+  // }
+  // else if (formData[1].opsvd_is_final && !formData[1]['fromdate_time' + "-final"]) {
+  //   errorMesg = 'Start Date fields is required'
+  //   isValudValue = false;
+  // }
+  // else if (formData[1].opsvd_is_final && !formData[1]['todate_time' + "-final"]) {
+  //   errorMesg = 'End Time fields is required'
+  //   isValudValue = false;
+  // }
 
 
   let temp_opsvd_interim_inner = [];
@@ -2276,21 +2193,21 @@ export const Operation_DraftSurvey_CreateDataFunction = async (
         [header.name]: formData[1][header.name + "-interim" + "_" + i] || defaultValue,
         "unit": formData[1][header.name + "-unit"] && formData[1][header.name + "-interim" + "_" + i] ? formData[1][header.name + "-unit"] : '',
       });
-      if (['mean_forward', 'mean_aft', 'port_mid_ship', 'starboard_ship', 'corrected_mean_of_means'].includes(header.name)) {
-        if (!formData[1][header.name + "-interim" + "_" + i]) {
-          errorMesg = header.label + ' fields is required'
-          isValudValue = false;
-        }
-      }
+      // if (['mean_forward', 'mean_aft', 'port_mid_ship', 'starboard_ship', 'corrected_mean_of_means'].includes(header.name)) {
+      //   if (!formData[1][header.name + "-interim" + "_" + i]) {
+      //     errorMesg = header.label + ' fields is required'
+      //     isValudValue = false;
+      //   }
+      // }
     });
-    if (!formData[1]['fromdate_time' + "-interim" + "_" + i]) {
-      errorMesg = 'Start Date fields is required'
-      isValudValue = false;
-    }
-    else if (!formData[1]['todate_time' + "-interim" + "_" + i]) {
-      errorMesg = 'End Time fields is required'
-      isValudValue = false;
-    }
+    // if (!formData[1]['fromdate_time' + "-interim" + "_" + i]) {
+    //   errorMesg = 'Start Date fields is required'
+    //   isValudValue = false;
+    // }
+    // else if (!formData[1]['todate_time' + "-interim" + "_" + i]) {
+    //   errorMesg = 'End Time fields is required'
+    //   isValudValue = false;
+    // }
     temp_opsvd_interim_inner.push(opsvd_interim_inner);
     opsvd_interim.push(temp_opsvd_interim_inner);
     opsvd_interim_cal = getBeforeFinalCalculationData(totalInitial, formData, i + 1, opsvd_interim_cal, section)
@@ -2373,9 +2290,9 @@ export const Operation_DraftSurvey_CreateDataFunction = async (
       "YYYY-MM-DD HH:mm:ss"
     );
   }
+  setIsOverlayLoader(true);
   if (formData[1].opsvd_id) {
     MainData.opsvd_id = formData[1].opsvd_id;
-
     res = await putDataFromApi(updateDSApi, MainData);
   } else {
     MainData.ops_vessel_ds.opsvd_initial_date = moment(initialdate).format(
@@ -2396,32 +2313,16 @@ export const Operation_DraftSurvey_CreateDataFunction = async (
     });
     setIsOverlayLoader(false);
     setIsPopupOpen(false);
-    OperationCreateDataFunction(
-      formData,
-      setIsOverlayLoader,
-      setIsPopupOpen,
-      OperationType,
-      OperationTypeID,
-      navigate,
-      submitType === "post" ? "posted" : "in-process",
-      null,
-      [],
-      "",
-      1,
-      "",
-      operationMode
-    );
-    if (submitType === "post") {
-      const redirectUrl = getOperationActivityUrl(operationMode)
-      navigate(
-        `${redirectUrl}${encryptDataForURL(
-          formData[0].ji_id
-        )}`
-      );
-    }
-    else {
-      getSingleDraftSurveyData(OperationTypeID, formData, setTableData, setIsOverlayLoader, setFormData, section, setIsTabOpened)
-    }
+    navigate(`/operation/jrfInstructionListing/ji-details-list/confirugation-certificate/${encryptDataForURL(formData[0].ji_id)}/-99/-99`);
+    
+    //     `${redirectUrl}${encryptDataForURL(
+    //       formData[0].ji_id
+    //     )}`
+    //   );
+    // }
+    // else {
+    //   getSingleDraftSurveyData(OperationTypeID, formData, setTableData, setIsOverlayLoader, setFormData, section, setIsTabOpened)
+    // }
     return;
   } else {
     toast.error(res.message, {
@@ -3056,11 +2957,11 @@ export const getSingleDraftSurveyData = async (
         res.data.data.opsvd_survey_at_sow;
       if (updatedFormData[0]["opsvd_survey_keel_correction"]) {
         updatedFormData[1]["opsvd_changeonshipaccount"] =
-        res.data.data.opsvd_changeonshipaccount;
+          res.data.data.opsvd_changeonshipaccount;
         updatedFormData[1]["opsvd_qtydischargedorloaded"] =
-        res.data.data.opsvd_qtydischargedorloaded;
+          res.data.data.opsvd_qtydischargedorloaded;
         updatedFormData[1]["opsvd_roundoffqty"] =
-        res.data.data.opsvd_roundoffqty;
+          res.data.data.opsvd_roundoffqty;
       }
 
       setIsTabOpened(true)
@@ -3320,7 +3221,7 @@ export const Operation_BulkCargo_CreateDataFunction = async (
         tenant: GetTenantDetails(1)
       }
     }
-    
+
 
   }
   catch (ex) {

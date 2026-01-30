@@ -383,10 +383,10 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={JfInstructionAnalys} />,
       },
       {
-        path: "/operation/jrfInstructionListing/ds-analysis/:EditRecordId/:editReordType",
+        path: "/operation/jrfInstructionListing/ds-analysis/:EditRecordId/:TMLType",
         exact: true,
-        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="VL" />,
-
+        element: <ProtectedRoute component={OperationDetails} ops_code={"OT"} />,
+        
       },
       {
         path: "/operation/jrfInstructionListing/job-instruction-nomination/:EditRecordId/:editReordType",
@@ -619,46 +619,46 @@ const ThemeRoutes = [
       },
       //Other OPS
       {
-        path: "/operation/other-list",
+        path: "/operation/draught-list",
         exact: true,
         // element: <ProtectedRoute component={PlantJIList} />,
         element: <ProtectedRoute component={OperationJIList} ops_code={"OT"} />,
       },
       {
-        path: "/operation/other-list-view/:EditRecordId",
+        path: "/operation/draught-list-view/:EditRecordId",
         exact: true,
         element: <ProtectedRoute component={VesselJIDetaisView} />,
       },
       {
-        path: "/operation/other-list/:EditRecordId",
+        path: "/operation/draught-list/:EditRecordId",
         exact: true,
         element: <ProtectedRoute component={OtherJIDetails} />,
       },
       {
-        path: "/operation/other-list/other-details-list/:EditRecordId",
+        path: "/operation/draught-list/other-details-list/:EditRecordId",
         exact: true,
         // element: <ProtectedRoute component={PlantList} />,
         element: <ProtectedRoute component={OperationActivityList} ops_code="OT" />,
       },
       {
-        path: "/operation/other-list/other-details-list/:EditRecordId/:TMLType/:TMLID",
+        path: "/operation/draught-list/other-details-list/:EditRecordId/:TMLType/:TMLID",
         exact: true,
         // element: <ProtectedRoute component={PlantAnalysisOperations} />,
         element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="OT" />,
       },
       {
-        path: "/operation/other-list/other-details-list/:EditRecordId/:TMLType",
+        path: "/operation/draught-list/other-details-list/:EditRecordId/:TMLType",
         exact: true,
         // element: <ProtectedRoute component={PlantOperations} />,
         element: <ProtectedRoute component={OperationDetails} ops_code={"OT"} />,
       },
       {
-        path: "/operation/other-list/other-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
+        path: "/operation/draught-list/other-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
         exact: true,
         element: <ProtectedRoute component={ConfirugationCertificateList} />,
       },
       {
-        path: "/operation/other-list/other-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
+        path: "/operation/draught-list/other-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
         exact: true,
         element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'OT'} />,
       },
@@ -1004,7 +1004,7 @@ const ThemeRoutes = [
       },
       //Dashboard
       {
-        path: "/operation/other-list",
+        path: "/operation/draught-list",
         exact: true,
         element: <ProtectedRoute component={DashboardListing} />,
       },

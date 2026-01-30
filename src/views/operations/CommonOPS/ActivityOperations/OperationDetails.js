@@ -1,18 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Row, Col } from "reactstrap";
 
 import formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
 import formConfig2 from "../../../../formJsonData/Operations/Vessel/VesseLOperations/TMLOperation.json";
-import H_H_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/H&HOperation.json";
-import StackSupervission from "../../../../formJsonData/Operations/Vessel/VesseLOperations/StackSupervission.json";
-import RakeSupervission from "../../../../formJsonData/Operations/Vessel/VesseLOperations/RakeSupervission.json";
-import supervission_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/supervission.json";
 import DraftSurvey_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/DraftSurvey.json";
 import ScopeWork_GroupParameters from "../../../../formJsonData/Operations/Vessel/VesseLOperations/ScopeWork_GroupParameters.json";
 import sizeAnalysis_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sizeAnalysis_Details.json";
 import sample_collection from "../../../../formJsonData/Operations/Vessel/VesseLOperations/sample_collection.json";
-import Rake_Details from "../../../../formJsonData/Operations/Vessel/VesseLOperations/Rake_Details.json";
-import CargoSupervision_formConfig from "../../../../formJsonData/Operations/Vessel/VesseLOperations/CargoSuperVisionOperation.json";
 import Form from "../../../../components/common/Form";
 import { sampleMarkOptionsApi } from "../../../../services/api";
 import { postDataFromApi } from "../../../../services/commonServices";
@@ -20,10 +14,7 @@ import commonFields from "../../../../formJsonData/Operations/commonFields.json"
 import DraftSurveyMainSection from "../../../../formJsonData/Operations/DraftSurveyMainSection.json";
 import { useParams } from "react-router-dom";
 import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSActivityHeaderTab, getLMSOperationActivity, getPlantOperations, getRakeOperations, getSampleCollectionActivity, getVesselOperation, getActivityCode, getOperationNameByCode, getOperationActivityListPageUrl, getOperationActivityUrl, getStackOperations } from "../../../../services/commonFunction";
-import QuantityAssessment_formConfig from "../../../../formJsonData/Operations/Rake/RakeOperations/QuantityAssessmentOperation.json";
-import commonFieldsRake from "../../../../formJsonData/Operations/commonFieldsRake.json";
-import BulkCargoSupevission from "../../../../formJsonData/Operations/Vessel/VesseLOperations/BulkCargoSupevission.json";
+import { getLMSActivityHeaderTab, getLMSOperationActivity, getPlantOperations, getVesselOperation, getActivityCode, getOperationNameByCode, getOperationActivityListPageUrl, getOperationActivityUrl, getStackOperations } from "../../../../services/commonFunction";
 import { useSelector } from "react-redux";
 const OperationDetails = ({ ops_code }) => {
     let { TMLType } = useParams();
@@ -31,6 +22,8 @@ const OperationDetails = ({ ops_code }) => {
     TMLType = getActivityCode(TMLType)
     const ActualTMLType = TMLType
     TMLType = TMLType && TMLType.toLowerCase() != "othertpi" ? TMLType.toLowerCase() : TMLType
+    TMLType = getVesselOperation("DS")
+    ops_code = "VL"
     const opsLabel = getOperationNameByCode(ops_code) + " Operation"
     formConfig['breadcom'][0]['title'] = getOperationNameByCode(ops_code) + " List"
     formConfig['breadcom'][0]['redirect'] = getOperationActivityListPageUrl(ops_code)
@@ -41,8 +34,6 @@ const OperationDetails = ({ ops_code }) => {
     const [isTabOpened, setIsTabOpened] = useState(false);
     const [operationStepNo, setOperationStepNo] = useState(0);
     const [operationMode, setOperationMode] = useState("");
-    const tileSubHeaderHH = [{ Text: "H&H" }];
-    const tileSubHeadercargoSupervision = [{ Text: "Cargo Supervision" }];
     const tileSubHeaderDS = [
     ];
     let tileSubHeaderQA = getLMSActivityHeaderTab(TMLType)
@@ -72,90 +63,40 @@ const OperationDetails = ({ ops_code }) => {
         setOperationMode(opsMode);
         setIsViewOnly(useFor === "viewonly" ? true : false);
         let newConfig = JSON.parse(JSON.stringify(formConfig2));
-        if (ops_code == "RK" || TMLType === getPlantOperations("RK")) {
-            //for rake details tab
-            // if (TMLType == getRakeOperations('QA')) {
-            //     newConfig["sections"][0].fields = commonFields;
-            // }
-            // else {
-            if (isRakeDetails) {
-                newConfig["sections"][0].subSections.push({
-                    fields: commonFields
-                });
-                newConfig["sections"][0].subSections.push({
-                    fields: commonFieldsRake
-                });
-            }
-            else {
-                newConfig["sections"][0].fields = commonFields;
-            }
-            // }
-            //
-
-        }
-        else {
-            newConfig["sections"][0].fields = commonFields;
-        }
-        const tileSubHeaderOnlySeal = [{ Text: "Truck Supervission" }];
-        const tileSubHeaderQAss = [{ Text: "Rake Details" }, { Text: "Quantity Assessment" }];
+        newConfig["sections"][0].fields = commonFields;
         if (stepNo == 1) {
             newConfig["sections"][1] = ScopeWork_GroupParameters;
         } else if (stepNo == 4) {
             newConfig["sections"][1] = sizeAnalysis_Details;
         }
         else if (stepNo == 6) {
-            if (ops_code == "TR" || TMLType === getPlantOperations("TR")) {
-                let tabs = sample_collection.tabs.map((tab) => {
-                    tab.headers = tab.headers.map((header) => {
-                        if (header.name == "lot_no") {
-                            header.label = "Truck No."
-                        }
-                        if (header.name == "sample_qty") {
-                            header.label = "Truck Quantity"
-                        }
-                        return header;
-                    })
-                    return tab
+
+
+            let tabs = sample_collection.tabs.map((tab) => {
+                tab.headers = tab.headers.map((header) => {
+                    if (header.name == "lot_no") {
+                        header.label = "Lot No."
+                    }
+                    if (header.name == "sample_qty") {
+                        header.label = "Lot Quantity"
+                    }
+                    return header;
                 })
-                sample_collection = {
-                    ...sample_collection,
-                    tabs: tabs
-                }
+                return tab
+            })
+            sample_collection = {
+                ...sample_collection,
+                tabs: tabs
             }
-            else {
-                let tabs = sample_collection.tabs.map((tab) => {
-                    tab.headers = tab.headers.map((header) => {
-                        if (header.name == "lot_no") {
-                            header.label = "Lot No."
-                        }
-                        if (header.name == "sample_qty") {
-                            header.label = "Lot Quantity"
-                        }
-                        return header;
-                    })
-                    return tab
-                })
-                sample_collection = {
-                    ...sample_collection,
-                    tabs: tabs
-                }
-            }
+
             newConfig["sections"][1] = sample_collection;
         }
-        else if (stepNo == 7) {
-            newConfig["sections"][1] = Rake_Details;
-        } if (TMLType == getVesselOperation("DS") && ["VL", "OT"].includes(ops_code)) {
+        if (TMLType == getVesselOperation("DS") && ["VL", "OT"].includes(ops_code)) {
             newConfig["sections"][0].subSections = [{ fields: [] }, { fields: [] }];
             newConfig["sections"][0].subSections[0].fields = commonFields;
             newConfig["sections"][0].subSections[1].fields = DraftSurveyMainSection;
             newConfig["sections"][1] = DraftSurvey_formConfig;
             newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderDS;
-        } else if ([getVesselOperation("CS")].includes(TMLType) && ["VL", "OT", "PL"].includes(ops_code)) {
-            newConfig["sections"][1] = CargoSupervision_formConfig;
-            newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeadercargoSupervision;
-        } else if (TMLType == getVesselOperation("DM") && ["VL", "OT"].includes(ops_code)) {
-            newConfig["sections"][1] = sizeAnalysis_Details;
-            newConfig["sections"][1]["tabs"][0].tileSubHeader = [{ Text: "Daily Moisture" }];
         }
         else if (getLMSOperationActivity().includes(TMLType)) {
             newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQA;
@@ -290,10 +231,6 @@ const OperationDetails = ({ ops_code }) => {
                 };
             }
         }
-
-        // else if (stepNo == 5) {
-        //   newConfig["sections"][1] = sentToJRF_Details;
-        // }
         if (TMLType !== getVesselOperation("SV")) {
             if (newConfig["sections"]?.[1]) {
                 let tabTitle = newConfig["sections"][1]["tabs"][0].label;
