@@ -20,13 +20,9 @@ const OperationDetails = ({ ops_code }) => {
     let { TMLType } = useParams();
     TMLType = TMLType ? decryptDataForURL(TMLType) : "";
     TMLType = getActivityCode(TMLType)
-    console.log("TMLType", TMLType)
-
     const ActualTMLType = TMLType
     TMLType = TMLType && TMLType.toLowerCase() != "othertpi" ? TMLType.toLowerCase() : TMLType
     TMLType = getVesselOperation("DS")
-    // ["VL", "OT"].includes(ops_code)
-    console.log(ops_code)
     ops_code = "VL"
     const opsLabel = getOperationNameByCode(ops_code) + " Operation"
     formConfig['breadcom'][0]['title'] = getOperationNameByCode(ops_code) + " List"
@@ -38,8 +34,6 @@ const OperationDetails = ({ ops_code }) => {
     const [isTabOpened, setIsTabOpened] = useState(false);
     const [operationStepNo, setOperationStepNo] = useState(0);
     const [operationMode, setOperationMode] = useState("");
-    const tileSubHeaderHH = [{ Text: "H&H" }];
-    const tileSubHeadercargoSupervision = [{ Text: "Cargo Supervision" }];
     const tileSubHeaderDS = [
     ];
     let tileSubHeaderQA = getLMSActivityHeaderTab(TMLType)
@@ -76,42 +70,25 @@ const OperationDetails = ({ ops_code }) => {
             newConfig["sections"][1] = sizeAnalysis_Details;
         }
         else if (stepNo == 6) {
-            if (ops_code == "TR" || TMLType === getPlantOperations("TR")) {
-                let tabs = sample_collection.tabs.map((tab) => {
-                    tab.headers = tab.headers.map((header) => {
-                        if (header.name == "lot_no") {
-                            header.label = "Truck No."
-                        }
-                        if (header.name == "sample_qty") {
-                            header.label = "Truck Quantity"
-                        }
-                        return header;
-                    })
-                    return tab
+
+
+            let tabs = sample_collection.tabs.map((tab) => {
+                tab.headers = tab.headers.map((header) => {
+                    if (header.name == "lot_no") {
+                        header.label = "Lot No."
+                    }
+                    if (header.name == "sample_qty") {
+                        header.label = "Lot Quantity"
+                    }
+                    return header;
                 })
-                sample_collection = {
-                    ...sample_collection,
-                    tabs: tabs
-                }
+                return tab
+            })
+            sample_collection = {
+                ...sample_collection,
+                tabs: tabs
             }
-            else {
-                let tabs = sample_collection.tabs.map((tab) => {
-                    tab.headers = tab.headers.map((header) => {
-                        if (header.name == "lot_no") {
-                            header.label = "Lot No."
-                        }
-                        if (header.name == "sample_qty") {
-                            header.label = "Lot Quantity"
-                        }
-                        return header;
-                    })
-                    return tab
-                })
-                sample_collection = {
-                    ...sample_collection,
-                    tabs: tabs
-                }
-            }
+
             newConfig["sections"][1] = sample_collection;
         }
         if (TMLType == getVesselOperation("DS") && ["VL", "OT"].includes(ops_code)) {
