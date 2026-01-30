@@ -440,6 +440,7 @@ export const getSubCommodityData = async (
     // let res = await postDataFromApi(getSubCommodityDataApi, {
     //   cmd_id: cmd_id,
     // });
+    console.log("commodity milgaya hain")
     let res = await postDataFromApi(getSubCommodityDataApi + "?page=1&search=", {
       cmd_id: cmd_id,
       is_dropdown: true,

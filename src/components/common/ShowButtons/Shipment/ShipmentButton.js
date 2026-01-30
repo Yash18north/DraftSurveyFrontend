@@ -15,7 +15,7 @@ const ShipmentButtons = ({ formData, handleSubmit, setIsOverlayLoader, EditRecor
       <Button
         type="button"
         className="cancelBtn"
-        onClick={() => navigate("/audit/sales-register-list")}
+        onClick={() => navigate("/shipment")}
       >
         Back
       </Button>
@@ -29,7 +29,7 @@ const ShipmentButtons = ({ formData, handleSubmit, setIsOverlayLoader, EditRecor
             className="submitBtn"
             onClick={() =>
               
-               handleShipmentCreateAndUpdate(formData, handleSubmit, EditRecordId, navigate, "posted")
+               handleShipmentCreateAndUpdate(formData, handleSubmit, setIsOverlayLoader, navigate, "posted")
             }
           >
             Post

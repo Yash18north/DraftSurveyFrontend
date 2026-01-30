@@ -466,7 +466,7 @@ const Forms = ({
   const [sizeofPage, setSizeOfPage] = useState(0);
   const [isCustomPopup, setIsCustomPopup] = useState(false);
   let navigate = useNavigate();
-  
+
 
 
   let vieableArr = [
@@ -503,7 +503,7 @@ const Forms = ({
     }
   }, [customFilterData?.[1]?.search_financial_year]);
 
-  console.log("object",EditRecordId)
+  
   useEffect(() => {
     try {
       setIsOverlayLoader(true)
@@ -648,7 +648,7 @@ const Forms = ({
         }
       }
       else if (moduleType === "ShipmentForm") {
-       
+
         if (status === "View") {
           setViewOnly(true);
           setAction(status);
@@ -664,7 +664,7 @@ const Forms = ({
         }
       }
       else if (moduleType === "marketPlaceForm") {
-     
+
         if (status === "View") {
           setViewOnly(true);
           setAction(status);
@@ -4314,10 +4314,10 @@ const Forms = ({
     }
     else if (moduleType === "ShipmentForm") {
 
-      if (formData[0].ji_is_loading === "Loading") {
+      if (formData[0]?.ji_is_loading === "Loading") {
         if (cell.name === "loading_unloading_port_name") {
           cell.label = "Unloading Port and country";
-          
+
         }
 
 
@@ -4991,7 +4991,7 @@ const Forms = ({
       navigate("/operation/commercial-certificate-list");
     }
   };
-
+{console.log("formData",formData)}
   const PublishCertificate = async (CCID, status) => {
     let payload = {
       cc_id: CCID,
@@ -5510,7 +5510,26 @@ const Forms = ({
             moduleType={moduleType}
           />
         );
-
+        case "ShipmentForm":
+        return(
+          <ShipmentButtons
+            formData={formData}
+            handleSubmit={handleSubmit}
+            setIsOverlayLoader={setIsOverlayLoader}
+            setFormData={setFormData}
+            viewOnly={viewOnly}
+          />
+        )
+        case "MarketPlaceForm":
+        return(
+          <ShipmentButtons
+            formData={formData}
+            handleSubmit={handleSubmit}
+            setIsOverlayLoader={setIsOverlayLoader}
+            setFormData={setFormData}
+            viewOnly={viewOnly}
+          />
+        )
       default:
         return null;
     }
@@ -7617,6 +7636,8 @@ const Forms = ({
                           if (field.name === "loading_unloading_port_name" && !["Loading", "Unloading"].includes(formData[0]?.ji_is_loading)) {
                             isShow = false
                           }
+
+
                         }
 
 
@@ -8359,6 +8380,7 @@ const Forms = ({
       {(isOverlayLoader || isStatusCountCalled) && <OverlayLoading />}
       <Loading LoadingText={LoadingText} />
     </>
+    
   );
 };
 

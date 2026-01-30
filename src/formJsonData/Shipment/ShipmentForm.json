@@ -36,7 +36,7 @@
                 },
                 {
                     "width": 6,
-                    "name": "vessel_name",
+                    "name": "ship_vessel_name",
                     "label": "Vessel Name",
                     "type": "text",
                     "required": true,
@@ -71,7 +71,7 @@
                     },
                     "customPayload": {
                         "name": "cmd_id",
-                        "value": "fk_commodityid"
+                        "value": "ship_commodity"
                     },
                     "isCustomPayload": true,
                     "required": true,
@@ -92,18 +92,19 @@
                     "width": 6,
                     "name": "ship_place_of_work",
                     "label": "Place of Work",
-                    "type": "select",
+                    "type": "DropDownWithLoadMore",
                     "required": true,
-                    "options": [
-                        {
-                            "label": "Other",
-                            "value": "other"
-                        },
-                        {
-                            "label": "Other Place",
-                            "value": "other_place"
-                        }
-                    ]
+                    "apiendpoint": "/masters/placeofwork/list/",
+                    "model_name": "",
+                    "apimethod": "GET",
+                    "isSearchable": true,
+                    "optionData": {
+                        "id": "pow_id",
+                        "label": "pow_name"
+                    },
+                    "errorMsgs": {
+                        "required": "This field is required"
+                    }
                 },
                 {
                     "width": 6,
@@ -134,14 +135,24 @@
                     "type": "doubleText",
                     "secondType": "text",
                     "required": true
+                },
+                {
+                    "width": 6,
+                    "name": "ship_doc_url",
+                    "label": "Upload Document",
+                    "type": "upload",
+                    "inputType": "file",
+                    "required": true,
+                    "accept": ".pdf,.jpg,.jpeg,.png,.doc,.docx",
+                    "maxSize": 5242880,
+                    "errorMsgs": {
+                        "required": "Please upload a document",
+                        "maxSize": "File size should be less than 5MB"
+                    }
                 }
             ]
         }
     ],
-    "apiEndpoints": {
-        "create": "/item-master/create/",
-        "update": "/item-master/update/"
-    },
     "actions": [
         {
             "label": "bi bi-eye h6",

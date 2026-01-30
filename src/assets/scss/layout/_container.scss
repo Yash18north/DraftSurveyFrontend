@@ -143,3 +143,17 @@ a {
   overflow-x: auto;
   flex-wrap: nowrap;
 }
+
+.uploadFileInInputField{
+  display: flex;
+  flex-direction: row;
+  gap: 16px; /* gap-4 */
+  .uploadCanceLbTN{
+    width: 20px;
+    height:20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+

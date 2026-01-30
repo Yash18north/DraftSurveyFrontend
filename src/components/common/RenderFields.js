@@ -29,6 +29,7 @@ import DropDownWithLoadMore from "./elements/DropDownWithLoadMore";
 import InputTime from "./elements/InputTime";
 import InputMultiEmail from "./elements/InputMultiEmail";
 import InputTimePicker from "./elements/InputTimePicker";
+import InputFileUpload from "./elements/InputFileUpload";
 
 const RenderFields = ({
   field,
@@ -1092,6 +1093,38 @@ const RenderFields = ({
           }}
         />
       );
+    case "upload":
+      return (
+        <InputFileUpload
+          key={newFieldName}
+          field={{
+            name: newFieldName,
+            label: field.label,
+
+            // 🔥 IMPORTANT: file value must be File | null
+            value: formData[sectionIndex]?.[newFieldName] || null,
+
+            // 🔥 IMPORTANT: files[0], NOT value
+            onChange: (e) => {
+              console.log("e",e.target.files)
+              handleFieldChange(
+                sectionIndex,
+                newFieldName,
+                
+                e.target.files?.[0] || null
+              )
+            },
+
+            required: field.required,
+            error: showError ? validation.message : "",
+            readOnly: field.readOnly,
+            actionClicked: actionClicked,
+            inputType: "file",
+            accept: field.accept
+          }}
+        />
+      );
+
     default:
       return null;
   }
