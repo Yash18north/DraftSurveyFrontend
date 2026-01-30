@@ -330,11 +330,6 @@ export function GetTenantDetails(isTenantId, isTenantcode = "",isPetroJRF="") {
     const hostname = window.location.origin;
     // return developmentURL;
     return "https://tcrc-uatops.tayadigital.com";
-<<<<<<< HEAD
-=======
-    // return process.env.REACT_APP_API_DEV_URL;
-
->>>>>>> d7ebf82bb7a46b8df6d23a6bbe4aac0867d04084
     return hostname;
   }
 }
