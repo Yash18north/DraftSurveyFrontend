@@ -562,6 +562,8 @@ Description: Making Popup responsive
   background-color: $backgroundColorScreen;
   padding: 20px 0px;
   gap: 8px;
+  // added this new thing here 
+ overflow-x: clip;
 }
 
 .go-to-page {
@@ -2014,8 +2016,11 @@ td.groupBasisTd>.assignmentGroupParameter>.form-group {
   width: 80%;
 }
 
+// .renderList_header_table {
+//   overflow: auto;
+// }
 .renderList_header_table {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .doubleInputSelect {

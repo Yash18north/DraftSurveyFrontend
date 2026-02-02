@@ -4180,7 +4180,7 @@ const Forms = ({
     else if (moduleType === "ShipmentForm") {
 
       if (formData[0]?.ji_is_loading === "Loading") {
-        if (cell.name === "loading_unloading_port_name") {
+        if (cell.name === "ship_country_name") {
           cell.label = "Unloading Port and country";
 
         }
@@ -4188,7 +4188,7 @@ const Forms = ({
 
 
       } else {
-        if (cell.name === "loading_unloading_port_name") {
+        if (cell.name === "ship_country_name") {
 
           cell.label = "Loading Port and country";
         }
@@ -7400,7 +7400,7 @@ const Forms = ({
                         }
                         else if (moduleType === "ShipmentForm") {
 
-                          if (field.name === "loading_unloading_port_name" && !["Loading", "Unloading"].includes(formData[0]?.ji_is_loading)) {
+                          if (field.name === "ship_country_name" && !["Loading", "Unloading"].includes(formData[0]?.ji_is_loading)) {
                             isShow = false
                           }
 

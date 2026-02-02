@@ -37,7 +37,7 @@
               "width": 6,
               "name": "ji_reference_number",
               "label": "Reference Number",
-              "type": "label",
+              "type": "text",
               "required": true,
               "value": "To be Generated"
             },
@@ -48,6 +48,21 @@
               "type": "date",
               "required": true,
               "placeholder": "Enter Date"
+            },
+            {
+              "width": 6,
+              "name": "fk_shipmentid",
+              "label": "Shipment",
+              "type": "DropDownWithLoadMore",
+              "apiendpoint": "/shipment/list/",
+              "model_name": "",
+              "apimethod": "GET",
+              "required": true,
+              "isSearchable": true,
+              "optionData": {
+                "id": "ship_id",
+                "label": "ship_number"
+              }
             },
             {
               "width": 6,
@@ -63,21 +78,6 @@
                 "id": "cust_id",
                 "label": "cust_name",
                 "label2": "cust_gstno"
-              }
-            },
-            {
-              "width": 6,
-              "name": "fk_shipmentid",
-              "label": "Shipment",
-              "type": "DropDownWithLoadMore",
-              "apiendpoint": "/shipment/list/",
-              "model_name": "",
-              "apimethod": "GET",
-              "required": true,
-              "isSearchable": true,
-              "optionData": {
-                "id": "ship_id",
-                "label": "ship_number"
               }
             },
             {
@@ -174,7 +174,7 @@
             
             {
               "name": "ji_nameofoperationmode",
-              "type": "text",
+              "type": "label",
               "label": "Vessel Name",
               "width": 6,
               "required": true
@@ -184,7 +184,7 @@
               "name": "fk_commodityid",
               "label": "Commodity",
               "required": true,
-              "type": "DropDownWithLoadMore",
+              "type": "label",
               "apiendpoint": "/masters/list",
               "model_name": "commodity",
               "apimethod": "POST",
@@ -198,7 +198,7 @@
               "width": 6,
               "name": "fk_subcommodityid",
               "label": "Sub Commodity",
-              "type": "DropDownWithLoadMore",
+              "type": "label",
               "apiendpoint": "/ji-commodity/get/",
               "apimethod": "POST",
               "isSearchable": "true",
@@ -222,7 +222,7 @@
               "name": "fk_placeworkid",
               "label": "Place of Work",
               "required": true,
-              "type": "DropDownWithLoadMore",
+              "type": "label",
               "apiendpoint": "/masters/placeofwork/list/",
               "model_name": "",
               "apimethod": "GET",
@@ -231,10 +231,7 @@
                 "id": "pow_id",
                 "label": "pow_name"
               },
-              "customPayload": {
-                "name": "state_id",
-                "value": "ji_branch_state_id"
-              },
+              
               "isCustomPayload": true
             },
             {

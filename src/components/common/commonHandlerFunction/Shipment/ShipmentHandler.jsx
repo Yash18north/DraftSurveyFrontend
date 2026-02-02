@@ -24,6 +24,7 @@ export const handleGetAShipmet = async (shipmentId, setformData, status, setIsOv
                         res?.data?.data?.ship_loading_unloading === "unloading" ?
                             "Unloading" : "",
                     ship_doc_url: res?.data?.data?.ship_doc_url,
+                    ship_port_name:res?.data?.data?.ship_port_name,
                 };
 
                 return [updatedFirstItem];
@@ -55,9 +56,7 @@ export const handleGetAShipmet = async (shipmentId, setformData, status, setIsOv
 //         if (!isValidate) {
 //             return false;
 //         }
-//         const formDataPayload = formData()
-
-
+//         
 
 //         const payload = {
 
@@ -243,6 +242,8 @@ export const handleShipmentCreateAndUpdate = async (
                 ship_appointed_quantity: data.ship_appointed_quantity,
                 ship_place_of_work: data.ship_place_of_work,
                 ship_loading_unloading: data.ji_is_loading?.toLowerCase(),
+                ship_country_name: formData[0]?.ship_country_name,
+                ship_port_name:formData[0]?.ship_port_name,
                 ...(shipDocBase64 && { ship_doc_url: shipDocBase64 }), 
                 ship_status: status,
             },

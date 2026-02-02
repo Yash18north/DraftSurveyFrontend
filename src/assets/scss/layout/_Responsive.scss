@@ -595,6 +595,19 @@
     align-items: center;
     z-index: 1;
   }
+
+  .header_urs_and_branch_label {
+    margin: 20px 2px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14.63px;
+    text-align: end;
+    color: #616161;
+
+  }
 }
 
 @media (max-width: 992px) {
@@ -640,6 +653,19 @@
     align-items: center;
     z-index: 1;
   }
+
+  .header_urs_and_branch_label {
+    margin: 20px 2px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14.63px;
+    text-align: end;
+    color: #616161;
+
+  }
 }
 
 @media (max-width: 854px) {
@@ -650,12 +676,13 @@
   .card_header_btns>button {
     height: auto;
   }
+
   .tcrcLogoMobile {
     background-color: $white;
     position: fixed;
     // width: 17vw;
     top: 0px;
-    height:50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -671,12 +698,13 @@
     flex-direction: column;
     gap: 22px;
   }
+
   .tcrcLogoMobile {
     background-color: $white;
     position: fixed;
     // width: 17vw;
     top: 0px;
-    height:50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -729,12 +757,13 @@
     min-width: 120px;
     padding: 0px 4px !important;
   }
+
   .tcrcLogoMobile {
     background-color: $white;
     position: fixed;
     // width: 17vw;
     top: 0px;
-    height:50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -793,7 +822,47 @@
     align-items: center;
     z-index: 1;
   }
+
 }
+
+// @media (max-width: 375px) {
+//   .header_urs_and_branch_label {
+//     margin: 20px 2px 0px 20px;
+//     display: flex;
+//     flex-direction: column;
+//     font-family: Poppins, sans-serif;
+//     font-size: 12px;
+//     font-weight: 700;
+//     line-height: 14.63px;
+//     text-align: end;
+//     color: #616161;
+//   }
+
+//   .header_urs_label {
+//     margin-top: 20px;
+//     margin-left: 110px !important;
+//     /* remove !important unless necessary */
+//   }
+// }
+// @media (max-width: 320px) {
+//   .header_urs_and_branch_label {
+//     margin: 20px 2px 0px 20px;
+//     display: flex;
+//     flex-direction: column;
+//     font-family: Poppins, sans-serif;
+//     font-size: 12px;
+//     font-weight: 700;
+//     line-height: 14.63px;
+//     text-align: end;
+//     color: #616161;
+//   }
+
+//   .header_urs_label {
+//     margin-top: 20px;
+//     margin-left: 110px !important;
+//     /* remove !important unless necessary */
+//   }
+// }
 
 
 

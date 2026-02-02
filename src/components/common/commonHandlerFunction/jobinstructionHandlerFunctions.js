@@ -528,7 +528,7 @@ export const getShipmentDetails = async (
             fk_subcommodityid: responseData.ship_sub_commodity,
             ji_totalqty: responseData.ship_total_quantity,
             ji_appointed_totalqty: responseData.ship_appointed_quantity,
-            fk_placeworkid: responseData.ship_place_of_work,
+            fk_placeworkid: parseInt(responseData.ship_place_of_work, 10),
             ji_is_loading: responseData.ship_loading_unloading === "loading" ? "Loading" : "Unloading",
           },
         };
