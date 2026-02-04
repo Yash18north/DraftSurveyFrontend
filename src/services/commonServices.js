@@ -330,6 +330,6 @@ export function GetTenantDetails(isTenantId, isTenantcode = "",isPetroJRF="") {
     const hostname = window.location.origin;
     return developmentURL;
     // return "https://tcrcmain-dev.18northdev.in";
-    return hostname;
+    // return hostname;
   }
 }

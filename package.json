@@ -1,7 +1,8 @@
 {
   "name": "my-react-app",
-  "version": "3.63",
+  "version": "3.65",
   "private": true,
+  "homepage": "/DraftSurvey/fe/",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@ckeditor/ckeditor5-react": "^9.3.1",
