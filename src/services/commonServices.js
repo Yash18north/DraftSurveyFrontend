@@ -328,8 +328,8 @@ export function GetTenantDetails(isTenantId, isTenantcode = "",isPetroJRF="") {
     }
   } else {
     const hostname = window.location.origin;
-    // return developmentURL;
-    return "https://tcrcmain-dev.18northdev.in";
+    return developmentURL;
+    // return "https://tcrcmain-dev.18northdev.in";
     return hostname;
   }
 }
