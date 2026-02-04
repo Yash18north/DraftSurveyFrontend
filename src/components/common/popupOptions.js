@@ -10,16 +10,14 @@ import {
 } from "../../services/commonServices";
 import {
   getActivityCode,
+  getComonCodeForCompany,
   getFormatedDate,
-  getOperationActivityListPageUrl,
-  getOperationActivityUrl,
+  getLMSOperationActivity,
   getRakeCollectionActivity,
   getRakeOperations,
   getSampleCollectionActivity,
-  getStackOperations,
   getVesselOperation,
   isModuelePermission,
-  getLMSOperationActivity
 } from "../../services/commonFunction";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -44,7 +42,7 @@ import { encryptDataForURL, decryptDataForURL } from "../../utills/useCryptoUtil
 import { handleJobInstructionDelete } from "./commonHandlerFunction/jobinstructionHandlerFunctions";
 import { getNonLMSDetailsById } from "./commonHandlerFunction/OPscertificate/OPSCertificateHandlerFunctions";
 import { handleVesselOperationDelete, handleDocumentDelete, handleCommercialCertDelete } from "./commonHandlerFunction/CommercialCertificateHandlerFunctions";
-import { handleConsortiumDelete } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
+// import { handleConsortiumDelete } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 import { handleConsortiumDelete as stubHandleConsortiumDelete } from "../../utils/stubFunctions";
 import { useTranslation } from "react-i18next";
 import { handleIncentiveDelete } from "./commonHandlerFunction/Feedback/IncentiveHandler";
@@ -188,7 +186,7 @@ const PopupOptions = ({
               return
             }
             else if (
-              !getLMSOperationActivity().includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase())
+              !getLMSOperationActivity().includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getRakeOperations("RK_SV")].includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase())
             ) {
               if (row.cc_is_external) {
                 navigate(
@@ -407,7 +405,7 @@ const PopupOptions = ({
               );
             }
             else if (
-              !getLMSOperationActivity().includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase())
+              !getLMSOperationActivity().includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getRakeOperations("RK_SV")].includes(getActivityCode(row?.activity_master?.activity_code || row.activity_code).toLowerCase())
             ) {
               let payload = {
                 ji_id: row?.fk_jiid,

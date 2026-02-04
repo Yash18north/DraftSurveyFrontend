@@ -24,7 +24,7 @@ import {
   tmlMoisturePDFApi
 } from "../../../services/api";
 import { downLoadNonLMSCertificatePDFById } from "../commonHandlerFunction/OPscertificate/OPSCertificateHandlerFunctions";
-import { getLMSOperationActivity, getVesselOperation, getRakeOperations, getStackOperations, getPlantOperations, getActivityCode } from "../../../services/commonFunction";
+import { getLMSOperationActivity, getVesselOperation, getRakeOperations, getActivityCode } from "../../../services/commonFunction";
 
 const Preview = ({ pdfUrl, setPdfUrl, IsPreviewUpload, setSharingPdfUrl, label, isCustom, apiUrl, apiMethod, apiPayload }) => {
   let { EditRecordId, EditSubRecordId, s3URL } = useParams();

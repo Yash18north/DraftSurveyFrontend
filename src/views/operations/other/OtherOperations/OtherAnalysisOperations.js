@@ -8,7 +8,7 @@ import { postDataFromApi } from "../../../../services/commonServices";
 import commonFields from "../../../../formJsonData/Operations/commonFields.json";
 import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
 import { useParams } from "react-router-dom";
-import { getRakeOperations,getPlantOperations, getActivityCode } from "../../../../services/commonFunction";
+import { getRakeOperations, getActivityCode } from "../../../../services/commonFunction";
 import { getSampleMarkForDropdown } from "../../../../components/common/commonHandlerFunction/jobinstructionHandlerFunctions";
 formConfig["sections"][0].fields = commonFields;
 const OtherAnalysisOperations = () => {
@@ -48,7 +48,7 @@ const OtherAnalysisOperations = () => {
   operationType=decryptDataForURL(operationType)
   operationType = getActivityCode(operationType)
   operationType = operationType && operationType.toLowerCase() != "othertpi" ? operationType.toLowerCase() : operationType
-  if ([getPlantOperations("TR"),getPlantOperations("RK"),getPlantOperations("VL"),getPlantOperations("ST")].includes(operationType) ) {
+  if ([getRakeOperations("RK")].includes(operationType) ) {
     formConfig['sections'][1]['tabs'][0].tileSubHeader = tileSubHeaderQA;
   }
   const getSampleIdsMasterData = async (ji_id, jis_id, context = "Lot") => {

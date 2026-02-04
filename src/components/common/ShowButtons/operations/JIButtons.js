@@ -16,11 +16,9 @@ import {
   Operation_Supervision_CreateDataFunction
 } from "../../commonHandlerFunction/operations/TMLOperations";
 import { encryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSOperationActivity, getOperationActivityUrl, getPlantOperations, getRakeOperations, getVesselOperation, getWithoutSizeAnalysisActivity, getActivityCode, getStackOperations, getOperationActivityListPageUrl } from "../../../../services/commonFunction";
+import { getLMSOperationActivity, getOperationActivityUrl, getVesselOperation, getWithoutSizeAnalysisActivity, getActivityCode, getOperationActivityListPageUrl } from "../../../../services/commonFunction";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
-import { OperationQualityAssesmentCreateDataFunction, RakeSupervissionDailyReport } from "../../commonHandlerFunction/operations/RakeHandlerOperation";
-import { stackSupervissionDailyReport } from "../../commonHandlerFunction/operations/StackHandlerFunctions";
 const JIButtons = ({
   action,
   tabOpen,
@@ -96,9 +94,7 @@ const JIButtons = ({
         return true
       }
     }
-    else if ([getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(OperationType)) {
-      return subTableData.length === 0;
-    } else if (
+    else if (
       getLMSOperationActivity().includes(OperationType)
     ) {
       if (operationStepNo == 1) {
@@ -254,20 +250,7 @@ const JIButtons = ({
   };
 
   const checkShowButtonConditon = () => {
-    if ([getRakeOperations('QAss'), getRakeOperations('QA')].includes(OperationType)) {
-      if (formData?.[0].rake_qas_id || formData?.[0].rake_qan_id) {
-        return true;
-      }
-      else {
-        if (getRakeOperations('QA') == OperationType) {
-          return true
-        }
-        return true
-      }
-    }
-    else {
-      return true;
-    }
+    return true;
   }
   const checkLabOtherTIPIBeforeSendToJRF = (type) => {
     let JRFData = [];
@@ -353,38 +336,10 @@ const JIButtons = ({
   const sendDailyReportHandler = async () => {
     try {
       setIsOverlayLoader(true)
-      if (getRakeOperations("QAss") === OperationType)
-        await OperationQualityAssesmentCreateDataFunction(
-          formData,
-          setIsOverlayLoader,
-          setIsPopupOpen,
-          OperationType,
-          OperationTypeID,
-          navigate,
-          subTableData,
-          'save',
-          operationMode,
-          operationStepNo,
-          '',
-          formConfig.sections[1]?.tabs?.[0],
-          setSubTableData,
-          setFormData,
-          formConfig,
-          setActiveTab,
-          activeTab,
-          1
-        );
-      else if (getStackOperations("ST_SV") === OperationType)
-        await stackSupervissionDailyReport(formData, navigate, OperationTypeID)
-      else if (getRakeOperations("RK_SV") === OperationType)
-        await RakeSupervissionDailyReport(formData, navigate, OperationTypeID)
     }
     catch (ex) {
       setIsOverlayLoader(false)
     }
-    // finally{
-    //   setIsOverlayLoader(false)
-    // }
   }
 
   return isRakeDetails ? (
@@ -548,7 +503,7 @@ const JIButtons = ({
               id="submit_btn3"
               onClick={
 
-                ([getVesselOperation("SV"), getRakeOperations("QAss")].includes(OperationType)) &&
+                ([getVesselOperation("SV")].includes(OperationType)) &&
                   activeTab !== "1-0" &&
                   // formData[1]?.ops_status !== "posted" &&
                   action !== "View"
@@ -576,7 +531,7 @@ const JIButtons = ({
             {!isViewOnlyTable && !viewOnly && checkShowButtonConditon() ? (OperationType === getVesselOperation("DS") && !tabOpen) ? null : (
               <>
                 {" "}
-                {[getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(OperationType) ? null : <button
+                <button
                   type="button"
                   className="saveBtn"
                   id="submit_btn2"
@@ -590,7 +545,7 @@ const JIButtons = ({
                   {operationStepNo == 4 ? "Save" : !getLMSOperationActivity().includes(OperationType)
                     ? "Save"
                     : "Next"}
-                </button>}
+                </button>
                 {
                   operationStepNo == 4 && (
                     <button
@@ -625,18 +580,6 @@ const JIButtons = ({
                   )
                 }
                 {
-                  OperationType === getRakeOperations("QAss") && activeTab === "1-0" ? (<button
-                    type="button"
-                    className="saveBtn"
-                    id="submit_btn2"
-                    data-name="save"
-                    onClick={(e) => {
-                      setJRFCreationType("save");
-                      setIsPopupOpen(true);
-                    }}
-                  >
-                    NEXT
-                  </button>) : null
                 }
 
 
@@ -762,7 +705,7 @@ const JIButtons = ({
                       </Button>
                     </>
                   ))}
-                {!(getLMSOperationActivity().includes(OperationType) || OperationType === getVesselOperation("SV")) && !viewOnly ? (OperationType === getRakeOperations("QAss") && activeTab === "1-0") ? null : (
+                {!(getLMSOperationActivity().includes(OperationType) || OperationType === getVesselOperation("SV")) && !viewOnly ? null : (
                   <Button
                     type="button"
                     className="submitBtn"
@@ -775,19 +718,7 @@ const JIButtons = ({
                   >
                     Post
                   </Button>
-                ) : null}
-                {[getRakeOperations("QAss"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(OperationType) &&
-                  <Button
-                    type="button"
-                    className="submitBtn"
-                    id="submit_btn1"
-                    disabled={checkValidation('post')}
-                    onClick={(e) => {
-                      sendDailyReportHandler()
-                    }}
-                  >
-                    Send Daily Report
-                  </Button>}
+                )}
               </>
             ) : (
               getLMSOperationActivity().includes(OperationType) && (

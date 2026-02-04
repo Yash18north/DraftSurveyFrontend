@@ -1,5 +1,5 @@
 import React from 'react'
-import { IncentiveCreateApi, IncentiveDeleteApi, IncentiveGetApi, IncentiveUpdateApi, jobCostingIncApi } from '../../../../services/api'
+import { IncentiveCreateApi, IncentiveDeleteApi, IncentiveGetApi, IncentiveUpdateApi } from '../../../../services/api'
 import { deleteDataFromApi, getDataFromApi, postDataFromApi, putDataFromApi } from '../../../../services/commonServices';
 import { toast } from 'react-toastify';
 import moment from 'moment';
@@ -231,9 +231,11 @@ export const getJobCostingIncDataFunc = async (
 ) => {
     try {
         setIsOverlayLoader(true)
-        let res = await postDataFromApi(jobCostingIncApi, {
-            im_id: formData[0]?.incentive_invoice_id
-        });
+        // Job costing functionality removed
+        // let res = await postDataFromApi(jobCostingIncApi, {
+        //     im_id: formData[0]?.incentive_invoice_id
+        // });
+        let res = { data: { status: 200 } }; // Mock response
         if (res?.data?.status === 200) {
             if (!res?.data?.data?.jc_profit_loss) {
                 // toast.error("Job costing has not been completed for this invoice; therefore, it cannot be processed.", {

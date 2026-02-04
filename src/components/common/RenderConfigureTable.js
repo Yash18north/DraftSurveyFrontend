@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
 import PropTypes from "prop-types";
 import RenderFields from "./RenderFields";
-import { getPlantOperations, getVesselOperation } from "../../services/commonFunction";
+import { getVesselOperation } from "../../services/commonFunction";
 
 const RenderConfigureTable = ({
   section,
@@ -241,7 +241,7 @@ const RenderConfigureTable = ({
                     }
                     if (bodyField.name === "rpc_is_lotwise_lot_no") {
                       let newTitle = bodyField.options;
-                      if (['TR', 'TRUCK'].includes(formData[0]?.operation_type?.operation_type_code.toUpperCase()) || OperationType === getPlantOperations('TR')) {
+                      if (['TR', 'TRUCK'].includes(formData[0]?.operation_type?.operation_type_code.toUpperCase())) {
                         newTitle = ["Truck No."]
                       }
                       else if (OperationType === getVesselOperation('VL_BQA')) {

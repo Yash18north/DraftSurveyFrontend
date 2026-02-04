@@ -13,10 +13,10 @@ import { postDataFromApi } from "../../services/commonServices";
 import ActionOptionsTable from "./ActionOptionsTable";
 import {
   getFormatedDate,
+  getLMSOperationActivity,
   getRakeOperations,
   getSelectedOptionName,
   getVesselOperation,
-  getPlantOperations,
   getTotalCountBasedOnField,
   getTextWithouHtml
 } from "../../services/commonFunction";
@@ -412,7 +412,7 @@ const RenderTableSetAllManualSection = ({
           })
         }
       }
-      if (['TR', 'TRUCK'].includes(operationMode.toUpperCase()) || OperationType === getPlantOperations('TR')) {
+      if (['TR', 'TRUCK'].includes(operationMode.toUpperCase())) {
         if (operationStepNo == 6) {
           nonRequiredFields.push('lot_no')
         }

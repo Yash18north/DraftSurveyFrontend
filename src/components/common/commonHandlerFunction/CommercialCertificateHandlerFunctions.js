@@ -6,7 +6,7 @@ import {
   postDataFromApi,
   putDataFromApi,
 } from "../../../services/commonServices";
-import { getVesselOperation,  getStackOperations, getRakeOperations, getRakeCollectionActivity, getPlantOperations, getLMSOperationActivity, getActivityCode, getFormatedDate, getPDFFormattedDateWithTime } from "../../../services/commonFunction";
+import { getVesselOperation, getRakeOperations, getRakeCollectionActivity, getLMSOperationActivity, getActivityCode, getFormatedDate, getPDFFormattedDateWithTime } from "../../../services/commonFunction";
 import {
   reportConfigGetApi,
   ccCertGetApi,
@@ -22,7 +22,7 @@ import {
   reportConfigCreateApi,
   reportConfigUpdateApi
 } from "../../../services/api";
-import { getSingleQualityAnalysisData } from "./operations/RakeHandlerOperation";
+// import { getSingleQualityAnalysisData } from "./operations/RakeHandlerOperation";
 
 import { encryptDataForURL, decryptDataForURL } from "../../../utills/useCryptoUtils";
 
@@ -239,17 +239,18 @@ export const getCommercialCertificateSingle = async (
       };
     });
     if (getRakeCollectionActivity(1).includes(res?.data?.data?.activity_code.toLowerCase())) {
-      getSingleQualityAnalysisData(
-        JISID,
-        formData,
-        setIsOverlayLoader,
-        setFormData,
-        formConfig,
-        EditRecordId,
-        res?.data?.data?.fk_cert_config_id,
-        isUseForPhysical,
-        RPCID
-      );
+      // Quality analysis functionality removed
+      // getSingleQualityAnalysisData(
+      //   JISID,
+      //   formData,
+      //   setIsOverlayLoader,
+      //   setFormData,
+      //   formConfig,
+      //   EditRecordId,
+      //   res?.data?.data?.fk_cert_config_id,
+      //   isUseForPhysical,
+      //   RPCID
+      // );
     }
   }
 };
@@ -266,7 +267,7 @@ export const getCommercialCertificateTopBottom = async (setFormData, EditRecordI
   // 5	"VL_TML"
   // 6	"VL_PSI"
 
-  if ([getVesselOperation("QA"), getPlantOperations('VL')].includes(OperationType)) {
+  if ([getVesselOperation("QA")].includes(OperationType)) {
     payload.rhf_type = "QA"
     payload.rhf_id = 1
   }

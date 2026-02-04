@@ -3,7 +3,6 @@
 export const getTestMemoDetails = () => null;
 export const getTestMemoDetailsWithCertificate = () => null;
 export const getInvoiceData = () => null;
-export const handleGetJobCostingList = () => null;
 export const getSingleBranchExpense = () => null;
 export const handleGetSingleOutstanding = () => null;
 export const handleGetSingleSalesRegister = () => null;
@@ -48,7 +47,6 @@ export const handleSFMCreateWithOperations = () => null;
 export const handleSFMUpdateWithOperations = () => null;
 export const handleConsortiumCreateOrUpdate = () => null;
 export const handleInvoiceCreateOrUpdate = () => null;
-export const handleJobCostingFormCreateAndUpdate = () => null;
 export const changeTestMEmoStatuChange = () => null;
 export const hanfleInvoiceStatusChange = () => null;
 export const handlePurchaseOrderCreateUpdate = () => null;
@@ -66,7 +64,6 @@ export const incentivesCalculationData = () => null;
 export const getCalculationsForTotal = () => null;
 export const calculateTotalGST = () => null;
 export const OutStandingExtraFields = () => null;
-export const getCalculationsForJobCosting = () => null;
 export const getCalculationForBranchExpense = () => null;
 export const getBillingDelayDayCount = () => null;
 
@@ -153,7 +150,6 @@ export const PopUpPurchaseReq = () => null;
 export const SampleVerificationDetals = () => null;
 
 // Button component stubs
-export const JobCostingButton = () => null;
 
 // Value functions
 export const getTotalBranchAmountValue = () => null;

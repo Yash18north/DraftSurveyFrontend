@@ -14,7 +14,7 @@ import commonFields from "../../../../formJsonData/Operations/commonFields.json"
 import DraftSurveyMainSection from "../../../../formJsonData/Operations/DraftSurveyMainSection.json";
 import { useParams } from "react-router-dom";
 import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSActivityHeaderTab, getLMSOperationActivity, getPlantOperations, getVesselOperation, getActivityCode, getOperationNameByCode, getOperationActivityListPageUrl, getOperationActivityUrl, getStackOperations } from "../../../../services/commonFunction";
+import { getLMSActivityHeaderTab, getLMSOperationActivity, getVesselOperation, getActivityCode, getOperationNameByCode, getOperationActivityListPageUrl, getOperationActivityUrl } from "../../../../services/commonFunction";
 import { useSelector } from "react-redux";
 const OperationDetails = ({ ops_code }) => {
     let { TMLType } = useParams();
@@ -255,14 +255,14 @@ const OperationDetails = ({ ops_code }) => {
         if (stepNo === 2 && getLMSOperationActivity().includes(TMLType)) {
             newConfig["sections"][1]["tabs"][0].headers = newConfig["sections"][1]["tabs"][0].headers.filter((header) => {
                 if (!['TR', 'TRUCK'].includes(opsMode.toUpperCase())) {
-                    if (!(['PL', 'PLANT'].includes(opsMode.toUpperCase()) && [getPlantOperations('TR')].includes(TMLType)))
+                    if (!(['PL', 'PLANT'].includes(opsMode.toUpperCase())))
                         return !['jism_truck_no', 'jism_sample_quantity'].includes(header.name)
                 }
                 return true
             })
             newConfig["sections"][1]["tabs"][0].rows[0] = newConfig["sections"][1]["tabs"][0].rows[0].filter((header) => {
                 if (!['TR', 'TRUCK'].includes(opsMode.toUpperCase())) {
-                    if (!(['PL', 'PLANT'].includes(opsMode.toUpperCase()) && [getPlantOperations('TR')].includes(TMLType)))
+                    if (!(['PL', 'PLANT'].includes(opsMode.toUpperCase())))
                         return !['jism_truck_no', 'jism_sample_quantity'].includes(header.name)
                 }
                 return true
@@ -324,7 +324,7 @@ const OperationDetails = ({ ops_code }) => {
             array.headers = [...headerfieldValue, ...array.headers];
             array.rows[0] = [...tabFields, ...array.rows[0]];
         }
-        if (['TR', 'TRUCK'].includes(ops_code) || TMLType === getPlantOperations('TR')) {
+        if (['TR', 'TRUCK'].includes(ops_code)) {
             headerfieldValue = [
                 {
                     "name": "seal_number",

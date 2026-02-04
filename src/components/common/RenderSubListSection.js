@@ -13,7 +13,6 @@ import {
   getRakeCollectionActivity,
   getDefaultActivityMode,
   getRakeOperations,
-  getStackOperations,
 } from "../../services/commonFunction";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -623,7 +622,7 @@ const RenderSubListSection = ({
                                         }
                                       </div>
                                     )
-                                    : ["posted"].includes(row["status"]) && !([getVesselOperation("SV"),getStackOperations("ST_SV"),getRakeOperations("RK_SV"),getRakeOperations("QAss")].includes(getActivityCode(row["activity_master"]?.activity_code).toLowerCase())) && row.fk_jiid == formData[0]?.ji_id && !['BH', 'CP'].includes(user?.role) && (
+                                    : ["posted"].includes(row["status"]) && !([getVesselOperation("SV"),getRakeOperations("RK_SV"),getRakeOperations("QAss")].includes(getActivityCode(row["activity_master"]?.activity_code).toLowerCase())) && row.fk_jiid == formData[0]?.ji_id && !['BH', 'CP'].includes(user?.role) && (
                                       <div>
                                         <button
                                           type="button"

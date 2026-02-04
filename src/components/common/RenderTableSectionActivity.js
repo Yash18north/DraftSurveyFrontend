@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RenderFields from "./RenderFields";
 import ActionOptionsTable from "./ActionOptionsTable";
-import { getActivityCode, getRakeOperations, getSelectedOptionName, getStackOperations, getSvgAccordingToCondition, getUniqueData, getVesselOperation } from "../../services/commonFunction";
+import { getActivityCode, getRakeOperations, getSelectedOptionName, getSvgAccordingToCondition, getUniqueData, getVesselOperation } from "../../services/commonFunction";
 import {
   decryptDataForURL,
   encryptDataForURL,

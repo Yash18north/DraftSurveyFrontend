@@ -701,12 +701,6 @@ export const getLMSOperationActivity = () => {
     getVesselOperation('QA'),
     getVesselOperation('TML'),
     getRakeOperations('QA'),
-    getStackOperations('PV'),
-    getStackOperations(''),
-    getPlantOperations('TR'),
-    getPlantOperations('RK'),
-    getPlantOperations('ST'),
-    getPlantOperations('VL'),
     getOtherOperations('SS_QA'),
     getOtherOperations('CS_SSP'),
     getOtherOperations('CR_QA'),
@@ -725,7 +719,6 @@ export const getNonLMSOperationActivity = () => {
     getRakeOperations('QAss'),
     getVesselOperation('BC'),
     getVesselOperation('bulk_crg'),
-    getStackOperations('ST_SV'),
     getRakeOperations('RK_SV'),
   ]
 }
@@ -778,27 +771,6 @@ export const getOperationActivityListPageUrl = (operationMode) => {
   }
 
 }
-export const getPlantOperations = (type = "") => {
-  let operationName = ""
-  if (type == "TR") {
-    operationName = "PL_TR"
-  }
-  else if (type == "RK") {
-    operationName = "PL_RK"
-  }
-  else if (type == "ST") {
-    operationName = "PL_ST"
-  }
-  else if (type == "VL") {
-    operationName = "PL_VL"
-  }
-  else if (type == "PL_CN") {
-    operationName = "PL_CN"
-  }
-  return Array.isArray(operationName) ? operationName : operationName.toLowerCase()
-}
-//
-
 export const getOtherOperations = (type = "") => {
   let operationName = ""
   if (type == "SS_QA") {
@@ -816,19 +788,6 @@ export const getOtherOperations = (type = "") => {
   return Array.isArray(operationName) ? operationName : operationName.toLowerCase()
 }
 //
-export const getStackOperations = (type = "") => {
-  let operationName = ""
-  if (type == "PV") {
-    operationName = "PV"
-  }
-  else if (type == "ST_SV") {
-    operationName = "ST_SV"
-  }
-  else {
-    operationName = "ST_QA"
-  }
-  return Array.isArray(operationName) ? operationName : operationName.toLowerCase()
-}
 
 export const getRakeOperations = (type = "") => {
   let operationName = ""
@@ -1053,9 +1012,6 @@ export const getOperationNameByCode = (operationMode) => {
   else if (operationMode === "STACK" || operationMode === "ST") {
     return "Stack"
   }
-  else if (operationMode === "PLANT" || operationMode === "PL") {
-    return "Plant"
-  }
   else if (operationMode === "VESSEL" || operationMode === "VL") {
     return "Vessel"
   }
@@ -1067,7 +1023,6 @@ export const getRakeCollectionActivity = (isFromCertificate = "") => {
   if (isFromCertificate) {
     return [
       getRakeOperations("QA"),
-      getPlantOperations("RK"),
     ]
   }
   else {

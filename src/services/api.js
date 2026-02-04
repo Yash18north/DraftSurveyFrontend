@@ -219,7 +219,6 @@ export const updateInvoiceApi = "/invoice-details/update/";
 export const deleteInvoiceApi = "/invoice-details/delete/";
 
 // Srushti
-export const getSingleJobCosting = "/job-costing/get/"
 export const getSingleBranchExpense = "/expense/get/"
 export const getSingleOutstanding = "/outstanding/get/"
 
@@ -338,7 +337,6 @@ export const itemsDeleteApi="/item-master/delete/";
 export const itemsCreateApi="/item-master/create/";
 export const itemsGetApi="/item-master/retrieve/";
 
-export const jobCostingIncApi="/job-costing-details/get/";
 export const getWorkAnniversary ="/work-anniversary-notifications/list/"
 export const getBirthday ="/birthday-notifications/list/"
 

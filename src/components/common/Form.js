@@ -11,7 +11,6 @@ import {
 } from "react-bootstrap";
 import classnames from "classnames";
 import RenderTableSection from "./RenderTableSection";
-import RenderAssignmentTableSection from "./RenderAssignmentTableSection";
 import RenderTableSectionCertificate from "./RenderTableSectionCertificate";
 import RenderAdvTableSection from "./RenderAdvTableSection";
 import RenderConfigureTable from "./RenderConfigureTable"
@@ -38,9 +37,6 @@ import {
   allotmentCreateApi,
   allotmentUpdateApi,
   documentShareCreate,
-  getSimgleAllotmentDetailsApi,
-  sampleverificationCreateApi,
-  sampleverificationSingleApi,
   documentCreateApi,
   folderCreateApi,
   ccUpdateApi,
@@ -49,12 +45,10 @@ import {
   reportConfigUpdateApi,
   reportConfigCreateApi,
   ccCertCreateApi,
+  jobinstructionUpdateApi,
   rakeQAPdfApi,
   stackQAPdfApi,
-  getReferenceWiseDataApi,
   opsRakeSVPDFApi,
-  opsStackSVPDFApi,
-  physicalAnalysisPDF,
   bulkCargoPDF,
   tmlMoisturePDFApi,
 } from "../../services/api";
@@ -63,18 +57,10 @@ import {
   CommonTMRoles,
   getActivityCode,
   getActivityName,
-  getPlantOperations,
   getRakeOperations,
   getVesselOperation,
-  getStackOperations,
   isModuelePermission,
-  rolesDetails,
-  getUniqueData,
-  getVoucherTypes,
-  getRakeCollectionActivity,
-  getOperationActivityUrl,
   getFormatedDate,
-  getDateFromCreatedAt,
   getCurrentRole
 } from "../../services/commonFunction";
 
@@ -105,9 +91,11 @@ import {
   handleTestMemoDelete,
   handleTestMemoStatusChange,
 } from "./commonHandlerFunction/testMemoFunctionHandler";
-import RenderAdvtestMemoTableSection from "./RenderAdvtestMemoTableSection";
-import { getVerificationDetailsHandler, handleSampleVerificationMainSubmit, handleVerificationMain } from "./commonHandlerFunction/sampleVerificationHandlerFunctions";
-import RenderAdvSFMTableSection from "./RenderAdvSFMTableSection";
+import {
+  getVerificationDetailsHandler,
+  handleSampleVerificationMainSubmit,
+  handleVerificationMain,
+} from "./commonHandlerFunction/sampleVerificationHandlerFunctions";
 import {
   getallFormulaList,
   getSFMDetails,
@@ -117,7 +105,6 @@ import {
 import {
   changeTestReportStatusChange,
   checkICULRNoAvailibility,
-  getCertificateDetailsById,
   handleIntarnalCertificateCreateUpdate,
 } from "./commonHandlerFunction/intenralCertificateHandlerFunction";
 import { saveAs } from "file-saver";
@@ -151,12 +138,6 @@ import {
   getSingleDraftSurveyData,
   Operation_DraftSurvey_CreateDataFunction,
   OperationCreateDataFunction,
-  OperationSampleCollectionCreateDataFunction,
-  OperationSizeAnalysisCreateDataFunction,
-  // getSingleCSData,
-  OperationCargoSupervisionCreateDataFunction,
-  getSingleSizeAnalysisData,
-  Operation_BulkCargo_CreateDataFunction,
   vesselListNextFunctionality
 } from "./commonHandlerFunction/operations/TMLOperations";
 
@@ -181,22 +162,17 @@ import {
   downLoadNonLMSCertificatePDFById,
 } from "./commonHandlerFunction/OPscertificate/OPSCertificateHandlerFunctions";
 
-import { getSingleQualityAnalysisData, getSingleQualityAssesmentData, OperationQualityAnalysisCreateDataFunction, OperationQualityAssesmentCreateDataFunction } from "./commonHandlerFunction/operations/RakeHandlerOperation";
+// import { OperationQualityAnalysisCreateDataFunction } from "./commonHandlerFunction/operations/RakeHandlerOperation";
 
 import RenderTableManualMultiEntrySection from "./RenderTableManualMultiEntrySection";
 
 import { useLocation } from 'react-router-dom';
 
-import { getSingleConsortiumRecord, handleConsortiumCreateOrUpdate } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
+// import { getSingleConsortiumRecord, handleConsortiumCreateOrUpdate } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 
-import { handleGetFeedback } from "./commonHandlerFunction/Feedback/FeedbackHandler";
-import { getBillingDelayDayCount, getJobCostingIncDataFunc, handleGetIncentive, incentivesCalculationData } from "./commonHandlerFunction/Feedback/IncentiveHandler";
+import { handleGetIncentive } from "./commonHandlerFunction/Feedback/IncentiveHandler";
 import moment from "moment";
-import { handleActivityForInvoice, handleMultipleRefForInvoice } from "./commonHandlerFunction/operations/invoiceHandlerFunctions";
-import CustomPopupModal from "./commonModalForms/CustomPopupModal";
-import { handleGetclientMAsterData, handleGetUserMAsterData } from "./commonHandlerFunction/MasterData/Users/userHandler";
 import ClientDetailsButtons from "./ShowButtons/ClientDetails/ClientDetailsButtons";
-import { ClientDetailsButtons as stubClientDetailsButtons } from "../../utils/stubFunctions";
 import ShipmentButtons from "./ShowButtons/Shipment/ShipmentButton";
 import MarketPlaceButton from "./ShowButtons/MarketPlace/MarketPlaceButtons";
 import { handleGetAShipmet } from "./commonHandlerFunction/Shipment/ShipmentHandler";
@@ -391,10 +367,7 @@ const Forms = ({
   const [resendShareFile, setResendShareFile] = useState(false);
   const [simpleInwardId, setSimpleInwardId] = useState("");
   const [labDropDownOptions, setLabDropDownOptions] = useState([])
-  const [branchName, setBranchName] = useState([])
   const [uploadPopup, setUploadPopup] = useState(false);
-  // const [fileUrl, setFileUrl] = useState("");
-  // const [popupJson, setPopupJson] = useState(Document.upload.changeDescriptionJson);
   const [popupJson, setPopupJson] = useState();
   const [isFiltered, setIsFiltered] = useState(false);
   const [customFilterData, setCustomFilterData] = useState({});
@@ -769,13 +742,14 @@ const Forms = ({
     }
     if (EditRecordId) {
       if (moduleType === "consortiumorder") {
-        getSingleConsortiumRecord(
-          formConfig.apiEndpoints.read,
-          EditRecordId,
-          setFormData,
-          setIsOverlayLoader,
-          action
-        )
+        // Consortium functionality removed
+        // getSingleConsortiumRecord(
+        //   formConfig.apiEndpoints.read,
+        //   EditRecordId,
+        //   setFormData,
+        //   setIsOverlayLoader,
+        //   action
+        // )
       }
 
       else {
@@ -1181,16 +1155,17 @@ const Forms = ({
       }
     }
     else if (moduleType === "consortiumorder") {
-      handleConsortiumCreateOrUpdate(
-        formData,
-        formConfig,
-        setIsOverlayLoader,
-        setIsPopupOpen,
-        jrfCreationType,
-        navigate,
-        getSingleConsortiumRecord,
-        setFormData
-      );
+      // Consortium functionality removed
+      // handleConsortiumCreateOrUpdate(
+      //   formData,
+      //   formConfig,
+      //   setIsOverlayLoader,
+      //   setIsPopupOpen,
+      //   jrfCreationType,
+      //   navigate,
+      //   getSingleConsortiumRecord,
+      //   setFormData
+      // );
     } else if (jrfCreationType) {
       handleJRFCreateOrUpdate(
         setSaveClicked,
@@ -1441,11 +1416,19 @@ const Forms = ({
           const orderingValue = sortType === "desc" ? `-${fieldName}` : fieldName;
           querystring += `&ordering=${orderingValue}`;
         }
-        else if (sortType === "desc" || sortType === "asc") {
+        else if (["purchaseReq", "supplier", "calibration"].includes(listModuleType)) {
           querystring += `&order_by=${fieldName},${sortType}`;
         }
-      }
+        else {
+          querystring += querystring
+            ? "&sort_by=" + fieldName
+            : "?sort_by=" + fieldName;
 
+          querystring += "&sort_order=" + sortType
+        }
+
+
+      }
       if (kpiValue) {
 
         if (listModuleType === "purchaseReq") {
@@ -1585,12 +1568,12 @@ const Forms = ({
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
     } finally {
       setLoadingTable(false);
     }
@@ -1776,13 +1759,13 @@ const Forms = ({
       toast.error(error.message, {
         position: "top-right",
         autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
     } finally {
       setLoadingTable(false);
     }
@@ -1880,13 +1863,13 @@ const Forms = ({
       toast.error(error.message, {
         position: "top-right",
         autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
     }
     finally {
       setIsOverlayLoader(false)
@@ -1950,13 +1933,13 @@ const Forms = ({
       toast.error(error.message, {
         position: "top-right",
         autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
     }
     finally {
       setIsStatusCountCalled(false)
@@ -2465,7 +2448,7 @@ const Forms = ({
                   notRequired.push('ji_eta')
                   notRequired.push('ji_nameofoperationmode')
                 }
-                if (['PV', 'CM'].includes(formData[0]?.fk_operationtypetid_code)) {
+                if (['PV'].includes(formData[0]?.fk_operationtypetid_code)) {
                   notRequired.push('ji_sampling_methods')
                 }
                 if (['CS', 'TL', 'DS', 'CM', 'SS', 'CV'].includes(formData[0]?.fk_operationtypetid_code)) {
@@ -2477,7 +2460,7 @@ const Forms = ({
                   }
                   // notRequired.push('ji_sampling_methods')
                 }
-                // if (['CV', 'PV', 'CN', 'RC', 'AS', 'PL', 'RK', 'CM'].includes(formData[0]?.fk_operationtypetid_code)) {
+                // if (['CV', 'PV', 'CN', 'RC', 'AS', 'PL', 'CM'].includes(formData[0]?.fk_operationtypetid_code)) {
                 //   notRequired.push('ji_appointed_totalqty')
                 //   notRequired.push('ji_totalqty')
                 // }
@@ -2486,6 +2469,26 @@ const Forms = ({
                 }
                 if (formData[0]?.ji_sent_through?.length === 1 && formData[0].ji_sent_through[0] === "Verbal Nomination") {
                   notRequired.push('ji_reference')
+                }
+              }
+              else if (formConfig?.sections[0]?.moduleType === "sfm") {
+                if (GetTenantDetails(1, 1, formData[0]?.jrf_is_petro) != "TPBPL") {
+                  notRequired.push('sfm_borometricpressure')
+                }
+
+              }
+              else if (formConfig?.sections[0]?.moduleType === "invoice") {
+                if (!decryptDataForURL(params.get("isCourier"))) {
+                  if (field.isCourierData) {
+                    notRequired.push(field.name)
+                  }
+                }
+                else {
+                  if (!["Courier Details"].includes(field.label) && field.name !== "im_courier") {
+                    if (hideMap[formData[0]?.im_courier]?.includes(field.name)) {
+                      notRequired.push(field.name)
+                    }
+                  }
                 }
               }
 
@@ -2512,6 +2515,7 @@ const Forms = ({
                       : "This field is required",
                   },
                 };
+
               } else if (type === "phone") {
                 if (value) {
                   if (!isValidPhoneNumber(value)) {
@@ -3696,27 +3700,18 @@ const Forms = ({
   };
 
   const getTileClassName = (status, tile) => {
-    //     blank ->step1
-    // saved ->step2
-    // created /pre-analysis - >step3
-    // analysis -step4
-
     if (
-      // (status === "" || status === undefined) &&
       !editReordType && !props.isMainJiSaved &&
       tile.Text === "Company & Commodity"
     ) {
       return "card_header_btn_active";
-      // } else if (status === "saved" && tile.Text === "Scope of Work") {
     } else if (!editReordType && props.isMainJiSaved && tile.Text === "Scope of Work") {
       return "card_header_btn_active";
     } else if (
-      // (status === "created" || status === "pre-analysis") &&
       editReordType === "analysis" &&
       tile.Text === "Groups & Parameters"
     ) {
       return "card_header_btn_active";
-      // } else if (status === "analysis" && tile.Text === "Nominations & Billing Details") {
     } else if (editReordType === "nomination" && tile.Text === "Nominations & Billing Details") {
       return "card_header_btn_active";
     } else {
@@ -3878,29 +3873,19 @@ const Forms = ({
         payload.commercial_certificate.fk_rpc_id = RPCID;
       }
       if (payload?.commercial_certificate?.fk_cert_config_id || true) {
-        let res = await postDataFromApi(ccCertCreateApi, payload);
-        if (moduleType == "operationCertificate" && (formData[0]?.cc_is_rake_details?.length > 0 && formData[0]?.cc_is_rake_details?.[0])) {
-          // await OperationQualityAnalysisCreateDataFunction(
-          //   formData,
-          //   setIsOverlayLoader,
-          //   setIsPopupOpen,
-          //   OperationType,
-          //   JISID,
-          //   navigate,
-          //   jrfCreationType,
-          //   operationMode,
-          //   true,
-          //   formConfig.sections[0],
-          //   setSubTableData,
-          //   setFormData,
-          //   formConfig,
-          //   operationStepNo,
-          //   OpsConfigID,
-          //   isUseForPhysical,
-          //   res?.data?.data?.cc_id
-          // );
-        }
+        payload.commercial_certificate.status = 'published'
 
+        const jiUpdatePayload = {
+          job_inst_data: {
+            ji_internal_status: 'completed',
+            status: 'completed'
+          },
+          ji_id: EditRecordId
+        };
+        await putDataFromApi(jobinstructionUpdateApi, jiUpdatePayload);
+
+
+        let res = await postDataFromApi(ccCertCreateApi, payload);
         if (res.data.status === 200) {
 
           navigate(
@@ -4054,6 +4039,8 @@ const Forms = ({
         setLoading(false);
         setLoadingText(null);
       }
+    } else {
+      setLoading(false);
     }
   };
 
@@ -4112,25 +4099,7 @@ const Forms = ({
     let res = await putDataFromApi(ccUpdateApi, payload);
     if (res.data.status === 200) {
       if (moduleType == "operationCertificate" && (formData[0]?.cc_is_rake_details?.length > 0 && formData[0]?.cc_is_rake_details?.[0])) {
-        OperationQualityAnalysisCreateDataFunction(
-          formData,
-          setIsOverlayLoader,
-          setIsPopupOpen,
-          OperationType,
-          JISID,
-          navigate,
-          jrfCreationType,
-          operationMode,
-          true,
-          formConfig.sections[0],
-          setSubTableData,
-          setFormData,
-          formConfig,
-          operationStepNo,
-          "",
-          isUseForPhysical,
-          RPCID,
-        );
+        // Removed OperationQualityAnalysisCreateDataFunction usage
       }
       if (type === "posted" && !isExternal) {
         if (
@@ -4241,7 +4210,6 @@ const Forms = ({
     try {
       setIsOverlayLoader(true)
       let row = session?.selectedSingleRow;
-      console.log("row", row, "sessionmn--->", session)
 
       PublishCertificate(row.cc_id, "published");
       return
@@ -4269,7 +4237,7 @@ const Forms = ({
       ) {
         let payload, generateCertificateResponse;
         if (
-          ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
+          ![getVesselOperation("bulk_crg"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
         ) {
           let payload = {
             ji_id: row?.fk_jiid,
@@ -4291,11 +4259,8 @@ const Forms = ({
             ji_id: row?.fk_jiid,
             cc_id: row?.cc_id,
           };
-          if ([getPlantOperations("RK"), getRakeOperations('QA')].includes(OperationType)) {
+          if ([getRakeOperations('QA')].includes(OperationType)) {
             generateCertificateResponse = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
-          }
-          else if (OperationType == getStackOperations("PV") || OperationType == getStackOperations()) {
-            generateCertificateResponse = await postDataFromApi(stackQAPdfApi, payload, "", true, "", "");
           }
           else if (OperationType == getVesselOperation('bulk_crg')) {
             generateCertificateResponse = await postDataFromApi(bulkCargoPDF, payload, "", true, "", "");
@@ -4306,10 +4271,6 @@ const Forms = ({
           else if (OperationType == getRakeOperations('RK_SV')) {
             payload.jis_id = opsTypeID
             generateCertificateResponse = await postDataFromApi(opsRakeSVPDFApi, payload, "", true, "", "");
-          }
-          else if (OperationType == getStackOperations('ST_SV')) {
-            payload.jis_id = opsTypeID
-            generateCertificateResponse = await postDataFromApi(opsStackSVPDFApi, payload, "", true, "", "");
           }
           else {
             generateCertificateResponse = await postDataFromApi(ccCertPdfApi, payload, "", true, "", "");
@@ -6022,7 +5983,7 @@ const Forms = ({
                               }
                               {/* <div className="submitBtn_container">
                               {moduleType === "jobinstruction" &&
-                                !viewOnly && [getRakeOperations('QAss'), getRakeOperations('QA'), getPlantOperations('RK')].includes(OperationType)
+                                !viewOnly && [getRakeOperations('QAss'), getRakeOperations('QA')].includes(OperationType)
                                 && (!formData[0]?.rake_qas_id || !formData[0]?.rake_qan_id) && subSectionIndex === 1 && (
                                   <button
                                     type="button"
@@ -6045,7 +6006,6 @@ const Forms = ({
                     <Row className="main_form">
                       {section.fields.map((field, fieldIndex) => {
 
-                        // console.log("viewOnly", viewOnly)
                         let isShow = true;
                         let isViewOnly = viewOnly;
                         if (!isViewOnly && field.fieldName == "msfm_number") {
@@ -6907,33 +6867,33 @@ const Forms = ({
                           {translate("common.createBtn")}
                         </button>
                       ) :
-                          listModuleType === "ShipmentList" ?
+                        listModuleType === "ShipmentList" ?
+                          <button
+                            type="button"
+                            className="createfeedback_button"
+                            onClick={
+                              () => {
+                                navigate("/shipment/shipmentForm")
+                              }
+                            }
+                          >
+                            + Shipment
+                          </button>
+                          :
+                          listModuleType === "marketPlaceListing" ?
                             <button
                               type="button"
                               className="createfeedback_button"
                               onClick={
                                 () => {
-                                  navigate("/shipment/shipmentForm")
+                                  navigate("/market/marketForm/")
                                 }
                               }
                             >
-                              + Shipment
+                              + MarketPlace
                             </button>
                             :
-                            listModuleType === "marketPlaceListing" ?
-                              <button
-                                type="button"
-                                className="createfeedback_button"
-                                onClick={
-                                  () => {
-                                    navigate("/market/marketForm/")
-                                  }
-                                }
-                              >
-                                + MarketPlace
-                              </button>
-                              :
-                              null
+                            null
                       }
                     </div>
 

@@ -68,18 +68,6 @@ const JfInstructionNomination = lazy(() => import("../views/operations/JfInstruc
 // const vesselJIList = lazy(() => import("../views/operations/vessel/vesselJIList.js"));
 const OperationJIList = lazy(() => import("../views/operations/CommonOPS/OperationJIList.js"));
 const OperationActivityList = lazy(() => import("../views/operations/CommonOPS/OperationActivityList.js"));
-const RakeJIList = lazy(() => import("../views/operations/rake/RakeJIList.js"));
-const RakeList = lazy(() => import("../views/operations/rake/RakeList.js"));
-const RakeOperations = lazy(() =>
-  import("../views/operations/rake/RakeOperations/RakeOperations.js")
-);
-const StackOperations = lazy(() =>
-  import("../views/operations/stack/StackOperations/StackOperations.js")
-);
-const RakeAnalysisOperations = lazy(() => import("../views/operations/rake/RakeOperations/RakeAnalysisOperations.js"));
-const StackAnalysisOperations = lazy(() => import("../views/operations/stack/StackOperations/StackAnalysisOperations.js"));
-const StackJIList = lazy(() => import("../views/operations/stack/StackJIList.js"));
-const StackList = lazy(() => import("../views/operations/stack/StackList.js"));
 const vesselJIEdit = lazy(() => import("../views/operations/vessel/vesselJIEdit.js"));
 const vesselList = lazy(() => import("../views/operations/vessel/vesselList.js"));
 
@@ -92,17 +80,7 @@ const Support = lazy(() => import("../views/Support.js"));
 const ReleaseNotes = lazy(() => import("../views/ReleaseNotes.js"));
 const JIManPower = lazy(() => import("../views/operations/JIManPower.js"));
 const OtherTPIList = lazy(() => import("../views/operations/OtherTPIList.js"));
-//Plant Functions
-const PlantJIList = lazy(() => import("../views/operations/plant/PlantJIList.js"));
-const PlantList = lazy(() => import("../views/operations/plant/PlantList.js"));
-const PlantJIDetails = lazy(() => import("../views/operations/plant/PlantJIDetails.js"));
 const OtherJIDetails = lazy(() => import("../views/operations/other/OtherJIDetails.js"));
-const PlantOperations = lazy(() => import("../views/operations/plant/PlantOperations/PlantOperations.js"));
-const PlantAnalysisOperations = lazy(() => import("../views/operations/plant/PlantOperations/PlantAnalysisOperations.js"));
-
-
-const ConsortiumList = lazy(() => import("../views/operations/consortium/ConsortiumList.js"));
-const ConsortiumAdd = lazy(() => import("../views/operations/consortium/ConsortiumAdd.js"));
 
 // Srushti 
 
@@ -117,13 +95,6 @@ const FeedbackForm = lazy(() => import("../views/Feedback/FeedbackForm.js"));
 
 // ----------------------------------------------------------------
 
-const InvoiceListing = lazy(() => import("../views/operations/invoice/InvoiceListing.js"));
-const InvoiceList = lazy(() => import("../views/operations/invoice/InvoiceList.js"));
-const CreateInvoice = lazy(() => import("../views/operations/invoice/CreateInvoice.js"));
-const UpdateInvoice = lazy(() => import("../views/operations/invoice/UpdateInvoice.js"));
-const AdvanceInvoice = lazy(() => import("../views/operations/invoice/AdvanceInvoice.js"));
-const InvoicePreview = lazy(() => import("../views/operations/invoice/InvoicePreview.js"));
-const TallyListing = lazy(() => import("../views/operations/invoice/TallyListing.js"));
 
 const DashboardListing = lazy(() => import("../views/operations/dashboard/DashboardListing.js"));
 const StatisticsData = lazy(() => import("../views/Statistics/StatisticsData.js"));
@@ -232,21 +203,6 @@ const ThemeRoutes = [
         element: <ProtectedRoute component={VesselJIDetaisView} />,
       },
       {
-        path: "/operation/rake-list-view/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={VesselJIDetaisView} />,
-      },
-      {
-        path: "/operation/stack-list-view/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={VesselJIDetaisView} />,
-      },
-      {
-        path: "/operation/plant-list-view/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={VesselJIDetaisView} />,
-      },
-      {
         path: "/operation/vessel-ji-edit",
         exact: true,
         element: <ProtectedRoute component={vesselJIEdit} />,
@@ -319,120 +275,7 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={OtherTPIOperation} />,
       },
-      {
-        path: "/operation/rake-list",
-        exact: true,
-        // element: <ProtectedRoute component={RakeJIList} />,
-        element: <ProtectedRoute component={OperationJIList} ops_code={"RK"} />,
-      },
-      {
-        path: "/operation/rake-list/rake-details-list/:EditRecordId",
-        exact: true,
-        // element: <ProtectedRoute component={RakeList} />,
-        element: <ProtectedRoute component={OperationActivityList} ops_code="RK" />,
-      },
-      {
-        path: "/operation/rake-list/rake-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificateList} />,
-      },
-      {
-        path: "/operation/rake-list/rake-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'RK'} />,
-      },
-      {
-        path: "/operation/stack-list",
-        exact: true,
-        // element: <ProtectedRoute component={StackJIList} />,
-        element: <ProtectedRoute component={OperationJIList} ops_code={"ST"} />,
-      },
-      {
-        path: "/operation/stack-list/stack-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificateList} />,
-      },
 
-      {
-        path: "/operation/rake-list/rake-details-list/:EditRecordId/:TMLType",
-        exact: true,
-        // element: <ProtectedRoute component={RakeOperations} />,
-        element: <ProtectedRoute component={OperationDetails} ops_code={'RK'} />,
-      },
-      {
-        path: "/operation/rake-list/rake-details-list/:EditRecordId/:TMLType/:TMLID",
-        exact: true,
-        // element: <ProtectedRoute component={RakeAnalysisOperations} />,
-        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="RK" />,
-      },
-      {
-        path: "/operation/stack-list/stack-details-list/:EditRecordId",
-        exact: true,
-        // element: <ProtectedRoute component={StackList} />,
-        element: <ProtectedRoute component={OperationActivityList} ops_code="ST" />,
-      },
-      {
-        path: "/operation/stack-list/stack-details-list/:EditRecordId/:TMLType",
-        exact: true,
-        // element: <ProtectedRoute component={StackOperations} />,
-        element: <ProtectedRoute component={OperationDetails} ops_code={'ST'} />,
-      },
-      {
-        path: "/operation/stack-list/stack-details-list/:EditRecordId/:TMLType/:TMLID",
-        exact: true,
-        // element: <ProtectedRoute component={StackAnalysisOperations} />,
-        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="ST" />,
-      },
-      {
-        path: "/operation/stack-list/stack-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificateList} />,
-      },
-      {
-        path: "/operation/stack-list/stack-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'ST'} />,
-      },
-      //Plant Routes
-      {
-        path: "/operation/plant-list",
-        exact: true,
-        // element: <ProtectedRoute component={PlantJIList} />,
-        element: <ProtectedRoute component={OperationJIList} ops_code={"PL"} />,
-      },
-      {
-        path: "/operation/plant-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={PlantJIDetails} />,
-      },
-      {
-        path: "/operation/plant-list/plant-details-list/:EditRecordId",
-        exact: true,
-        // element: <ProtectedRoute component={PlantList} />,
-        element: <ProtectedRoute component={OperationActivityList} ops_code="PL" />,
-      },
-      {
-        path: "/operation/plant-list/plant-details-list/:EditRecordId/:TMLType/:TMLID",
-        exact: true,
-        // element: <ProtectedRoute component={PlantAnalysisOperations} />,
-        element: <ProtectedRoute component={OperationAnalysisDetails} ops_code="PL" />,
-      },
-      {
-        path: "/operation/plant-list/plant-details-list/:EditRecordId/:TMLType",
-        exact: true,
-        // element: <ProtectedRoute component={PlantOperations} />,
-        element: <ProtectedRoute component={OperationDetails} ops_code={"PL"} />,
-      },
-      {
-        path: "/operation/plant-list/plant-details-list/confirugation-certificate-list/:EditRecordId/:TMLType",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificateList} />,
-      },
-      {
-        path: "/operation/plant-list/plant-details-list/confirugation-certificate/:EditRecordId/:JISID/:RPCID",
-        exact: true,
-        element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'PL'} />,
-      },
       //Other OPS
       {
         path: "/operation/draught-list",
@@ -564,48 +407,6 @@ const ThemeRoutes = [
       },
 
 
-      //Invoice
-      {
-        path: "/operation/invoice-listing",
-        exact: true,
-        element: <ProtectedRoute component={InvoiceListing} />,
-
-      },
-      {
-        path: "/operation/invoice-list",
-        exact: true,
-        element: <ProtectedRoute component={InvoiceList} />,
-      },
-      {
-        path: "/operation/invoice-listing/create-invoice",
-        exact: true,
-        element: <ProtectedRoute component={CreateInvoice} />,
-      },
-      {
-        path: "/operation/invoice-listing/create-invoice/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={UpdateInvoice} />,
-      },
-      {
-        path: "/operation/invoice-listing/create-debit/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={UpdateInvoice} />,
-      },
-      {
-        path: "/operation/invoice-listing/advance-invoice",
-        exact: true,
-        element: <ProtectedRoute component={AdvanceInvoice} />,
-      },
-      {
-        path: "/operation/invoice-listing/invoice-preview/:EditRecordId/:s3URL/:invoiceNumber",
-        exact: true,
-        element: <ProtectedRoute component={InvoicePreview} />,
-      },
-      {
-        path: "/operation/tally-list",
-        exact: true,
-        element: <ProtectedRoute component={TallyListing} />,
-      },
       { path: "/support", exact: true, element: <Support /> },
       { path: "/release-notes", exact: true, element: <ReleaseNotes /> },
       { path: "/statistics", exact: true, element: <StatisticsData /> },

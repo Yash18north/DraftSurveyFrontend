@@ -51,7 +51,7 @@ import {
   getJiForCCApi
 } from "../../../services/api";
 import { encryptDataForURL, decryptDataForURL } from "../../../utills/useCryptoUtils";
-import { getComonCodeForCompany, getLMSOperationActivity, getVesselOperation, getOperationActivityUrl, getActivityCode, getPlantOperations } from "../../../services/commonFunction";
+import { getComonCodeForCompany, getLMSOperationActivity, getVesselOperation, getOperationActivityUrl, getActivityCode } from "../../../services/commonFunction";
 import { singleQuote } from "pdf-lib";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from '../../../services/store';
@@ -819,19 +819,9 @@ export const getSingleJiRecord = async (
   try {
     setIsOverlayLoader(true);
     let payload = {
-      ji_id: ji_id,
-    }
-    let res
-    if (
-      (moduleType === "vesselJICertificate" ||
-        moduleType === "operationCertificate") && formConfig?.['sections']?.[0]?.moduleSubType != "ConfigurationCertificate" && (['TR', 'TRUCK'].includes(operationMode.toUpperCase()) || OperationType === getPlantOperations('TR')) && OpsConfigID
-    ) {
-      payload.config_id = OpsConfigID
-      res = await postDataFromApi(getJiForCCApi, payload);
-    }
-    else {
-      res = await postDataFromApi(apiEndpoint, payload);
-    }
+      ji_id: ji_id
+    };
+    let res = await postDataFromApi(apiEndpoint, payload);
     if (res?.data?.status === 200 && res.data.data) {
       let responseData = res.data.data;
       if (
@@ -858,7 +848,7 @@ export const getSingleJiRecord = async (
         responseData.cc_place_of_work_name = responseData.place_of_work.pow_name;
         responseData.cc_appointed_totalqty = responseData?.ji_appointed_totalqty
         responseData.cc_appointed_qty_unit = responseData?.ji_appointed_qty_unit
-        if ((['TR', 'TRUCK'].includes(operationMode.toUpperCase()) || OperationType === getPlantOperations('TR')) && OpsConfigID) {
+        if (['TR', 'TRUCK'].includes(operationMode.toUpperCase()) && OpsConfigID) {
           responseData.cc_appointed_totalqty = responseData?.total_jism_quantity
         }
       } else {

@@ -22,7 +22,7 @@ import commonFields from "../../../../formJsonData/Operations/commonFields.json"
 import commonFieldsRake from "../../../../formJsonData/Operations/commonFieldsRake.json";
 import { useParams } from "react-router-dom";
 import { decryptDataForURL } from "../../../../utills/useCryptoUtils";
-import { getLMSOperationActivity, getRakeOperations, getOtherOperations, getPlantOperations, getActivityCode } from "../../../../services/commonFunction";
+import { getLMSOperationActivity, getRakeOperations, getOtherOperations, getActivityCode } from "../../../../services/commonFunction";
 
 const OtherOperations = () => {
   let { TMLType } = useParams();
@@ -72,7 +72,7 @@ const OtherOperations = () => {
       fields: commonFields
     });
 
-    if (TMLType === getPlantOperations("RK")) {
+    if (TMLType === getRakeOperations("RK")) {
       newConfig["sections"][0].subSections.push({
         fields: commonFieldsRake
       });
@@ -88,7 +88,7 @@ const OtherOperations = () => {
       newConfig["sections"][1] = QuantityAssessment_formConfig;
       newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQAss;
     }
-    else if ([getPlantOperations("TR"), getPlantOperations("RK"), getPlantOperations("ST")].includes(TMLType)) {
+    else if ([getRakeOperations("RK")].includes(TMLType)) {
       newConfig["sections"][1]["tabs"][0].tileSubHeader = tileSubHeaderQA;
     }
     else if (TMLType == getOtherOperations("OS")) {

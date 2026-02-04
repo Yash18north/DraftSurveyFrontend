@@ -9,7 +9,6 @@ import {
   getVesselOperation,
   getDaysColorCount,
   getRakeOperations,
-  getStackOperations,
   getUniqueData,
   getDateFromCreatedAt,
   getColorForDate,
@@ -17,7 +16,6 @@ import {
   getAllYearsOptions,
   getColoredDate,
   getOperationActivityUrl,
-  getPlantOperations,
   formatCurrency,
   useScreenSize,
 } from "../../services/commonFunction";
@@ -1102,7 +1100,7 @@ const RenderListSection = ({
       return
     }
     if (
-      !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getStackOperations("ST_SV"), getRakeOperations("RK_SV"), getVesselOperation('bulk_crg')].includes(getActivityCode(row?.activity_code).toLowerCase())
+      !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getRakeOperations("RK_SV"), getVesselOperation('bulk_crg')].includes(getActivityCode(row?.activity_code).toLowerCase())
     ) {
       let payload = {
         ji_id: row?.fk_jiid,
@@ -1180,7 +1178,7 @@ const RenderListSection = ({
       return
     }
     if (
-      !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
+      !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
     ) {
       let payload = {
         ji_id: row?.fk_jiid,
@@ -1375,7 +1373,7 @@ const RenderListSection = ({
         }
       }
       if (
-        !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
+        !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
       ) {
         let payload = {
           ji_id: row?.fk_jiid,

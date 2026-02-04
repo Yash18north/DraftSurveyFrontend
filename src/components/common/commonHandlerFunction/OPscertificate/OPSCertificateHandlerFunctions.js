@@ -14,7 +14,7 @@ import {
   opsStackSVPDFApi
 } from "../../../../services/api";
 import { postDataFromApi } from "../../../../services/commonServices";
-import { getRakeOperations, getVesselOperation, getPlantOperations, getActivityCode, getStackOperations } from "../../../../services/commonFunction";
+import { getRakeOperations, getVesselOperation, getActivityCode } from "../../../../services/commonFunction";
 
 
 export const checkCettificateNoAvailibility = async (
@@ -161,7 +161,7 @@ export const downLoadNonLMSCertificatePDFById = async (
       ""
     );
   }
-  else if (OperationType == getStackOperations('ST_SV')) {
+  else if (false) { // Stack operations removed
     payload = {
       "ji_id": OPSId,
       cc_id: CCID,

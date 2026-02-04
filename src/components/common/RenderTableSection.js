@@ -12,7 +12,7 @@ import {
   postDataFromApi,
 } from "../../services/commonServices";
 import ActionOptionsTable from "./ActionOptionsTable";
-import { getFormatedDate, getLMSOperationActivity, getPlantOperations, getRakeOperations, getSelectedOptionName, getStackOperations, getTextWithouHtml, getTotalCountForTable, getTotalHoursInTimeFormat, getTotalValues, gettwoFieldsTotalValues, getVesselOperation } from "../../services/commonFunction";
+import { getFormatedDate, getLMSOperationActivity, getRakeOperations, getSelectedOptionName, getTextWithouHtml, getTotalCountForTable, getTotalHoursInTimeFormat, getTotalValues, gettwoFieldsTotalValues, getVesselOperation } from "../../services/commonFunction";
 import { assignmentPageHandleAction } from "./commonHandlerFunction/GroupAssignmentFunctions";
 import { InwardPageHandleAction } from "./commonHandlerFunction/sampleInwardHandlerFunctions";
 import { sampleVarificationDetailsBulkCreate, sampleVerificationHandler } from "./commonHandlerFunction/sampleVerificationHandlerFunctions";
@@ -47,8 +47,8 @@ import {
 } from "../../utills/useCryptoUtils";
 import RenderTableSectionActivity from "./RenderTableSectionActivity";
 import { Button } from "react-bootstrap";
-import { getAllStackSupervissionData, StackSupervissionCreateDataFunction } from "./commonHandlerFunction/operations/StackHandlerFunctions";
-import { getAllRakeSupervissionData, RakeSupervissionCreateDataFunction } from "./commonHandlerFunction/operations/RakeHandlerOperation";
+// import { getAllStackSupervissionData, StackSupervissionCreateDataFunction } from "./commonHandlerFunction/operations/StackHandlerFunctions";
+// import { getAllRakeSupervissionData, RakeSupervissionCreateDataFunction } from "./commonHandlerFunction/operations/RakeHandlerOperation";
 import RenderTablePopup from "./commonModalForms/RenderTablePopup";
 
 const RenderTableSection = ({
@@ -504,25 +504,26 @@ const RenderTableSection = ({
   };
   const getSampleMarkLisData = () => {
     if (section.isUseForActivity) {
-      if (getStackOperations('ST_SV') === OperationType) {
-        getAllStackSupervissionData(
-          formData[0]?.ji_id,
-          setTableData,
-          formData,
-          setFormData,
-          section,
-          OperationTypeID
-        );
+      if (false) { // Stack operations removed
+        // getAllStackSupervissionData(
+        //   formData[0]?.ji_id,
+        //   setTableData,
+        //   formData,
+        //   setFormData,
+        //   section,
+        //   OperationTypeID
+        // );
       }
       else if (getRakeOperations('RK_SV') === OperationType) {
-        getAllRakeSupervissionData(
-          formData[0]?.ji_id,
-          setTableData,
-          formData,
-          setFormData,
-          section,
-          OperationTypeID
-        );
+        // Rake supervission functionality removed
+        // getAllRakeSupervissionData(
+        //   formData[0]?.ji_id,
+        //   setTableData,
+        //   formData,
+        //   setFormData,
+        //   section,
+        //   OperationTypeID
+        // );
       }
 
     }
@@ -721,44 +722,45 @@ const RenderTableSection = ({
           );
         } else if (section.isUseForVessel) {
           if (section.isUseForActivity) {
-            if (OperationType === getStackOperations('ST_SV')) {
-              StackSupervissionCreateDataFunction(
-                actionSelected,
-                editableIndex,
-                tableData,
-                formData,
-                section,
-                setSaveClicked,
-                setEditableIndex,
-                setPopupIndex,
-                popupIndex,
-                setPopupOpenAssignment,
-                setIsBtnClicked,
-                setIsOverlayLoader,
-                setTableData,
-                setFormData,
-                OperationTypeID
-              )
+            if (false) { // Stack operations removed
+              // StackSupervissionCreateDataFunction(
+              //   actionSelected,
+              //   editableIndex,
+              //   tableData,
+              //   formData,
+              //   section,
+              //   setSaveClicked,
+              //   setEditableIndex,
+              //   setPopupIndex,
+              //   popupIndex,
+              //   setPopupOpenAssignment,
+              //   setIsBtnClicked,
+              //   setIsOverlayLoader,
+              //   setTableData,
+              //   setFormData,
+              //   OperationTypeID
+              // )
             }
             else if (OperationType === getRakeOperations('RK_SV')) {
-              RakeSupervissionCreateDataFunction(
-                actionSelected,
-                editableIndex,
-                tableData,
-                formData,
-                section,
-                setSaveClicked,
-                setEditableIndex,
-                setPopupIndex,
-                popupIndex,
-                setPopupOpenAssignment,
-                setIsBtnClicked,
-                setIsOverlayLoader,
-                setTableData,
-                setFormData,
-                OperationTypeID,
-                setIsCustomPopup
-              )
+              // Rake supervission functionality removed
+              // RakeSupervissionCreateDataFunction(
+              //   actionSelected,
+              //   editableIndex,
+              //   tableData,
+              //   formData,
+              //   section,
+              //   setSaveClicked,
+              //   setEditableIndex,
+              //   setPopupIndex,
+              //   popupIndex,
+              //   setPopupOpenAssignment,
+              //   setIsBtnClicked,
+              //   setIsOverlayLoader,
+              //   setTableData,
+              //   setFormData,
+              //   OperationTypeID,
+              //   setIsCustomPopup
+              // )
             }
           }
           else {
@@ -1523,7 +1525,7 @@ const RenderTableSection = ({
         }
       }
       if (cell.name === "jism_lot_no") {
-        if (['TR', 'TRUCK'].includes(operationMode.toUpperCase()) || OperationType === getPlantOperations('TR')) {
+        if (['TR', 'TRUCK'].includes(operationMode.toUpperCase())) {
           cell.label = "Truck No.";
           // cell.pattern = "^[A-Z]{2}\\s?\\d{1,2}\\s?[A-Z]{0,2}\\s?\\d{1,4}\\s?[A-Z]{0,2}$"
           // cell.tooltip = "Eg. MH14BH1234"
@@ -1707,7 +1709,7 @@ const RenderTableSection = ({
     if (['jobinstruction'].includes(moduleType) && operationStepNo === 2 && !section.isUseForActivity) {
       if (header.name === "jism_lot_no") {
         header.label = "Lot Wise"
-        if (['TR', 'TRUCK'].includes(operationMode.toUpperCase()) || OperationType === getPlantOperations('TR')) {
+        if (['TR', 'TRUCK'].includes(operationMode.toUpperCase())) {
           header.label = "Truck No."
         }
         else if (OperationType === getVesselOperation('VL_BQA')) {
