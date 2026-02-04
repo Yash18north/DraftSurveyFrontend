@@ -54,6 +54,9 @@ import {
   getReferenceWiseDataApi,
   opsRakeSVPDFApi,
   opsStackSVPDFApi,
+  physicalAnalysisPDF,
+  bulkCargoPDF,
+  tmlMoisturePDFApi,
 } from "../../services/api";
 
 import {
@@ -72,7 +75,6 @@ import {
   getOperationActivityUrl,
   getFormatedDate,
   getDateFromCreatedAt,
-  handleCommonCustomConfirmHandler,
   getCurrentRole
 } from "../../services/commonFunction";
 
@@ -93,20 +95,9 @@ import {
   handleInwardMainSubmit,
   handleInwardStatusChange,
 } from "./commonHandlerFunction/sampleInwardHandlerFunctions";
-import GroupAssignmentButtons from "./ShowButtons/GroupAssignmentButtons";
-import GroupAssignmentPreviewButtons from "./ShowButtons/GroupAssignmentPreviewButtons";
-import SampleInwardButtons from "./ShowButtons/SampleInwardButtons";
-import InternalCertificateButtons from "./ShowButtons/InternalCertificateButtons";
-
-import ViewCheckListButtons from "./ShowButtons/ViewCheckListButtons";
-import JRFButtons from "./ShowButtons/JRFButtons";
 import JIButtons from "./ShowButtons/operations/JIButtons";
-import TestMemoButtons from "./ShowButtons/TestMemoButtons";
-import SampleVerificationButtons from "./ShowButtons/SampleVerificationButtons";
-import AllotmentButtons from "./ShowButtons/AllotmentButtons";
 import OperationCertificateButtons from "./ShowButtons/OperationCertificateButtons";
 import CommercialCertificateButtons from "./ShowButtons/CommercialCertificateButtons";
-import InvoicePreviewButtons from "./ShowButtons/InvoicePreviewButtons";
 import {
   changeTestMEmoStatuChange,
   getTestMemoDetails,
@@ -123,7 +114,6 @@ import {
   handleSFMCreateWithoutVerification,
   handleSFMVerificationMain,
 } from "./commonHandlerFunction/sfmHandlerFunctions";
-import SFMButtons from "./ShowButtons/SFMButtons";
 import {
   changeTestReportStatusChange,
   checkICULRNoAvailibility,
@@ -196,14 +186,9 @@ import { getSingleQualityAnalysisData, getSingleQualityAssesmentData, OperationQ
 import RenderTableManualMultiEntrySection from "./RenderTableManualMultiEntrySection";
 
 import { useLocation } from 'react-router-dom';
-import ConsortiumButton from "./ShowButtons/operations/ConsortiumButton";
-import InvoiceButton from "./ShowButtons/operations/InvoiceButton";
 
 import { getSingleConsortiumRecord, handleConsortiumCreateOrUpdate } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 
-import JobCostingButton from "./ShowButtons/JobCosting";
-import FeedbackButton from "./ShowButtons/Feedback/FeedbackButton";
-import IncentiveButton from "./ShowButtons/Feedback/IncentiveButton";
 import { handleGetFeedback } from "./commonHandlerFunction/Feedback/FeedbackHandler";
 import { getBillingDelayDayCount, getJobCostingIncDataFunc, handleGetIncentive, incentivesCalculationData } from "./commonHandlerFunction/Feedback/IncentiveHandler";
 import moment from "moment";
@@ -215,6 +200,7 @@ import { ClientDetailsButtons as stubClientDetailsButtons } from "../../utils/st
 import ShipmentButtons from "./ShowButtons/Shipment/ShipmentButton";
 import MarketPlaceButton from "./ShowButtons/MarketPlace/MarketPlaceButtons";
 import { handleGetAShipmet } from "./commonHandlerFunction/Shipment/ShipmentHandler";
+import DocumentPopup from "../../views/Document/UploadFiles/DocumentPopup";
 
 export const selectUser = (state) => state.user;
 export const selectRolePermissions = (state) => state.rolePermissions;
@@ -383,7 +369,7 @@ const Forms = ({
   const [isStatusCountCalled, setIsStatusCountCalled] = useState(false);
   const [allFormulaList, setAllformulaList] = useState([]);
   const [editModuleId, setEditModuleId] = useState("");
-  const [OperationType, setOperationType] = useState("");
+  let [OperationType, setOperationType] = useState("");
   const [OpsConfigID, setOpsConfigID] = useState("");
   const [OperationTypeID, setOperationTypeID] = useState("");
   const moduleType = formConfig?.sections[0]?.moduleType;
@@ -417,6 +403,7 @@ const Forms = ({
   const [prevParticipantIndex, setPrevParticipantIndex] = useState();
   const [sizeofPage, setSizeOfPage] = useState(0);
   const [isCustomPopup, setIsCustomPopup] = useState(false);
+  const [popupAddPurchaseReq, setPopupAddPurchaseReq] = useState(false);
   let navigate = useNavigate();
 
 
@@ -455,7 +442,7 @@ const Forms = ({
     }
   }, [customFilterData?.[1]?.search_financial_year]);
 
-  
+
   useEffect(() => {
     try {
       setIsOverlayLoader(true)
@@ -790,7 +777,7 @@ const Forms = ({
           action
         )
       }
-      
+
       else {
         if (
           ['jobinstruction', 'vesselJICertificate', 'operationCertificate', 'JICommercialCertificateList'].includes(moduleType)
@@ -1204,7 +1191,7 @@ const Forms = ({
         getSingleConsortiumRecord,
         setFormData
       );
-    }else if (jrfCreationType) {
+    } else if (jrfCreationType) {
       handleJRFCreateOrUpdate(
         setSaveClicked,
         formData,
@@ -1898,8 +1885,8 @@ const Forms = ({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-          theme: "light",
-        });
+        theme: "light",
+      });
     }
     finally {
       setIsOverlayLoader(false)
@@ -2240,7 +2227,7 @@ const Forms = ({
           };
         });
       }
-      
+
       else if (fieldName === "fk_branchid") {
         if (isOptionsDetails) {
           setFormData((prevFormData) => {
@@ -3182,7 +3169,7 @@ const Forms = ({
     } else if (moduleType == "jobinstruction") {
       redirectURL = "/operation/jrfInstructionListing";
     }
-    
+
     else {
       redirectURL = "/jrfListing";
     }
@@ -3557,15 +3544,7 @@ const Forms = ({
       }
       else if (cell.name === "ji_no_of_sample") {
         cell.label = "No. of Sample"
-        if (formData[0]?.fk_operationtypetid_code === "RK") {
-          cell.label = "No. of Rake"
-        }
-        else if (formData[0]?.fk_operationtypetid_code === "TR") {
-          cell.label = "No. of Truck"
-        }
-        else if (formData[0]?.fk_operationtypetid_code === "ST") {
-          cell.label = "No. of Stack"
-        }
+
       }
       else if (cell.name === "ji_dos") {
         cell.label = "Date of Sampling"
@@ -3662,7 +3641,7 @@ const Forms = ({
       )
         cell.viewOnly = true;
     }
-    
+
     else if (moduleType === "ShipmentForm") {
 
       if (formData[0]?.ji_is_loading === "Loading") {
@@ -3931,7 +3910,7 @@ const Forms = ({
             "?OperationType=" +
             encryptDataForURL(OperationType) + "&isExternal=" + encryptDataForURL(isExternal) + "&isUseForPhysical=" + encryptDataForURL(isUseForPhysical)
           );
-         
+
         }
         else {
           setIsOverlayLoader(false);
@@ -4241,7 +4220,6 @@ const Forms = ({
       navigate("/operation/commercial-certificate-list");
     }
   };
-{console.log("formData",formData)}
   const PublishCertificate = async (CCID, status) => {
     let payload = {
       cc_id: CCID,
@@ -4263,10 +4241,11 @@ const Forms = ({
     try {
       setIsOverlayLoader(true)
       let row = session?.selectedSingleRow;
-      if (row.cc_is_external) {
-        PublishCertificate(row.cc_id, "published");
-        return
-      }
+      console.log("row", row, "sessionmn--->", session)
+
+      PublishCertificate(row.cc_id, "published");
+      return
+
       //Use This Dynamic Folder ID
       let folderPayload = {
         data: {
@@ -4312,10 +4291,7 @@ const Forms = ({
             ji_id: row?.fk_jiid,
             cc_id: row?.cc_id,
           };
-          if (isUseForPhysical) {
-            generateCertificateResponse = await postDataFromApi(physicalAnalysisPDF, payload, "", true, "", "");
-          }
-          else if ([getPlantOperations("RK"), getRakeOperations('QA')].includes(OperationType)) {
+          if ([getPlantOperations("RK"), getRakeOperations('QA')].includes(OperationType)) {
             generateCertificateResponse = await postDataFromApi(rakeQAPdfApi, payload, "", true, "", "");
           }
           else if (OperationType == getStackOperations("PV") || OperationType == getStackOperations()) {
@@ -4658,7 +4634,6 @@ const Forms = ({
     return formConfig
   }
   const renderModuleWiseButtons = () => {
-    console.log("moduleType", moduleType)
     switch (moduleType) {
 
       case "jobinstruction":
@@ -4747,22 +4722,8 @@ const Forms = ({
           />
         );
 
-      case "documentPreview":
+      case "ShipmentForm":
         return (
-          <InvoicePreviewButtons
-            useFor={useFor}
-            status={status}
-            ApproveCertificate={ApproveCertificate}
-            handlePublish={handlePublish}
-            sendForApproval={sendForApproval}
-            IsPreviewUpload={IsPreviewUpload}
-            setIsPreviewUpload={setIsPreviewUpload}
-            dailyReportInDocument={dailyReportInDocument}
-            moduleType={moduleType}
-          />
-        );
-        case "ShipmentForm":
-        return(
           <ShipmentButtons
             formData={formData}
             handleSubmit={handleSubmit}
@@ -4771,8 +4732,8 @@ const Forms = ({
             viewOnly={viewOnly}
           />
         )
-        case "MarketPlaceForm":
-        return(
+      case "MarketPlaceForm":
+        return (
           <ShipmentButtons
             formData={formData}
             handleSubmit={handleSubmit}
@@ -5493,242 +5454,7 @@ const Forms = ({
                   </div>
                 ))}
               </div>
-              {section.label === "Test Memo" ? (
-                <div className="tab_footer">
-                  <p>
-                    {rolesDetails.map((role, UserIndex) => (
-                      <span key={"role-" + UserIndex}>
-                        {user?.role === role?.role ? role.label : null}
-                      </span>
-                    ))}{" "}
-                    <br />
-                    <br />{" "}
-                    <span>
-                      {user?.logged_in_user_info?.contact_person_name}
-                    </span>
-                  </p>
-                  {/* <p>
-                    Technical Manager <br />
-                    <br /> <span>Benjamin Thompson</span>
-                  </p> */}
-                </div>
-              ) : null}
-            </div>
-          ) || null
-        ) : section.type === "testMemoTabs" ? (
-          tabOpen && (
-            <div key={"form-section" + sectionIndex}>
-              <div className="nav nav-tabs nav-pills nav-fill card_header_btns_tabs ">
-                {testMemoSetData.map((tab, tabIndex) => {
-                  return (
-                    <React.Fragment key={"tabIndex" + tabIndex}>
-                      <NavItem key={"section-tab" + tabIndex}>
-                        <NavLink
-                          className={classnames("nav-link tab_header", {
-                            active: activeTab === `${sectionIndex}-${tabIndex}`,
-                          })}
-                          onClick={() =>
-                            setActiveTab(`${sectionIndex}-${tabIndex}`)
-                          }
-                          tabIndex="0"
-                          href="#"
-                        >
-                          {"Set " + (tabIndex + 1)}
-                        </NavLink>
-                      </NavItem>
-                    </React.Fragment>
-                  );
-                })}
-              </div>
-              <div className="tab-content">
-                {testMemoSetData.map((tab, tabIndex) => (
-                  <div
-                    key={"tab-content" + tabIndex}
-                    role="tabpanel"
-                    className={classnames("tab-pane", {
-                      active: activeTab === `${sectionIndex}-${tabIndex}`,
-                    })}
-                  >
-                    <Row>
-                      <Col>
-                        <RenderAdvtestMemoTableSection
-                          key={`${sectionIndex}-${tabIndex}`}
-                          section={section}
-                          tabIndex={tabIndex}
-                          setData={tab}
-                          sectionIndex={sectionIndex}
-                          formData={formData}
-                          handleFieldChange={handleFieldChange}
-                          formErrors={formErrors}
-                          addRow={() => {
-                            true
-                              ? addRow(tab, sectionIndex)
-                              : setShowModal(true);
-                          }}
-                          addColumn={() => addColumn(tab, sectionIndex)}
-                          deleteRow={() => deleteRow(sectionIndex)}
-                          deleteColumn={(columnIndex) =>
-                            deleteColumn(sectionIndex, columnIndex)
-                          }
-                          groupAssignment={tab.groupAssignment}
-                          handleAllSave={handleAllSave}
-                          handleCancel={handleCancel}
-                          gaData={gaData}
-                          setGaData={setGaData}
-                          showModalGA={showModalGA}
-                          setShowModalGA={setShowModalGA}
-                          pageType={pageType}
-                          actionClicked={actionClicked}
-                          setIsOverlayLoader={setIsOverlayLoader}
-                        />
-                      </Col>
-                    </Row>
-                  </div>
-                ))}
-              </div>
-              {section.label === "Test Memo" ? (
-                <div className="tab_footer">
-                  <p>
-                    {rolesDetails.map((role, UserIndex) => (
-                      <span key={"role-" + UserIndex}>
-                        {formData[0]?.tm_created_by?.role === role?.role
-                          ? role.label
-                          : null}
-                      </span>
-                    ))}{" "}
-                    <br />
-                    <br /> <span>{formData[0]?.tm_created_by?.name}</span>
-                  </p>
-                  <p>
-                    {rolesDetails.map((role, UserIndex) => (
-                      <span key={"role-" + UserIndex}>
-                        {formData[0]?.technical_manager?.role === role?.role
-                          ? role.label
-                          : null}
-                      </span>
-                    ))}{" "}
-                    <br />
-                    <br /> <span>{formData[0]?.technical_manager?.name}</span>
-                  </p>
-                </div>
-              ) : null}
-            </div>
-          ) || null
-        ) : section.type === "sampleAssignmentTabs" ? (
-          tabOpen && (
-            <div key={"form-section" + sectionIndex}>
-              <div className="card_header_btns card_header_btns_tabs">
-                {section?.tabs[0]?.tileSubHeader?.map((tile, tileIndex) => {
-                  return (
-                    <button
-                      type="button"
-                      className={getSubTileClassName(section, tile)}
-                      onClick={() => {
-                        if (tile.isClick && tile.opsNo != operationStepNo) {
-                          vesselListNextFunctionality(
-                            formData,
-                            OperationType,
-                            OperationTypeID,
-                            navigate,
-                            tile.opsNo,
-                            action,
-                            operationMode,
-                            1
-                          )
-                        }
-                      }}
-                    >
-                      <span>{tile.Text}</span>
-                    </button>
-                  );
-                })}
-              </div>
 
-              <div
-                className={
-                  "nav nav-tabs nav-pills nav-fill tileHeaderNav " +
-                  (section?.tabs[0]?.tileSubHeader?.length > 0 &&
-                    "nav-tabs_hidden")
-                }
-              >
-                <NavItem key={"section-tab"}>
-                  <NavLink
-                    className={classnames("nav-link tab_header", {
-                      active: true,
-                    })}
-                    tabIndex="0"
-                    href="#"
-                  >
-                    {section.label
-                      ? section.label
-                      : "Sample Group and Parameter List"}
-                  </NavLink>
-                </NavItem>
-              </div>
-
-              {section?.tabs.map((tab, tabIndex) => (
-                <Row key={"tabIndx" + tabIndex}>
-                  <Col>
-                    <RenderAssignmentTableSection
-                      key={`${sectionIndex}-${tabIndex}`}
-                      section={tab}
-                      sectionIndex={sectionIndex}
-                      formData={formData}
-                      handleFieldChange={handleFieldChange}
-                      formErrors={formErrors}
-                      addRow={() => {
-                        tab.headers.length < 6 ||
-                          pageType === "inward" ||
-                          pageType === "assignment"
-                          ? addRow(tab, sectionIndex)
-                          : setShowModal(true);
-                      }}
-                      deleteRow={() => deleteRow(sectionIndex)}
-                      deleteColumn={(columnIndex) =>
-                        deleteColumn(sectionIndex, columnIndex)
-                      }
-                      setFormData={setFormData}
-                      popupMessages={formConfig.popupMessages}
-                      pageType={pageType}
-                      action={action}
-                      masterOptions={masterResponse}
-                      actionClicked={actionClicked}
-                      setSaveClicked={setSaveClicked}
-                      saveClicked={saveClicked}
-                      setTableData={setSubTableData}
-                      tableData={subTableData}
-                      moduleType={moduleType}
-                      pageType2={true}
-                      simpleInwardResponse={simpleInwardResponse}
-                      setSimpleInwardResponse={setSimpleInwardResponse}
-                      groupDefaultValue={groupDefaultValue}
-                      testMemoId={testMemoId}
-                      getVerificationDetails={getVerificationDetails}
-                      getSampleIdsMasterData={getSampleIdsMasterData}
-                      getAssignmentMasterData={getAssignmentMasterData}
-                      isDisplayNewAddOption={isDisplayNewAddOption}
-                      setIsDisplayNewAddOption={setIsDisplayNewAddOption}
-                      setIsOverlayLoader={setIsOverlayLoader}
-                      isOverlayLoader={isOverlayLoader}
-                      useForComponent={useForComponent}
-                      OperationTypeID={OperationTypeID}
-                      TMLID={TMLID}
-                      OperationType={OperationType}
-                      operationName={operationName}
-                      editReordType={editReordType}
-                      setJRFTPIFormData={setJRFTPIFormData}
-                      JRFTPIFormData={JRFTPIFormData}
-                      operationStepNo={operationStepNo}
-                      setParameterDataTableMain={setParameterDataTableMain}
-                      setJRFCreationType={setJrfCreationType}
-                      setIsPopupOpen={setIsPopupOpen}
-                      isSingleSetOnly={formConfig?.sections[0]?.isSingleSetOnly}
-                      labDropDownOptions={labDropDownOptions}
-                      setLabDropDownOptions={setLabDropDownOptions}
-                    />
-                  </Col>
-                </Row>
-              ))}
             </div>
           ) || null
         ) : section.type === "JIcertificate" ? (
@@ -5886,23 +5612,6 @@ const Forms = ({
                           </div>
                         })}
                     </div>
-                    {['JICommercialCertificateList', 'tenderDocumentList', 'purchaseorderDocumentList', "purchasereqDocumentList", 'jrfDocumentList', 'itemDocumentList'].includes(moduleType) && (
-                      <div className="jrf_container">
-                        <div className="jrf_container_btns">
-                          <div className="jrf_container_btns_main">
-                            <button
-                              type="button"
-                              onClick={() => setPopupType("Upload")}
-                              className="create_button"
-                            >
-                              <i className="bi bi-plus-lg"></i>
-                              {translate("common.createBtn")}
-                            </button>
-                          </div>
-
-                        </div>
-                      </div>
-                    )}
 
                   </CardTitle>
 
@@ -6886,38 +6595,8 @@ const Forms = ({
                         staticData={section.fields}
                       />
                       {ViewDetailsButton(moduleType, sectionIndex, sectionIndex)}
-                      {
-                        ['stocks', 'purchaseItems'].includes(moduleType) && isCustomPopup && <CustomPopupModal isCustomPopup={isCustomPopup} setIsCustomPopup={setIsCustomPopup} handleConfirm={() => handleCommonCustomConfirmHandler({ formData, setFormData, setIsOverlayLoader, moduleType, setIsCustomPopup, fields: section.customField })} formData={formData} setFormData={setFormData} section={section.customField} />
-                      }
-                      <div className="submitBtn_container">
-                        {moduleType == "invoice" && !viewOnly && !formData[0].im_id &&
-                          (
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                handleInvoiceCreateOrUpdate(
-                                  formData,
-                                  formConfig,
-                                  setIsOverlayLoader,
-                                  setIsPopupOpen,
-                                  jrfCreationType,
-                                  navigate,
-                                  setFormData,
-                                  setTabOpen,
-                                  "",
-                                  masterResponse,
-                                  handleSubmit,
-                                  [],
-                                  user
-                                );
-                              }}
-                              className="saveBtn"
-                            >
-                              {formData[0].im_id ? "Update" : "Save"}
 
-                            </button>
-                          )}
-                      </div>
+
                       {
                         // moduleSubType !== "vesselList" &&
                         <div className="submitBtn_container">
@@ -6992,46 +6671,10 @@ const Forms = ({
                                     Back
                                   </Button>
                                 }
-                                <button
-                                  type="button"
-                                  onClick={(e) => {
-                                    handlePurchaseReqUpdateCreate(formData, handleSubmit, setIsOverlayLoader, navigate, 0, setFormData, setSubTableData, 0, "");
-
-                                  }}
-                                  className={`${formData[0]?.req_no ? " cancelBtn" : "submitBtn"}`}
-
-                                >
-                                  {formData[0]?.req_no ? "Update" : "Save"}
-                                </button>
                               </>
                             )
                           }
 
-                          {
-                            moduleType === "purchase" && !viewOnly && (
-                              <button
-                                type="button"
-                                onClick={(e) => handlePurchaseOrderCreateUpdate(formData, handleSubmit, setIsOverlayLoader, navigate, 1, setFormData, EditRecordId, setSubTableData, formData[0]?.req_no ? 1 : "")}
-                                className={`${formData[0].po_no ? " saveBtn" : "submitBtn"}`}
-
-                              >
-                                {formData[0].po_no ? "Update" : "Save"}
-                              </button>
-                            )
-                          }
-
-                          {
-                            moduleType === "tender" && sectionIndex === 3 && !viewOnly && (
-                              <div className="tender-participant-div">
-                                <button className="addParticipants" type="button" onClick={() => { addParticipantInTender(1) }}>+</button>
-                                {" "}
-                                {
-                                  participantFields && <button className="addParticipants" type="button" onClick={() => { addParticipantInTender(0) }}>-</button> || null
-                                }
-                              </div>
-                            )
-
-                          }
                           {moduleType === "vesselJICertificate" &&
                             sectionIndex === 1 && (
                               <div className="operationCertificateBtns">
@@ -7223,33 +6866,27 @@ const Forms = ({
                           {["jrf"].includes(listModuleType) ? "Export Submitted Samples" : "Export"}
                         </button>
                       )}
-
                       {["jobinstruction", "jioperationjsonb"].includes(listModuleType) &&
-                        user?.role == "OPS_ADMIN" &&
-                        isModuelePermission(
-                          rolePermissions,
-                          listModuleType,
-                          "add"
-                        ) ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            // localStorage.setItem('isMainScopeWork','');
-                            dispatch({
-                              type: "MAIN_SCOPE_WORK",
-                              isMainScopeWork: ""
-                            });
-                            navigate(
-                              "/operation/jrfInstructionListing/job-instruction"
-                            )
-                          }
-                          }
-                          className="create_button"
-                        >
-                          <i className="bi bi-plus-lg"></i>
-                          {translate("common.createBtn")}
-                        </button>
-                      ) : null}
+                        (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              // localStorage.setItem('isMainScopeWork','');
+                              dispatch({
+                                type: "MAIN_SCOPE_WORK",
+                                isMainScopeWork: ""
+                              });
+                              navigate(
+                                "/operation/jrfInstructionListing/job-instruction"
+                              )
+                            }
+                            }
+                            className="create_button"
+                          >
+                            <i className="bi bi-plus-lg"></i>
+                            {translate("common.createBtn")}
+                          </button>
+                        )}
                       {["consortiumorder"].includes(listModuleType) &&
                         isModuelePermission(
                           rolePermissions,
@@ -7270,228 +6907,33 @@ const Forms = ({
                           {translate("common.createBtn")}
                         </button>
                       ) :
-
-                        ["auditSalesRegister", "auditBranchExpenses", "auditOutstanding"].includes(listModuleType) ?
-                          <button
-                            type="button"
-                            onClick={() => {
-                              navigate(
-
-                                listModuleType === "auditSalesRegister" ? "/audit/auditSalesRegisterForm"
-                                  :
-                                  listModuleType === "auditBranchExpenses" ? "/audit/auditBranchExpenseForm"
-                                    :
-                                    listModuleType === "auditOutstanding" ? "/audit/auditOutstandingForm"
-                                      : null
-
-                              )
-                            }
-                            }
-                            className={listModuleType == "auditOutstanding" ? "create_button_outstanding" : "create_button"}
-                          >
-                            <i className="bi bi-plus-lg"></i>
-                            {
-                              listModuleType === "auditSalesRegister" ? "Register"
-                                :
-                                listModuleType === "auditBranchExpenses" ? "Expense"
-                                  :
-                                  listModuleType === "auditOutstanding" ? "Outstanding"
-                                    : null
-                            }
-                          </button>
-                          :
-                          listModuleType === "purchaseReq" ?
-                            getPurchaseManager(listModuleType, "add") &&
-
+                          listModuleType === "ShipmentList" ?
                             <button
                               type="button"
-                              className="create_button"
+                              className="createfeedback_button"
                               onClick={
                                 () => {
-                                  navigate("/PurchRequistion/PurchaseRequistionForm")
+                                  navigate("/shipment/shipmentForm")
                                 }
                               }
                             >
-                              +  Purchase Requistion
+                              + Shipment
                             </button>
                             :
-
-                            listModuleType === "calibration" ?
-                              getPurchaseManager(listModuleType, "add") && <>
-
-                                <button
-                                  type="button"
-                                  className="create_button"
-                                  onClick={
-                                    () => {
-                                      navigate("/calibrationList/calibrationForm")
-                                    }
+                            listModuleType === "marketPlaceListing" ?
+                              <button
+                                type="button"
+                                className="createfeedback_button"
+                                onClick={
+                                  () => {
+                                    navigate("/market/marketForm/")
                                   }
-                                >
-                                  + Calibration
-                                </button>
-
-                              </>
+                                }
+                              >
+                                + MarketPlace
+                              </button>
                               :
-                              listModuleType === "supplier" ?
-
-                                getPurchaseManager(listModuleType, "add") && <button
-                                  type="button"
-                                  className="create_button"
-                                  onClick={
-                                    () => {
-                                      navigate("/supplierList/supplierForm")
-                                    }
-                                  }
-                                >
-                                  + Supplier
-                                </button> :
-                                listModuleType === "tender" ?
-
-                                  <button
-                                    type="button"
-                                    className="create_button"
-                                    onClick={
-                                      () => {
-                                        navigate("/tenderList/tenderForm")
-                                      }
-                                    }
-                                  >
-                                    +    Tender
-
-                                  </button>
-
-                                  :
-                                  listModuleType === "stocks" ?
-
-                                    getPurchaseManager(listModuleType, "add") && <button
-                                      type="button"
-                                      className="create_button"
-                                      onClick={
-                                        () => {
-                                          navigate("/chemicalStocks/chemicalStocksForm")
-                                        }
-                                      }
-                                    >
-                                      +  Stocks
-                                    </button>
-                                    :
-                                    // listModuleType === "incentives" ?
-                                    //   <button
-                                    //     type="button"
-                                    //     className="create_button"
-                                    //     onClick={
-                                    //       () => {
-                                    //         navigate("/incentivesList/incentivesForm")
-                                    //       }
-                                    //     }
-                                    //   >
-                                    //     +  Incentive
-                                    //   </button>
-                                    //   :
-                                    listModuleType === "feedback" ?
-                                      <button
-                                        type="button"
-                                        className="createfeedback_button"
-                                        onClick={
-                                          () => {
-                                            navigate("/feedbackListList/feedbackListForm")
-                                          }
-                                        }
-                                      >
-                                        Add Feedback
-                                      </button>
-                                      : listModuleType === "purchaseItems" ?
-                                        getPurchaseManager(listModuleType, "add") && <>
-
-                                          <button
-                                            type="button"
-                                            className="create_button"
-                                            onClick={
-                                              () => {
-                                                navigate("/itemlist/item")
-                                              }
-                                            }
-                                          >
-                                            + Create
-                                          </button>
-
-                                        </>
-                                        :
-                                        listModuleType === "category" ?
-                                          getPurchaseManager(listModuleType, "add") && <>
-
-                                            <button
-                                              type="button"
-                                              className="create_button"
-                                              onClick={
-                                                () => {
-                                                  navigate("/categorylist/categoryForm")
-                                                }
-                                              }
-                                            >
-                                              + Create
-
-                                            </button>
-                                          </>
-                                          :
-                                          listModuleType === "purchase" ?
-                                            getPurchaseManager(listModuleType, "add") && <>
-
-                                              <button
-                                                type="button"
-                                                className="create_button"
-                                                onClick={
-                                                  () => {
-                                                    getAllListingDataExports('', '', purchaseOrderInsuranceDownload, 'Insurance');
-                                                  }
-                                                }
-                                              >
-                                                Export Insurance
-
-                                              </button>
-                                              <button
-                                                type="button"
-                                                className="create_button"
-                                                onClick={
-                                                  () => {
-                                                    getAllListingDataExports('', '', purchaseOrderVenRatingDownload, 'Vendor Rating');
-                                                  }
-                                                }
-                                              >
-                                                Export Vend. Rating
-
-                                              </button>
-
-                                            </>
-                                            :
-                                            listModuleType === "ShipmentList" ?
-                                              <button
-                                                type="button"
-                                                className="createfeedback_button"
-                                                onClick={
-                                                  () => {
-                                                    navigate("/shipment/shipmentForm")
-                                                  }
-                                                }
-                                              >
-                                                + Shipment
-                                              </button>
-                                              :
-                                              listModuleType === "marketPlaceListing" ?
-                                                <button
-                                                  type="button"
-                                                  className="createfeedback_button"
-                                                  onClick={
-                                                    () => {
-                                                      navigate("/market/marketForm/")
-                                                    }
-                                                  }
-                                                >
-                                                  + MarketPlace
-                                                </button>
-                                                :
-                                                null
+                              null
                       }
                     </div>
 
@@ -7518,9 +6960,7 @@ const Forms = ({
                 </div>
               )}
             </CardTitle>
-            {listSubModuleType === "tally" &&
-              <RenderTallyListSection />
-            }
+
 
             {listSubModuleType !== "tally" && (isModuelePermission(rolePermissions, listModuleType, "view") ||
               ["TPIMain", "auditBranchExpenses", "auditSalesRegister", "auditOutstanding", "jobCosting", "purchaseReq", "purchase", "supplier", "calibration", "tender", "dashboard", "stocks", "incentives", "feedback", 'purchaseItems', "category", 'ClientDetails', 'PaymentDetails', "ShipmentList", "marketPlaceListing"].includes(listModuleType) || (["BH", "OPS_ADMIN", "SU", "CP"].includes(user?.role) && isModuelePermission(rolePermissions, 'commercialcertificate', "view"))) && (
@@ -7562,15 +7002,15 @@ const Forms = ({
 
               )}
           </CardBody>
-        </Card>
+        </Card >
       ) : null}
-    </form>
+    </form >
   ) : (
     <>
       {(isOverlayLoader || isStatusCountCalled) && <OverlayLoading />}
       <Loading LoadingText={LoadingText} />
     </>
-    
+
   );
 };
 

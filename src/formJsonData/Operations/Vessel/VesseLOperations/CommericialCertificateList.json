@@ -178,13 +178,6 @@
         "fromType": "array"
       },
       {
-        "label": "Inv. Branch Code",
-        "name": "fk_invoice_branchid_name",
-        "type": "number",
-        "sortName": "fk_invoice_branchid_name",
-        "fieldName": "fk_invoice_branchid_name"
-      },
-      {
         "label": "Status",
         "name": "status",
         "type": "text",

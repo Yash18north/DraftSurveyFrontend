@@ -233,7 +233,7 @@ const RenderListSection = ({
   let statusesWithIcon = formConfig?.listView?.statusesWithIcon;
 
   const statusesWithColor = formConfig?.listView?.statusesWithColor;
- 
+
   const getAlstatusesNames = () => {
     let filterData = statusesWithIcon?.filter((status) => {
       if (moduleType === "jrf") {
@@ -314,74 +314,24 @@ const RenderListSection = ({
   }
   const getStatus = (formConfig, row) => {
     switch (moduleType) {
-      case "sampleinward":
-        return row["smpl_status"];
-      case "testmemomain":
-      case "allotment":
-      case "sampleverification":
-        return row["status"];
-      case "sfm":
-        return row["sfm_status"];
       case "internalcertificate":
         return row["status"];
       case "jobinstruction":
-        return user?.role == "BU" ? row["status"] : row["ji_internal_status"];
+        return row["status"];
+      // return user?.role == "BU" ? row["status"] : row["ji_internal_status"];
       case "jioperationjsonb":
         return row["status"];
-      case "TPIMain":
-        return row["status"];
-      case "consortiumorder":
-        return row["status"];
-      case "invoice":
-        return row["im_status"];
-
-      // Srushti 
-      case "jobCosting":
-
-        if (row?.["fk_im_id"]?.['im_status'] === "cancelled") {
-          return row?.["fk_im_id"]?.['im_status']?.toLowerCase();
-        }
-        else {
-          return row["jc_status"].toLowerCase();
-        }
-      case "auditBranchExpenses":
-        return row["status"];
-      case "auditOutstanding":
-        return row["status"];
-      case "auditSalesRegister":
-        return row["status"];
-      case "calibration":
-        return supStatusMap[row?.calib_status];
-      case "supplier":
-        return supStatusMap[row?.sup_status];
-      case "purchaseReq":
-        return row?.req_status
-      case "purchase":
-        return row?.po_status
-      case "tender":
-        return tenderStatusMap[row?.tender_final_status]
-      case "stocks":
-        return stockStatusMap[row?.stock_status]
-      case "incentives":
-        // row?.incentive_status
-        return incentivesStatusMap[row?.incentive_status]
-      case "feedback":
-        return feedbackStatusMap[0]
       case "ShipmentList":
         return row["status"]
       case "marketPlaceListing":
         return row["status"]
-      // case "category":
-      //   return categoryStatusMap[0]
-
-      // ---------------------------------------------
       default:
         return row["jrf_status"];
     }
   };
 
   const getStatusNameValue = (cellData, newraw) => {
-    
+
 
     let statusData = statusesWithColor;
 
@@ -427,28 +377,26 @@ const RenderListSection = ({
         //   }`}>
 
         <td
-  key="status_list"
-  className={`
+          key="status_list"
+          className={`
     status-td
-    ${
-      moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR"
-        ? "ic_status"
-        : moduleType === "dashboard" || user?.role === "CU"
-        ? ""
-        : width < 1024
-        ? ""
-        : "status-stickycol"
-    }
-    ${
-      subModuleType === "commercialCertificate" &&
-      user?.logged_in_user_info?.role === "BU"
-        ? "ext_status"
-        : ""
-    }
+    ${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR"
+              ? "ic_status"
+              : moduleType === "dashboard" || user?.role === "CU"
+                ? ""
+                : width < 1024
+                  ? ""
+                  : "status-stickycol"
+            }
+    ${subModuleType === "commercialCertificate" &&
+              user?.logged_in_user_info?.role === "BU"
+              ? "ext_status"
+              : ""
+            }
   `}
->
+        >
 
-            
+
           <div
             className={"table_item_sym " + filterStatusData?.icon + "_bg"}
             key={"table-item"}
@@ -461,7 +409,7 @@ const RenderListSection = ({
       );
     } else {
       return (
-        <td key="status_list" className={(moduleType === "dashboard" ? "" :width < 1024  ?""  :"status-stickycol") + ((subModuleType == "commercialCertificate" || moduleType == "internalcertificate") &&
+        <td key="status_list" className={(moduleType === "dashboard" ? "" : width < 1024 ? "" : "status-stickycol") + ((subModuleType == "commercialCertificate" || moduleType == "internalcertificate") &&
           user?.logged_in_user_info?.role === "BU" ? " ext_status" : "")}>
           <div className="table_item_sym" key={"table-item"} title="">
             {/* <div className="posted_sym"> </div> */}
@@ -1299,14 +1247,14 @@ const RenderListSection = ({
       return
     }
     if (
-      (!getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase()))
+      (!getLMSOperationActivity().includes('VL_DS'))
     ) {
       let payload = {
         ji_id: row?.fk_jiid,
         jis_id: row?.fk_jisid,
         tenant: 1,
       };
-      let OPSDSRes = await getNonLMSDetailsById(getActivityCode(row.activity_code).toLowerCase(), payload);
+      let OPSDSRes = await getNonLMSDetailsById(getActivityCode(row.activity_code)?.toLowerCase(), payload);
       if (OPSDSRes.data.status === 200) {
         navigate(
           `/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
@@ -1451,12 +1399,12 @@ const RenderListSection = ({
           cc_id: row?.cc_id,
           is_hard_copy: customFormData[0]?.download_is_hard_copy === "Hard Copy",
         };
-       
+
         if (row?.cc_is_physical) {
           generateCertificateResponse = await postDataFromApi(physicalAnalysisPDF, payload, "", true, "", "");
         }
-    
-      
+
+
         else {
           generateCertificateResponse = await postDataFromApi(ccCertPdfApi, payload, "", true, "", "");
 
@@ -1910,7 +1858,7 @@ const RenderListSection = ({
               )}
             </div>
           </div>
-          {console.log("object",moduleType)}
+          {console.log("object", moduleType)}
           <div className="tableContainer">
             {loadingTable ? (
               <Loading />
@@ -1942,7 +1890,7 @@ const RenderListSection = ({
                             }
                             className={user?.role !== "CU" && ` ${moduleType === "internalcertificate" && header?.label === "Status" && user?.logged_in_user_info?.role === "LR" ? "ic_status" : header?.label === "Status" || (header?.label === "Tender Final Status" && moduleType === "tender" && header?.name !== "dashboard_status") && "statusHeader} "}
                                }` + ((subModuleType == "commercialCertificate") &&
-                              user?.logged_in_user_info?.role === "BU" ? "ext_status" :"" ) + (header?.isCustomLink && " custom-link-class" || '') + (header.customClass ? header.customClass : '') +  width < 1024 ? "" :"status-stickycol"}
+                                user?.logged_in_user_info?.role === "BU" ? "ext_status" : "") + (header?.isCustomLink && " custom-link-class" || '') + (header.customClass ? header.customClass : '') + width < 1024 ? "" : "status-stickycol"}
                           >
                             {getHeaderTileConditonWise(header)}
                             {
@@ -1964,7 +1912,7 @@ const RenderListSection = ({
                       null
                     }
                     {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") ? <th className={` ${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : moduleType === "internalcertificate" && user?.logged_in_user_info?.role !== "LR" ? "actioncolNoLR" :
-                       width < 1024 ? "" :"actioncol "}list_th_action`}>Actions</th> : null}
+                      width < 1024 ? "" : "actioncol "}list_th_action`}>Actions</th> : null}
                   </tr>
                 </thead>
                 <tbody>
@@ -2324,13 +2272,13 @@ const RenderListSection = ({
                             return getStatusNameValue(categoryStatusMap[0])
                           }
                         }
-                        else if(moduleType === "ShipmentList"){
-                          if(header?.name==="ship_status")
-                           return getStatusNameValue(row["ship_status"])
+                        else if (moduleType === "ShipmentList") {
+                          if (header?.name === "ship_status")
+                            return getStatusNameValue(row["ship_status"])
                         }
-                        else if(moduleType === "marketPlaceListing"){
-                          if(header?.name==="status")
-                           return getStatusNameValue(row["status"])
+                        else if (moduleType === "marketPlaceListing") {
+                          if (header?.name === "status")
+                            return getStatusNameValue(row["status"])
                         }
                         // else if (moduleType === "dashboard" && !["im_total", "im_remark", "im_status", "im_is_regular", "iv_jireference"].includes(header.name)) {
                         //   return <td key={"cellIndex" + index} style={{ textAlign: header?.textAlign || "left" }}>
@@ -2822,7 +2770,7 @@ const RenderListSection = ({
                           && (row?.ic_iv_status === null || (subModuleType == "commercialCertificate" && ["BU"].includes(user?.logged_in_user_info?.role) && ((!row?.fk_certificate_transfered_to && user?.logged_in_user_info?.usr_id == row?.useropsexecutive?.usr_id) || user?.logged_in_user_info?.usr_id == row?.fk_certificate_transfered_to)))
                           ?
                           <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : moduleType === "internalcertificate" && user?.logged_in_user_info?.role !== "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role !== "BU" ? "stickyColForICNonLR" : moduleType === "dashboard" ? "" :
-                           "list_th_action status-stickycol"}`}>
+                            "list_th_action status-stickycol"}`}>
                             <input
                               ref={(el) => (checkboxRefs.current[rowIndex] = el)}
                               type="checkbox"
@@ -2832,13 +2780,13 @@ const RenderListSection = ({
                             />
                           </td>
                           :
-                          <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : moduleType === "dashboard" ? "" : 
+                          <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "stickyColForIC" : moduleType === "dashboard" ? "" :
                             "list_th_action status-stickycol"}`}>{`${moduleType === "internalcertificate" && !row.ic_is_external_jrf ? 'NA' : ''}`}</td>
                         :
                         null
                       }
 
-                      {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") && <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : "list_th_action"} ${width < 1024 ? "" : "actioncol" } ` + (popupIndex === rowIndex && " actionColActive")} ref={popupRef}>
+                      {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") && <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : "list_th_action"} ${width < 1024 ? "" : "actioncol"} ` + (popupIndex === rowIndex && " actionColActive")} ref={popupRef}>
                         <div className="renderListButtonDiv">
 
                           <span ref={popupOptionsRef}>
@@ -2854,7 +2802,10 @@ const RenderListSection = ({
                                     : row["jrf_id"]
                                 }
                                 sampleInwardFormId={row["smpl_inwrd_id"]}
-                                row={row}
+                                row={{
+                                  ...row,
+                                  activity_code: 'VL_DS'
+                                }}
                                 formConfig={formConfig}
                                 model={responseData.model}
                                 isBottom={isBottom}
@@ -2913,7 +2864,7 @@ const RenderListSection = ({
                               setCurrentActiverow={setCurrentActiverow}
                             />
                           </div>}
-                          {subModuleType === "commercialCertificate" && ['BH', 'BU', 'CP'].includes(user?.logged_in_user_info?.role) && (['CP', 'BH'].includes(user?.logged_in_user_info?.role) || user?.logged_in_user_info?.usr_id == row?.useropsexecutive?.usr_id) &&
+                          {subModuleType === "commercialCertificate" &&
                             < div className="listActionBtns">
                               {
                                 <div className="actionColumn maxWidth d-flex confirugationListActionColumn">
@@ -2953,22 +2904,20 @@ const RenderListSection = ({
                                         Send For Approval
                                       </button>
                                     )}
-                                  {row["status"] === "approved" &&
-                                    user?.logged_in_user_info?.role === "BU" && (
-                                      <button
-                                        type="button"
-                                        className="iconBtn"
-                                        onClick={() => RedirectPublishCertificate(row)}
-                                      >
-                                        Publish
-                                      </button>
-                                    )}
+                                  {/* {(
+                                    <button
+                                      type="button"
+                                      className="iconBtn"
+                                      onClick={() => RedirectPublishCertificate(row)}
+                                    >
+                                      Publish
+                                    </button>
+                                  )} */}
                                   {row["status"] === "published" &&
                                     user?.logged_in_user_info?.role === "BU" && (
                                       <button
                                         type="button"
                                         className="iconBtn"
-                                        // onClick={() => handlePublish(row)}
                                         onClick={() => {
                                           setIsCustomPopup(true)
                                           setIsDownLoadPopup(true)

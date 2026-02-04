@@ -1338,11 +1338,6 @@ export const getPurchaseManager = (moduleType, permission) => {
   return false;
 }
 
-export const handleCommonCustomConfirmHandler = ({ formData, setFormData, setIsOverlayLoader, moduleType, setIsCustomPopup, fields }) => {
-  if (['stocks', 'purchaseItems'].includes(moduleType)) {
-    handleCalibrationCreateUpdate(formData, null, setIsOverlayLoader, null, 1, 1, setIsCustomPopup, setFormData, fields)
-  }
-}
 export const getMailSubjectDetails = (formData, docs) => {
   if (!Array.isArray(docs)) {
     docs = [docs]

@@ -493,16 +493,11 @@ const JIButtons = ({
                   id="submit_btn1"
                   // disabled={editReordType !== "nomination" && !['posted', 'accepted'].includes(formData?.[0]?.status)}
                   onClick={(e) =>
-                    handleJIUpdateStatus(
-                      formData,
-                      formConfig,
-                      setIsOverlayLoader,
-                      editReordType,
-                      navigate,
-                      1,           // isMainStatusChange = true
-                      "accepted",  // mainStatus = "accepted"
-                      "",          // remarkText = ""
-                      subTableData
+                    handleJIValidation(
+                      handleSubmit,
+                      setJrfCreationType,
+                      setIsPopupOpen,
+                      "post"
                     )
                   }
                 >
@@ -1053,7 +1048,7 @@ const JIButtons = ({
                         setIsPopupOpen(true);
                       }}
                     >
-                      {translate("common.postBtn")}
+                      {translate("common.postBtn")}111111111111111
                     </Button>
                   </>
                 )
@@ -1066,7 +1061,7 @@ const JIButtons = ({
     ) : (
       LMSViewDetailsButton()
     )
-  
+
 };
 
 JIButtons.propTypes = {

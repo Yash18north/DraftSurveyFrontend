@@ -19,7 +19,9 @@ import {
   getStackOperations,
   getVesselOperation,
   isModuelePermission,
+  getLMSOperationActivity
 } from "../../services/commonFunction";
+
 import { useDispatch, useSelector } from "react-redux";
 import DeleteConfirmation from "./DeleteConfirmation";
 import {
@@ -85,6 +87,7 @@ const PopupOptions = ({
   console.log("roeship", row)
   let rolePermissions;
   rolePermissions = session?.user?.permissions;
+  const uploadExtraModules = ['tenderDocumentList', 'purchaseorderDocumentList', 'purchasereqDocumentList', 'jrfDocumentList', 'itemDocumentList']
 
   const hash = window.location.hash;
   const params = new URLSearchParams(hash.split("?")[1]);

@@ -161,7 +161,6 @@ export const getTotalBranchAmountValueForSalesRegister = () => null;
 
 // Additional missing functions
 export const getSingleQualityAnalysisData = () => null;
-export const handleCalibrationCreateUpdate = () => null;
 export const getSampleStatusCountsForTPI = () => null;
 export const getTPIParamBasis = () => null;
 export const createTMLAnalysisPageHandleAction = () => null;

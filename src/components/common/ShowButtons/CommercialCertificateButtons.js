@@ -60,7 +60,7 @@ const CommercialCertificateButtons = ({
         </>
       )}
 
-      {(status === "publish" || status === "NonLMSPublish") && (
+      {/* { (
         <button
           className="submitBtn"
           type="button"
@@ -68,7 +68,7 @@ const CommercialCertificateButtons = ({
         >
           Publish
         </button>
-      )}
+      )} */}
 
       {(status === "posted" || status === "NonLMSPosted") && (
         <button

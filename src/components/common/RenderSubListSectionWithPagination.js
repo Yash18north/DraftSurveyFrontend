@@ -1693,8 +1693,8 @@ const RenderSubListSectionWithPagination = ({
                                     Send For Approval
                                   </button>
                                 )}
-                              {row["status"] === "approved" &&
-                                user?.logged_in_user_info?.role === "BU" && (
+                              {
+                                 (
                                   <button
                                     type="button"
                                     className="iconBtn"
@@ -1708,7 +1708,6 @@ const RenderSubListSectionWithPagination = ({
                                   <button
                                     type="button"
                                     className="iconBtn"
-                                    // onClick={() => handlePublish(row)}
                                     onClick={() => {
                                       setIsCustomPopup(true)
                                       setIsDownLoadPopup(true)

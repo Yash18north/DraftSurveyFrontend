@@ -225,9 +225,8 @@
       {
         "label": "Fill DS",
         "redirectUrl": "/operation/jrfInstructionListing/ds-analysis",
-        "status": "accepted",
-        "isDupplicate": true,
-        "recordType": "ds-analysis"
+        "recordType": "ds-analysis",
+        "status": "posted"
       }
     ],
     "statusesWithIcon": [

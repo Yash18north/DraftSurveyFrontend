@@ -80,9 +80,6 @@ export const checkCettificateNoAvailibility = async (
 
 export const getNonLMSDetailsById = async (OperationType, payload) => {
   let responseData;
-  OperationType = getActivityCode(OperationType)
-  OperationType = OperationType ? OperationType.toLowerCase() : OperationType
-
   responseData = await postDataFromApi(getDSApi, payload);
   return responseData;
 };

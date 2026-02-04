@@ -529,9 +529,12 @@ export const getShipmentDetails = async (
             ji_nameofoperationmode: responseData.ship_vessel_name,
             fk_commodityid: responseData.ship_commodity,
             fk_subcommodityid: responseData.ship_sub_commodity,
+            fk_commodity_name: responseData.ship_commodity.cmd_name,
+            fk_subcommodity_name: responseData.ship_sub_commodity.sub_cmd_name,
             ji_totalqty: responseData.ship_total_quantity,
             ji_appointed_totalqty: responseData.ship_appointed_quantity,
             fk_placeworkid: parseInt(responseData.ship_place_of_work, 10),
+            fk_placework_name: responseData.ship_place_of_work_detail.pow_name,
             ji_is_loading: responseData.ship_loading_unloading === "loading" ? "Loading" : "Unloading",
           },
         };

@@ -181,7 +181,7 @@
             },
             {
               "width": 6,
-              "name": "fk_commodityid",
+              "name": "fk_commodity_name",
               "label": "Commodity",
               "required": true,
               "type": "label",
@@ -196,7 +196,7 @@
             },
             {
               "width": 6,
-              "name": "fk_subcommodityid",
+              "name": "fk_subcommodity_name",
               "label": "Sub Commodity",
               "type": "label",
               "apiendpoint": "/ji-commodity/get/",
@@ -219,7 +219,7 @@
             },
             {
               "width": 6,
-              "name": "fk_placeworkid",
+              "name": "fk_placework_name",
               "label": "Place of Work",
               "required": true,
               "type": "label",
