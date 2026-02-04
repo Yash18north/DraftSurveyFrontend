@@ -1910,6 +1910,7 @@ const RenderListSection = ({
               )}
             </div>
           </div>
+          {console.log("object",moduleType)}
           <div className="tableContainer">
             {loadingTable ? (
               <Loading />
@@ -1941,7 +1942,7 @@ const RenderListSection = ({
                             }
                             className={user?.role !== "CU" && ` ${moduleType === "internalcertificate" && header?.label === "Status" && user?.logged_in_user_info?.role === "LR" ? "ic_status" : header?.label === "Status" || (header?.label === "Tender Final Status" && moduleType === "tender" && header?.name !== "dashboard_status") && "statusHeader} "}
                                }` + ((subModuleType == "commercialCertificate") &&
-                              user?.logged_in_user_info?.role === "BU" ? " ext_status" : " ") + (header?.isCustomLink && " custom-link-class" || '') + (header.customClass ? header.customClass : '')}
+                              user?.logged_in_user_info?.role === "BU" ? "ext_status" :"" ) + (header?.isCustomLink && " custom-link-class" || '') + (header.customClass ? header.customClass : '') +  width < 1024 ? "" :"status-stickycol"}
                           >
                             {getHeaderTileConditonWise(header)}
                             {
@@ -2324,8 +2325,8 @@ const RenderListSection = ({
                           }
                         }
                         else if(moduleType === "ShipmentList"){
-                          if(header?.name==="status")
-                           return getStatusNameValue(row["status"])
+                          if(header?.name==="ship_status")
+                           return getStatusNameValue(row["ship_status"])
                         }
                         else if(moduleType === "marketPlaceListing"){
                           if(header?.name==="status")
@@ -2837,7 +2838,7 @@ const RenderListSection = ({
                         null
                       }
 
-                      {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") && <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : width < 1024 ? "" :"actioncol "} "list_th_action"} ` + (popupIndex === rowIndex && " actionColActive")} ref={popupRef}>
+                      {!["dashboard", "feedback"].includes(moduleType) && !(["PaymentDetails", 'invoice'].includes(subModuleType) && user?.logged_in_user_info?.role === "CU") && <td className={`${moduleType === "internalcertificate" && user?.logged_in_user_info?.role === "LR" || subModuleType == "commercialCertificate" && user?.logged_in_user_info?.role === "BU" ? "actionColForIntCert" : "list_th_action"} ${width < 1024 ? "" : "actioncol" } ` + (popupIndex === rowIndex && " actionColActive")} ref={popupRef}>
                         <div className="renderListButtonDiv">
 
                           <span ref={popupOptionsRef}>

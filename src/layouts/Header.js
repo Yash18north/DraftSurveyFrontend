@@ -353,7 +353,7 @@ const Header = ({ showSidebar, setShowSidebar, setIsLoggedInUser, changePassword
 
         <div className="d-flex justify-content-between w-100">
           {/* {showSidebar && ( */}
-          <NavbarBrand className={`${width <= 1024 ? "tcrcLogoMobile" :"tcrcLogo"}`}>
+          <NavbarBrand className={`${width <= 1024 ? "tcrcLogoMobile" : "tcrcLogo"}`}>
             <Nav.Item aria-label="List Icon">
               <Nav>
                 <button
@@ -557,7 +557,13 @@ const Header = ({ showSidebar, setShowSidebar, setIsLoggedInUser, changePassword
                 <p>{user?.logged_in_user_info?.contact_person_name}</p>
                 <span>Designation : {user?.logged_in_user_info?.usr_designation}</span>
                 <br />
-                <span className="last_login_span">Last Login : {getFormatedDateWithtime(user?.logged_in_user_info?.usr_last_login, 1)}</span>
+                {
+                  width < 425 ?
+                    <></>
+                    :
+                    <span className="last_login_span">Last Login : {getFormatedDateWithtime(user?.logged_in_user_info?.usr_last_login, 1)}</span>
+                }
+
               </p>
 
             </div>

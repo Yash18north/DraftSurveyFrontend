@@ -116,9 +116,9 @@
             },
             {
                 "label": "Status",
-                "name": "status",
+                "name": "ship_status",
                 "type": "text",
-                "sortName": "status"
+                "sortName": "ship_status"
             }
         ],
         "rows": [
