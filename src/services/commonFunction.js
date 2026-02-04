@@ -12,8 +12,6 @@ import {
 import { use } from "i18next";
 import { store } from "./store";
 import { GetTenantDetails } from "./commonServices";
-import { handleCalibrationCreateUpdate } from "../components/common/commonHandlerFunction/Purchase/Calibration/CalibrationHandler";
-import { handleCalibrationCreateUpdate as stubHandleCalibrationCreateUpdate } from "../utils/stubFunctions";
 import { useEffect, useState } from "react";
 export const rolesDetails = [
   { role: "BU", label: "Operation Executive" },

@@ -39,10 +39,12 @@ const RakeOperations = () => {
     const params = new URLSearchParams(hash.split("?")[1]);
     let useFor = params.get("useFor") ? params.get("useFor") : "";
 
-    useFor = decryptDataForURL(useFor).toLowerCase();
+    useFor = decryptDataForURL(useFor) || "";
+    useFor = useFor.toLowerCase();
     setIsViewOnly(useFor === "viewonly" ? true : false);
 
-    useFor = decryptDataForURL(useFor).toLowerCase();
+    useFor = decryptDataForURL(useFor) || "";
+    useFor = useFor.toLowerCase();
     let stepNo = params.get("operationStepNo")
       ? params.get("operationStepNo")
       : "";

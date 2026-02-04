@@ -19,7 +19,8 @@ const OperationCertificate = () => {
       ? params.get("useFor")
       : "";
 
-    useFor = decryptDataForURL(useFor).toLowerCase()
+    useFor = decryptDataForURL(useFor) || "";
+    useFor = useFor.toLowerCase();
     setIsViewOnly(useFor==="viewonly" ? true : false)
     // getBranchDetailsData();
     // getSalesPersonDetailsData();

@@ -47,12 +47,9 @@ import {
 } from "../../utills/useCryptoUtils";
 import RenderTableSectionActivity from "./RenderTableSectionActivity";
 import { Button } from "react-bootstrap";
-import { handleGetPurchaseReqTableData, handlePurchaseReqTableDataDelete } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseReqTableHandler";
-import PopUpPurchaseReq from "./PopUpPurchaseReq";
 import { getAllStackSupervissionData, StackSupervissionCreateDataFunction } from "./commonHandlerFunction/operations/StackHandlerFunctions";
 import { getAllRakeSupervissionData, RakeSupervissionCreateDataFunction } from "./commonHandlerFunction/operations/RakeHandlerOperation";
 import RenderTablePopup from "./commonModalForms/RenderTablePopup";
-import PurchaseTotal from "./PurchaseTotal";
 
 const RenderTableSection = ({
   section,
@@ -100,15 +97,12 @@ const RenderTableSection = ({
   handleSubmit,
   navigate,
   tab,
-  popupAddPurchaseReq,
-  setPopupAddPurchaseReq,
   user
 }) => {
   const [popupIndex, setPopupIndex] = useState(-1);
   const [isDisplayNewAddOption, setIsDisplayNewAddOption] = useState(true);
 
   const [popupOpenAssignment, setPopupOpenAssignment] = useState(false);
-  // const [popupAddPurchaseReq, setPopupAddPurchaseReq] = useState(false)
   const [isBtnclicked, setIsBtnClicked] = useState(false);
   const [sampleDetails, setSampleDetails] = useState([]);
   const [isViewOpen, setIsViewOpen] = useState(false);
@@ -837,15 +831,6 @@ const RenderTableSection = ({
           isAdditional,
           user
         );
-      }
-      else if (moduleType === "purchaseReq") {
-
-        handlePurchaseReqTableDataDelete(formData, setPopupIndex,
-          setEditableIndex, popupIndex, setFormData, setTableData, "")
-      }
-      else if (moduleType === "purchase") {
-        handlePurchaseReqTableDataDelete(formData, setPopupIndex,
-          setEditableIndex, popupIndex, setFormData, setTableData, "purchase")
       }
       else {
         InwardPageHandleAction(
@@ -1786,8 +1771,6 @@ const RenderTableSection = ({
                   <Button
                     className="submitBtn addStickyBtn"
                     onClick={() => {
-                      setPopupAddPurchaseReq(true)
-                      setEditableIndex("")
                     }}
                   >Add
                   </Button>
@@ -2122,7 +2105,6 @@ const RenderTableSection = ({
                                   formData={formData}
                                   getSampleMarkLisData={getSampleMarkLisData}
                                   OperationTypeID={OperationTypeID}
-                                  setPopupAddPurchaseReq={setPopupAddPurchaseReq}
                                   setFormData={setFormData}
                                   getAllListingData={getAllListingData}
                                   setTableData={setTableData}
@@ -2465,28 +2447,10 @@ const RenderTableSection = ({
           </CardBody >
         )}
       </Card >
-      {
-        popupAddPurchaseReq && (
-          <PopUpPurchaseReq
-            setPopupAddPurchaseReq={setPopupAddPurchaseReq}
-            popupAddPurchaseReq={popupAddPurchaseReq}
-            formData={formData}
-            handleFieldChange={handleFieldChange}
-            formErrors={formErrors}
-            tab={tab}
-            sectionIndex={sectionIndex}
-            handleSubmit={handleSubmit}
-            setIsOverlayLoader={setIsOverlayLoader}
-            navigate={navigate}
-            setFormData={setFormData}
-            editableIndex={editableIndex}
-            setEditableIndex={setEditableIndex}
-            setTableData={setTableData}
-            moduleType={moduleType}
+      {tab && <RenderTablePopup
             tableData={tableData}
-          />)
-      }
-
+          />}
+      )}
       {
         isViewOpen && (
           <SampleVerificationDetals

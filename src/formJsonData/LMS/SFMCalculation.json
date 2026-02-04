@@ -1,12 +1,1 @@
-{
-    "fields": [
-        {
-            "label": "Formula",
-            "name": "calc_formula",
-            "placeholder": "Select Formula",
-            "type": "select",
-            "required": true,
-            "fieldWidth": 100
-        }
-    ]
-}
+﻿{"fields": []}

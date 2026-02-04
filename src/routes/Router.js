@@ -2,36 +2,11 @@ import { lazy } from "react";
 import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute.js";
 import PublicRoute from "./PublicRoute.js";
-import CategoryList from "../views/Purchase/Category/CategoryList.js";
-import CategoryForm from "../views/Purchase/Category/CategoryForm.js";
 import ShipmentList from "../views/Shipment/ShipmentList.js";
 import ShipmentForm from "../views/Shipment/ShipmentForm.js";
 import MarketList from "../views/MarketPlace/MarketList.jsx";
 import MarketForm from "../views/MarketPlace/MarketForm.jsx"
 
-// import PageNotFound from "../views/PageNotFound.js";
-
-// import TestReportList from "../views/lms/TestReportList.js";
-// import ExternalJrf from "../views/lms/ExternalJrf.js";
-// import ExternalJRFApprovalPage from "../layouts/externalApprovalPage.js";
-// import JrfInstructionListing from "../views/operations/JrfInstructionListing.js";
-// import JrfInstruction from "../views/operations/jrfInstruction.js";
-// import JfInstructionAnalys from "../views/operations/JfInstructionAnalys.js";
-// import JfInstructionNomination from "../views/operations/JfInstructionNomination.js";
-// import vesselJIList from "../views/operations/vessel/vesselJIList.js";
-// import truckList from "../views/operations/vessel/truckList.js";
-// import rakeList from "../views/operations/vessel/rakeList.js";
-// import stackList from "../views/operations/vessel/stackList.js";
-// import vesselJIEdit from "../views/operations/vessel/vesselJIEdit.js";
-// import vesselList from "../views/operations/vessel/vesselList.js";
-// import VesselJIDetais from "../views/operations/vessel/vesselJIDetais.js";
-
-// import TMLAnalysisOperations from "../views/operations/vessel/vesselOperations/TMLAnalysisOperations.js";
-// import OperationCertificate from "../views/operations/vessel/OperationCertificate.js";
-// import OtherTPIOperation from "../views/operations/vessel/otherTPIOperation.js";
-// import Support from "../views/Support.js";
-// import JIManPower from "../views/operations/JIManPower.js";
-// import OtherTPIList from "../views/operations/OtherTPIList.js";
 
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
@@ -41,30 +16,6 @@ const ForgotPassword = lazy(() => import("../layouts/forgotPassword.js"));
 
 /***** Pages ****/
 
-const JrfListing = lazy(() => import("../views/lms/JrfListing.js"));
-
-const Jrf = lazy(() => import("../views/lms/jrfReport.js"));
-const ModuleHistory = lazy(() => import("../views/lms/moduleHistory.js"));
-const TestReportPreview = lazy(() => import("../views/lms/TestReportPreview.js"));
-const TestReportPreviewPDF = lazy(() => import("../views/lms/TestReportPreviewPDF.js"));
-const InwardList = lazy(() => import("../views/lms/InwardList.js"));
-const AllotmentList = lazy(() => import("../views/lms/AllotmentList.js"));
-const VerificationList = lazy(() => import("../views/lms/VerificationList.js"));
-const InwardForm = lazy(() => import("../views/lms/InwardForm.js"));
-const InternalCertificate = lazy(() =>
-  import("../views/lms/InternalCertificate.js")
-);
-const SampleVerification = lazy(() =>
-  import("../views/lms/SampleVerification")
-);
-const InwardCheckListForm = lazy(() =>
-  import("../views/lms/InwardCheckListForm.js")
-);
-const SampleAssignment = lazy(() => import("../views/lms/SampleAssignment.js"));
-
-const GroupAssignmentPreview = lazy(() =>
-  import("../views/lms/GroupAssignmentPreview.js")
-);
 const DocumentViewer = lazy(() =>
   import("../views/Document/DocView.js")
 );
@@ -103,22 +54,12 @@ const ConfirugationCertificate = lazy(() =>
 );
 
 
-const TestMemoPDF = lazy(() => import("../views/lms/TestMemoPDF.js"));
-const SFMPDF = lazy(() => import("../views/lms/SFMPDF.js"));
-const TestMemo = lazy(() => import("../views/lms/TestMemo.js"));
-const Sfm = lazy(() => import("../views/lms/SFM.js"));
-const Allotment = lazy(() => import("../views/lms/Allotment.js"));
 
-const TestMemoList = lazy(() => import("../views/lms/TestMemoList.js"));
-const SfmList = lazy(() => import("../views/lms/SFMList.js"));
-const JRFPdfDownLoad = lazy(() => import("../views/lms/JRFPdfDownLoad.js"));
 const ModuleDocument = lazy(() =>
   import("../views/Document/Document.js")
 );
 const PageNotFound = lazy(() => import("../views/PageNotFound.js"));
 const FeedbackFormGlobal = lazy(() => import("../views/FeedbackFormGlobal.js"));
-const TestReportList = lazy(() => import("../views/lms/TestReportList.js"));
-const ExternalJrf = lazy(() => import("../views/lms/ExternalJrf.js"));
 const ExternalJRFApprovalPage = lazy(() => import("../layouts/externalApprovalPage.js"));
 const JrfInstructionListing = lazy(() => import("../views/operations/JrfInstructionListing.js"));
 const JrfInstruction = lazy(() => import("../views/operations/jrfInstruction.js"));
@@ -166,42 +107,6 @@ const ConsortiumAdd = lazy(() => import("../views/operations/consortium/Consorti
 // Srushti 
 
 
-// Calibration
-const CalibrationForm = lazy(() => import("../views/Purchase/Calibration/CalibrationForm.js"));
-const CalibrationList = lazy(() => import("../views/Purchase/Calibration/CalibrationList.js"))
-// Purchase
-const PurchasingList = lazy(() => import("../views/Purchase/PurchaseListing/PurchasingList.js"));
-const PurchasingForm = lazy(() => import("../views/Purchase/PurchaseListing/PurchasingForm.js"));
-const PurchasingOrderPreview = lazy(() => import("../views/Purchase/PurchaseListing/PurchaseOrderPreview.js"));
-const PurchaseorderDocumentList = lazy(() => import("../views/Purchase/PurchaseListing/PurchaseorderDocumentList.js"));
-
-// Purchase Req
-const PurchaseRequistionList = lazy(() => import("../views/Purchase/PurchaseRequsition/PurchaseRequistionList.js"));
-const PurchaseRequistionForm = lazy(() => import("../views/Purchase/PurchaseRequsition/PurchaseRequsitionForm.js"));
-const PurchasereqDocumentList = lazy(() => import("../views/Purchase/PurchaseRequsition/PurchaseReqDocumentList.js"));
-
-// Suppliers
-const SupplierList = lazy(() => import("../views/Purchase/SupplierList/SupplierList.js"));
-const SupplierForm = lazy(() => import("../views/Purchase/SupplierList/SupplierForm.js"));
-
-// Items
-const ItemList = lazy(() => import("../views/Purchase/Items/ItemList.js"))
-const ItemsForm = lazy(() => import("../views/Purchase/Items/ItemsForm.js"));
-const ItemDocument = lazy(() => import("../views/Purchase/Items/ItemDocument.js"));
-// Category 
-const CategoriesList = lazy(() => import("../views/Purchase/Category/CategoryList.js"))
-const CategoriesForm = lazy(() => import("../views/Purchase/Category/CategoryForm.js"));
-
-// Tender 
-const TenderList = lazy(() => import("../views/Tender/TenderList.js"));
-const TenderForm = lazy(() => import("../views/Tender/TenderForm.js"));
-const TenderDocumentList = lazy(() => import("../views/Tender/TenderDocumentList.js"));
-// const PurchaseorderDocumentList = lazy(() => import("../views/Purchase/PurchaseListing/PurchaseorderDocumentList.js"));
-
-
-// Chemical Stocks
-const ChemicalStocksList = lazy(() => import("../views/ChemicalStocks/ChemicalList.js"));
-const ChemicalStocksForm = lazy(() => import("../views/ChemicalStocks/ChemicalForm.js"));
 
 // Feedback 
 const IncentivesList = lazy(() => import("../views/Feedback/Incentive.js"));
@@ -219,12 +124,9 @@ const UpdateInvoice = lazy(() => import("../views/operations/invoice/UpdateInvoi
 const AdvanceInvoice = lazy(() => import("../views/operations/invoice/AdvanceInvoice.js"));
 const InvoicePreview = lazy(() => import("../views/operations/invoice/InvoicePreview.js"));
 const TallyListing = lazy(() => import("../views/operations/invoice/TallyListing.js"));
-const TallyForm = lazy(() => import("../views/lms/TallyForm.js"));
 
 const DashboardListing = lazy(() => import("../views/operations/dashboard/DashboardListing.js"));
-const LMSDashboard = lazy(() => import("../views/operations/dashboard/LMSDashboard.js"));
 const StatisticsData = lazy(() => import("../views/Statistics/StatisticsData.js"));
-const JRFDocumentList = lazy(() => import("../views/lms/JRF/JRFDocumentList.js"));
 
 const documentPreview = lazy(() => import("../views/operations/documentPreview.js"));
 
@@ -234,12 +136,6 @@ const UserList = lazy(() => import("../views/MasterData/Users/UserList.js"))
 const UserForm = lazy(() => import("../views/MasterData/Users/UserForm.js"));
 /**User List end */
 
-/**Collections List */
-
-const PaymentDetailList = lazy(() => import("../views/Collections/PaymentDetails/PaymentDetailList.js"))
-const ClientForm = lazy(() => import("../views/Collections/ClientDetails/ClientForm.js"))
-const ClientList = lazy(() => import("../views/Collections/ClientDetails/ClientList.js"))
-/**User List end */
 /*****Routes******/
 /*
 if you want authenticate route then use private route
@@ -281,86 +177,6 @@ const ThemeRoutes = [
     element: <FullLayout />,
     children: [
       { path: "/", element: <Navigate to="/login" /> },
-      {
-        path: "/jrfListing",
-        exact: true,
-        element: <ProtectedRoute component={JrfListing} />,
-      },
-
-      {
-        path: "/jrfListing/jrf",
-        exact: true,
-        element: <ProtectedRoute component={Jrf} />,
-      },
-      {
-        path: "/jrfListing/external-jrf",
-        exact: true,
-        element: <ProtectedRoute component={ExternalJrf} />,
-      },
-      {
-        path: "/jrfListing/operation-jrf",
-        exact: true,
-        element: <ProtectedRoute component={Jrf} isOperationJRF={true} />,
-      },
-      {
-        path: "/jrfListing/inwardForm-checklist",
-        exact: true,
-        element: <InwardCheckListForm />,
-      },
-      {
-        path: "/jrfListing/operation-inwardForm-checklist",
-        exact: true,
-        element: <InwardCheckListForm isOperationJRF={true} />
-      },
-
-      { path: "/inwardList", exact: true, element: <InwardList /> },
-      { path: "/inwardList/inwardForm", exact: true, element: <InwardForm /> },
-      {
-        path: "/inwardList/groupAssignment",
-        exact: true,
-        element: <SampleAssignment />,
-      },
-      {
-        path: "/inwardList/groupAssignmentPreview",
-        exact: true,
-        element: <GroupAssignmentPreview />,
-      },
-      { path: "/allotmentList", exact: true, element: <AllotmentList /> },
-      { path: "/allotmentList/allotment", exact: true, element: <Allotment /> },
-      { path: "/verificationList", exact: true, element: <VerificationList /> },
-      {
-        path: "/verificationList/sampleVerification",
-        exact: true,
-        element: <SampleVerification />,
-      },
-      { path: "/module-history", exact: true, element: <ModuleHistory /> },
-      { path: "/module-document", exact: true, element: <ModuleDocument /> },
-
-
-      { path: "/testmemoList/testMemo", exact: true, element: <TestMemo /> },
-
-      { path: "/testmemoList", exact: true, element: <TestMemoList /> },
-      { path: "/testmemoPDF", exact: true, element: <TestMemoPDF /> },
-      { path: "/SFMPDF", exact: true, element: <SFMPDF /> },
-
-      { path: "/SFMList/result", exact: true, element: <Sfm /> },
-      { path: "/testmemoList/testmemoPDF", exact: true, element: <TestMemoPDF /> },
-      { path: "/SFMList/SFMPDF", exact: true, element: <SFMPDF /> },
-      { path: "/SfmList", exact: true, element: <SfmList /> },
-      { path: "/testReport", exact: true, element: <TestReportList /> },
-      { path: "/testReport/preview/:icID", exact: true, element: <TestReportPreview /> },
-      { path: "/testReport/previewPDF/:icID", exact: true, element: <TestReportPreviewPDF /> },
-      {
-        path: "/testmemoList/test-results",
-        exact: true,
-        element: <InternalCertificate />,
-      },
-      {
-        path: "/testReport/test-results",
-        exact: true,
-        element: <InternalCertificate />,
-      },
-      { path: "/jrfListing/jrf-pdf-preview/:JRFId", exact: true, element: <JRFPdfDownLoad /> },
       //Operation modules
       {
         path: "/operation/jrfInstructionListing",
@@ -706,212 +522,8 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={ConfirugationCertificate} ops_code={'OT'} />,
       },
-      //
-      {
-        path: "/operation/consortiums-list",
-        exact: true,
-        element: <ProtectedRoute component={ConsortiumList} />,
-      },
-      {
-        path: "/operation/consortiums-list/consortium",
-        exact: true,
-        element: <ProtectedRoute component={ConsortiumAdd} />,
-      },
-      {
-        path: "/operation/consortiums-list/consortium/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={ConsortiumAdd} />,
-      },
+      
 
-      // Srushti
-
-
-      // Purchase 
-      {
-        path: "/PurchRequistion",
-        exact: true,
-        element: <ProtectedRoute component={PurchaseRequistionList} />,
-      },
-      {
-        path: "/PurchRequistion/PurchaseRequistionForm",
-        exact: true,
-        element: <ProtectedRoute component={PurchaseRequistionForm} />
-      },
-      {
-        path: "/PurchRequistion/PurchaseRequistionForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={PurchaseRequistionForm} />
-      },
-      {
-        path: "/PurchRequistion/purchreqDocumentlist/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={PurchasereqDocumentList} />
-      },
-      {
-        path: "/PurchRequistion/purchreqDocumentlist/document/ShareFiles",
-        exact: true,
-        element: <ProtectedRoute component={ShareFiles} />,
-      },
-      {
-        path: "/purchase",
-        exact: true,
-        element: <ProtectedRoute component={PurchasingList} />
-      },
-      {
-        path: "/purchase/purchaseForm",
-        exact: true,
-        element: <ProtectedRoute component={PurchasingForm} />
-      },
-      {
-        path: "/purchase/purchaseForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={PurchasingForm} />
-      },
-
-      {
-        path: "/purchase/purchaseForm/:EditRecordId/purchaseOrderPreview/:poId",
-        exact: true,
-        element: <ProtectedRoute component={PurchasingOrderPreview} />
-      },
-
-      {
-        path: "/supplierList",
-        exact: true,
-        element: <ProtectedRoute component={SupplierList} />
-      },
-      {
-        path: "/supplierList/supplierForm",
-        exact: true,
-        element: <ProtectedRoute component={SupplierForm} />
-      },
-      {
-        path: "/supplierList/supplierForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={SupplierForm} />
-      },
-      {
-        path: "/calibrationList",
-        exact: true,
-        element: <ProtectedRoute component={CalibrationList} />
-      },
-      {
-        path: "/calibrationList/calibrationForm",
-        exact: true,
-        element: <ProtectedRoute component={CalibrationForm} />
-      },
-      {
-        path: "/calibrationList/calibrationForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={CalibrationForm} />
-      },
-      {
-        path: "/tenderList",
-        exact: true,
-        element: <ProtectedRoute component={TenderList} />,
-      },
-      {
-        path: "/tenderList/tenderForm",
-        exact: true,
-        element: <ProtectedRoute component={TenderForm} />,
-      },
-      {
-        path: "/tenderList/tenderForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={TenderForm} />,
-      },
-      {
-        path: "/itemlist",
-        exact: true,
-        element: <ProtectedRoute component={ItemList} />
-      },
-      {
-        path: "/itemlist/item",
-        exact: true,
-        element: <ProtectedRoute component={ItemsForm} />
-      },
-      {
-        path: "/itemlist/item/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={ItemsForm} />
-      },
-      {
-        path: "/itemlist/item-document-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={ItemDocument} />,
-      },
-      {
-        path: "/itemlist/item-document-list/document/ShareFiles",
-        exact: true,
-        element: <ProtectedRoute component={ShareFiles} />,
-      },
-      // Category
-      {
-        path: "/categoriesList",
-        exact: true,
-        element: <ProtectedRoute component={CategoriesList} />
-      },
-      {
-        path: "/categorylist/categoryForm",
-        exact: true,
-        element: <ProtectedRoute component={CategoriesForm} />
-      },
-      {
-        path: "/categorylist/categoryForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={CategoriesForm} />
-      },
-
-      // Chemical Stocks
-
-      {
-        path: "/chemicalStocks",
-        exact: true,
-        element: <ProtectedRoute component={ChemicalStocksList} />,
-      },
-      {
-        path: "/chemicalStocks/chemicalStocksForm",
-        exact: true,
-        element: <ProtectedRoute component={ChemicalStocksForm} />,
-      },
-      {
-        path: "/chemicalStocks/chemicalStocksForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={ChemicalStocksForm} />,
-      },
-
-      // Feedback 
-
-      {
-        path: "/feedbackList",
-        exact: true,
-        element: <ProtectedRoute component={FeedbackList} />,
-      },
-      // {
-      //   path: "/feedbackListList/feedbackListForm",
-      //   exact: true,
-      //   element: <ProtectedRoute component={FeedbackForm} />,
-      // },
-      {
-        path: "/feedbackListList/feedbackListForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={FeedbackForm} />,
-      },
-
-      {
-        path: "/incentivesList",
-        exact: true,
-        element: <ProtectedRoute component={IncentivesList} />,
-      },
-      {
-        path: "/incentivesList/incentivesForm",
-        exact: true,
-        element: <ProtectedRoute component={IncentivesForm} />,
-      },
-      {
-        path: "/incentivesList/incentivesForm/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={IncentivesForm} />,
-      },
       // Shipment 
 
       {
@@ -994,7 +606,6 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={TallyListing} />,
       },
-      { path: "/operation/tallyForm/:EditRecordId", exact: true, element: <TallyForm /> },
       { path: "/support", exact: true, element: <Support /> },
       { path: "/release-notes", exact: true, element: <ReleaseNotes /> },
       { path: "/statistics", exact: true, element: <StatisticsData /> },
@@ -1008,38 +619,8 @@ const ThemeRoutes = [
         exact: true,
         element: <ProtectedRoute component={DashboardListing} />,
       },
-      {
-        path: "/lms-dashboard-listing",
-        exact: true,
-        element: <ProtectedRoute component={LMSDashboard} />,
-      },
 
       //
-      {
-        path: "/tenderList/tender-document-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={TenderDocumentList} />,
-      },
-      {
-        path: "/tenderList/tender-document-list/document/ShareFiles",
-        exact: true,
-        element: <ProtectedRoute component={ShareFiles} />,
-      },
-      {
-        path: "/purchaseorderList/purchaseorder-document-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={PurchaseorderDocumentList} />,
-      },
-      {
-        path: "/purchaseorderList/purchaseorder-document-list/document/ShareFiles",
-        exact: true,
-        element: <ProtectedRoute component={ShareFiles} />,
-      },
-      {
-        path: "/jrfListing/jrf-document-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={JRFDocumentList} />,
-      },
       {
         path: "/jrfListing/jrf-document-list/document/ShareFiles",
         exact: true,
@@ -1068,29 +649,6 @@ const ThemeRoutes = [
       },
       /**End */
 
-      /**Collection Routes */
-      {
-        path: "/collection-dashboard",
-        exact: true,
-        element: <ProtectedRoute component={InvoiceListing} />,
-
-      },
-      {
-        path: "/collections/payment-list",
-        exact: true,
-        element: <ProtectedRoute component={PaymentDetailList} />
-      },
-      {
-        path: "/collections/client-list",
-        exact: true,
-        element: <ProtectedRoute component={ClientList} />
-      },
-      {
-        path: "/collections/client-list/:EditRecordId",
-        exact: true,
-        element: <ProtectedRoute component={ClientForm} />
-      }
-      /**End */
     ],
   },
   {

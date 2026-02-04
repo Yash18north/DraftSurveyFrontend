@@ -509,7 +509,8 @@ export const getSingleJRFData = async (formConfig, setFormData, setViewOnly, vie
   const params = new URLSearchParams(hash.split("?")[1]);
   let status = params.get("status") ? params.get("status") : "";
 
-  status = decryptDataForURL(status).toLowerCase();
+  status = decryptDataForURL(status) || "";
+  status = status.toLowerCase();
   const id = decryptDataForURL(params.get("id"));
   let bodyToPass = {
     jrf_id: id,

@@ -11,10 +11,8 @@ import {
 import {
   getActivityCode,
   getFormatedDate,
-  getLMSOperationActivity,
   getOperationActivityListPageUrl,
   getOperationActivityUrl,
-  getPurchaseManager,
   getRakeCollectionActivity,
   getRakeOperations,
   getSampleCollectionActivity,
@@ -47,26 +45,10 @@ import { handleVesselOperationDelete, handleDocumentDelete, handleCommercialCert
 import { handleConsortiumDelete } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 import { handleConsortiumDelete as stubHandleConsortiumDelete } from "../../utils/stubFunctions";
 import { useTranslation } from "react-i18next";
-import { handleSupplierDelete } from "./commonHandlerFunction/Purchase/Supplier/SupplierHandler";
-import { handleSupplierDelete as stubHandleSupplierDelete } from "../../utils/stubFunctions";
-import { handleDownloadPR, handlePurchaseReqDelete } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseRequsitionHandler";
-import { handleDownloadPR as stubHandleDownloadPR, handlePurchaseReqDelete as stubHandlePurchaseReqDelete } from "../../utils/stubFunctions";
-import { handleCalibrationDelete } from "./commonHandlerFunction/Purchase/Calibration/CalibrationHandler";
-import { handleCalibrationDelete as stubHandleCalibrationDelete } from "../../utils/stubFunctions";
-import { handleDownloadPO, handlePurchaseOrderDelete } from "./commonHandlerFunction/Purchase/PurchaseOrder/PurchaseOrderHandler";
-import { handleDownloadPO as stubHandleDownloadPO2, handlePurchaseOrderDelete as stubHandlePurchaseOrderDelete } from "../../utils/stubFunctions";
-import { handleTenderDelete } from "./commonHandlerFunction/Tender/TenderHandlerFunc";
-import { handleTenderDelete as stubHandleTenderDelete } from "../../utils/stubFunctions";
-import { handleChemicalStocksDelete } from "./commonHandlerFunction/ChemicalStocks/ChemicalstockHandler";
-import { handleChemicalStocksDelete as stubHandleChemicalStocksDelete } from "../../utils/stubFunctions";
 import { handleIncentiveDelete } from "./commonHandlerFunction/Feedback/IncentiveHandler";
 import { handleIncentiveDelete as stubHandleIncentiveDelete } from "../../utils/stubFunctions";
 import { handleCreateDebitFromList } from "./commonHandlerFunction/InvoiceHandlerFunctions";
 import { handleCreateDebitFromList as stubHandleCreateDebitFromList } from "../../utils/stubFunctions";
-import { handlePurchaseItemDelete } from "./commonHandlerFunction/Purchase/Items/ItemsHandler";
-import { handlePurchaseItemDelete as stubHandlePurchaseItemDelete } from "../../utils/stubFunctions";
-import { handleCategoryDelete, handleCategorykDelete } from "./commonHandlerFunction/Purchase/Category/CategoryHandler";
-import { handleCategoryDelete as stubHandleCategoryDelete } from "../../utils/stubFunctions";
 import { handleIShipmentRecordDelete } from "./commonHandlerFunction/Shipment/ShipmentHandler";
 
 
@@ -115,43 +97,20 @@ const PopupOptions = ({
   const [actionType, setActionType] = useState(false);
   const moduleType = formConfig?.listView?.moduleType;
   const subModuleType = formConfig?.listView?.subModuleType;
-  const uploadExtraModules = ['tenderDocumentList', 'purchaseorderDocumentList', 'purchasereqDocumentList', 'jrfDocumentList', 'itemDocumentList']
 
   const handleClick = async (value, actionType = "") => {
     setActionType(value);
     setDontClick(true);
-    if (value && value.toLowerCase() === "rake details") {
-      if (getLMSOperationActivity().includes(getActivityCode(row["activity_master"]["activity_code"]).toLowerCase())) {
-        navigate(
-          getOperationActivityUrl(operationMode) +
-          encryptDataForURL(row["fk_jiid"]) +
-          "/" +
-          encryptDataForURL(row["activity_master"]["activity_code"]) +
-          "?OperationType=" +
-          encryptDataForURL(row["activity_master"]["activity_code"]) +
-          "&operationId=" +
-          encryptDataForURL(row["jis_id"]) +
-          "&operationStepNo=" +
-          encryptDataForURL(7) +
-          "&action=" +
-          encryptDataForURL("opsView") + "&operationMode=" + encryptDataForURL(operationMode) + "&isRakeDetails=" + encryptDataForURL(1)
-        );
-      }
-      else {
-        navigate(
-          section.redirectUrl +
-          encryptDataForURL(formData[0]?.["ji_id"]) +
-          "/" +
-          encryptDataForURL(row["activity_master"]["activity_code"]) +
-          "?OperationType=" +
-          encryptDataForURL(row["activity_master"]["activity_code"]) +
-          "&operationId=" +
-          encryptDataForURL(row["jis_id"]) +
-          "&operationStepNo=" +
-          encryptDataForURL(2) + "&operationMode=" + encryptDataForURL(formData[0]?.operation_type?.operation_type_code) + "&isRakeDetails=" + encryptDataForURL(1)
-        );
-      }
-      return
+    if (value && typeof value === 'string' && value.toLowerCase() === "rake details") {
+      navigate(
+        getOperationActivityUrl(operationMode) +
+        encryptDataForURL(row["fk_jiid"]) +
+        "/" +
+        encryptDataForURL(row["activity_master"]["activity_code"]) +
+        "/" +
+        encryptDataForURL(row["id"])
+      );
+      setPopupIndex(-1);
     }
     if (
       moduleType === "jobinstruction" ||
@@ -221,7 +180,7 @@ const PopupOptions = ({
                 encryptDataForURL('view') + "&operationMode=" + encryptDataForURL(operationMode)
               );
             }
-            else if (value.toLowerCase() === "delete") {
+            else if (value && typeof value === 'string' && value.toLowerCase() === "delete") {
               setIsDelete(true);
               return
             }
@@ -579,147 +538,9 @@ const PopupOptions = ({
         );
       }
     }
-    else if (moduleType === "purchaseReq") {
-
-      if (value === "View") {
-        navigate(`/PurchRequistion/PurchaseRequistionForm/${encryptDataForURL(row["req_no"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["id"]}`,
-          model: model,
-          redirect: "/PurchRequistion",
-          Breadcrumb: "Purchase Requistion List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?status=${encryptDataForURL('History')}/${encryptDataForURL(row["id"])}`);
-      }
-      else if (value === "Download") {
-        handleDownloadPR(row["req_id"])
-      }
-      else if (value === "Delete") {
-        setIsDelete(true)
-      }
-      else if (value = "Documents") {
-        navigate("/PurchRequistion/purchreqDocumentlist/" +
-          encryptDataForURL(row["req_id"]) + '?fd_name=' + encryptDataForURL(row["req_no"]))
-      }
-    }
-    else if (moduleType === "purchase") {
-      if (value === "View") {
-        navigate(`/purchase/purchaseForm/${encryptDataForURL(row["po_id"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "Download") {
-        handleDownloadPO(row["po_id"], row["po_number"])
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["id"]}`,
-          model: model,
-          redirect: "/purchase",
-          Breadcrumb: "Purchase Order List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?status=${encryptDataForURL('History')}/${encryptDataForURL(row["id"])}`);
-      }
-      else if (value === "Delete") {
-        setIsDelete(true)
-      }
-      else if (value === "Documents") {
-        navigate(
-          "/purchaseorderList/purchaseorder-document-list/" +
-          encryptDataForURL(row.po_id) + '?fd_name=' + encryptDataForURL(row["po_number"])
-        );
-      }
-      else if (value === "Insurance Details") {
-        navigate(`/purchase/purchaseForm/${encryptDataForURL(row["po_id"])}?status=${encryptDataForURL('View')}` + "&isInsurance=" +
-          encryptDataForURL(true));
-      }
-    }
-    else if (moduleType === "calibration") {
-      if (value === "View") {
-        navigate(`/calibrationList/calibrationForm/${encryptDataForURL(row["calib_id"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["id"]}`,
-          model: model,
-          redirect: "/calibrationList",
-          Breadcrumb: "Calibration List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?status=${encryptDataForURL('History')}/${encryptDataForURL(row["id"])}`);
-      }
-      else if (value === "Edit") {
-        navigate(`/calibrationList/calibrationForm/${encryptDataForURL(row["calib_id"])}?status=${encryptDataForURL('Edit')}`);
-      }
-      else if (value === "Delete") {
-        setIsDelete(true)
-      }
-    }
-    else if (moduleType === "supplier") {
-      if (value === "View") {
-        navigate(`/supplierList/supplierForm/${encryptDataForURL(row["sup_id"])}?status=${encryptDataForURL('View')}`);
-      }
-
-      else if (value === "Delete") {
-
-        setIsDelete(true)
-      }
-      else if (value === "History") {
-        const historyDetails = {
-          "object_id": `${row["sup_id"]}`,
-          model: model,
-          redirect: "/supplierList",
-          Breadcrumb: "Supplier List",
-        };
-        dispatch(historyData(historyDetails));
-        navigate(`/module-history?status=${encryptDataForURL('History')}/${encryptDataForURL(row["id"])}`);
-      }
-    }
-    else if (moduleType === "tender") {
-      if (value === "View") {
-        navigate(`/tenderList/tenderForm/${encryptDataForURL(row["tender_id"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "Edit") {
-        navigate(`/tenderList/tenderForm/${encryptDataForURL(row["tender_id"])}?status=${encryptDataForURL('Change')}`);
-      }
-      else if (value === "Delete") {
-        setIsDelete(true)
-      }
-      else if (value === "Documents") {
-        navigate(
-          "/tenderList/tender-document-list/" +
-          encryptDataForURL(row.tender_id)
-        );
-      }
-
-    }
-    else if (moduleType === "stocks") {
-      if (value === "View") {
-        navigate(`/chemicalStocks/chemicalStocksForm/${encryptDataForURL(row["chemist_stock_id"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "Delete") {
-        setIsDelete(true)
-      }
-    }
     else if (moduleType === "incentives") {
       if (value === "View") {
         navigate(`/incentivesList/incentivesForm/${encryptDataForURL(row["incentive_id"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "Delete") {
-        setIsDelete(true)
-      }
-    }
-    else if (moduleType === "purchaseItems") {
-      if (value === "View") {
-        navigate(`/itemlist/item/${encryptDataForURL(row["item_id"])}?status=${encryptDataForURL('View')}`);
-      }
-      else if (value === "Edit") {
-        navigate(`/itemlist/item/${encryptDataForURL(row["item_id"])}?action=${encryptDataForURL('Change')}`);
-      }
-      else if (value === "Documents") {
-        navigate(`/itemlist/item-document-list/${encryptDataForURL(row["item_id"])}` + '?fd_name=' + encryptDataForURL(row["item_id"]));
       }
       else if (value === "Delete") {
         setIsDelete(true)
@@ -855,71 +676,6 @@ const PopupOptions = ({
         setPopupIndex
       );
       return;
-    }
-    else if (moduleType === "supplier") {
-      handleSupplierDelete(
-        row,
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
-    }
-    else if (moduleType === "purchaseReq") {
-      handlePurchaseReqDelete(
-        row["req_no"],
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
-    }
-    else if (moduleType === "purchase") {
-      handlePurchaseOrderDelete(
-        row["po_id"],
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
-    }
-    else if (moduleType === "calibration") {
-      handleCalibrationDelete(
-        row["calib_id"],
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
-    }
-    else if (moduleType === "purchaseItems") {
-      handlePurchaseItemDelete(
-        row["item_id"],
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
-    }
-    else if (moduleType === "category") {
-
-      handleCategoryDelete(
-        row["category_id"],
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
-    }
-    else if (moduleType === "tender") {
-      handleTenderDelete(
-        row["tender_id"],
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
-    }
-    else if (moduleType === "stocks") {
-      handleChemicalStocksDelete(
-        row["chemist_stock_id"],
-        setIsDelete,
-        getAllListingData,
-        setPopupIndex
-      )
     }
     else if (moduleType === "incentives") {
       handleIncentiveDelete(
@@ -1286,7 +1042,7 @@ const PopupOptions = ({
     ) {
 
       if (module == "jrf") {
-        if (value.toLowerCase() === "edit") {
+        if (value && typeof value === 'string' && value.toLowerCase() === "edit") {
           let data = {
             BU: ["saved", "rejected"],
             LR: ["saved"],
@@ -1295,7 +1051,7 @@ const PopupOptions = ({
           if (data[user?.role].includes(row.jrf_status)) {
             isVisbile = true;
           }
-        } else if (value.toLowerCase() === "delete") {
+        } else if (value && typeof value === 'string' && value.toLowerCase() === "delete") {
           let data = {
             BU: ["saved", "rejected"],
             LR: [],
@@ -1307,7 +1063,7 @@ const PopupOptions = ({
               isVisbile = false;
             }
           }
-        } else if (value.toLowerCase() === "reject") {
+        } else if (value && typeof value === 'string' && value.toLowerCase() === "reject") {
           let data = {
             BU: [],
             LR: ['accepted'],
@@ -1320,7 +1076,7 @@ const PopupOptions = ({
           isVisbile = true;
         }
       } else if (module == "sampleinward") {
-        if (value.toLowerCase() === "edit") {
+        if (value && typeof value === 'string' && value.toLowerCase() === "edit") {
           let data = {
             LR: ["created", "saved"],
             SU: []
@@ -1332,7 +1088,7 @@ const PopupOptions = ({
           isVisbile = true;
         }
       } else if (module == "internalcertificate") {
-        if (value.toLowerCase() === "edit") {
+        if (value && typeof value === 'string' && value.toLowerCase() === "edit") {
           let data = {
             LR: ["rejected", "saved"],
             TM: [],
@@ -1352,7 +1108,7 @@ const PopupOptions = ({
         }
       } else if (module == "jobinstruction" || moduleType === "jioperationjsonb" || moduleType === "invoice") {
         if (subModuleType == "invoice") {
-          if (["edit", "delete"].includes(value.toLowerCase())) {
+          if (["edit", "delete"].includes(value && typeof value === 'string' && value.toLowerCase())) {
             let data = {
               BU: ['Saved', 'debit_save'],
               LR: ['Saved', 'debit_save'],
@@ -1361,23 +1117,23 @@ const PopupOptions = ({
               isVisbile = true;
             }
           }
-          else if (["view"].includes(value.toLowerCase())) {
+          else if (["view"].includes(value && typeof value === 'string' && value.toLowerCase())) {
             isVisbile = true;
           }
-          else if (["Share Invoice"].includes(value.toLowerCase())) {
+          else if (["Share Invoice"].includes(value && typeof value === 'string' && value.toLowerCase())) {
             isVisbile = ['LR', 'BU'].includes(user?.role);
           }
-          else if (["create debit"].includes(value.toLowerCase())) {
+          else if (["create debit"].includes(value && typeof value === 'string' && value.toLowerCase())) {
             if (['invoice_generated'].includes(row?.im_status) && !row?.im_is_debit_created) {
               isVisbile = ['LR', 'BU'].includes(user?.role);
             }
           }
-          else if (["edit debit"].includes(value.toLowerCase())) {
+          else if (["edit debit"].includes(value && typeof value === 'string' && value.toLowerCase())) {
             if (['debit_save'].includes(row?.im_status)) {
               isVisbile = ['LR', 'BU'].includes(user?.role);
             }
           }
-          else if (["courier details"].includes(value.toLowerCase())) {
+          else if (["courier details"].includes(value && typeof value === 'string' && value.toLowerCase())) {
             if (!['Saved'].includes(row?.im_status)) {
               isVisbile = ['LR', 'BU'].includes(user?.role);
             }
@@ -1389,7 +1145,7 @@ const PopupOptions = ({
 
         }
         else if (subModuleType == "commercialCertificate") {
-          if (value.toLowerCase() === "delete") {
+          if (value && typeof value === 'string' && value.toLowerCase() === "delete") {
 
             let data = {
               BU: ['saved']
@@ -1407,10 +1163,10 @@ const PopupOptions = ({
           return isVisbile
         }
         else {
-          if (value.toLowerCase() != "view" && checkOPSHeadData()) {
+          if (value && typeof value === 'string' && value.toLowerCase() != "view" && checkOPSHeadData()) {
             return false
           }
-          if (value.toLowerCase() === "edit") {
+          if (value && typeof value === 'string' && value.toLowerCase() === "edit") {
             let data = {
               BU: ['posted', 'accepted'],
               "OPS_ADMIN": ["saved", "created", "pre-analysis", "analysis"],
@@ -1419,7 +1175,7 @@ const PopupOptions = ({
             if (data[user?.role].includes(status)) {
               isVisbile = true;
             }
-          } else if (value.toLowerCase() === "delete") {
+          } else if (value && typeof value === 'string' && value.toLowerCase() === "delete") {
             let data = {
               BU: [],
               "OPS_ADMIN": ["saved"],
@@ -1429,7 +1185,7 @@ const PopupOptions = ({
               isVisbile = true;
             }
           }
-          else if (value.toLowerCase() === "history") {
+          else if (value && typeof value === 'string' && value.toLowerCase() === "history") {
             let data = {
               BU: ['rejected'],
               "OPS_ADMIN": ["rejected"],
@@ -1455,10 +1211,10 @@ const PopupOptions = ({
         }
       }
       else if (module == "consortiumorder") {
-        if (value.toLowerCase() === "view") {
+        if (value && typeof value === 'string' && value.toLowerCase() === "view") {
           isVisbile = true;
         }
-        else if (value.toLowerCase() === "edit") {
+        else if (value && typeof value === 'string' && value.toLowerCase() === "edit") {
           let data = {
             BU: ['saved'],
             "OPS_ADMIN": ["saved"],
@@ -1468,7 +1224,7 @@ const PopupOptions = ({
           if (data[user?.role].includes(status)) {
             isVisbile = true;
           }
-        } else if (value.toLowerCase() === "delete") {
+        } else if (value && typeof value === 'string' && value.toLowerCase() === "delete") {
           let data = {
             BU: ["saved"],
             "OPS_ADMIN": ["saved"],
@@ -1477,9 +1233,9 @@ const PopupOptions = ({
           if (data[user?.role].includes(status)) {
             isVisbile = true;
           }
-        } else if (value.toLowerCase() === "documents") {
+        } else if (value && typeof value === 'string' && value.toLowerCase() === "documents") {
           if (module == "jobinstruction" || moduleType === "jioperationjsonb") {
-            if (value.toLowerCase() != "view" && checkOPSHeadData()) {
+            if (value && typeof value === 'string' && value.toLowerCase() != "view" && checkOPSHeadData()) {
               return false
             }
             let data = {
@@ -1493,146 +1249,13 @@ const PopupOptions = ({
           else {
             isVisbile = true;
           }
-        } else if (value.toLowerCase() === "man power") {
+        } else if (value && typeof value === 'string' && value.toLowerCase() === "man power") {
           if (!['CP', 'BH'].includes(user?.role)) {
             isVisbile = true;
           }
 
-        } else if (value.toLowerCase() === "commercial certificate") {
+        } else if (value && typeof value === 'string' && value.toLowerCase() === "commercial certificate") {
           isVisbile = true;
-        }
-      }
-      else if (module === "purchaseReq") {
-        if (["Delete"].includes(value)) {
-          if (!getPurchaseManager(module, "delete")) {
-            return false
-          }
-        }
-        isVisbile = true;
-      }
-
-      else {
-        isVisbile = true;
-      }
-    }
-    else if (module == "calibration") {
-      if (['edit', 'delete'].includes(value.toLowerCase())) {
-        let data = {
-          PM: ['saved']
-        };
-        if (data[user?.role].includes(status) && getPurchaseManager(module, ['edit'].includes(value.toLowerCase()) ? "change" : "delete")) {
-          isVisbile = true;
-        }
-        else {
-          isVisbile = false;
-        }
-      }
-      else {
-        isVisbile = true;
-      }
-    }
-    else if (module === "purchaseReq") {
-      if (["Delete"].includes(value)) {
-        if (!getPurchaseManager(module, "delete")) {
-          return false
-        }
-      }
-
-      if (["Saved"].includes(status)) {
-        if (["Delete", "View"].includes(value)) {
-          isVisbile = true
-        }
-      }
-      else if (["Sent for Approval", "Posted", "Approved"].includes(status)) {
-        if (["View", "History", "Documents", "Download"].includes(value)) {
-          isVisbile = true
-        }
-      }
-    }
-    else if (module === "supplier") {
-      if (["saved"].includes(status)) {
-        isVisbile = true
-        if (["Delete"].includes(value) && !getPurchaseManager(module, "delete")) {
-          isVisbile = false
-        }
-      }
-      else if (["posted"].includes(status)) {
-        if (["View", "History"].includes(value)) {
-          isVisbile = true
-        }
-      }
-      else {
-        isVisbile = false
-      }
-    }
-    else if (module === "purchase") {
-      if (["Saved", "Reject"].includes(status)) {
-        if (["View"].includes(value)) {
-          isVisbile = true
-        }
-      }
-      else if (["Sent for Approval", "Posted", "Approved", "Pre-Close"].includes(status)) {
-        if (["View", "History", "Download", 'Documents'].includes(value)) {
-          isVisbile = true
-        }
-      }
-      else if (['Accept'].includes(status)) {
-        // console.log('vall', value)
-        if (['Documents', "View", "Insurance Details"].includes(value)) {
-          isVisbile = true
-        }
-      }
-    }
-    else if (module === "stocks") {
-      if (['edit', 'delete'].includes(value.toLowerCase())) {
-        let data = {
-          PM: ['saved'],
-          BU: ['saved'],
-          LC: ['saved'],
-          LR: ['saved'],
-        };
-        if (data[user?.role]?.includes(status) && getPurchaseManager(module, ['edit'].includes(value.toLowerCase()) ? "change" : "delete")) {
-          isVisbile = true;
-        }
-        else {
-          isVisbile = false;
-        }
-      }
-      else {
-        isVisbile = true;
-      }
-
-    }
-    else if (module === "incentives") {
-      if (["delete", "view"]?.includes(value)) {
-        let data = {
-          PM: ['saved']
-        };
-        if (data[user?.role].includes(status)) {
-          isVisbile = true;
-        }
-        else {
-          isVisbile = false;
-        }
-      }
-      else {
-        isVisbile = true;
-      }
-
-    }
-    else if (module === "purchaseItems") {
-      isVisbile = true
-      if (['edit', 'delete'].includes(value.toLowerCase())) {
-        if (!getPurchaseManager(module, ['edit'].includes(value.toLowerCase()) ? "change" : "delete")) {
-          isVisbile = false
-        }
-      }
-    }
-    else if (module === "category") {
-      isVisbile = true
-      if (['edit', 'delete'].includes(value.toLowerCase())) {
-        if (!getPurchaseManager(module, ['edit'].includes(value.toLowerCase()) ? "change" : "delete")) {
-          isVisbile = false
         }
       }
     }
@@ -1644,7 +1267,7 @@ const PopupOptions = ({
     }
     else if (module === "ShipmentList") {
 
-      if (['edit', 'delete', "view", "history"].includes(value.toLowerCase())) {
+      if (['edit', 'delete', "view", "history"].includes(value && typeof value === 'string' && value.toLowerCase())) {
         isVisbile = true;
       }
       else {
@@ -1653,7 +1276,7 @@ const PopupOptions = ({
     }
     else if (module === "marketPlaceListing") {
 
-      if (['edit', 'delete', "view", "history"].includes(value.toLowerCase())) {
+      if (['edit', 'delete', "view", "history"].includes(value && typeof value === 'string' && value.toLowerCase())) {
         isVisbile = true;
       }
       else {
@@ -1662,7 +1285,7 @@ const PopupOptions = ({
     }
     else {
 
-      if (value.toLowerCase() === "download") {
+      if (value && typeof value === 'string' && value.toLowerCase() === "download") {
         let data = {
           BU: ["posted", "saved"],
           LR: ["posted", "saved"],
@@ -1672,7 +1295,7 @@ const PopupOptions = ({
         }
       }
       else if (
-        value.toLowerCase() === "pdf" &&
+        value && typeof value === 'string' && value.toLowerCase() === "pdf" &&
         (formConfig?.listView?.moduleType === "sfm" ||
           formConfig?.listView?.moduleType === "testmemomain")
       ) {
@@ -1695,9 +1318,9 @@ const PopupOptions = ({
         if (data[user?.role] && data[user?.role].includes(row.status || row.sfm_status)) {
           isVisbile = true;
         }
-      } else if (value.toLowerCase() === "history") {
+      } else if (value && typeof value === 'string' && value.toLowerCase() === "history") {
         if (module == "jobinstruction" || moduleType === "jioperationjsonb") {
-          if (value.toLowerCase() != "view" && checkOPSHeadData()) {
+          if (value && typeof value === 'string' && value.toLowerCase() != "view" && checkOPSHeadData()) {
             return false
           }
           let data = {
@@ -1712,7 +1335,7 @@ const PopupOptions = ({
           isVisbile = true;
         }
       } else if (
-        value.toLowerCase() === "pdf" &&
+        value && typeof value === 'string' && value.toLowerCase() === "pdf" &&
         (moduleType === "sfm" || moduleType === "testmemomain")
       ) {
         let data = {
@@ -1728,9 +1351,9 @@ const PopupOptions = ({
         ) {
           isVisbile = true;
         }
-      } else if (value.toLowerCase() === "documents") {
+      } else if (value && typeof value === 'string' && value.toLowerCase() === "documents") {
         if (module == "jobinstruction" || moduleType === "jioperationjsonb") {
-          if (value.toLowerCase() != "view" && checkOPSHeadData()) {
+          if (value && typeof value === 'string' && value.toLowerCase() != "view" && checkOPSHeadData()) {
             return false
           }
           let data = {
@@ -1755,15 +1378,15 @@ const PopupOptions = ({
         else {
           isVisbile = true;
         }
-      } else if (value.toLowerCase() === "man power") {
+      } else if (value && typeof value === 'string' && value.toLowerCase() === "man power") {
         isVisbile = true;
-      } else if (value.toLowerCase() === "commercial certificate") {
+      } else if (value && typeof value === 'string' && value.toLowerCase() === "commercial certificate") {
         isVisbile = true;
       }
-      // else if (value.toLowerCase() === "rake details") {
+      // else if (value && typeof value === 'string' && value.toLowerCase() === "rake details") {
       //   isVisbile = true;
       // }
-      else if (value.toLowerCase() === "view") {
+      else if (value && typeof value === 'string' && value.toLowerCase() === "view") {
         if (moduleType === "TPIMain") {
           isVisbile = true
         }
@@ -1775,7 +1398,7 @@ const PopupOptions = ({
   const chkSubListVisibility = (from, moduleType, value, subModuleType) => {
     if (subModuleType == "commercialCertificate") {
       let isVisbile = true
-      if (value.toLowerCase() === "delete") {
+      if (value && typeof value === 'string' && value.toLowerCase() === "delete") {
 
         let data = {
           BU: ['saved']

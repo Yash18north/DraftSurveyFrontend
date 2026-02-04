@@ -52,21 +52,14 @@ import {
   rakeQAPdfApi,
   stackQAPdfApi,
   getReferenceWiseDataApi,
-  bulkCargoPDF,
-  physicalAnalysisPDF,
-  tmlMoisturePDFApi,
   opsRakeSVPDFApi,
   opsStackSVPDFApi,
-  purchaseOrderDownload,
-  purchaseOrderInsuranceDownload,
-  purchaseOrderVenRatingDownload
 } from "../../services/api";
 
 import {
   CommonTMRoles,
   getActivityCode,
   getActivityName,
-  getLMSOperationActivity,
   getPlantOperations,
   getRakeOperations,
   getVesselOperation,
@@ -79,7 +72,6 @@ import {
   getOperationActivityUrl,
   getFormatedDate,
   getDateFromCreatedAt,
-  getPurchaseManager,
   handleCommonCustomConfirmHandler,
   getCurrentRole
 } from "../../services/commonFunction";
@@ -109,7 +101,6 @@ import InternalCertificateButtons from "./ShowButtons/InternalCertificateButtons
 import ViewCheckListButtons from "./ShowButtons/ViewCheckListButtons";
 import JRFButtons from "./ShowButtons/JRFButtons";
 import JIButtons from "./ShowButtons/operations/JIButtons";
-import TenderButton from "./ShowButtons/Tender/TenderButton";
 import TestMemoButtons from "./ShowButtons/TestMemoButtons";
 import SampleVerificationButtons from "./ShowButtons/SampleVerificationButtons";
 import AllotmentButtons from "./ShowButtons/AllotmentButtons";
@@ -202,57 +193,23 @@ import {
 
 import { getSingleQualityAnalysisData, getSingleQualityAssesmentData, OperationQualityAnalysisCreateDataFunction, OperationQualityAssesmentCreateDataFunction } from "./commonHandlerFunction/operations/RakeHandlerOperation";
 
-// Removed truck operation imports
 import RenderTableManualMultiEntrySection from "./RenderTableManualMultiEntrySection";
-
 
 import { useLocation } from 'react-router-dom';
 import ConsortiumButton from "./ShowButtons/operations/ConsortiumButton";
 import InvoiceButton from "./ShowButtons/operations/InvoiceButton";
 
-
 import { getSingleConsortiumRecord, handleConsortiumCreateOrUpdate } from "./commonHandlerFunction/operations/consortiumHandlerFunctions";
 
 import JobCostingButton from "./ShowButtons/JobCosting";
-import { Input } from "reactstrap";
-// import { handleFormCreateAndUpdate } from "./commonHandlerFunction/Audit/JobCosting/JobCostingHandlerFunction";
-// import { getInvoiceData, handleInvoiceCreateOrUpdate } from "./commonHandlerFunction/InvoiceHandlerFunctions";
-import DocumentPopup from "../../views/Document/UploadFiles/DocumentPopup";
-// Removed SalesRegisterButtons import statement
-
-
-import { handleInvoiceCreateOrUpdate, getInvoiceData, handleInvoiceStubUpdate, hanfleInvoiceStatusChange } from "./commonHandlerFunction/InvoiceHandlerFunctions";
-
-
-import { set } from "rsuite/esm/internals/utils/date";
-// import DocumentPopup from "../../views/Document/UploadFiles/DocumentPopup";
-import Document from "../../formJsonData/Operations/jobinstructions/DocumentPopup.json";
-import RenderTallyListSection from "./RenderTallyListSection ";
-import PurchaseButtons from "./ShowButtons/Purchase/PurchasingOrder/PurchaseButtons";
-import PurchaseRequistionButtons from "./ShowButtons/Purchase/PurchaseRequistion/PurchaseRequistionButton";
-import CalibrationsButtons from "./ShowButtons/Purchase/Calibration/CalibrationsButtons";
-import SupplierButtons from "./ShowButtons/Purchase/Supplier/SupplierButtons";
-import PopUpPurchaseReq from "./PopUpPurchaseReq";
-import { handleGetPurchaseReq, handlePurchaseReqUpdateCreate } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseRequsitionHandler";
-import { handleGetSupplier } from "./commonHandlerFunction/Purchase/Supplier/SupplierHandler";
-import { calculateTotalGST, handleGetPurchaseReqTableData } from "./commonHandlerFunction/Purchase/PurchaseReq/PurchaseReqTableHandler";
-import { handleGetCalibration } from "./commonHandlerFunction/Purchase/Calibration/CalibrationHandler";
-import { getCalculationsForPrice, getCalculationsForTotal, handleGetPurchaseOrder, handlePurchaseOrderCreateUpdate } from "./commonHandlerFunction/Purchase/PurchaseOrder/PurchaseOrderHandler";
-import { handleGetTender } from "./commonHandlerFunction/Tender/TenderHandlerFunc";
-import ChemicalStocksButtons from "./ShowButtons/ChemicalStocks/Stocks";
-import { getChemicalStock } from "./commonHandlerFunction/ChemicalStocks/ChemicalstockHandler";
 import FeedbackButton from "./ShowButtons/Feedback/FeedbackButton";
 import IncentiveButton from "./ShowButtons/Feedback/IncentiveButton";
 import { handleGetFeedback } from "./commonHandlerFunction/Feedback/FeedbackHandler";
-import { handleGetCategory } from "./commonHandlerFunction/Purchase/Category/CategoryHandler"
 import { getBillingDelayDayCount, getJobCostingIncDataFunc, handleGetIncentive, incentivesCalculationData } from "./commonHandlerFunction/Feedback/IncentiveHandler";
-import PurchaseItemButton from "./ShowButtons/Purchase/Items/PurchaseItemButton";
-import { handleGetPurchaseItem } from "./commonHandlerFunction/Purchase/Items/ItemsHandler";
 import moment from "moment";
 import { handleActivityForInvoice, handleMultipleRefForInvoice } from "./commonHandlerFunction/operations/invoiceHandlerFunctions";
 import CustomPopupModal from "./commonModalForms/CustomPopupModal";
 import { handleGetclientMAsterData, handleGetUserMAsterData } from "./commonHandlerFunction/MasterData/Users/userHandler";
-import CategoryBtn from "./ShowButtons/Purchase/Category/CategoryBtns";
 import ClientDetailsButtons from "./ShowButtons/ClientDetails/ClientDetailsButtons";
 import { ClientDetailsButtons as stubClientDetailsButtons } from "../../utils/stubFunctions";
 import ShipmentButtons from "./ShowButtons/Shipment/ShipmentButton";
@@ -453,7 +410,6 @@ const Forms = ({
   // const [fileUrl, setFileUrl] = useState("");
   // const [popupJson, setPopupJson] = useState(Document.upload.changeDescriptionJson);
   const [popupJson, setPopupJson] = useState();
-  const [popupAddPurchaseReq, setPopupAddPurchaseReq] = useState(false)
   const [isFiltered, setIsFiltered] = useState(false);
   const [customFilterData, setCustomFilterData] = useState({});
   const [participantFields, setParticipantFields] = useState(0);
@@ -531,98 +487,6 @@ const Forms = ({
         }
       }
       else if (moduleType === "auditSalesRegister") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (moduleType === "tender") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          handleGetTender(
-            EditRecordId,
-            setFormData,
-            status,
-            setParticipantFields
-          )
-        }
-      }
-      else if (moduleType === "stocks") {
-        if (status === "View") {
-
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          getChemicalStock(
-            EditRecordId,
-            setFormData,
-            status,
-            viewOnly
-          )
-        }
-      }
-      else if (moduleType === "purchaseReq") {
-
-        if (status === "View" || ["Sent for Approval", "Posted"].includes(formData[0]?.req_status)) {
-
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          handleGetPurchaseReq(
-            EditRecordId,
-            setFormData,
-            setSubTableData,
-            viewOnly,
-            status
-          )
-          setTabOpen(true);
-
-        }
-
-
-      }
-      else if (["purchase", "PoPreview"].includes(moduleType)) {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-        if (EditRecordId) {
-          handleGetPurchaseOrder(
-            EditRecordId,
-            setFormData,
-            setSubTableData,
-            viewOnly,
-            status
-          )
-        }
-      }
-      else if (moduleType === "supplier") {
-        if (status === "View") {
-
-          setViewOnly(true);
-          setAction(status);
-
-        }
-        if (EditRecordId) {
-          handleGetSupplier(
-            EditRecordId,
-            setFormData,
-
-          )
-        }
-      }
-      else if (moduleType === "calibration") {
-        if (status === "View") {
-          setViewOnly(true);
-          setAction(status);
-        }
-      }
-      else if (['purchaseItems', 'purchaseReq', 'userMaster', "category"].includes(moduleType)) {
         if (status === "View") {
           setViewOnly(true);
           setAction(status);
@@ -926,41 +790,7 @@ const Forms = ({
           action
         )
       }
-      else if (moduleType === "calibration") {
-        handleGetCalibration(
-          EditRecordId,
-          setFormData,
-          setIsOverlayLoader
-        )
-      }
-      else if (moduleType === "purchaseItems") {
-        handleGetPurchaseItem(
-          EditRecordId,
-          setFormData,
-          setIsOverlayLoader
-        )
-      }
-      else if (moduleType === "category") {
-        handleGetCategory(
-          EditRecordId,
-          setFormData,
-          setIsOverlayLoader
-        )
-      }
-      else if (moduleType === "userMaster") {
-        handleGetUserMAsterData(
-          EditRecordId,
-          setFormData,
-          setIsOverlayLoader
-        )
-      }
-      else if (moduleType === "ClientDetails") {
-        handleGetclientMAsterData(
-          EditRecordId,
-          setFormData,
-          setIsOverlayLoader
-        )
-      }
+      
       else {
         if (
           ['jobinstruction', 'vesselJICertificate', 'operationCertificate', 'JICommercialCertificateList'].includes(moduleType)
@@ -1206,8 +1036,6 @@ const Forms = ({
     } else if (moduleType === "jobinstruction") {
       if (['save', 'post', 'postOther', 'postJRF'].includes(jrfCreationType)) {
         if (useForComponent == "OperationDetails") {
-          //  if (OperationType == getVesselOperation("DS")) {
-
           Operation_DraftSurvey_CreateDataFunction(
             formData,
             setIsOverlayLoader,
@@ -1222,71 +1050,6 @@ const Forms = ({
             setSubTableData,
             props.setIsTabOpened
           );
-          // }
-          // else {
-          //   if (operationStepNo == 4 || TMLType == getVesselOperation("DM")) {
-          //     OperationSizeAnalysisCreateDataFunction(
-          //       formData,
-          //       setIsOverlayLoader,
-          //       setIsPopupOpen,
-          //       OperationType,
-          //       OperationTypeID,
-          //       navigate,
-          //       subTableData,
-          //       operationStepNo,
-          //       operationMode,
-          //       TMLType !== getVesselOperation("DM"),
-          //       jrfCreationType
-          //     );
-          //   }
-          //   else if (operationStepNo == 6) {
-          //     OperationSampleCollectionCreateDataFunction(
-          //       formData,
-          //       setIsOverlayLoader,
-          //       setIsPopupOpen,
-          //       OperationType,
-          //       OperationTypeID,
-          //       navigate,
-          //       subTableData,
-          //       operationStepNo,
-          //       operationMode
-          //     );
-          //   }
-          //   else if (operationStepNo == 7) {
-          //     OperationQualityAnalysisCreateDataFunction(
-          //       formData,
-          //       setIsOverlayLoader,
-          //       setIsPopupOpen,
-          //       OperationType,
-          //       OperationTypeID,
-          //       navigate,
-          //       jrfCreationType,
-          //       operationMode,
-          //       '',
-          //       formConfig.sections[1].tabs[0].fields,
-          //       setSubTableData,
-          //       setFormData,
-          //       formConfig,
-          //       operationStepNo
-          //     );
-          //   } else {
-          //     OperationCreateDataFunction(
-          //       formData,
-          //       setIsOverlayLoader,
-          //       setIsPopupOpen,
-          //       OperationType,
-          //       OperationTypeID,
-          //       navigate,
-          //       "in-process",
-          //       1,
-          //       null,
-          //       operationStepNo,
-          //       "",
-          //       "",
-          //       operationMode
-          //     );
-          //   }
-          // }
         } else if (useForComponent == "OperationDetailsAssignment") {
           let JRFData = [];
           let TPIData = [];
@@ -1441,24 +1204,7 @@ const Forms = ({
         getSingleConsortiumRecord,
         setFormData
       );
-    }
-    else if (moduleType === "invoice") {
-      handleInvoiceCreateOrUpdate(
-        formData,
-        formConfig,
-        setIsOverlayLoader,
-        setIsPopupOpen,
-        jrfCreationType,
-        navigate,
-        setFormData,
-        setTabOpen,
-        "button",
-        masterResponse,
-        handleSubmit,
-        [],
-        user
-      )
-    } else if (jrfCreationType) {
+    }else if (jrfCreationType) {
       handleJRFCreateOrUpdate(
         setSaveClicked,
         formData,
@@ -1469,10 +1215,7 @@ const Forms = ({
         navigate,
         setIsPopupOpen,
       )
-    } else if (moduleType === "jobCosting") {
-      // Removed handleJobCostingFormCreateAndUpdate function call
-    }
-    else {
+    } else {
       navigate(redirectURL);
     }
   };
@@ -2155,8 +1898,8 @@ const Forms = ({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
-      });
+          theme: "light",
+        });
     }
     finally {
       setIsOverlayLoader(false)
@@ -2243,7 +1986,8 @@ const Forms = ({
       const params = new URLSearchParams(hash.split("?")[1]);
       let status = params.get("status") ? params.get("status") : "";
 
-      status = decryptDataForURL(status).toLowerCase();
+      status = decryptDataForURL(status) || "";
+      status = status.toLowerCase();
       const id = decryptDataForURL(params.get("id"));
       const sampleInwardId = decryptDataForURL(params.get("sampleInwardId"));
       if (!id) {
@@ -2496,21 +2240,7 @@ const Forms = ({
           };
         });
       }
-      else if (fieldName === "fk_consortium_order") {
-        if (isOptionsDetails) {
-          setFormData((prevFormData) => {
-            return {
-              ...prevFormData,
-              [sectionIndex]: {
-                ...prevFormData[sectionIndex],
-                "fk_commodityid": optionDetails?.fk_commodity_id,
-                "fk_subcommodityid": optionDetails?.fk_sub_commodity_id,
-                "ji_nameofoperationmode": optionDetails?.co_vessel_name,
-              },
-            };
-          });
-        }
-      }
+      
       else if (fieldName === "fk_branchid") {
         if (isOptionsDetails) {
           setFormData((prevFormData) => {
@@ -2607,11 +2337,6 @@ const Forms = ({
 
 
   useEffect(() => {
-
-    getCalculationsForTotal(formData, setFormData)
-  }, [JSON.stringify(formData[1])])
-
-  useEffect(() => {
     const billingDate = new Date(formData[0]?.incentive_billing_date);
 
     const paymentCollectionDateStr = formData[0]?.incentive_payment_collection_date;
@@ -2647,15 +2372,6 @@ const Forms = ({
     formData[0]?.incentive_billing_date,
     formData[0]?.incentive_payment_collection_date,
   ]);
-  // PurchaseTotal
-
-
-  useEffect(() => {
-    const totalAmt = formData[1]?.po_total_amt;
-    const gst = formData[1]?.po_gst;
-
-    calculateTotalGST(totalAmt, gst, setFormData);
-  }, [formData[1]?.po_gst]);
 
   useEffect(() => {
 
@@ -3466,9 +3182,7 @@ const Forms = ({
     } else if (moduleType == "jobinstruction") {
       redirectURL = "/operation/jrfInstructionListing";
     }
-    else if (moduleType == "consortiumorder") {
-      redirectURL = "/operation/consortiums-list";
-    }
+    
     else {
       redirectURL = "/jrfListing";
     }
@@ -3827,29 +3541,7 @@ const Forms = ({
           cell.readOnly = false
           cell.required = true
         }
-        // if (['CS', 'TL','DS'].includes(formData[0]?.fk_operationtypetid_code)) {
-        //   cell.readOnly = true
-        //   cell.required = false
-        // }
-        // else {
-        //   cell.readOnly = false
-        //   cell.required = true
-        // }
       }
-      // else if (cell.name === "ji_totalqty") {
-      //   if (['CV', 'PV', 'CN', 'RC', 'AS', 'PL', 'RK'].includes(formData[0]?.fk_operationtypetid_code)) {
-      //     cell.required = false;
-      //   } else {
-      //     cell.required = true;
-      //   }
-      // }
-      // else if (cell.name === "ji_appointed_totalqty") {
-      //   if (['CV', 'PV', 'CN', 'RC', 'AS', 'PL', 'RK'].includes(formData[0]?.fk_operationtypetid_code)) {
-      //     cell.required = false;
-      //   } else {
-      //     cell.required = true;
-      //   }
-      // }
       else if (cell.name === "ji_reference") {
         if (formData[0]?.ji_sent_through?.length === 1 && formData[0].ji_sent_through[0] === "Verbal Nomination") {
           cell.required = false
@@ -3944,51 +3636,6 @@ const Forms = ({
           cell.readOnly = true
         }
       }
-    } else if (moduleType == "GroupAssignment") {
-      if (cell.name == "cmp_address") {
-        if (formData[0]?.jrf_is_external) {
-          cell.name = "jrf_ext_address";
-          cell.label = "External Customer Address";
-        }
-      } else if (cell.name == "jrf_company_name") {
-        if (formData[0]?.jrf_is_external) {
-          cell.name = "jrf_ext_orgnizationname";
-          cell.label = "External Customer Name";
-        }
-      }
-    } else if (moduleType == "inwardChecklist") {
-      if (cell.name == "jrf_company_name") {
-        if (formData[0]?.jrf_is_external) {
-          cell.name = "jrf_ext_orgnizationname";
-          cell.label = "External Customer Name";
-        }
-      } else if (cell.name == "jrf_pkging_condition") {
-        if (GetTenantDetails(1, 1, formData[0]?.jrf_is_petro) == "TPBPL") {
-          cell.options = [
-            "Sealed",
-            "Unsealed",
-            "Contamination",
-            "Sign of Damage (Puncture, Leaks)",
-            "Intact"
-          ];
-        }
-      }
-      else if (cell.name === "jrf_no_of_packets") {
-        if (GetTenantDetails(1, 1, formData[0]?.jrf_is_petro) === "TPBPL") {
-          cell.label = "No. of Containers";
-          cell.placeholder = "No. of Containers";
-        }
-      }
-      else if (cell.name === "jrf_sample_condition") {
-        if (GetTenantDetails(1, 1, formData[0]?.jrf_is_petro) == "TPBPL") {
-          cell.options = ["Liquids", "Semi Solid", "Gaseous"]
-        }
-      }
-    } else if (moduleType == "allotment") {
-      if (cell.name === "sa_actualdateofreporting") {
-        cell.pastDate = true;
-        cell.minDate = formData[0]?.smpl_dos;
-      }
     } else if (moduleType == "operationCertificate") {
       if (cell.name === "cert_number") {
         if (RPCID !== "-999") {
@@ -4015,168 +3662,7 @@ const Forms = ({
       )
         cell.viewOnly = true;
     }
-    else if (["auditOutstanding", "auditBranchExpenses", "auditSalesRegister"].includes(moduleType)) {
-
-      if (EditRecordId) {
-
-        if (["company", "branch", "month", "year"].includes(cell.name)) {
-          cell.readOnly = true
-        }
-        else if (cell.name === "branch_name") {
-          cell.disabledMarks = formData[0]?.exists_branch_name
-        }
-        else if (cell.name === "credit_note_branch_name") {
-          cell.disabledMarks = formData[1]?.exists_credit_note_branch_name
-        }
-      }
-      else {
-        if (["company", "branch", "month", "year"].includes(cell.name)) {
-          cell.readOnly = false
-        }
-      }
-    }
-    else if (["purchaseReq"].includes(moduleType)) {
-
-      if (!["Saved", "Reject"].includes(formData[0]?.req_status) && formData[0]?.req_status) {
-        cell.readOnly = true
-      }
-      else {
-        if (cell.name != "request_no") {
-          cell.readOnly = false
-        }
-
-      }
-
-
-    }
-    else if (["tender"].includes(moduleType)) {
-      if (cell.name === "tender_submission_date") {
-        cell.minDate = formData[0]?.tender_issue_date
-      }
-
-    }
-    //  else if (["calibrations"].includes(moduleType)) {
-
-    //  }
-    // else if(moduleType==="jobCosting"){
-    //   if (cell.name==="client_name") {
-    //     let value= "ABC"
-    //     cell.value = value
-    //   }
-    // }
-    else if (moduleType == "sampleinward") {
-      if (cell.name === "jrf_no_of_packets") {
-        if (GetTenantDetails(1, 1, formData[0]?.jrf_is_petro) === "TPBPL") {
-          cell.label = "No. of Containers";
-          cell.placeholder = "No. of Containers";
-        }
-      }
-    }
-
-    else if (moduleType == "invoice") {
-      if (Type == "Advance") {
-        if (cell.name == "reference_number") {
-          if (user?.role === "LR") {
-            cell.isCustomPayload = true
-          }
-          else {
-            cell.isCustomPayload = false
-          }
-        }
-      }
-      if (cell.name === "iv_jireference") {
-        // if (Type === "IC" && !formData[0]?.is_iv_jireference) {
-        cell.type = "text"
-        cell.readOnly = false
-        // }
-      }
-      else if (cell.name === "im_salespersonid") {
-        if (formData[0]?.isShowSalesPersonDD) {
-          cell.type = "DropDownWithLoadMore"
-          cell.isSearchable = true
-        }
-        else {
-          cell.type = "select"
-          cell.isSearchable = false
-        }
-        if (status === "View") {
-          cell.type = "text"
-        }
-      }
-      else if (cell.name === "im_voucher_type") {
-        cell.options = getVoucherTypes(formData?.[0]?.invoiceCompanyCode)
-      }
-      else if (cell.name === "im_tax_classification") {
-        // if (formData[0]?.state_of_client != formData[0]?.fk_im_state) {
-        //   cell.options = ['IGST']
-        // }
-        // else {
-        //   cell.options = [
-        //     "CGST",
-        //     "SGST",
-        //     "IGST"
-        //   ]
-        // }
-      }
-      else if (cell.name == "courier_persone_name") {
-        cell.label = "Person Who Delivered The Docs"
-        cell.placeholder = "Person Who Delivered The Docs"
-        if (formData[0]?.im_courier === "courier_hand_delivery") {
-          cell.label = "Branch OR Person Recieved"
-          cell.placeholder = "Branch OR Person Recieved"
-        }
-      }
-      else if (cell.name == "courier_remark") {
-        cell.required = false
-        if (formData[0]?.im_courier === "hardcopy") {
-          cell.required = true
-        }
-      }
-      if (['courier_address', 'courier_submission_address', 'courier_done_by_executive'].includes(cell.name)) {
-        if (['courier_address', 'courier_submission_address'].includes(cell.name)) {
-          if (!formData?.[0]?.courier_address) {
-            cell.defaultValue = formData?.[0]?.ji_jrf_courier_details?.courier_address
-          }
-          if (!formData?.[0]?.courier_submission_address) {
-            cell.defaultValue = formData?.[0]?.ji_jrf_courier_details?.courier_address
-          }
-        }
-        if (['courier_done_by_executive'].includes(cell.name)) {
-          if (!formData?.[0]?.courier_done_by_executive) {
-            cell.defaultValue = formData?.[0]?.ji_jrf_courier_details?.ops_exec_name
-          }
-        }
-      }
-    }
-    else if (moduleType == "calibration") {
-
-      if (cell.name === "calib_next_due_date") {
-        cell.minDate = formData[0]?.calib_date
-      }
-    }
-    else if (moduleType == "PoPreview") {
-      if (cell.name === "preview") {
-        cell.apiUrl = purchaseOrderDownload
-        cell.apiPayload = {
-          "po_id": poId
-        }
-      }
-    }
-    else if (moduleType == "incentives") {
-      if (cell.name === "incentive_delay_billing_days") {
-        if (formData?.[0]?.ji_payment_terms) {
-          cell.defaultValue = getBillingDelayDayCount(formData?.[0]?.incentive_billing_date, formData?.[0]?.ji_payment_terms)
-        }
-      }
-    }
-    else if (moduleType === "stocks") {
-      if (!getPurchaseManager(moduleType, 'add') && getPurchaseManager(moduleType, 'change')) {
-        if (!['stock_consumed_qty'].includes(cell.name)) {
-          cell.readOnly = true
-          cell.isDisabledField = true
-        }
-      }
-    }
+    
     else if (moduleType === "ShipmentForm") {
 
       if (formData[0]?.ji_is_loading === "Loading") {
@@ -4396,7 +3882,6 @@ const Forms = ({
           is_weighted_certi: isWeighted,
           cc_appointed_totalqty: formData[0].cc_appointed_totalqty || '-',
           cc_appointed_qty_unit: formData[0].cc_appointed_qty_unit,
-          is_non_lms: !getLMSOperationActivity().includes(OperationType) && !isExternal,
           cc_additional_headers: cc_additional_headers,
           cc_is_other_format: formData[0]?.cc_is_other_format?.[0] ? true : false,
           fk_cc_cert_format_id: formData[0]?.fk_cc_cert_format_id,
@@ -4413,7 +3898,7 @@ const Forms = ({
       if (RPCID !== "-999") {
         payload.commercial_certificate.fk_rpc_id = RPCID;
       }
-      if (payload?.commercial_certificate?.fk_cert_config_id || !getLMSOperationActivity().includes(OperationType) || true) {
+      if (payload?.commercial_certificate?.fk_cert_config_id || true) {
         let res = await postDataFromApi(ccCertCreateApi, payload);
         if (moduleType == "operationCertificate" && (formData[0]?.cc_is_rake_details?.length > 0 && formData[0]?.cc_is_rake_details?.[0])) {
           // await OperationQualityAnalysisCreateDataFunction(
@@ -4670,7 +4155,7 @@ const Forms = ({
       }
       if (type === "posted" && !isExternal) {
         if (
-          getLMSOperationActivity().includes(OperationType)
+          false
         ) {
           navigate(`/operation/commercial-certificate-list/commercial-certificate-preview/${encryptDataForURL(
             EditRecordId
@@ -4805,7 +4290,7 @@ const Forms = ({
       ) {
         let payload, generateCertificateResponse;
         if (
-          !getLMSOperationActivity().includes(getActivityCode(row?.activity_code).toLowerCase()) && ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
+          ![getVesselOperation("bulk_crg"), getStackOperations("ST_SV"), getRakeOperations("RK_SV")].includes(getActivityCode(row.activity_code).toLowerCase())
         ) {
           let payload = {
             ji_id: row?.fk_jiid,
@@ -7107,48 +6592,6 @@ const Forms = ({
                               isShow = false
                             }
                           }
-                          else if (field.name == "cc_is_hide_basis") {
-                            if (isUseForPhysical || !getLMSOperationActivity().includes(OperationType)) {
-                              isShow = false
-                            }
-                          }
-                          else if (field.name == "cc_is_qty_display") {
-                            if (isUseForPhysical || !getLMSOperationActivity().includes(OperationType)) {
-                              isShow = false
-                            }
-                          }
-                          else if (field.name == "cc_remark") {
-                            if (!['rejected']?.includes(formData[0]?.status)) {
-                              isShow = false
-                            }
-                          }
-                          else if (field.name == "cc_additional_remark") {
-                            if (!formData?.[0]?.rpc_is_other_remark) {
-                              isShow = false
-                            }
-                          }
-                          else if (field.name == "cc_is_rake_details") {
-                            if (!getRakeCollectionActivity(1).includes(OperationType)) {
-                              // if (isUseForPhysical || !getRakeCollectionActivity(1).includes(OperationType)) {
-                              isShow = false
-                            }
-                            // isShow = false
-                          }
-                          else if (field.name == "cc_supp_buyer") {
-                            if (OperationType == getVesselOperation('bulk_crg') || isCustomMode) {
-                              isShow = false
-                            }
-                          }
-                          else if (field.name == "cc_fk_sub_commodity_id") {
-                            // if (!(['RK', 'ST'].includes(formData[0]?.operation_type?.operation_type_code) || ['RK', 'ST'].includes(operationMode) || ['RK', 'ST'].includes(formData[0]?.operationmode?.ops_code))) {
-                            //   isShow = false
-                            // }
-                          }
-                          else if (field.name == "cc_fk_place_pf_work_id") {
-                            // if (!(['RK', 'ST'].includes(formData[0]?.operation_type?.operation_type_code) || ['RK', 'ST'].includes(operationMode) || ['RK', 'ST'].includes(formData[0]?.operationmode?.ops_code))) {
-                            //   isShow = false
-                            // }
-                          }
                           else if (field.name == "jrf_bottom") {
                             // if (isUseForPhysical || getVesselOperation('bulk_crg') === OperationType) {
                             if (getVesselOperation('bulk_crg') === OperationType) {
@@ -7164,25 +6607,6 @@ const Forms = ({
                             let spPlaceCode = formData[0]?.cc_place_of_work_name ? formData[0]?.cc_place_of_work_name.split('-') : []
                             if (spPlaceCode.length != 2 || spPlaceCode[1].toLowerCase() !== "others") {
                               isShow = false;
-                            }
-                          }
-                          else if (field.name === 'cc_is_other_format') {
-                            if (isUseForPhysical || !getLMSOperationActivity().includes(OperationType)) {
-                              isShow = false;
-                            }
-                          }
-                          else if (field.name == "fk_cc_cert_format_id") {
-                            field.isCustomPayload = false
-                            if ([getPlantOperations("TR")].includes(OperationType)) {
-                              field.isCustomPayload = true
-                              field.customPayload = {
-                                "name": "ops_code",
-                                "value": "TR",
-                                "defaultValue": "TR"
-                              }
-                            }
-                            if (!formData?.[0]?.cc_is_other_format?.[0]) {
-                              isShow = false
                             }
                           }
                           else if (['eic_bl_number', 'eic_weight_avg_moisture', 'eic_eia_code', 'dpl_source', 'dpl_name_colliery', 'dpl_analysis_completed_on', 'dpl_smpl_mark_date'].includes(field.name)) {
