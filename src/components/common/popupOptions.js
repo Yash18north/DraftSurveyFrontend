@@ -13,6 +13,8 @@ import {
   getComonCodeForCompany,
   getFormatedDate,
   getLMSOperationActivity,
+  getOperationActivityUrl,
+  getOperationActivityListPageUrl,
   getRakeCollectionActivity,
   getRakeOperations,
   getSampleCollectionActivity,
@@ -670,7 +672,7 @@ const PopupOptions = ({
       return;
     }
     else if (moduleType === "consortiumorder") {
-      handleConsortiumDelete(
+      stubHandleConsortiumDelete(
         row,
         setIsDelete,
         getAllListingData,
